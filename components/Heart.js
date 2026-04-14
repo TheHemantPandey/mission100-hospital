@@ -1,89 +1,102 @@
 import React from 'react';
 
-const Mission100HeroCard = () => {
-  const articleData = {
-    title: "Mission 100: Advanced Heart Attack Prevention & Health Optimization",
-    // Expanded description to take up more vertical space
-    description: "Our 'Mission 100' initiative is a comprehensive preventive healthcare framework designed specifically for adults. We focus on early detection of critical risks, such as heart attacks, while providing specialized neuro-care and mental health support to preserve your long-term quality of life. By integrating modern diagnostics like ECG with holistic practices like Yoga and Ayurveda, we help you navigate the subtle shifts in your health before they become emergencies.",
-    category: "Adult Health & Wellness",
-    tagline: "LIVE 100 YEARS", 
-    imageUrl: "https://www.venkateshwarhospitals.com/blog/wp-content/uploads/2020/03/Best-Cardiac-Surgeons-in-Delhi-Venkateshwar-Hospital.jpg",
-  };
+// For the empty image, we'll create a placeholder.
+// In a real project, you would import an actual image here.
+// const placeholderImageUrl = 'path/to/your/image.jpg'; 
 
-  // Content pulled directly from your PDF [cite: 9, 12, 13, 14, 23, 31, 35]
-  const services = [
-    "Heart Attack Prevention (Priority Focus)",
-    "Stress & Mental Health Management",
-    "Integrated Yoga & Ayurveda Consultation",
-    "Happiness Measurement & Body Deficiency Checks"
-  ];
-
+const HeartPreventionSection = () => {
   return (
-    /* Increased max-width and min-height to help cover the screen */
-    <div className="max-w-7xl mx-auto my-8 bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row min-h-[60vh]">
-      
-      {/* Left Brand Accent Bar - Using Light Green from PDF [cite: 56] */}
-      <div className="w-2 bg-green-500 hidden md:block"></div>
-
-      {/* Image Section - Takes up 40% width for better balance */}
-      <div className="md:w-2/5 shrink-0 relative">
-        <img 
-          src={articleData.imageUrl} 
-          alt="Cardiac Specialist" 
-          className="h-full w-full object-cover"
-        />
-        {/* Overlay Badge */}
-        <div className="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-          New Mission
-        </div>
-      </div>
-
-      {/* Content Section - Flex grow ensures it fills the container */}
-      <div className="p-10 flex flex-col justify-between md:w-3/5">
-        <div>
-          {/* Tagline [cite: 55] */}
-          <p className="text-green-600 font-extrabold text-sm tracking-widest mb-3 uppercase">
-            {articleData.tagline}
-          </p>
-
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-6">
-            {articleData.title}
-          </h2>
-          
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            {articleData.description}
-          </p>
-
-          {/* New Expanded Section: Services & Focus */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            {services.map((service, index) => (
-              <div key={index} className="flex items-start">
-                <span className="text-green-500 mr-2">✔</span>
-                <span className="text-gray-700 font-medium text-sm">{service}</span>
-              </div>
-            ))}
+    <div className="bg-white p-10 md:p-16 rounded-3xl shadow-lg border border-gray-100 max-w-7xl mx-auto my-12">
+      <div className="flex flex-col md:flex-row gap-12 items-center">
+        
+        {/* Left Side: Content */}
+        <div className="md:w-1/2 flex flex-col space-y-6">
+          {/* Logo & Subtitle */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center p-2 rounded-lg bg-green-50 shadow-inner">
+              <span className="text-3xl">❤️</span> {/* Placeholder for Mission 100 logo */}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-gray-900">Mission 100</span>
+              <span className="text-sm text-green-700 font-medium">LIVE 100 YEARS</span>
+            </div>
           </div>
 
-          <div className="flex items-center text-gray-500 font-medium mb-6 border-t pt-4">
-            <span className="bg-gray-100 px-3 py-1 rounded">{articleData.category}</span>
-            <span className="mx-3 text-gray-300">|</span>
-            <span className="italic font-normal">Preventive Care Unit</span>
+          {/* Main Title & Subtitle */}
+          <div className="space-y-3">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950 leading-tight">
+              Advanced Heart Attack <br />
+              Prevention & Health Optimization.
+            </h2>
+            <p className="text-xl font-semibold text-gray-700">
+              Personalized Care for a Healthier Heart.
+            </p>
+          </div>
+
+          {/* Highlighted Feature */}
+          <div className="border border-green-200 bg-green-50 rounded-2xl p-6 shadow-md">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Our Core Pillars:</h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 text-md">
+              <li>Comprehensive preventive healthcare framework for adults.</li>
+              <li>Early detection of critical heart risks.</li>
+              <li>Specialized neuro-care and mental health support.</li>
+              <li>Long-term quality of life preservation.</li>
+            </ul>
+          </div>
+
+          {/* Call to Action Button */}
+          <div>
+            <button className="flex items-center gap-2.5 bg-green-600 text-white font-semibold py-3.5 px-8 rounded-full shadow-lg hover:bg-green-700 transition duration-300 group">
+              Check Heart Risk Now
+              <svg 
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Legal / Disclaimer Text */}
+          <p className="text-xs text-gray-500 leading-relaxed pt-6 border-t border-gray-100">
+            *Mission 100 provides preventative care and health optimization. Consultations and risk assessments do not replace emergency medical care. All programs are designed based on individual health profiles.
+          </p>
+        </div>
+
+        {/* Right Side: Image Placeholder */}
+        <div className="md:w-1/2 flex items-center justify-center">
+          <div className="w-full h-full max-w-sm aspect-[4/5] bg-gray-100 rounded-3xl border border-gray-200 shadow-xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+            {/* You can put an icon or text here as a placeholder */}
+            <svg 
+              className="w-20 h-20 text-green-300 mb-6" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21l-1.45-1.34C5.4 14.25 2 11.1 2 7.5A5.5 5.5 0 017.5 2 8.35 8.35 0 0112 3a8.35 8.35 0 014.5-1 5.5 5.5 0 015.5 5.5c0 3.6-3.4 6.75-8.55 12.16L12 21z" />
+            </svg>
+            <p className="text-lg font-medium text-gray-600">Heart Health Dashboard</p>
+            <p className="text-sm text-gray-500 mt-2">Personalized metrics and preventive plans will be displayed here.</p>
+            
+            {/* Background pattern similar to original image */}
+            <div className="absolute inset-0 z-[-1] opacity-5">
+              <svg width="100%" height="100%">
+                <pattern id="pattern-circles" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <circle cx="20" cy="20" r="1" fill="currentColor" className="text-green-500"/>
+                </pattern>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"/>
+              </svg>
+            </div>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-4">
-          <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-lg transition-all transform hover:scale-105 shadow-lg">
-            Check Heart Risk Now [cite: 37]
-          </button>
-          <button className="border-2 border-green-600 text-green-600 hover:bg-green-50 font-bold py-4 px-10 rounded-lg transition-all">
-            Download Brochure [cite: 63]
-          </button>
-        </div>
-       
       </div>
     </div>
   );
 };
 
-export default Mission100HeroCard;
+export default HeartPreventionSection;
