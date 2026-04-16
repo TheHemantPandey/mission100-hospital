@@ -1,21 +1,34 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link"; // Recommended for Next.js
+import Link from "next/link";
 
 const Navbar = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Helper for nav links to keep code clean
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Contact", href: "/contact" },
+  const demoServices = [
+    { name: "Full Body Checkup", href: "/services/checkup" },
+    { name: "DNA Longevity Test", href: "/services/dna" },
+    { name: "Ayurvedic Consultation", href: "/services/ayurveda" },
+    { name: "Vitality Indexing", href: "/services/vitality" },
+    { name: "Nutritional Planning", href: "/services/nutrition" },
+    { name: "Sleep Optimization", href: "/services/sleep" },
+    { name: "Bio-Hacking Guide", href: "/services/bio-hacking" },
+    { name: "Heart Health Monitor", href: "/services/heart" },
+    { name: "Stress Management", href: "/services/stress" },
+    { name: "Anti-Aging Therapy", href: "/services/anti-aging" },
+  ];
+
+  const aboutSubTabs = [
+    { name: "Our Vision", href: "/about/vision" },
+    { name: "The Team", href: "/about/team" },
+    { name: "Scientific Research", href: "/about/science" },
+    { name: "Success Stories", href: "/about/stories" },
+    { name: "Contact Us", href: "/about/contact" },
   ];
 
   return (
-    <nav className="bg-green-100 w-full border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-2">
+    <nav className="bg-white w-full border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+      <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-3 px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
@@ -26,125 +39,75 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none transition-colors"
+          className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
         >
-          <span className="sr-only">Open main menu</span>
-          {mobileMenuOpen ? (
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          )}
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
         </button>
 
-        {/* Menu Container */}
-        <div
-          className={`${mobileMenuOpen ? "block" : "hidden"} w-full md:block md:w-auto mt-4 md:mt-0`}
-        >
-          <ul className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-8 font-semibold">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="block py-2 px-3 text-gray-700 hover:text-green-600 transition-colors rounded md:p-0"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-
-            {/* Dropdown */}
-            <li className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center justify-between w-full py-2 px-3 text-gray-700 hover:text-green-600 transition-colors rounded md:p-0"
-              >
-                Features
-                <svg
-                  className={`w-4 h-4 ml-1 transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {dropdownOpen && (
-                <div className="md:absolute static top-full left-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-xl hover:shadow-green-500/10 transition-all w-full md:w-48 z-60 overflow-hidden">
-                  <ul className="py-2 text-sm text-gray-600">
-                    <li>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 hover:bg-green-50 hover:text-green-600 transition-colors"
-                      >
-                        Vitality Testing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 hover:bg-green-50 hover:text-green-600 transition-colors"
-                      >
-                        Ayurveda Guide
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 hover:bg-green-50 hover:text-green-600 transition-colors"
-                      >
-                        Appointments
-                      </Link>
-                    </li>
-                    <li className="border-t border-gray-50 mt-1">
-                      <Link
-                        href="#"
-                        className="block px-4 py-2 text-red-500 hover:bg-red-50 transition-colors"
-                      >
-                        Sign out
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
+        {/* Desktop Menu */}
+        <div className={`${mobileMenuOpen ? "block" : "hidden"} w-full md:block md:w-auto`}>
+          <ul className="flex flex-col md:flex-row md:items-center font-medium mt-4 md:mt-0 md:space-x-8 space-y-4 md:space-y-0">
+            <li>
+              <Link href="/" className="text-gray-700 hover:text-green-600 transition-colors">Home</Link>
             </li>
 
-            {/* CTA Button */}
+            {/* ABOUT DROPDOWN */}
+            <li className="relative group">
+              <button className="flex items-center gap-1 text-gray-700 group-hover:text-green-600 transition-colors py-2">
+                About
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-2 transition-all duration-300 z-50 overflow-hidden">
+                <div className="py-2">
+                  {aboutSubTabs.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.href}
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors border-b border-gray-50 last:border-0"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+
+            {/* SERVICES DROPDOWN */}
+            <li className="relative group">
+              <button className="flex items-center gap-1 text-gray-700 group-hover:text-green-600 transition-colors py-2">
+                Services
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-2 transition-all duration-300 z-50 overflow-hidden">
+                <div className="py-2">
+                  {demoServices.map((service, index) => (
+                    <Link
+                      key={index}
+                      href={service.href}
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors border-b border-gray-50 last:border-0"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+
             <li>
-              <button className="w-full md:w-auto px-5 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95">
+              <Link href="/contact" className="text-gray-700 hover:text-green-600 transition-colors">Contact</Link>
+            </li>
+            
+            <li>
+              <button className="px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95">
                 Join Now
               </button>
             </li>

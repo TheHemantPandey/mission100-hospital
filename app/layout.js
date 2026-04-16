@@ -15,6 +15,7 @@ import VitaminsSection from "@/components/Vitamin-Minerals";
 import AyurvedaSection from "@/components/Yoga-Ayurveda";
 import Brochure from "@/components/Brochure";
 import Faq from "@/components/Faq";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +57,8 @@ export default function RootLayout({ children }) {
         <AyurvedaSection />
         <Brochure />
         <Faq />
-        <Footer />      
+        <Footer />   
+        <WhatsAppButton />   
         </body>
     </html>
   );
