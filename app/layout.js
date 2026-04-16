@@ -7,6 +7,7 @@ import Heart from "@/components/Heart";
 import Stress from "@/components/Stress";
 import BoneTesting from "@/components/Bone-testing";
 import Brochure from "@/components/Brochure";
+import Faq from "@/components/Faq";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <Stress />
         <BoneTesting />
         <Brochure />
+        <Faq />
         <Footer />      
         </body>
     </html>
