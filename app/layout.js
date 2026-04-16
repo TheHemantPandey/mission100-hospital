@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import AboutSection from "@/components/AboutUs";
 import Heart from "@/components/Heart";
 import Stress from "@/components/Stress";
+import BoneTesting from "@/components/Bone-testing";
 import Brochure from "@/components/Brochure";
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <AboutSection />
         <Heart />
         <Stress />
+        <BoneTesting />
         <Brochure />
         <Footer />      
         </body>
