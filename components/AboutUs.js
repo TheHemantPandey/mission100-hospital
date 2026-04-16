@@ -1,11 +1,9 @@
-import React from 'react';
-
+import React from "react";
 
 const AboutUs = () => {
   return (
     <section className="bg-white text-gray-800 font-sans py-12 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-green-700 mb-4 uppercase tracking-wide">
             Why Choose - Mission 100?
@@ -22,91 +20,212 @@ const AboutUs = () => {
               Our Vision for Longevity
             </h2>
             <p className="text-lg leading-relaxed text-gray-700">
-              At **Mission 100**, we are dedicated to the revolutionary idea that healthcare should be 
-              preventive rather than just reactive. Our core mission is to provide the 
-              tools, data, and guidance necessary for every individual to achieve a healthy, vibrant 
+              At **Mission 100**, we are dedicated to the revolutionary idea
+              that healthcare should be preventive rather than just reactive.
+              Our core mission is to provide the tools, data, and guidance
+              necessary for every individual to achieve a healthy, vibrant
               century of life.
             </p>
             <p className="text-lg leading-relaxed text-gray-700">
-              We focus heavily on the needs of **Child before the Birth, Adults and the Elderly**, ensuring that the aging 
-              process is managed with dignity, strength, and scientific precision.
+              We focus heavily on the needs of **Child before the Birth, Adults
+              and the Elderly**, ensuring that the aging process is managed with
+              dignity, strength, and scientific precision.
             </p>
           </div>
           <div className="bg-green-50 p-8 rounded-2xl shadow-sm border border-green-100">
-            <h3 className="text-2xl font-bold text-green-800 mb-4">Why Choose Mission 100?</h3>
+            <h3 className="text-2xl font-bold text-green-800 mb-4">
+              Why Choose Mission 100?
+            </h3>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
-                <span className="text-green-500 mr-2">✔</span> 
-                Integration of modern Radiology and Pathology with traditional Ayurveda.
+                <span className="text-green-500 mr-2">✔</span>
+                Integration of modern Radiology and Pathology with traditional
+                Ayurveda.
               </li>
               <li className="flex items-start">
-                <span className="text-green-500 mr-2">✔</span> 
-                Integration of modern Radiology and Pathology with traditional Ayurveda].
+                <span className="text-green-500 mr-2">✔</span>
+                Integration of modern Radiology and Pathology with traditional
+                Ayurveda].
               </li>
               <li className="flex items-start">
-                <span className="text-green-500 mr-2">✔</span> 
-                Data-driven insights including ECG heart risk analysis and body deficiency monitoring.
+                <span className="text-green-500 mr-2">✔</span>
+                Data-driven insights including ECG heart risk analysis and body
+                deficiency monitoring.
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Main Clinical Focus Areas</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Our Main Clinical Focus Areas
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">❤️</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Heart Attack Prevention</h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Heart Attack Prevention
+              </h3>
               <p className="text-gray-600">
-                Prioritizing cardiac safety through advanced ECG analysis and risk assessment.
+                Prioritizing cardiac safety through advanced ECG analysis and
+                risk assessment.
               </p>
+
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">🧠</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Mental Health & Stress </h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Mental Health & Stress{" "}
+              </h3>
               <p className="text-gray-600">
-                Holistic support for stress management and happiness measurement to ensure peace of mind.
+                Holistic support for stress and happiness measurement
+                to ensure peace of mind.
               </p>
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">🦴</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Body & Bone Strength</h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Body & Bone Strength
+              </h3>
               <p className="text-gray-600">
-                Monitoring bone measurement and body strength to maintain mobility into old age.
+                Monitoring bone measurement and body strength to maintain
+                mobility into old age.
               </p>
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">⏳</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Anti-Aging Science</h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Anti-Aging Science
+              </h3>
               <p className="text-gray-600">
-                Utilizing preventive healthcare and death prediction modeling to extend your healthy years.
+                Utilizing preventive healthcare and death prediction modeling to
+                extend your healthy years.
               </p>
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">🧘</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Yoga & Ayurveda</h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Yoga & Ayurveda
+              </h3>
               <p className="text-gray-600">
-                Blending ancient wellness practices with modern medicine for a complete health ecosystem.
+                Blending ancient wellness practices with modern medicine for a
+                complete health ecosystem.
               </p>
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
             </div>
 
-            
             <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
               <div className="text-3xl mb-4">🧍</div>
-              <h3 className="text-xl font-bold mb-2 text-green-700">Body Preservation</h3>
+              <h3 className="text-xl font-bold mb-2 text-green-700">
+                Body Preservation
+              </h3>
               <p className="text-gray-600">
-                We preverve your body, just before the end of your life and try to make you alive for a long age.
+                We preverve your body, just before the end of your life and try
+                to make you alive for a long age.
               </p>
-            </div>
 
+              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                Read More
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );
