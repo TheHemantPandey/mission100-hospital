@@ -2,29 +2,29 @@ import React from 'react';
 
 const HeartPreventionSection = () => {
   return (
-    <div className="bg-white p-10 md:p-8 rounded-3xl border border-gray-50 max-w-7xl mx-32 my-12">
+    <div className="bg-white p-10 md:p-4 rounded-3xl border border-gray-50 max-w-7xl mx-32 my-12">
       <div className="flex flex-col md:flex-row gap-12 items-center">
         
         {/* Left Side: Content */}
         <div className="md:w-1/2 flex flex-col space-y-6">
           <div className="flex items-center gap-3">
             <div className="flex flex-col">
-              <span className="text-3xl font-bold text-green-700">Mission 100</span>
+              <span className="text-2xl font-bold text-green-700">Mission 100</span>
               <span className="text-sm text-green-950 font-medium">LIVE 100 YEARS</span>
             </div>
           </div>
 
           <div className="space-y-3">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950 leading-tight">
-              Advanced Heart Attack <br />
-              Prevention & Health Optimization.
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-950 leading-tight">
+              Heart Attack Prevention <br />
+              & Health Optimization.
             </h2>
-            <p className="text-xl font-semibold text-gray-700">
+            <p className="text-sm font-semibold text-gray-700">
               Personalized Care for a Healthier Heart.
             </p>
           </div>
 
-          <div className="border border-green-200 bg-green-50 rounded-2xl p-6 shadow-md">
+          <div className="border border-green-200 bg-green-50 rounded-2xl p-4 shadow-md">
             <h3 className="text-lg font-bold text-gray-900 mb-2">Our Core Pillars:</h3>
             <ul className="list-disc list-inside text-gray-700 space-y-2 text-md">
               <li>Comprehensive preventive healthcare framework for adults.</li>
@@ -43,7 +43,7 @@ const HeartPreventionSection = () => {
             </button>
           </div>
 
-          <p className="text-xs text-gray-500 leading-relaxed pt-6 border-t border-gray-100">
+          <p className="text-xs text-gray-500 leading-relaxed pt-0 border-t border-gray-100">
             *Mission 100 provides preventative care and health optimization. Consultations and risk assessments do not replace emergency medical care.
           </p>
         </div>
