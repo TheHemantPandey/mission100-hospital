@@ -61,7 +61,7 @@ const AboutUs = () => {
             Our Main Clinical Focus Areas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">❤️</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Heart Attack Prevention
@@ -89,7 +89,7 @@ const AboutUs = () => {
               </button>
             </div>
 
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">🧠</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Mental Health & Stress{" "}
@@ -116,7 +116,7 @@ const AboutUs = () => {
               </button>
             </div>
 
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">🦴</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Body & Bone Strength
@@ -143,7 +143,7 @@ const AboutUs = () => {
               </button>
             </div>
 
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">⏳</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Anti-Aging Science
@@ -170,7 +170,7 @@ const AboutUs = () => {
               </button>
             </div>
 
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">🧘</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Yoga & Ayurveda
@@ -197,7 +197,7 @@ const AboutUs = () => {
               </button>
             </div>
 
-            <div className="p-6 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-white">
+            <div className="p-6 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
               <div className="text-3xl mb-4">🧍</div>
               <h3 className="text-xl font-bold mb-2 text-green-700">
                 Body Preservation
