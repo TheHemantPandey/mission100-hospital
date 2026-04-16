@@ -6,6 +6,13 @@ import AboutSection from "@/components/AboutUs";
 import Heart from "@/components/Heart";
 import Stress from "@/components/Stress";
 import BoneTesting from "@/components/Bone-testing";
+import Happiness from "@/components/Happiness";
+import MentalHealthSection from "@/components/Mental-Health";
+import PersonalitySection from "@/components/Personality";
+import AntiAgingSection from "@/components/Anti-Aging";
+import SugarSection from "@/components/Sugar-Management";
+import VitaminsSection from "@/components/Vitamin-Minerals";
+import AyurvedaSection from "@/components/Yoga-Ayurveda";
 import Brochure from "@/components/Brochure";
 import Faq from "@/components/Faq";
 
@@ -40,6 +47,13 @@ export default function RootLayout({ children }) {
         <Heart />
         <Stress />
         <BoneTesting />
+        <Happiness />
+        <MentalHealthSection />
+        <PersonalitySection />
+        <AntiAgingSection />
+        <SugarSection />
+        <VitaminsSection />
+        <AyurvedaSection />
         <Brochure />
         <Faq />
         <Footer />      

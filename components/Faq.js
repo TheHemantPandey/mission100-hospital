@@ -53,7 +53,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-green-50/30 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-linear-to-b from-white to-green-50/30 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -91,7 +91,7 @@ const FAQ = () => {
                   </span>
                   
                   {/* Custom Animated Plus/Minus Icon */}
-                  <div className={`relative flex-shrink-0 w-6 h-6 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>
+                  <div className={`relative shrink-0 w-6 h-6 transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>
                     <div className={`absolute top-1/2 left-0 w-full h-0.5 bg-current transition-all ${isOpen ? 'text-green-500' : 'text-slate-400'}`}></div>
                     <div className={`absolute top-0 left-1/2 w-0.5 h-full bg-current transition-all ${isOpen ? 'rotate-90 opacity-0' : 'text-slate-400'}`}></div>
                   </div>
