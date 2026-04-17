@@ -279,11 +279,6 @@ const DoctorSection = () => {
           )}
         </div>
       </div>
-      <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };
