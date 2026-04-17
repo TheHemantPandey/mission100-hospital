@@ -6,7 +6,7 @@ export default function Home() {
       {/* Changed h-[80vh] to min-h-[80vh] to prevent overflow on small screens */}
       <div className="relative flex justify-center min-h-[60vh] w-full px-4 py-12 md:p-8 items-center flex-col overflow-hidden">
         <Image
-          src="/3Hero-Bg.jpg"
+          src="/Hero-Bg.jpg"
           alt="Hero Background"
           fill
           className="object-cover -z-10"

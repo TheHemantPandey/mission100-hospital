@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutSection from "@/components/AboutUs";
+import DoctorSection from "@/components/DoctorCard";
 import Heart from "@/components/Heart";
 import Stress from "@/components/Stress";
 import BoneTesting from "@/components/Bone-testing";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
 
         </div>
         <AboutSection />
+        <DoctorSection />
         <Heart />
         <Stress />
         <BoneTesting />
