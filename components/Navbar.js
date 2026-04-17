@@ -108,7 +108,7 @@ const Navbar = () => {
             
             <li>
               <button className="px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95">
-                Join Now
+                Book Consultant Now
               </button>
             </li>
           </ul>
