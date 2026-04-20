@@ -81,10 +81,9 @@ const QueryForm = () => {
               required
             >
               <option value="" disabled>Select Subject</option>
-              <option value="Admission">Admission Inquiry</option>
-              <option value="Course">Course Details</option>
-              <option value="Technical">Technical Support</option>
-              <option value="Other">Other</option>
+              <option value="Admission">General</option>
+              <option value="Course">Inquiry</option>
+              <option value="Technical">Consultation</option>
             </select>
           </div>
 

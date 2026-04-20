@@ -35,7 +35,7 @@ const Navbar = () => {
             <span className="text-white font-bold">M</span>
           </div>
           <span className="text-2xl font-extrabold tracking-tight text-gray-900">
-            Mission<span className="text-green-600">100</span>
+            Mission100<span className="text-black-600">   Hospital</span>
           </span>
         </Link>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
             
             <li>
               <button className="px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95">
-                Book Consultant Now
+                Book consultation Now
               </button>
             </li>
           </ul>

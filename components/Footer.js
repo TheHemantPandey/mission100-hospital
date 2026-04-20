@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
                <div className="w-9 h-9 bg-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
-                <span className="text-white font-bold text-sm">M1</span>
+                <span className="text-white font-bold text-sm">M</span>
               </div>
               <span className="text-2xl font-extrabold tracking-tight text-gray-900">
                 Mission<span className="text-green-600">100</span>
@@ -65,8 +65,8 @@ const Footer = () => {
             <div className="text-gray-600 space-y-5 text-sm leading-relaxed">
               <div>
                 <p className="font-bold text-gray-900 mb-1">Email:</p>
-                <a href="mailto:contact@mission200.in" className="hover:text-green-600 transition-colors">
-                  contact@mission200.in
+                <a href="mailto:info@mission100.in" className="hover:text-green-600 transition-colors">
+                  info@mission100.in  
                 </a>
               </div>
               <div>

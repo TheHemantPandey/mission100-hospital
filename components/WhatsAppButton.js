@@ -1,38 +1,54 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  // Your demo number
-  const phoneNumber = "916397565128"; 
-  const message = "Hello Hemant! I'm checking out the Mission100 demo and testing the WhatsApp connection.";
+  // Your NEW contact number
+  const phoneNumber = "919220620209"; // Added 91 country code for WhatsApp logic
+  const displayPhone = "+91 9220 620 209"; 
+  const message = "Hello! I'm interested in Mission100 services.";
   
-  /**
-   * We use api.whatsapp.com because it's more stable for language forcing.
-   * &lang=en tells WhatsApp to try and show the interface in English.
-   */
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
 
   return (
-    <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group"
-      aria-label="Contact on WhatsApp"
-    >
-      {/* Tooltip */}
-      <span className="absolute right-20 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
-        Chat with us!
-      </span>
-
-      {/* WhatsApp SVG Icon */}
-      <svg 
-        className="w-9 h-9 text-white" 
-        fill="currentColor" 
-        viewBox="0 0 24 24"
+    <div className="fixed bottom-8 right-8 z-50 flex items-center gap-3">
+      
+      {/* 1. NEW: Contact Number Pill (Left side) */}
+      <a
+        href={`tel:${displayPhone}`}
+        className="flex items-center gap-2 bg-white border border-gray-200 text-[#003366] px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition-all font-bold text-sm md:text-base group"
       >
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.883 1.034 4.009 1.576 6.173 1.576h.013c6.546 0 11.88-5.335 11.883-11.894a11.826 11.826 0 00-3.481-8.412z"/>
-      </svg>
-    </a>
+        <svg 
+          className="w-4 h-4 text-[#003366]" 
+          fill="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path d="M6.176 1.1c.739-.648 1.99-.433 2.484.444l1.171 2.093c.333.593.267 1.332-.165 1.849l-1.65 1.975a.25.25 0 00-.033.243 14.544 14.544 0 006.154 6.154.25.25 0 00.243-.033l1.975-1.65c.517-.432 1.256-.498 1.849-.165l2.093 1.171c.877.494 1.092 1.745.444 2.484l-1.674 1.912c-.521.595-1.326.877-2.112.721A18.544 18.544 0 011.121 5.371c-.156-.786.126-1.591.721-2.112L3.754 1.585l2.422-.485z" />
+        </svg>
+        {displayPhone}
+      </a>
+
+      {/* 2. WhatsApp Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group"
+        aria-label="Contact on WhatsApp"
+      >
+        {/* Tooltip */}
+        <span className="absolute bottom-20 right-0 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
+          Chat with us!
+        </span>
+
+        {/* WhatsApp SVG Icon */}
+        <svg 
+          className="w-9 h-9 text-white" 
+          fill="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.883 1.034 4.009 1.576 6.173 1.576h.013c6.546 0 11.88-5.335 11.883-11.894a11.826 11.826 0 00-3.481-8.412z"/>
+        </svg>
+      </a>
+    </div>
   );
 };
 
