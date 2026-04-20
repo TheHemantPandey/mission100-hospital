@@ -62,7 +62,7 @@ const DoctorSection = () => {
         {/* Header Section - Tightened spacing */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div className="space-y-1">
-            <span className="text-green-600 font-bold uppercase tracking-widest text-[15px]"> MIssion100 Team</span>
+            <span className="text-green-600 font-bold uppercase tracking-widest text-[15px]"> Our Team</span>
             <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
               Mission 100 <span className="text-green-600">Doctors</span>
             </h2>
