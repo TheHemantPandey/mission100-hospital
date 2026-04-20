@@ -18,14 +18,6 @@ const Navbar = () => {
     { name: "Anti-Aging Therapy", href: "/services/anti-aging" },
   ];
 
-  const aboutSubTabs = [
-    { name: "Our Vision", href: "/about/vision" },
-    { name: "The Team", href: "/about/team" },
-    { name: "Scientific Research", href: "/about/science" },
-    { name: "Success Stories", href: "/about/stories" },
-    { name: "Contact Us", href: "/about/contact" },
-  ];
-
   return (
     <nav className="bg-white w-full border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-3 px-6">
@@ -35,7 +27,7 @@ const Navbar = () => {
             <span className="text-white font-bold">M</span>
           </div>
           <span className="text-2xl font-extrabold tracking-tight text-gray-900">
-            Mission100<span className="text-green-600">   Hospital</span>
+            Mission100<span className="text-green-600"> Hospital</span>
           </span>
         </Link>
 
@@ -56,27 +48,11 @@ const Navbar = () => {
               <Link href="/" className="text-gray-700 hover:text-green-600 transition-colors">Home</Link>
             </li>
 
-            {/* ABOUT DROPDOWN */}
-            <li className="relative group">
-              <button className="flex items-center gap-1 text-gray-700 group-hover:text-green-600 transition-colors py-2">
+            {/* UPDATED: ABOUT LINK WITHOUT SUBMENU */}
+            <li>
+              <Link href="/about" className="text-gray-700 hover:text-green-600 transition-colors py-2">
                 About
-                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-2 transition-all duration-300 z-50 overflow-hidden">
-                <div className="py-2">
-                  {aboutSubTabs.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.href}
-                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors border-b border-gray-50 last:border-0"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              </Link>
             </li>
 
             {/* SERVICES DROPDOWN */}
