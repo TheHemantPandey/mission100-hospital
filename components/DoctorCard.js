@@ -62,13 +62,12 @@ const DoctorSection = () => {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-2">
-            <span className="text-green-600 font-bold uppercase tracking-widest text-xs">Expert Team</span>
+            <span className="text-green-600 font-bold uppercase tracking-widest text-xs">Our Team</span>
             <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
-              Mission 100 <span className="text-green-600">Specialists</span>
+              Mission 100 <span className="text-green-600">Doctors</span>
             </h2>
             <p className="text-slate-500 max-w-lg">
-              Our world-class practitioners are here to guide your wellness journey with science-backed expertise.
-            </p>
+              Our best practitioners are here to guide your wellness journey.</p>
           </div>
           
           <div className="flex gap-3">
