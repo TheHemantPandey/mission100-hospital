@@ -44,7 +44,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] max-h-[40vh] md:max-h-[50vh] overflow-hidden shrink-0">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-100 md:h-100 lg:w-112.5 lg:h-112.5 max-h-[40vh] md:max-h-[50vh] overflow-hidden shrink-0">
                 <Image
                   src="/meditation.png"
                   alt="Meditation"
