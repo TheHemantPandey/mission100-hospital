@@ -6,7 +6,7 @@ const LongevityModeling = () => {
     <section className="py-24 bg-[#0a0f18] text-white overflow-hidden relative">
       {/* Neural Network Style Background Decoration */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:40px_40px]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-size-[40px_40px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
@@ -20,7 +20,7 @@ const LongevityModeling = () => {
 
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
               Predicting the Future of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-green-400">
                 Your Biological Health
               </span>
             </h2>
@@ -75,7 +75,7 @@ const LongevityModeling = () => {
               </div>
 
               {/* The "Bio-Age" Highlight from PDF Source 179 */}
-              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-[2.5rem] text-center mb-8 relative overflow-hidden group">
+              <div className="bg-linear-to-br from-blue-600 to-blue-800 p-8 rounded-[2.5rem] text-center mb-8 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:rotate-12 transition-transform">
                   <Dna size={80} />
                 </div>

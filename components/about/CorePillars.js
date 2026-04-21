@@ -79,7 +79,7 @@ const CorePillars = () => {
                 {pillar.title}
               </h4>
               
-              <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">
+              <p className="text-slate-500 text-sm leading-relaxed mb-8 grow">
                 {pillar.description}
               </p>
 

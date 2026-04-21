@@ -7,7 +7,7 @@ const MissionHero = () => {
     <section className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden">
       
       {/* Main Container */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-center relative py-12 md:py-0">
+      <div className="max-w-360 mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-center relative py-12 md:py-0">
         
         {/* 1. Left Vertical Text - Matches your screenshot exactly */}
         <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2">
@@ -52,9 +52,9 @@ const MissionHero = () => {
 
         {/* 3. Right Visual Card - Matches the screenshot's rounded aesthetic */}
         <div className="flex-1 flex justify-center items-center mt-12 md:mt-0 relative group">
-          <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
+          <div className="relative w-[320px] h-80 md:w-112.5 md:h-112.5">
             {/* The Image Container with specific Rounded Corners */}
-            <div className="relative h-full w-full rounded-[60px] overflow-hidden border-[12px] border-white shadow-2xl shadow-slate-200">
+            <div className="relative h-full w-full rounded-[60px] overflow-hidden border-12 border-white shadow-2xl shadow-slate-200">
               <Image 
                 src="/Hero-Bg.jpg" 
                 alt="Mission 100 Precision" 

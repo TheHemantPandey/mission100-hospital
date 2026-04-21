@@ -5,17 +5,18 @@ import Link from "next/link";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Reordered and renamed based on Mission 100 Hospital documentation
   const demoServices = [
-    { name: "Full Body Checkup", href: "/services/checkup" },
-    { name: "DNA Longevity Test", href: "/services/dna" },
-    { name: "Ayurvedic Consultation", href: "/services/ayurveda" },
-    { name: "Vitality Indexing", href: "/services/vitality" },
-    { name: "Nutritional Planning", href: "/services/nutrition" },
-    { name: "Sleep Optimization", href: "/services/sleep" },
-    { name: "Bio-Hacking Guide", href: "/services/bio-hacking" },
-    { name: "Heart Health Monitor", href: "/services/heart" },
-    { name: "Stress Management", href: "/services/stress" },
-    { name: "Anti-Aging Therapy", href: "/services/anti-aging" },
+    { name: "Heart Attack Prevention", href: "/services/heart-attack-prevention" },
+    { name: "Mental Health & Stress", href: "/services/mental-health&stress" },
+    { name: "Anti-Aging Science", href: "/services/anti-aging" },
+    { name: "Body & Bone Strength", href: "/services/bone-strength" },
+    { name: "Yoga & Ayurveda", href: "/services/yoga-ayurveda" },
+    { name: "Metabolic & Sugar Control", href: "/services/metabolic" },
+    { name: "Micronutrient & Vitality", href: "/services/micronutrient" },
+    { name: "Longevity Modeling", href: "/services/longevity" },
+    { name: "Behavioral Analysis", href: "/services/behavioral" },
+    { name: "Body Preservation", href: "/services/preservation" },
   ];
 
   return (
@@ -35,6 +36,7 @@ const Navbar = () => {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+          aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -48,7 +50,6 @@ const Navbar = () => {
               <Link href="/" className="text-gray-700 hover:text-green-600 transition-colors">Home</Link>
             </li>
 
-            {/* UPDATED: ABOUT LINK WITHOUT SUBMENU */}
             <li>
               <Link href="/about" className="text-gray-700 hover:text-green-600 transition-colors py-2">
                 About
@@ -63,7 +64,7 @@ const Navbar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-2 transition-all duration-300 z-50 overflow-hidden">
+              <div className="absolute left-0 mt-0 w-72 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-2 transition-all duration-300 z-50 overflow-hidden">
                 <div className="py-2">
                   {demoServices.map((service, index) => (
                     <Link

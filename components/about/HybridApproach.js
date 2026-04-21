@@ -49,7 +49,7 @@ const HybridApproach = () => {
 
           {/* Center Visual: The "Bridge" */}
           <div className="relative py-12 lg:py-0 flex flex-col items-center">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent absolute top-1/2 hidden lg:block" />
+            <div className="w-full h-px bg-linear-to-r from-transparent via-slate-700 to-transparent absolute top-1/2 hidden lg:block" />
             <div className="relative z-10 bg-slate-900 border-2 border-green-500/30 p-8 rounded-full shadow-[0_0_50px_rgba(34,197,94,0.2)]">
               <Infinity size={60} className="text-green-500 animate-pulse" />
             </div>
@@ -85,7 +85,7 @@ const HybridApproach = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-20 p-8 bg-gradient-to-r from-blue-500/10 via-green-500/10 to-blue-500/10 rounded-[2rem] border border-white/5 text-center">
+        <div className="mt-20 p-8 bg-linear-to-r from-blue-500/10 via-green-500/10 to-blue-500/10 rounded-4xl border border-white/5 text-center">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             <div className="flex items-center gap-3">
               <Binary className="text-blue-400" size={20} />
