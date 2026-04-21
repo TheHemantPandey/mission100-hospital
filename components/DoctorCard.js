@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useRef, useState } from "react";
@@ -114,7 +115,7 @@ const DoctorSection = () => {
             filteredPractitioners.map((doc) => (
               <div
                 key={doc.id}
-                className="min-w-70 md:min-w-75 snap-start bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
+                className="min-w-[280px] md:min-w-[320px] snap-start bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="relative h-44 overflow-hidden rounded-t-2xl">
                   <img
