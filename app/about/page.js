@@ -1,45 +1,42 @@
 import React from 'react';
-import { Target, Users, ShieldCheck } from 'lucide-react';
+import MissionHero from "@/components/about/MissionHero";
+import Philosophy from "@/components/about/Philosophy";
+import HybridApproach from "@/components/about/HybridApproach";
+import CorePillars from "@/components/about/CorePillars";
+import LongevityModeling from "@/components/about/LongevityModeling";
+import TrustSection from "@/components/about/TrustSection";
+import DoctorSection from "@/components/DoctorCard";
+
+export const metadata = {
+  title: "About Us | Mission 100 - Helping you Live Longer",
+  description: "Mission 100 is dedicated to preventive healthcare, blending ancient Ayurveda with modern longevity science to help you live a vibrant 100-year life.",
+};
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-slate-50 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-extrabold text-slate-900 mb-6">
-            About <span className="text-green-600">Mission 100</span>
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            We are dedicated to revolutionizing healthcare by connecting patients 
-            with India's top specialists. Our mission is to ensure quality medical 
-            consultation is accessible to everyone, everywhere.
-          </p>
-        </div>
-      </section>
+    <div className="flex flex-col w-full bg-white">
+      {/* 1. Introduction: The "100-Year Life" Vision */}
+      <MissionHero />
 
-      {/* Features Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <Target className="text-green-600 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Our Vision</h3>
-            <p className="text-slate-500 text-sm">To increase the average lifespan by providing early and accurate diagnosis.</p>
-          </div>
-          
-          <div className="p-8 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <Users className="text-green-600 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Expert Team</h3>
-            <p className="text-slate-500 text-sm">A curated network of doctors from India's most prestigious medical institutions.</p>
-          </div>
+      {/* 2. Deep Dive: Shifting from Reactive to Preventive Care */}
+      <Philosophy />
 
-          <div className="p-8 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-            <ShieldCheck className="text-green-600 mb-4" size={32} />
-            <h3 className="text-xl font-bold mb-2">Secure Care</h3>
-            <p className="text-slate-500 text-sm">Your health data is protected with enterprise-grade security protocols.</p>
-          </div>
-        </div>
-      </section>
+      {/* 3. The Science: Blending Modern Medicine & Ayurveda */}
+      <HybridApproach />
+
+      {/* 4. Clinical Focus: Heart, Bone, and Mental Health Pillars */}
+      <CorePillars />
+
+      {/* 5. The Team: India's Top Specialists */}
+      <div className="bg-slate-50 py-12">
+        <DoctorSection />
+      </div>
+
+      {/* 6. Advanced Tech: Biological Age & Longevity Modeling */}
+      <LongevityModeling />
+
+      {/* 7. Footer Info: Contact, Address, and Medical Disclaimers */}
+      <TrustSection />
     </div>
   );
 }
