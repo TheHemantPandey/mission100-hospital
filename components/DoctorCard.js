@@ -6,7 +6,6 @@ import {
   Stethoscope,
   ChevronLeft,
   ChevronRight,
-  MessageSquare,
   Clock3,
   CalendarCheck,
   IndianRupee,
@@ -59,10 +58,9 @@ const DoctorSection = () => {
     <section className="py-16 px-4 md:px-8 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section - Tightened spacing */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div className="space-y-1">
-            <span className="text-green-600 font-bold uppercase tracking-widest text-[15px]"> MIssion100 Team</span>
+            <span className="text-green-600 font-bold uppercase tracking-widest text-[15px]"> Mission100 Team</span>
             <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
               Mission 100 <span className="text-green-600">Doctors</span>
             </h2>
@@ -89,7 +87,6 @@ const DoctorSection = () => {
           </div>
         </div>
 
-        {/* Category Bar - INCREASED SIZE AS REQUESTED */}
         <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-8 pb-1 scroll-smooth">
           {specializations.map((spec) => (
             <button
@@ -98,7 +95,6 @@ const DoctorSection = () => {
                 setActiveSpecialty(spec.id);
                 if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
               }}
-              // px-8 py-4 text-lg font-bold makes the categories stand out more
               className={`px-6 py-4 text-sm font-bold whitespace-nowrap transition-all border-b-4 
                 ${activeSpecialty === spec.id 
                   ? "text-green-700 border-green-600 bg-green-50/50" 
@@ -110,7 +106,6 @@ const DoctorSection = () => {
           ))}
         </div>
 
-        {/* Doctor Slider */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto no-scrollbar snap-x scroll-smooth pb-8"
@@ -143,9 +138,7 @@ const DoctorSection = () => {
 
                   <div className="grid grid-cols-2 gap-3 border-t border-slate-50 pt-4 mb-6">
                     <div className="flex flex-col gap-0.5">
-                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">
-                         Fee
-                      </div>
+                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Fee</div>
                       <div className="flex items-center gap-0.5 text-slate-900 font-bold text-base">
                         <IndianRupee size={14} className="text-green-600" />
                         {doc.fee}
@@ -153,12 +146,8 @@ const DoctorSection = () => {
                     </div>
                     
                     <div className="flex flex-col gap-0.5 text-right">
-                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">
-                         Languages
-                      </div>
-                      <span className="text-slate-900 font-bold text-[11px] truncate">
-                        {doc.lang.join(", ")}
-                      </span>
+                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Languages</div>
+                      <span className="text-slate-900 font-bold text-[11px] truncate">{doc.lang.join(", ")}</span>
                     </div>
 
                     <div className="col-span-2 bg-slate-50/80 p-2 rounded-xl border border-slate-100 flex items-center justify-between">
@@ -186,16 +175,6 @@ const DoctorSection = () => {
           )}
         </div>
       </div>
-
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </section>
   );
 };

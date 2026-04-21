@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-
-/* Add this to the end of globals.css fro doctorcard.js */
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
+/* Custom Utility to hide scrollbars */
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
-  .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
