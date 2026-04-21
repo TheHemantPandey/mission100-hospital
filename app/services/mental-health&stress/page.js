@@ -22,7 +22,7 @@ export default function MentalHealthPage() {
 
       {/* 2. STRESS RESILIENCE STAT SECTION */}
       <section className="max-w-6xl mx-auto px-6 -mt-12">
-        <div className="bg-slate-900 rounded-[2rem] p-10 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white">
+        <div className="bg-slate-900 rounded-4xl p-10 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white">
           <div className="space-y-2">
             <span className="text-blue-400 font-bold uppercase text-xs tracking-widest">Active Monitoring</span>
             <h3 className="text-2xl font-bold">Stress Resilience Score</h3>
@@ -72,7 +72,7 @@ export default function MentalHealthPage() {
             </div>
           </div>
 
-          <div className="order-1 md:order-2 bg-blue-600 rounded-[3rem] p-12 text-white flex flex-col justify-center min-h-[400px] relative overflow-hidden">
+          <div className="order-1 md:order-2 bg-blue-600 rounded-[3rem] p-12 text-white flex flex-col justify-center min-h-100 relative overflow-hidden">
              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-20 -mb-20 blur-3xl"></div>
              <h3 className="text-2xl font-bold mb-4 italic uppercase tracking-tighter">Happiness Index: 8.5/10</h3>
              <p className="text-lg opacity-90 mb-8 leading-relaxed">

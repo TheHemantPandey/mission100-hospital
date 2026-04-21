@@ -22,7 +22,7 @@ export default function HeartPreventionPage() {
 
       {/* 2. LIVE MONITORING STAT SECTION */}
       <section className="max-w-6xl mx-auto px-6 -mt-12">
-        <div className="bg-gray-900 rounded-[2rem] p-10 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white">
+        <div className="bg-gray-900 rounded-4xl p-10 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white">
           <div className="space-y-2">
             <span className="text-green-400 font-bold uppercase text-xs tracking-widest">Active Data Feed</span>
             <h3 className="text-2xl font-bold">Heart Health Score</h3>

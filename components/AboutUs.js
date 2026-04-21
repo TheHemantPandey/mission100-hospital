@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link';
 
 const AboutUs = () => {
   return (
@@ -71,22 +72,24 @@ const AboutUs = () => {
                 risk assessment.
               </p>
 
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+              <Link href="/services/heart-attack-prevention">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl bg-green-50 transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
@@ -95,25 +98,28 @@ const AboutUs = () => {
                 Mental Health & Stress{" "}
               </h3>
               <p className="text-gray-600">
-                Holistic support for stress and happiness measurement
-                to ensure peace of mind.
+                Holistic support for stress and happiness measurement to ensure
+                peace of mind.
               </p>
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+
+              <Link href="/services/mental-health&stress">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl bg-green-50 transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
@@ -125,22 +131,25 @@ const AboutUs = () => {
                 Monitoring bone measurement and body strength to maintain
                 mobility into old age.
               </p>
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+
+              <Link href="/services/">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl bg-green-50 transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
@@ -152,22 +161,25 @@ const AboutUs = () => {
                 Utilizing preventive healthcare and death prediction modeling to
                 extend your healthy years.
               </p>
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+
+              <Link href="/services/">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl bg-green-50 transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
@@ -179,22 +191,25 @@ const AboutUs = () => {
                 Blending ancient wellness practices with modern medicine for a
                 complete health ecosystem.
               </p>
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+
+              <Link href="/services/">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
             <div className="p-6 border border-gray-100 rounded-xl bg-green-50 transition-all duration-300 hover:drop-shadow-lg hover:shadow-green-200">
@@ -206,23 +221,24 @@ const AboutUs = () => {
                 We preverve your body, just before the end of your life and try
                 to make you alive for a long age.
               </p>
-
-              <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
-                Read More
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
+              <Link href="/services/">
+                <button className="mt-4 px-6 py-2.5 flex items-center gap-2 w-fit text-green-600 font-bold bg-green-50/50 border border-green-200 rounded-xl shadow-sm transition-all duration-300 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-md active:scale-95 group/btn">
+                  Read More
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2.5"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

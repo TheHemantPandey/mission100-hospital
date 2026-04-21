@@ -44,7 +44,7 @@ export default function ContactPage() {
           </div>
 
           {/* HOSPITAL BUILDING IMAGE */}
-          <div className="relative h-[400px] md:h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
+          <div className="relative h-100 md:h-125 w-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
             <Image
               src="/hospital-building.jpg"
               alt="Mission 100 Hospital - Metroplex East Tower"
