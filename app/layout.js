@@ -2,21 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AboutSection from "@/components/AboutUs";
-import DoctorSection from "@/components/DoctorCard";
-import Heart from "@/components/Heart";
-import Stress from "@/components/Stress";
-import BoneTesting from "@/components/Bone-testing";
-import Happiness from "@/components/Happiness";
-import MentalHealthSection from "@/components/Mental-Health";
-import PersonalitySection from "@/components/Personality";
-import AntiAgingSection from "@/components/Anti-Aging";
-import SugarSection from "@/components/Sugar-Management";
-import VitaminsSection from "@/components/Vitamin-Minerals";
-import AyurvedaSection from "@/components/Yoga-Ayurveda";
-import Brochure from "@/components/Brochure";
-import QueryForm from "@/components/QueryForm";
-import Faq from "@/components/Faq";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
@@ -48,23 +33,6 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen">
           {children}
         </main>
-        
-        {/* Sections included in the layout for consistent visibility */}
-        <AboutSection />
-        <DoctorSection />
-        <Heart />
-        <Stress />
-        <BoneTesting />
-        <Happiness />
-        <MentalHealthSection />
-        <PersonalitySection />
-        <AntiAgingSection />
-        <SugarSection />
-        <VitaminsSection />
-        <AyurvedaSection />
-        <Brochure />
-        <QueryForm />
-        <Faq />
         <Footer />   
         <WhatsAppButton />   
       </body>
