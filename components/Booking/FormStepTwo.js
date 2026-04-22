@@ -4,18 +4,63 @@ import React, { useState } from "react";
 const FormStepTwo = ({ prevData, onBack }) => {
   const [appointmentDate, setAppointmentDate] = useState("");
   const [appointmentTime, setAppointmentTime] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  const handlePaymentClick = (e) => {
+  const handlePaymentClick = async (e) => {
     e.preventDefault();
     
-    // Manual validation check
     if (!appointmentDate || !appointmentTime) {
       alert("Please select both a preferred Date and Time slot before proceeding.");
       return;
     }
 
-    // This is where you will eventually trigger Razorpay
-    alert(`Redirecting to payment for ${prevData.firstName} on ${appointmentDate} at ${appointmentTime}`);
+    setIsProcessing(true);
+
+    try {
+      // 1. Call your backend API to create a Razorpay Order
+      const res = await fetch("/api/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 500 }), // The fee shown below
+      });
+
+      const orderData = await res.json();
+
+      if (!res.ok) throw new Error("Order creation failed");
+
+      // 2. Configure Razorpay Options
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, 
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "Mission 100 Hospital",
+        description: `Consultation with ${prevData.doctorName}`,
+        order_id: orderData.id,
+        handler: function (response) {
+          // This runs after successful payment
+          alert("Payment Successful! Transaction ID: " + response.razorpay_payment_id);
+          // You can redirect to a success page here
+          window.location.href = "/booking-success"; 
+        },
+        prefill: {
+          name: `${prevData.firstName} ${prevData.lastName}`,
+          contact: prevData.contactNo,
+        },
+        theme: {
+          color: "#16a34a", // Mission 100 Green
+        },
+      };
+
+      // 3. Open the Razorpay Modal
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
+    } catch (error) {
+      console.error("Payment Error:", error);
+      alert("Unable to initialize payment. Please check your connection.");
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -39,7 +84,7 @@ const FormStepTwo = ({ prevData, onBack }) => {
               type="date"
               value={appointmentDate}
               onChange={(e) => setAppointmentDate(e.target.value)}
-              min={new Date().toISOString().split("T")[0]} // Prevents selecting past dates
+              min={new Date().toISOString().split("T")[0]} 
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               required
             />
@@ -71,17 +116,19 @@ const FormStepTwo = ({ prevData, onBack }) => {
 
         <div className="flex gap-4">
           <button
-            type="button" // Important: button type "button" prevents form submission
+            type="button" 
             onClick={onBack}
-            className="flex-1 px-6 py-3 border border-gray-300 text-gray-600 rounded-lg font-semibold hover:bg-gray-100 transition-all"
+            disabled={isProcessing}
+            className="flex-1 px-6 py-3 border border-gray-300 text-gray-600 rounded-lg font-semibold hover:bg-gray-100 transition-all disabled:opacity-50"
           >
             Go Back
           </button>
           <button
             type="submit"
-            className="flex-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 hover:shadow-lg transition-all"
+            disabled={isProcessing}
+            className="flex-[2] px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 hover:shadow-lg transition-all disabled:bg-blue-400"
           >
-            Make Payment
+            {isProcessing ? "Processing..." : "Make Payment"}
           </button>
         </div>
       </form>

@@ -1,16 +1,36 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const FormStepOne = ({ onNext }) => {
+  const [isSending, setIsSending] = useState(false);
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    onNext(data); // Pass data to the parent (page.js)
+  const onSubmit = async (data) => {
+    setIsSending(true);
+    try {
+      // Sending data to our Next.js API route
+      const response = await fetch("/api/send-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log("Enquiry sent to email successfully!");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    } finally {
+      setIsSending(false);
+      // We call onNext even if mail fails so the user can finish the booking
+      onNext(data); 
+    }
   };
 
   return (
@@ -24,7 +44,7 @@ const FormStepOne = ({ onNext }) => {
           <input
             {...register("firstName", { 
               required: "First name is required", 
-              pattern: { value: /^[A-Za-z]+$/, message: "Alphabetical characters only" },
+              pattern: { value: /^[A-Za-z ]+$/, message: "Alphabetical characters only" },
               minLength: { value: 2, message: "Min 2 characters" }
             })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 shadow-sm"
@@ -38,7 +58,7 @@ const FormStepOne = ({ onNext }) => {
           <input
             {...register("lastName", { 
               required: "Last name is required",
-              pattern: { value: /^[A-Za-z]+$/, message: "Alphabetical characters only" },
+              pattern: { value: /^[A-Za-z ]+$/, message: "Alphabetical characters only" },
               minLength: { value: 2, message: "Min 2 characters" }
             })}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
@@ -58,7 +78,7 @@ const FormStepOne = ({ onNext }) => {
           {errors.gender && <span className="text-red-500 text-xs mt-1">{errors.gender.message}</span>}
         </div>
 
-        {/* Age - FIXED: Added min="1" and validation min: 1 */}
+        {/* Age */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Age *</label>
           <input
@@ -88,6 +108,7 @@ const FormStepOne = ({ onNext }) => {
           {errors.contactNo && <span className="text-red-500 text-xs mt-1">{errors.contactNo.message}</span>}
         </div>
 
+        {/* Guardian Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Guardian Name (Optional)</label>
           <input
@@ -96,7 +117,7 @@ const FormStepOne = ({ onNext }) => {
           />
         </div>
 
-        {/* Doctor Selection */}
+        {/* Department */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Department *</label>
           <select {...register("department", { required: "Please select a department" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
@@ -108,18 +129,19 @@ const FormStepOne = ({ onNext }) => {
           {errors.department && <span className="text-red-500 text-xs mt-1">{errors.department.message}</span>}
         </div>
 
+        {/* Doctor Name */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Doctor Name *</label>
           <select {...register("doctorName", { required: "Please select a doctor" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
             <option value="">Select Doctor</option>
-            <option value="Dr. Hemant Sharma">Dr. Hemant Pandey</option>
-            <option value="Dr. Anjali Gupta">Dr. Muskan Agrawal</option>
+            <option value="Dr. Hemant Pandey">Dr. Hemant Pandey</option>
+            <option value="Dr. Muskan Agrawal">Dr. Muskan Agrawal</option>
           </select>
           {errors.doctorName && <span className="text-red-500 text-xs mt-1">{errors.doctorName.message}</span>}
         </div>
       </div>
 
-      {/* Description - MANDATORY: Added minLength: 5 */}
+      {/* Description */}
       <div>
         <label className="block text-sm font-medium text-gray-700">Description / Reason for Visit *</label>
         <textarea
@@ -129,16 +151,17 @@ const FormStepOne = ({ onNext }) => {
           })}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
           rows="3"
-          placeholder="Please briefly describe your symptoms or reason for visit..."
+          placeholder="Briefly describe symptoms..."
         ></textarea>
         {errors.description && <span className="text-red-500 text-xs mt-1">{errors.description.message}</span>}
       </div>
 
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all active:scale-95 shadow-md"
+        disabled={isSending}
+        className={`w-full text-white py-3 rounded-lg font-bold transition-all active:scale-95 shadow-md ${isSending ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'}`}
       >
-        Continue to Schedule
+        {isSending ? "Processing..." : "Continue to Schedule"}
       </button>
     </form>
   );

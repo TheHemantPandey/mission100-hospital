@@ -4,6 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+import Script from 'next/script'
+
+// Inside your Layout function return:
+<Script src="https://checkout.razorpay.com/v1/checkout.js" />
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
