@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Brochure = () => {
   return (
@@ -10,12 +11,22 @@ const Brochure = () => {
         Book an appointment or download our services.
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <button className="bg-white text-green-700 px-8 py-3 rounded-full font-bold hover:bg-green-50 transition-colors">
+        {/* Navigation to Booking Page */}
+        <Link 
+          href="/book-appointment"
+          className="bg-white text-green-700 px-8 py-3 rounded-full font-bold hover:bg-green-50 transition-colors inline-block"
+        >
           Book Appointment
-        </button>
-        <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-green-700 transition-all">
+        </Link>
+
+        {/* Download PDF Link */}
+        <a 
+          href="/mission100-brochure.pdf" 
+          download="Mission100_Hospital_Brochure.pdf"
+          className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-green-700 transition-all inline-block"
+        >
           Download Brochure
-        </button>
+        </a>
       </div>
     </div>
   );

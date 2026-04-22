@@ -5,7 +5,6 @@ import Link from "next/link";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Reordered and renamed based on Mission 100 Hospital documentation
   const demoServices = [
     { name: "Heart Attack Prevention", href: "/services/heart-attack-prevention" },
     { name: "Mental Health & Stress", href: "/services/mental-health&stress" },
@@ -43,7 +42,7 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Desktop Menu */}
+        {/* Menu Items */}
         <div className={`${mobileMenuOpen ? "block" : "hidden"} w-full md:block md:w-auto`}>
           <ul className="flex flex-col md:flex-row md:items-center font-medium mt-4 md:mt-0 md:space-x-8 space-y-4 md:space-y-0">
             <li>
@@ -83,10 +82,15 @@ const Navbar = () => {
               <Link href="/contact" className="text-gray-700 hover:text-green-600 transition-colors">Contact</Link>
             </li>
             
+            {/* BOOKING LINK - Changed from button to Link */}
             <li>
-              <button className="px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95">
+              <Link 
+                href="/book-appointment" 
+                className="inline-block text-center px-6 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 hover:shadow-lg hover:shadow-green-500/30 transition-all active:scale-95"
+                onClick={() => setMobileMenuOpen(false)} // Closes mobile menu on click
+              >
                 Book consultation Now
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

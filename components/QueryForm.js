@@ -19,15 +19,19 @@ const QueryForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Custom validation for phone length (Optional but recommended)
+    if (formData.phone.length !== 10) {
+      setStatus('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
     setStatus('Sending...');
     
-    // Simulate API Call
     setTimeout(() => {
       console.log('Query Submitted:', formData);
       setStatus('Message sent successfully!');
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      
-      // Clear status after 3 seconds
       setTimeout(() => setStatus(''), 3000);
     }, 1500);
   };
@@ -47,19 +51,19 @@ const QueryForm = () => {
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder="Your Name *"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               required
             />
             <input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address *"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               required
             />
           </div>
@@ -68,32 +72,34 @@ const QueryForm = () => {
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Phone Number (10 digits) *"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              pattern="[0-9]{10}" // Only accepts exactly 10 digits
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              required // <--- THIS MAKES IT COMPULSORY
             />
             <select
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all bg-white text-slate-600"
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-white text-slate-600"
               required
             >
-              <option value="" disabled>Select Subject</option>
-              <option value="Admission">General</option>
-              <option value="Course">Inquiry</option>
-              <option value="Technical">Consultation</option>
+              <option value="" disabled>Select Subject *</option>
+              <option value="General">General</option>
+              <option value="Inquiry">Inquiry</option>
+              <option value="Consultation">Consultation</option>
             </select>
           </div>
 
           <textarea
             name="message"
-            placeholder="How can we help you?"
+            placeholder="How can we help you? *"
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+            className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none"
             required
           />
 
@@ -107,7 +113,7 @@ const QueryForm = () => {
 
         {status && (
           <div className={`mt-4 text-center p-3 rounded-md text-sm font-medium ${
-            status.includes('successfully') ? 'bg-green-50 text-green-700' : 'bg-blue-50 text-blue-700'
+            status.includes('successfully') ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
           }`}>
             {status}
           </div>
