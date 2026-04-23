@@ -134,8 +134,8 @@ const FormStepOne = ({ onNext }) => {
           <label className="block text-sm font-medium text-gray-700">Doctor Name *</label>
           <select {...register("doctorName", { required: "Please select a doctor" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
             <option value="">Select Doctor</option>
-            <option value="Dr. Hemant Pandey">Dr. Hemant Pandey</option>
-            <option value="Dr. Muskan Agrawal">Dr. Muskan Agrawal</option>
+            <option value="Dr. Hemant Pandey">Dr. Vishnu</option>
+            <option value="Dr. Muskan Agrawal">Dr. Gaurav</option>
           </select>
           {errors.doctorName && <span className="text-red-500 text-xs mt-1">{errors.doctorName.message}</span>}
         </div>
