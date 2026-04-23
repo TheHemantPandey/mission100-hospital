@@ -150,7 +150,7 @@ const FormStepOne = ({ onNext }) => {
           disabled={isSending} 
           className={`w-full text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl active:scale-95 ${isSending ? 'bg-slate-400' : 'bg-green-600 hover:bg-slate-900'}`}
         >
-          {isSending ? "RECEIVING DETAILS..." : "CONTINUE TO SCHEDULE"}
+          {isSending ? "RECEIVING DETAILS..." : "Book Appointment"}
         </button>
       </form>
     </div>
