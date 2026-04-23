@@ -3,11 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-import Script from 'next/script'
-
-// Inside your Layout function return:
-<Script src="https://checkout.razorpay.com/v1/checkout.js" />
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,11 +29,22 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f7f9fc] flex flex-col">
+      <head>
+        <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+      </head>
+      {/* - flex-col: Keeps Footer at the bottom.
+          - overflow-x-hidden: Prevents accidental horizontal scrolling on mobile.
+      */}
+      <body className="min-h-full bg-[#f7f9fc] flex flex-col overflow-x-hidden selection:bg-green-100">
         <Navbar />
-        <main className="min-h-screen">
+        
+        {/* - flex-grow: Ensures main content takes up remaining space.
+            - w-full: Full width for all device tiers.
+        */}
+        <main className="flex-grow w-full min-h-screen">
           {children}
         </main>
+
         <Footer />   
         <WhatsAppButton />   
       </body>

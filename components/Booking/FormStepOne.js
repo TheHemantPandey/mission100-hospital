@@ -78,11 +78,11 @@ const FormStepOne = ({ onNext }) => {
             <input type="tel" {...register("contactNo", { required: "10 digits required", pattern: /^[0-9]{10}$/ })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-slate-700">Preferred Doctor *</label>
-            <select {...register("doctorName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
-              <option value="">Select Doctor</option>
-              <option value="Dr. Vishnu">Dr. Vishnu</option>
-              <option value="Dr. Gaurav">Dr. Gaurav</option>
+            <label className="block text-sm font-semibold text-slate-700">Preferred Test *</label>
+            <select {...register("testName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+              <option value="">Select Test</option>
+              <option value="Blood Test">Blood Test</option>
+              <option value="complete test Test">Urine Test</option>
             </select>
           </div>
         </div>
