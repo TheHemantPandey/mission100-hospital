@@ -8,7 +8,7 @@ const Navbar = () => {
   const demoServices = [
     { name: "Heart Attack Prevention", href: "/services/heart-attack-prevention" },
     { name: "Mental Health & Stress", href: "/services/mental-health&stress" },
-    { name: "Anti-Aging Science", href: "/services/anti-aging" },
+    { name: "Anti-Aging Science", href: "/services/anti-aging-science" },
     { name: "Body & Bone Strength", href: "/services/bone-strength" },
     { name: "Yoga & Ayurveda", href: "/services/yoga-ayurveda" },
     { name: "Metabolic & Sugar Control", href: "/services/metabolic" },

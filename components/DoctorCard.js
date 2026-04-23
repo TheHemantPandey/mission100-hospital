@@ -24,16 +24,8 @@ const specializations = [
 ];
 
 const practitioners = [
-  { id: 1, name: "Dr. Ananya Iyer", specialty: "Cardiology", education: "MD - AIIMS Delhi", fee: "1200", lang: ["Eng", "Hin"], nextSlot: "Today 4:00 PM", img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" },
-  { id: 2, name: "Dr. Vikram Malhotra", specialty: "Dental Care", education: "BDS - Maulana Azad", fee: "800", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 10:00 AM", img: "https://img.freepik.com/free-photo/image-professional-woman-doctor-physician-with-clipboard-writing-listening-patient-hospital-cl_1258-87691.jpg" },
-  { id: 3, name: "Dr. Rajesh Deshmukh", specialty: "Orthopedics", education: "MS - Grant Medical", fee: "1500", lang: ["Eng", "Mar", "Hin"], nextSlot: "Today 5:30 PM", img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400" },
-  { id: 4, name: "Dr. Sneha Kulkarni", specialty: "Internal Medicine", education: "MD - AFMC Pune", fee: "1000", lang: ["Eng", "Hin", "Kan"], nextSlot: "Tomorrow 2:15 PM", img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400" },
-  { id: 5, name: "Dr. Arjun Reddy", specialty: "Psychiatry", education: "MD - NIMHANS", fee: "1800", lang: ["Eng", "Tel", "Hin"], nextSlot: "Today 6:00 PM", img: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=400" },
-  { id: 6, name: "Dr. Priya Sharma", specialty: "Cardiology", education: "MD - BHU Varanasi", fee: "1100", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 11:30 AM", img: "https://media.istockphoto.com/id/1372002650/photo/cropped-portrait-of-an-attractive-young-female-doctor-standing-with-her-arms-folded-in-the.jpg?s=612x612&w=0&k=20&c=o1QtStNsowOU0HSof6xQ_jZMglU8ZK565gHd655U6S4=" },
-  { id: 7, name: "Dr. Amit Verma", specialty: "Pediatrics", education: "MD - Madras Medical", fee: "900", lang: ["Eng", "Tam", "Hin"], nextSlot: "Today 3:45 PM", img: "https://t4.ftcdn.net/jpg/02/69/98/99/360_F_269989951_9Gf7PWaRtrpm2EochO3D5WVn22sFZbNZ.jpg" },
-  { id: 8, name: "Dr. Pooja Singhania", specialty: "Dental Care", education: "BDS - KGMU Lucknow", fee: "850", lang: ["Eng", "Hin"], nextSlot: "Today 4:30 PM", img: "https://media.istockphoto.com/id/2157055065/photo/female-doctor-portrait-and-smile-with-tablet-in-hospital-or-workplace-with-lens-flare.jpg?s=612x612&w=0&k=20&c=VEU22yaVyv7Dsr9CiPRFgK_a7yrVzenvG8-C4p2_L44=" },
-  { id: 9, name: "Dr. Sameer Khan", specialty: "Neuroscience", education: "MD - King George", fee: "2000", lang: ["Eng", "Urdu", "Hin"], nextSlot: "Next Week Mon", img: "https://www.shutterstock.com/image-photo/doctor-senior-man-portrait-health-600nw-2340757027.jpg" },
-  { id: 10, name: "Dr. Kavita Rao", specialty: "Internal Medicine", education: "MD - Osmania University", fee: "1000", lang: ["Eng", "Hin", "Tel"], nextSlot: "Tomorrow 9:00 AM", img: "https://t4.ftcdn.net/jpg/01/36/18/77/360_F_136187711_qeBMOwkPdTg1dCN8e5TR1AmduXDz60Xn.jpg" },
+  { id: 1, name: "Dr. Gautam Sharma", specialty: "Cardiology", education: "MD - AIIMS Delhi", fee: "1200", lang: ["Eng", "Hin"], nextSlot: "Today 4:00 PM", img: "https://www.shutterstock.com/image-photo/indian-male-senior-doctor-standing-260nw-2271587313.jpg" },
+  { id: 2, name: "Dr. Vikram Singh", specialty: "Internal Medicine", education: "BDS - Maulana Azad", fee: "800", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 10:00 AM", img: "https://thumbs.dreamstime.com/b/portrait-happy-young-handsome-indian-man-doctor-smiling-studio-shot-against-white-background-137823661.jpg" },
 ];
 
 const DoctorSection = () => {
@@ -171,7 +163,7 @@ const DoctorSection = () => {
           ) : (
             <div className="w-full text-center py-20 text-slate-400 bg-white rounded-2xl border-2 border-dashed border-slate-100">
               <Stethoscope size={40} className="mx-auto mb-3 opacity-20" />
-              <p className="text-sm font-medium">No specialists found currently.</p>
+              <p className="text-sm font-medium">For now there is no doctor available for this specialty.</p>
             </div>
           )}
         </div>

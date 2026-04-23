@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { MapPin } from "lucide-react";
+import AboutMission100 from "../AboutMission100";
 
 const FormStepOne = ({ onNext }) => {
   const [isSending, setIsSending] = useState(false);
@@ -8,162 +10,150 @@ const FormStepOne = ({ onNext }) => {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      state: "",
+      city: ""
+    }
+  });
+
+  const selectedState = watch("state");
+  const locations = {
+    "Delhi": ["Delhi"],
+    "Uttar Pradesh": ["Noida", "Greater Noida"]
+  };
+
+  const availableCities = selectedState ? locations[selectedState] : [];
+
+  useEffect(() => {
+    if (selectedState === "Delhi") {
+      setValue("city", "Delhi");
+    } else {
+      setValue("city", "");
+    }
+  }, [selectedState, setValue]);
 
   const onSubmit = async (data) => {
     setIsSending(true);
     try {
-      // Sending data to our Next.js API route
       const response = await fetch("/api/send-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      if (response.ok) {
-        console.log("Enquiry sent to email successfully!");
-      }
+      if (response.ok) console.log("Enquiry sent successfully!");
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error:", error);
     } finally {
       setIsSending(false);
-      // We call onNext even if mail fails so the user can finish the booking
       onNext(data); 
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Patient Information</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* First Name */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">First Name *</label>
-          <input
-            {...register("firstName", { 
-              required: "First name is required", 
-              pattern: { value: /^[A-Za-z ]+$/, message: "Alphabetical characters only" },
-              minLength: { value: 2, message: "Min 2 characters" }
-            })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 shadow-sm"
-          />
-          {errors.firstName && <span className="text-red-500 text-xs mt-1">{errors.firstName.message}</span>}
+    <div className="max-w-4xl mx-auto">
+      {/* ✅ Use the separated About component here */}
+      <AboutMission100 />
+
+      {/* --- FORM SECTION --- */}
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-2 md:p-8 rounded-3xl space-y-6">
+        <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center uppercase tracking-tight underline decoration-green-500 underline-offset-8">
+          Appointment Details
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-semibold text-slate-700">First Name *</label>
+            <input {...register("firstName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 ring-green-500 outline-none transition-all" />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700">Last Name *</label>
+            <input {...register("lastName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700">Contact Number *</label>
+            <input type="tel" {...register("contactNo", { required: "10 digits required", pattern: /^[0-9]{10}$/ })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700">Preferred Doctor *</label>
+            <select {...register("doctorName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+              <option value="">Select Doctor</option>
+              <option value="Dr. Vishnu">Dr. Vishnu</option>
+              <option value="Dr. Gaurav">Dr. Gaurav</option>
+            </select>
+          </div>
         </div>
 
-        {/* Last Name */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Last Name *</label>
-          <input
-            {...register("lastName", { 
-              required: "Last name is required",
-              pattern: { value: /^[A-Za-z ]+$/, message: "Alphabetical characters only" },
-              minLength: { value: 2, message: "Min 2 characters" }
-            })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-          />
-          {errors.lastName && <span className="text-red-500 text-xs mt-1">{errors.lastName.message}</span>}
+        <div className="border-t border-slate-100 pt-8 mt-4">
+          <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-green-600" /> Home Consultation Address
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-slate-700">House / Flat No. / Building Name *</label>
+              <input {...register("houseNo", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-slate-700">Street / Area / Locality *</label>
+              <input {...register("street", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700">State *</label>
+              <select {...register("state", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
+                <option value="">Select State</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700">City *</label>
+              <select 
+                {...register("city", { required: "Required" })} 
+                disabled={selectedState === "Delhi"}
+                className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none disabled:opacity-60"
+              >
+                <option value="">Select City</option>
+                {availableCities.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700">Pincode *</label>
+              <input {...register("pinCode", { required: "6 digits required", pattern: /^[0-9]{6}$/ })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-700">Nearby Landmark</label>
+              <input {...register("landmark")} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" placeholder="e.g. Near Metro Station" />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-slate-700">Additional Note</label>
+              <textarea 
+                {...register("additionalNote")} 
+                className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" 
+                rows="2" 
+                placeholder="Specific instructions for finding your location..."
+              ></textarea>
+            </div>
+          </div>
         </div>
 
-        {/* Gender */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Gender *</label>
-          <select {...register("gender", { required: "Gender selection is required" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          {errors.gender && <span className="text-red-500 text-xs mt-1">{errors.gender.message}</span>}
-        </div>
-
-        {/* Age */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Age *</label>
-          <input
-            type="number"
-            min="1"
-            onKeyDown={(e) => ["e", "E", "-", "+"].includes(e.key) && e.preventDefault()}
-            {...register("age", { 
-                required: "Age is required", 
-                min: { value: 1, message: "Age must be at least 1" } 
-            })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-          />
-          {errors.age && <span className="text-red-500 text-xs mt-1">{errors.age.message}</span>}
-        </div>
-
-        {/* Contact Number */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Contact Number *</label>
-          <input
-            type="tel"
-            {...register("contactNo", { 
-              required: "Contact is required", 
-              pattern: { value: /^[0-9]{10}$/, message: "Must be exactly 10 digits" } 
-            })}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-          />
-          {errors.contactNo && <span className="text-red-500 text-xs mt-1">{errors.contactNo.message}</span>}
-        </div>
-
-        {/* Guardian Name */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Guardian Name (Optional)</label>
-          <input
-            {...register("guardianName")}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-          />
-        </div>
-
-        {/* Department */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Department *</label>
-          <select {...register("department", { required: "Please select a department" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-            <option value="">Select Department</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Ayurveda">Ayurveda</option>
-            <option value="Mental Health">Mental Health</option>
-          </select>
-          {errors.department && <span className="text-red-500 text-xs mt-1">{errors.department.message}</span>}
-        </div>
-
-        {/* Doctor Name */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Doctor Name *</label>
-          <select {...register("doctorName", { required: "Please select a doctor" })} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-            <option value="">Select Doctor</option>
-            <option value="Dr. Hemant Pandey">Dr. Vishnu</option>
-            <option value="Dr. Muskan Agrawal">Dr. Gaurav</option>
-          </select>
-          {errors.doctorName && <span className="text-red-500 text-xs mt-1">{errors.doctorName.message}</span>}
-        </div>
-      </div>
-
-      {/* Description */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Description / Reason for Visit *</label>
-        <textarea
-          {...register("description", { 
-            required: "Description is required", 
-            minLength: { value: 5, message: "Description must be at least 5 characters" } 
-          })}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
-          rows="3"
-          placeholder="Briefly describe symptoms..."
-        ></textarea>
-        {errors.description && <span className="text-red-500 text-xs mt-1">{errors.description.message}</span>}
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSending}
-        className={`w-full text-white py-3 rounded-lg font-bold transition-all active:scale-95 shadow-md ${isSending ? 'bg-gray-400' : 'bg-green-600 hover:bg-green-700'}`}
-      >
-        {isSending ? "Processing..." : "Continue to Schedule"}
-      </button>
-    </form>
+        <button 
+          type="submit" 
+          disabled={isSending} 
+          className={`w-full text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl active:scale-95 ${isSending ? 'bg-slate-400' : 'bg-slate-900 hover:bg-green-600'}`}
+        >
+          {isSending ? "RECEIVING DETAILS..." : "CONTINUE TO SCHEDULE"}
+        </button>
+      </form>
+    </div>
   );
 };
 
