@@ -25,7 +25,9 @@ const specializations = [
 
 const practitioners = [
   { id: 1, name: "Dr. Gautam Sharma", specialty: "Cardiology", education: "MD - AIIMS Delhi", fee: "1200", lang: ["Eng", "Hin"], nextSlot: "Today 4:00 PM", img: "https://www.shutterstock.com/image-photo/indian-male-senior-doctor-standing-260nw-2271587313.jpg" },
-  { id: 2, name: "Dr. Vikram Singh", specialty: "Internal Medicine", education: "BDS - Maulana Azad", fee: "800", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 10:00 AM", img: "https://thumbs.dreamstime.com/b/portrait-happy-young-handsome-indian-man-doctor-smiling-studio-shot-against-white-background-137823661.jpg" },
+  { id: 2, name: "Dr. Vikram Singh", specialty: "Internal Medicine", education: "MD - AIIMS Delhi", fee: "800", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 10:00 AM", img: "https://thumbs.dreamstime.com/b/portrait-happy-young-handsome-indian-man-doctor-smiling-studio-shot-against-white-background-137823661.jpg" },
+  { id: 3, name: "Dr. Abhay Sharma", specialty: "Gastroenterology", education: "MD - AIIMS Delhi", fee: "1000", lang: ["Eng", "Hin"], nextSlot: "Today 6:00 PM", img: "https://t4.ftcdn.net/jpg/02/57/48/67/360_F_257486764_GnnrHRNIBV93mAwR0aiNkS0x5UjDfIcl.jpg" },
+  { id: 4, name: "Dr. Vishnu Singh", specialty: "Orthopedics", education: "MS - AIIMS Delhi", fee: "1500", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 2:00 PM", img: "https://img.freepik.com/premium-photo/young-handsome-indian-male-doctor-with-stethoscope-his-neck-writing-notes_156779-1614.jpg"},
 ];
 
 const DoctorSection = () => {
