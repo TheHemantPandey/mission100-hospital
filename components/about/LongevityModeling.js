@@ -1,120 +1,92 @@
 import React from 'react';
-import { Microscope, Dna, LineChart, ShieldCheck, Timer } from 'lucide-react';
+import Image from 'next/image';
+import { Phone } from 'lucide-react';
 
-const LongevityModeling = () => {
+const MissionHero = () => {
   return (
-    <section className="py-24 bg-[#0a0f18] text-white overflow-hidden relative">
-      {/* Neural Network Style Background Decoration */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-size-[40px_40px]" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Side: Technical Explanation */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest">
-              <Timer size={14} /> Longevity Modeling
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Predicting the Future of <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-green-400">
-                Your Biological Health
-              </span>
-            </h2>
-
-            <p className="text-slate-400 text-lg leading-relaxed">
-              Utilizing data-driven longevity and risk modeling to extend your healthy years. We go beyond 
-              traditional checkups by analyzing your DNA to predict health outcomes before they occur.
-            </p>
-
-            <ul className="space-y-6">
-              {[
-                { 
-                  icon: <Dna className="text-blue-400" />, 
-                  title: "Telomere Analysis", 
-                  desc: "Measuring the protective caps on your chromosomes to determine cellular age." 
-                },
-                { 
-                  icon: <Microscope className="text-green-400" />, 
-                  title: "Cellular Regeneration", 
-                  desc: "Personalized protocols designed to optimize metabolic balance and cellular health[cite: 162, 186]." 
-                },
-                { 
-                  icon: <LineChart className="text-amber-400" />, 
-                  title: "Death Prediction Modeling", 
-                  desc: "Utilizing preventive healthcare data to identify and mitigate long-term mortality risks." 
-                }
-              ].map((item, idx) => (
-                <li key={idx} className="flex gap-4 items-start">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 mt-1">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-lg">{item.title}</h4>
-                    <p className="text-slate-500 text-sm">{item.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Side: Data Dashboard Visualization */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full" />
-            
-            <div className="relative bg-slate-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-[3rem] shadow-2xl">
-              <div className="flex justify-between items-center mb-10">
-                <div>
-                  <div className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Biological Analysis</div>
-                  <div className="text-2xl font-bold">Vitality Report</div>
-                </div>
-                <ShieldCheck className="text-green-500" size={32} />
-              </div>
-
-              {/* The "Bio-Age" Highlight from PDF Source 179 */}
-              <div className="bg-linear-to-br from-blue-600 to-blue-800 p-8 rounded-[2.5rem] text-center mb-8 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:rotate-12 transition-transform">
-                  <Dna size={80} />
-                </div>
-                <div className="text-blue-100 text-sm font-bold uppercase tracking-wider mb-2">Biological Age Result</div>
-                <div className="text-6xl font-black text-white mb-2 tracking-tighter">-5.2 Years</div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-400/20 rounded-full text-green-300 text-[10px] font-bold">
-                  OPTIMAL REGENERATION
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 border border-white/10 p-5 rounded-3xl">
-                  <div className="text-slate-500 text-[10px] font-bold uppercase mb-2">Telomere Length</div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="w-[85%] h-full bg-blue-400 shadow-[0_0_10px_#60a5fa]" />
-                  </div>
-                  <div className="mt-2 text-right text-xs font-bold text-blue-400">85th Percentile</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 p-5 rounded-3xl">
-                  <div className="text-slate-500 text-[10px] font-bold uppercase mb-2">Modeling Confidence</div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="w-[94%] h-full bg-green-400 shadow-[0_0_10px_#4ade80]" />
-                  </div>
-                  <div className="mt-2 text-right text-xs font-bold text-green-400">94% Accuracy</div>
-                </div>
-              </div>
-
-              <div className="mt-8 text-center">
-                <p className="text-[10px] text-slate-500 italic leading-relaxed">
-                  "Longevity modeling and cellular protocols do not replace clinical medical treatment[cite: 177]."
-                </p>
-              </div>
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      
+      {/* Main Container: mx-auto for mobile, aligns with your PC sections via max-w-7xl */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-center relative py-12 md:py-0">
+        
+        {/* 1. Left Vertical Text - Fixed position for PC view */}
+        <div className="hidden lg:block absolute left-4 xl:left-10 top-1/2 -translate-y-1/2">
+          <div className="flex flex-col items-center gap-4">
+             <div className="text-[12px] tracking-[0.8em] font-medium text-slate-300 [writing-mode:vertical-rl] rotate-180 uppercase">
+               Establishing Longevity
             </div>
           </div>
-
         </div>
+
+        {/* 2. Content Section */}
+        <div className="flex-1 z-10 space-y-10 lg:pl-20">
+          <div className="space-y-2">
+            {/* FIXED: Text grouped into two lines as requested. 
+                Responsive scaling ensures it fits mobile screens without overflowing */}
+            <h1 className="text-[38px] sm:text-[50px] lg:text-[75px] xl:text-[85px] leading-[1.1] md:leading-[0.95] font-black text-slate-900 tracking-tighter">
+              Live <span className="text-green-600">100</span> Years,<br />
+              Live 100% Better
+            </h1>
+          </div>
+
+          <div className="max-w-xl space-y-6">
+            <p className="text-lg md:text-xl text-slate-800 font-bold leading-snug">
+              At <span className="text-slate-900">Mission 100</span>, we are dedicated to the 
+              revolutionary idea that healthcare should be <span className="text-green-600">preventive</span> rather than just reactive.
+            </p>
+            <p className="text-slate-500 text-sm md:text-base leading-relaxed">
+              Our core mission is to provide the tools, data, and guidance necessary for every individual 
+              to achieve a healthy, vibrant century of life. We focus heavily on the needs of the 
+              <span className="font-bold text-slate-700"> Child before Birth</span>, 
+              <span className="font-bold text-slate-700"> Adults</span>, and the 
+              <span className="font-bold text-slate-700"> Elderly</span>.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6 pt-4">
+            <button className="w-full sm:w-fit px-10 py-5 bg-[#0f172a] text-white text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-green-600 transition-all active:scale-95 shadow-lg">
+              Book Consultation Now
+            </button>
+          </div>
+        </div>
+
+        {/* 3. Right Visual Card - Optimized for speed and responsiveness */}
+        <div className="flex-1 flex justify-center items-center mt-16 md:mt-0 relative group">
+          <div className="relative w-75 h-72 sm:w-100 sm:h-100 lg:w-112.5 lg:h-112.5 xl:w-125 xl:h-125">
+            <div className="relative h-full w-full rounded-[40px] md:rounded-[60px] overflow-hidden border-8 md:border-12 border-white shadow-2xl shadow-slate-200">
+              <Image 
+                src="/Hero-Bg.jpg" 
+                alt="Mission 100 Precision" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority // Ensures this high-priority image loads first
+              />
+              <div className="absolute inset-0 bg-black/5" />
+              <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white drop-shadow-lg">
+                <div className="text-[10px] uppercase tracking-[0.2em] font-black opacity-90 mb-1">Longevity Focus</div>
+                <div className="text-xl md:text-3xl font-bold">Scientific Precision</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Bottom Sticky Contact Info - Responsive positioning */}
+        <div className="fixed md:absolute bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-20">
+            <div className="hidden sm:flex items-center gap-3 bg-white border border-slate-100 py-3 px-6 rounded-full shadow-lg shadow-slate-200">
+                <Phone size={18} className="text-slate-900" />
+                <span className="text-slate-900 font-bold text-sm tracking-tight">+91 9220 620 209</span>
+            </div>
+            <div className="bg-[#25D366] p-4 rounded-full text-white shadow-xl hover:scale-110 transition-all cursor-pointer active:scale-95">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.405c0 6.555-5.332 11.887-11.886 11.887-2.012 0-3.986-.51-5.742-1.477l-6.244 1.702zm6.75-3.193c1.513.899 3.3 1.373 5.123 1.373 5.45 0 9.886-4.437 9.886-9.888 0-2.64-1.028-5.122-2.894-6.989s-4.349-2.894-6.992-2.894c-5.451 0-9.888 4.437-9.888 9.889 0 1.942.57 3.842 1.649 5.467l-1.077 3.932 4.027-1.096z" />
+                </svg>
+            </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
-export default LongevityModeling;
+export default MissionHero;
