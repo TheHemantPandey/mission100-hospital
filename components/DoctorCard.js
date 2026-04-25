@@ -1,7 +1,7 @@
-
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, memo } from "react";
+import Image from "next/image";
 import {
   GraduationCap,
   Stethoscope,
@@ -30,13 +30,87 @@ const practitioners = [
   { id: 4, name: "Dr. Vishnu Singh", specialty: "Orthopedics", education: "MS - AIIMS Delhi", fee: "1500", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 2:00 PM", img: "https://img.freepik.com/premium-photo/young-handsome-indian-male-doctor-with-stethoscope-his-neck-writing-notes_156779-1614.jpg"},
 ];
 
+// Reusable Specialty Button for cleaner code
+const SpecialtyButton = ({ spec, isActive, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`px-6 py-4 text-sm font-bold whitespace-nowrap transition-all border-b-4 
+      ${isActive 
+        ? "text-green-700 border-green-600 bg-green-50/50" 
+        : "text-slate-500 border-transparent hover:text-green-600 hover:bg-slate-100/30"
+      } rounded-t-xl`}
+  >
+    {spec.label}
+  </button>
+);
+
+// Reusable Doctor Card with optimized Image handling
+const DoctorCard = memo(({ doc }) => (
+  <div className="min-w-70 md:min-w-[320px] snap-center bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+    <div className="relative h-48 overflow-hidden rounded-t-2xl bg-slate-200">
+      <Image
+        src={doc.img}
+        alt={doc.name}
+        fill
+        sizes="(max-width: 768px) 280px, 320px"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        // Don't use priority here because these cards are usually lower on the page
+      />
+      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-white/20 text-green-800 text-[10px] px-3 py-1.5 rounded-full font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
+        <Stethoscope size={12} className="text-green-600" /> {doc.specialty}
+      </div>
+    </div>
+
+    <div className="p-5">
+      <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-green-700 transition-colors">
+        {doc.name}
+      </h3>
+      <div className="flex items-center gap-1.5 text-slate-500 text-xs mb-4">
+        <GraduationCap size={14} className="text-green-500" />
+        <span className="font-medium">{doc.education}</span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 border-t border-slate-50 pt-4 mb-6">
+        <div className="flex flex-col gap-0.5">
+          <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Fee</div>
+          <div className="flex items-center gap-0.5 text-slate-900 font-bold text-base">
+            <IndianRupee size={14} className="text-green-600" />
+            {doc.fee}
+          </div>
+        </div>
+        
+        <div className="flex flex-col gap-0.5 text-right">
+          <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Languages</div>
+          <span className="text-slate-900 font-bold text-[11px] truncate">{doc.lang.join(", ")}</span>
+        </div>
+
+        <div className="col-span-2 bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Clock3 size={14} className="text-amber-500" />
+            <div className="flex flex-col">
+              <span className="text-[8px] text-slate-400 uppercase font-bold">Next Slot</span>
+              <span className="text-[11px] font-bold text-slate-700 leading-tight">{doc.nextSlot}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button className="w-full flex items-center justify-center gap-2 bg-green-600  text-white py-3.5 rounded-xl text-xs font-bold hover:bg-slate-900 transition-all active:scale-95 group-hover:bg-green-600 border border-blue-900 shadow-md">
+        <CalendarCheck size={16} /> Book Appointment
+      </button>
+    </div>
+  </div>
+));
+
+DoctorCard.displayName = "DoctorCard";
+
 const DoctorSection = () => {
   const scrollRef = useRef(null);
   const [activeSpecialty, setActiveSpecialty] = useState("all");
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
+      const scrollAmount = 340; // Card width + gap
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -50,31 +124,33 @@ const DoctorSection = () => {
       : practitioners.filter((doc) => doc.specialty === activeSpecialty);
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-slate-50 min-h-screen">
+    <section className="py-12 md:py-20 px-4 md:px-8 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div className="space-y-1">
-            <span className="text-green-600 font-bold uppercase tracking-widest text-[15px]"> Mission100 Team</span>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+        {/* Header - More compact on mobile */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div className="space-y-2">
+            <span className="text-green-600 font-bold uppercase tracking-widest text-xs md:text-[14px]">Mission100 Team</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               Mission 100 <span className="text-green-600">Doctors</span>
             </h2>
-            <p className="text-slate-500 text-sm max-w-md">
-              India's top specialists dedicated to your longevity.
+            <p className="text-slate-500 text-sm md:text-base max-w-md">
+              India's top specialists dedicated to your longevity and preventive care.
             </p>
           </div>
           
-          <div className="flex gap-2">
+          {/* Scroll Buttons - Hidden on very small screens to save space */}
+          <div className="hidden sm:flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
+              className="p-3.5 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
               aria-label="Scroll Left"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
+              className="p-3.5 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
               aria-label="Scroll Right"
             >
               <ChevronRight size={20} />
@@ -82,90 +158,35 @@ const DoctorSection = () => {
           </div>
         </div>
 
-        <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-8 pb-1 scroll-smooth">
+        {/* Categories Bar */}
+        <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-10 pb-1 scroll-smooth">
           {specializations.map((spec) => (
-            <button
+            <SpecialtyButton 
               key={spec.id}
+              spec={spec}
+              isActive={activeSpecialty === spec.id}
               onClick={() => {
                 setActiveSpecialty(spec.id);
                 if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
               }}
-              className={`px-6 py-4 text-sm font-bold whitespace-nowrap transition-all border-b-4 
-                ${activeSpecialty === spec.id 
-                  ? "text-green-700 border-green-600 bg-green-50/50" 
-                  : "text-slate-500 border-transparent hover:text-green-600 hover:bg-slate-100/30"
-                } rounded-t-xl`}
-            >
-              {spec.label}
-            </button>
+            />
           ))}
         </div>
 
+        {/* Doctors Grid/Carousel */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar snap-x scroll-smooth pb-8"
+          className="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-10 px-1"
         >
           {filteredPractitioners.length > 0 ? (
             filteredPractitioners.map((doc) => (
-              <div
-                key={doc.id}
-                className="min-w-70 md:min-w-[320px] snap-start bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-44 overflow-hidden rounded-t-2xl">
-                  <img
-                    src={doc.img}
-                    alt={doc.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 left-3 bg-white/80 backdrop-blur-md border border-white/20 text-green-800 text-[9px] px-3 py-1 rounded-full font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
-                    <Stethoscope size={12} className="text-green-600" /> {doc.specialty}
-                  </div>
-                </div>
-
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-slate-900 mb-0.5 group-hover:text-green-700 transition-colors">
-                    {doc.name}
-                  </h3>
-                  <div className="flex items-center gap-1.5 text-slate-500 text-xs mb-4">
-                    <GraduationCap size={14} className="text-green-500" />
-                    <span className="font-medium">{doc.education}</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 border-t border-slate-50 pt-4 mb-6">
-                    <div className="flex flex-col gap-0.5">
-                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Fee</div>
-                      <div className="flex items-center gap-0.5 text-slate-900 font-bold text-base">
-                        <IndianRupee size={14} className="text-green-600" />
-                        {doc.fee}
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-col gap-0.5 text-right">
-                      <div className="text-[9px] text-slate-400 uppercase font-bold tracking-wider">Languages</div>
-                      <span className="text-slate-900 font-bold text-[11px] truncate">{doc.lang.join(", ")}</span>
-                    </div>
-
-                    <div className="col-span-2 bg-slate-50/80 p-2 rounded-xl border border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Clock3 size={14} className="text-amber-500" />
-                        <div className="flex flex-col">
-                          <span className="text-[8px] text-slate-400 uppercase font-bold">Next Slot</span>
-                          <span className="text-[10px] font-bold text-slate-700 leading-tight">{doc.nextSlot}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl text-xs font-bold hover:bg-green-600 transition-all active:scale-95 group-hover:bg-green-600">
-                    <CalendarCheck size={16} /> Book Appointment
-                  </button>
-                </div>
-              </div>
+              <DoctorCard key={doc.id} doc={doc} />
             ))
           ) : (
-            <div className="w-full text-center py-20 text-slate-400 bg-white rounded-2xl border-2 border-dashed border-slate-100">
-              <Stethoscope size={40} className="mx-auto mb-3 opacity-20" />
-              <p className="text-sm font-medium">For now there is no doctor available for this specialty.</p>
+            <div className="w-full text-center py-24 text-slate-400 bg-white rounded-3xl border-2 border-dashed border-slate-100">
+              <Stethoscope size={48} className="mx-auto mb-4 opacity-20" />
+              <p className="text-base font-semibold text-slate-500">Currently no doctors available for this specialty.</p>
+              <p className="text-sm">Please check back soon or try another category.</p>
             </div>
           )}
         </div>
