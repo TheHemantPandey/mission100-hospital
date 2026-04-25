@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { MapPin } from "lucide-react";
+import { MapPin, Dumbbell } from "lucide-react"; // Added Dumbbell icon
 import AboutMission100 from "../AboutMission100";
 
 const FormStepOne = ({ onNext }) => {
@@ -16,7 +16,8 @@ const FormStepOne = ({ onNext }) => {
   } = useForm({
     defaultValues: {
       state: "",
-      city: ""
+      city: "",
+      gymInfo: "" // New field
     }
   });
 
@@ -37,28 +38,34 @@ const FormStepOne = ({ onNext }) => {
   }, [selectedState, setValue]);
 
   const onSubmit = async (data) => {
+    // Parse price from gym selection (e.g., "Anytime Fitness|599")
+    const [gymName, gymPrice] = data.gymInfo.split("|");
+    const finalData = {
+      ...data,
+      gymName,
+      amount: parseInt(gymPrice)
+    };
+
     setIsSending(true);
     try {
       const response = await fetch("/api/send-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(finalData),
       });
       if (response.ok) console.log("Enquiry sent successfully!");
     } catch (error) {
       console.error("Error:", error);
     } finally {
       setIsSending(false);
-      onNext(data); 
+      onNext(finalData); 
     }
   };
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* ✅ Use the separated About component here */}
       <AboutMission100 />
 
-      {/* --- FORM SECTION --- */}
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-2 md:p-8 rounded-3xl space-y-6">
         <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center uppercase tracking-tight underline decoration-green-500 underline-offset-8">
           Appointment Details
@@ -67,7 +74,7 @@ const FormStepOne = ({ onNext }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-semibold text-slate-700">First Name *</label>
-            <input {...register("firstName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 ring-green-500 outline-none transition-all" />
+            <input {...register("firstName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 ring-green-500 outline-none" />
           </div>
           <div>
             <label className="block text-sm font-semibold text-slate-700">Last Name *</label>
@@ -82,12 +89,34 @@ const FormStepOne = ({ onNext }) => {
             <select {...register("testName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
               <option value="">Select Test</option>
               <option value="Blood Test">Blood Test</option>
-              <option value="complete test Test">Urine Test</option>
+              <option value="Urine Test">Urine Test</option>
             </select>
           </div>
         </div>
 
-        <div className="border-t border-slate-100 pt-8 mt-4">
+        {/* --- NEW GYM SECTION --- */}
+        <div className="border-t border-slate-100 pt-8">
+          <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+            <Dumbbell className="w-5 h-5 text-green-600" /> Select Your Gym
+          </h3>
+          <div className="w-full">
+            <label className="block text-sm font-semibold text-slate-700">Gym Location & Price *</label>
+            <select 
+              {...register("gymInfo", { required: "Please select a gym" })} 
+              className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none"
+            >
+              <option value="">Select a Gym</option>
+              <option value="Anytime Fitness Preet Vihar|599">Anytime Fitness Preet Vihar - ₹599</option>
+              <option value="Cult Fit Preet Vihar|999">Cult Fit Preet Vihar - ₹999</option>
+              <option value="WTF Laxmi Nagar|699">WTF Laxmi Nagar - ₹699</option>
+              <option value="Inferno Laxmi Nagar|199">Inferno Laxmi Nagar - ₹199</option>
+              <option value="Neelkhand Laxmi Nagar|399">Neelkhand Laxmi Nagar - ₹399</option>
+              <option value="Vision Fitness Laxmi Nagar|499">Vision Fitness Laxmi Nagar - ₹499</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 pt-8">
           <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
             <MapPin className="w-5 h-5 text-green-600" /> Home Consultation Address
           </h3>
@@ -132,16 +161,6 @@ const FormStepOne = ({ onNext }) => {
               <label className="block text-sm font-semibold text-slate-700">Nearby Landmark</label>
               <input {...register("landmark")} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" placeholder="e.g. Near Metro Station" />
             </div>
-
-            <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700">Additional Note</label>
-              <textarea 
-                {...register("additionalNote")} 
-                className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none" 
-                rows="2" 
-                placeholder="Specific instructions for finding your location..."
-              ></textarea>
-            </div>
           </div>
         </div>
 
@@ -150,7 +169,7 @@ const FormStepOne = ({ onNext }) => {
           disabled={isSending} 
           className={`w-full text-white py-5 rounded-2xl font-black text-lg transition-all shadow-xl active:scale-95 ${isSending ? 'bg-slate-400' : 'bg-green-600 hover:bg-slate-900'}`}
         >
-          {isSending ? "RECEIVING DETAILS..." : "Book Appointment"}
+          {isSending ? "Submitting Details..." : "Continue to Schedule"}
         </button>
       </form>
     </div>
