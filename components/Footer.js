@@ -32,19 +32,17 @@ const Footer = () => {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
           
-          {/* Brand Identity Section */}
+          {/* Brand Identity Section */} 
           <div className="lg:col-span-4 space-y-8">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20 rotate-3 transition-transform duration-300">
                 <a href="/" className="text-[#020617] font-black text-xl">M</a>
               </div>
               <div>
-                <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic">
+                <h3 className="text-2xl font-black text-green-800racking-tighter uppercase italic">
                   Mission <span className="text-emerald-500 font-light">100</span>
                 </h3>
-                <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.3em] leading-none">
-                  Hospital Group
-                </p>
+                
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-sm">
