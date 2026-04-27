@@ -46,10 +46,12 @@ const Footer = () => {
             <div>
               <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase tracking-widest">Medical Care</h2>
               <ul className="text-gray-600 space-y-4 font-medium text-sm">
-                <li><a href="/services" className="hover:text-green-600 transition-colors">Preventive Care</a></li>
-                <li><a href="/services" className="hover:text-green-600 transition-colors">Heart Attack Prevention</a></li>
-                <li><a href="/services" className="hover:text-green-600 transition-colors">Stress Management</a></li>
-                <li><a href="/services" className="hover:text-green-600 transition-colors">Longevity Modeling</a></li>
+                <li><a href="/services/heart-attack-prevention" className="hover:text-green-600 transition-colors">Heart Attack Prevention</a></li>
+                <li><a href="/services/mental-health&stress" className="hover:text-green-600 transition-colors">Mental Health & Stress</a></li>
+                <li><a href="/services/anti-aging-science" className="hover:text-green-600 transition-colors">Anti-Aging Science</a></li>
+                <li><a href="/services/bone-strength" className="hover:text-green-600 transition-colors">Body & Bone Strength</a></li>
+                <li><a href="/services/yoga-ayurveda" className="hover:text-green-600 transition-colors">Yoga & Ayurveda</a></li>
+                <li><a href="/services/metabolic-sugar-control" className="hover:text-green-600 transition-colors">Metabolic & Sugar Control</a></li>
               </ul>
             </div>
 
@@ -57,6 +59,8 @@ const Footer = () => {
             <div>
               <h2 className="mb-6 text-sm font-bold text-gray-900 uppercase tracking-widest">Trust Center</h2>
               <ul className="text-gray-600 space-y-4 font-medium text-sm">
+                <li><a href="/" className="hover:text-green-600 transition-colors">Home</a></li>
+                <li><a href="/about" className="hover:text-green-600 transition-colors">Aoout Us</a></li>
                 <li><a href="/faq" className="hover:text-green-600 transition-colors">Help & FAQ</a></li>
                 <li><a href="#" className="hover:text-green-600 transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-green-600 transition-colors">Terms of Use</a></li>

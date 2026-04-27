@@ -88,9 +88,20 @@ const FormStepOne = ({ onNext }) => {
             <label className="block text-sm font-semibold text-slate-700">Preferred Test *</label>
             <select {...register("testName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
               <option value="">Select Test</option>
-              <option value="Blood Test">Blood Test</option>
-              <option value="Urine Test">Urine Test</option>
-            </select>
+              <option value="Bone Test">Bone Test</option>
+              <option value="Stree Test">Stree Test</option>
+              <option value="Sugar Test">Sugar Test</option>
+              <option value="Lft & Kft Test">Lft & Kft Test</option>
+              <option value="Diabities Test">Diabities Test</option>
+              <option value="Family Pack Test">Family Pack Test</option>
+              <option value="Personality Test">Personality Test</option>
+              <option value="Blood Group Test">Blood Group Test</option>
+              <option value="Bosy Fitness Test">Bosy Fitness Test</option>
+              <option value="Full Body Checkup - 2999">Full Body Checkup - 2999</option>
+              <option value="Senior Citizen Checkup For Men">Senior Citizen Checkup For Men</option>
+              <option value="Senior Citizen Checkup For Women">Senior Citizen Checkup For Women</option>
+              <option value="Body Mineral and Vitamin Checkup">Body Mineral and Vitamin Checkup</option>
+              </select>
           </div>
         </div>
 

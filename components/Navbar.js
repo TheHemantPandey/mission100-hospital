@@ -9,11 +9,11 @@ const demoServices = [
   { name: "Anti-Aging Science", href: "/services/anti-aging-science" },
   { name: "Body & Bone Strength", href: "/services/bone-strength" },
   { name: "Yoga & Ayurveda", href: "/services/yoga-ayurveda" },
-  { name: "Metabolic & Sugar Control", href: "/services/metabolic" },
-  { name: "Micronutrient & Vitality", href: "/services/micronutrient" },
-  { name: "Longevity Modeling", href: "/services/longevity" },
-  { name: "Behavioral Analysis", href: "/services/behavioral" },
-  { name: "Body Preservation", href: "/services/preservation" },
+  { name: "Metabolic & Sugar Control", href: "/services/metabolic-sugar-control" },
+  { name: "Vitamins", href: "/services/Vitamins" },
+  { name: "Longevity Modeling", href: "/services/longevity-modeling" },
+  { name: "Behavioral Analysis", href: "/services/behavioral-analysis" },
+  { name: "Body Preservation", href: "/services/body-preservation" },
 ];
 
 const Navbar = () => {
