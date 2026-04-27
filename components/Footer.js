@@ -43,13 +43,13 @@ const Footer = () => {
                   Mission <span className="text-emerald-500 font-light">100</span>
                 </h3>
                 <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-[0.3em] leading-none">
-                  Hospital Group [cite: 3, 247]
+                  Hospital Group
                 </p>
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-sm">
               Empowering your journey toward a 100-year life through preventive healthcare, 
-              Ayurveda, and modern vitality science[cite: 248].
+              Ayurveda, and modern vitality science.
             </p>
             
             {/* Social Links */}
@@ -71,21 +71,21 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">Clinical Care</h4>
               <ul className="space-y-4 text-sm">
-                <li><a href="/services/heart-attack-prevention" className="hover:text-emerald-500 transition-colors">Heart Attack Prevention [cite: 256]</a></li>
-                <li><a href="/services/mental-health-stress" className="hover:text-emerald-500 transition-colors">Mental Health & Stress [cite: 256]</a></li>
-                <li><a href="/services/anti-aging-science" className="hover:text-emerald-500 transition-colors">Anti-Aging Science [cite: 256]</a></li>
-                <li><a href="/services/bone-strength" className="hover:text-emerald-500 transition-colors">Body & Bone Strength [cite: 259]</a></li>
-                <li><a href="/services/yoga-ayurveda" className="hover:text-emerald-500 transition-colors">Yoga & Ayurveda [cite: 260]</a></li>
+                <li><a href="/services/heart-attack-prevention" className="hover:text-emerald-500 transition-colors">Heart Attack Prevention</a></li>
+                <li><a href="/services/mental-health-stress" className="hover:text-emerald-500 transition-colors">Mental Health & Stress</a></li>
+                <li><a href="/services/anti-aging-science" className="hover:text-emerald-500 transition-colors">Anti-Aging Science</a></li>
+                <li><a href="/services/bone-strength" className="hover:text-emerald-500 transition-colors">Body & Bone Strength</a></li>
+                <li><a href="/services/yoga-ayurveda" className="hover:text-emerald-500 transition-colors">Yoga & Ayurveda</a></li>
               </ul>
             </div>
 
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">Trust Center</h4>
               <ul className="space-y-4 text-sm">
-                <li><a href="/about" className="hover:text-emerald-500 transition-colors">Our Philosophy [cite: 264]</a></li>
-                <li><a href="/faq" className="hover:text-emerald-500 transition-colors">Help & FAQ [cite: 258]</a></li>
-                <li><a href="/privacy" className="hover:text-emerald-500 transition-colors">Privacy Policy [cite: 262]</a></li>
-                <li><a href="/terms" className="hover:text-emerald-500 transition-colors">Terms of Use [cite: 263]</a></li>
+                <li><a href="/about" className="hover:text-emerald-500 transition-colors">Our Philosophy</a></li>
+                <li><a href="/faq" className="hover:text-emerald-500 transition-colors">Help & FAQ</a></li>
+                <li><a href="/privacy" className="hover:text-emerald-500 transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-emerald-500 transition-colors">Terms of Use</a></li>
               </ul>
             </div>
 
@@ -94,16 +94,16 @@ const Footer = () => {
               <div className="space-y-4 text-sm">
                 <div className="flex gap-3 group">
                   <Phone size={16} className="text-emerald-500 shrink-0 mt-1" />
-                  <a href="tel:+919220620209" className="text-slate-200 font-bold hover:text-emerald-500 transition-colors tracking-tight">+91 9220 620 209 [cite: 254, 271]</a>
+                  <a href="tel:+919220620209" className="text-slate-200 font-bold hover:text-emerald-500 transition-colors tracking-tight">+91 9220 620 209</a>
                 </div>
                 <div className="flex gap-3 group">
                   <Mail size={16} className="text-emerald-500 shrink-0 mt-1" />
-                  <a href="mailto:info@mission100hospital.com" className="text-slate-300 break-all font-medium hover:text-emerald-500 transition-colors tracking-tight">info@mission100hospital.com [cite: 266]</a>
+                  <a href="mailto:info@mission100hospital.com" className="text-slate-300 break-all font-medium hover:text-emerald-500 transition-colors tracking-tight">info@mission100hospital.com</a>
                 </div>
                 <div className="flex gap-3">
                   <MapPin size={16} className="text-emerald-500 shrink-0 mt-1" />
                   <p className="text-xs leading-relaxed">
-                    Metroplex East Tower, Office No. 147, Laxmi Nagar, 110092 [cite: 268]
+                    Metroplex East Tower, Office No. 147, Laxmi Nagar, 110092
                   </p>
                 </div>
               </div>
@@ -119,11 +119,11 @@ const Footer = () => {
             </div>
             <div className="text-center md:text-left">
               <h4 className="text-xs font-black text-white uppercase tracking-widest mb-2">
-                Emergency Medical Notice [cite: 269]
+                Emergency Medical Notice
               </h4>
               <p className="text-[11px] text-slate-500 leading-relaxed italic max-w-4xl">
                 Mission 100™ provides preventive care and health optimization research. Assessments on this platform are for wellness guidance 
-                only and do not replace emergency medical or clinical treatment. In case of a medical emergency, visit your nearest hospital immediately[cite: 270].
+                only and do not replace emergency medical or clinical treatment. In case of a medical emergency, visit your nearest hospital immediately.
               </p>
             </div>
           </div>
@@ -134,7 +134,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 bg-slate-900/30 px-5 py-2.5 rounded-full border border-slate-800">
             <ShieldCheck className="text-emerald-500" size={18} />
             <span className="text-[11px] font-bold text-slate-500 tracking-widest uppercase">
-              © 2026 <span className="text-white">Mission100™ Hospital</span>. All Rights Reserved[cite: 273].
+              © 2026 <span className="text-white">Mission100™ Hospital</span>. All Rights Reserved.
             </span>
           </div>
           <p className="text-[10px] font-black text-slate-700 uppercase tracking-[0.4em] italic">
