@@ -11,6 +11,7 @@ const demoServices = [
   { name: "Yoga & Ayurveda", href: "/services/yoga-ayurveda" },
   { name: "Metabolic & Sugar Control", href: "/services/metabolic-sugar-control" },
   { name: "Vitamins", href: "/services/Vitamins" },
+  { name: "Happiness & Emotional Vitality", href: "/services/happiness-emotional-vitality" },
   { name: "Longevity Modeling", href: "/services/longevity-modeling" },
   { name: "Behavioral Analysis", href: "/services/behavioral-analysis" },
   { name: "Body Preservation", href: "/services/body-preservation" },

@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AyurvedaSection = () => {
   return (
@@ -50,12 +51,14 @@ const AyurvedaSection = () => {
             </div>
 
             <div>
+              <Link href="/services/yoga-ayurveda" className="contents">
               <button className="w-full sm:w-fit flex items-center justify-center gap-2.5 bg-emerald-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-emerald-700 transition-all active:scale-95 group">
                 Start Healing Journey
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </button>
+              </Link>
             </div>
 
             <p className="text-[10px] md:text-xs text-gray-500 leading-relaxed pt-4 border-t border-gray-100 italic">

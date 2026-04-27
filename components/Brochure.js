@@ -5,7 +5,7 @@ const Brochure = () => {
   return (
     <section className="py-12 px-4">
       {/* FIXED: Added mx-auto and max-w-7xl to keep it centered on large windows while fitting mobile screens */}
-      <div className="bg-green-600 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl max-w-7xl mx-auto">
+      <div className="bg-green-600 rounded-3xl p-8 md:p-8 text-center text-white shadow-2xl max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
           Ready to start your journey to Mission100?
         </h2>

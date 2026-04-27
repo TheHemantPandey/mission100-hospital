@@ -102,25 +102,25 @@ const AboutUs = () => {
               emoji="🦴"
               title="Body & Bone Strength"
               description="Monitoring bone measurement and body strength to maintain mobility into old age."
-              href="/services/"
+              href="/services/bone-strength"
             />
             <ServiceCard 
               emoji="⏳"
               title="Anti-Aging Science"
               description="Utilizing preventive healthcare and death prediction modeling to extend your healthy years."
-              href="/services/"
+              href="/services/anti-aging-science"
             />
             <ServiceCard 
               emoji="🧘"
               title="Yoga & Ayurveda"
               description="Blending ancient wellness practices with modern medicine for a complete health ecosystem."
-              href="/services/"
+              href="/services/yoga-ayurveda"
             />
             <ServiceCard 
               emoji="🧍"
               title="Body Preservation"
               description="Preserving body health just before end-of-life stages to ensure maximum longevity."
-              href="/services/"
+              href="/services/body-preservation"
             />
           </div>
         </div>
