@@ -1,47 +1,45 @@
 import React from 'react';
+import { Phone } from 'lucide-react';
 
 const WhatsAppButton = () => {
-  // Your NEW contact number
-  const phoneNumber = "919220620209"; // Added 91 country code for WhatsApp logic
-  const displayPhone = "+91 9220 620 209"; 
+  const phoneNumber = "919220620209";
+  const displayPhone = "+91 9220 620 209";
   const message = "Hello! I'm interested in Mission100 services.";
   
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex items-center gap-3">
+    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-4">
       
-      {/* 1. NEW: Contact Number Pill (Left side) */}
+      {/* 1. CALL BUTTON (Placed Above) */}
       <a
-        href={`tel:${displayPhone}`}
-        className="flex items-center gap-2 bg-white border border-gray-200 text-[#003366] px-4 py-2 rounded-full shadow-lg hover:bg-gray-50 transition-all font-bold text-sm md:text-base group"
+        href={`tel:${phoneNumber}`}
+        className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#003d7a] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
+        aria-label="Call Hospital"
       >
-        <svg 
-          className="w-4 h-4 text-[#003366]" 
-          fill="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path d="M6.176 1.1c.739-.648 1.99-.433 2.484.444l1.171 2.093c.333.593.267 1.332-.165 1.849l-1.65 1.975a.25.25 0 00-.033.243 14.544 14.544 0 006.154 6.154.25.25 0 00.243-.033l1.975-1.65c.517-.432 1.256-.498 1.849-.165l2.093 1.171c.877.494 1.092 1.745.444 2.484l-1.674 1.912c-.521.595-1.326.877-2.112.721A18.544 18.544 0 011.121 5.371c-.156-.786.126-1.591.721-2.112L3.754 1.585l2.422-.485z" />
-        </svg>
-        {displayPhone}
+        {/* Tooltip */}
+        <span className="absolute right-20 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
+          Call us now!
+        </span>
+        <Phone className="w-6 h-6 md:w-7 md:h-7 fill-white" />
       </a>
 
-      {/* 2. WhatsApp Button */}
+      {/* 2. WHATSAPP BUTTON (Bottom) */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group"
+        className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
         aria-label="Contact on WhatsApp"
       >
         {/* Tooltip */}
-        <span className="absolute bottom-20 right-0 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
+        <span className="absolute right-20 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
           Chat with us!
         </span>
 
         {/* WhatsApp SVG Icon */}
         <svg 
-          className="w-9 h-9 text-white" 
+          className="w-8 h-8 md:w-9 md:h-9 text-white" 
           fill="currentColor" 
           viewBox="0 0 24 24"
         >

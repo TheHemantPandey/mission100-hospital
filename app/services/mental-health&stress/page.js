@@ -1,99 +1,291 @@
 import React from 'react';
-import Link from 'next/link';
+import { 
+  Brain, 
+  Smile, 
+  ShieldCheck, 
+  Activity, 
+  Sparkles, 
+  Compass, 
+  Clock, 
+  ArrowRight,
+  CheckCircle2,
+  HeartHandshake,
+  Plus,
+  Zap,
+  Waves
+} from 'lucide-react';
 
-export default function MentalHealthPage() {
+export default function MentalHealthWellness() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* 1. HERO SECTION */}
-      <section className="bg-blue-50 py-20 px-6 border-b border-blue-100">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-[0.3em] mb-4">
-            Neurological & Emotional Wellness
-          </h2>
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight uppercase">
-            Mental Health <br /> 
-            <span className="text-blue-600 font-extrabold">& Stress Management</span>
-          </h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Holistic support for stress and happiness measurement to ensure peace of mind and long-term cognitive clarity.
-          </p>
+    <main className="min-h-screen bg-[#FAFAFF] text-[#0F172A] font-sans selection:bg-indigo-100">
+      
+      {/* 1. HERO SECTION - Clinical Authority & Calm */}
+      <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-white overflow-hidden">
+        {/* Soft Indigo Gradient Background */}
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-indigo-50/40 skew-x-12 translate-x-32 z-0"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-100/30 rounded-full blur-[120px] z-0"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="lg:w-1/2">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border border-indigo-100">
+              Mission 100 Psychiatry & Wellness [cite: 45, 55]
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black text-[#0F172A] leading-[1.05] mb-8 tracking-tighter">
+              Cognitive Clarity. <br />
+              <span className="text-indigo-600 font-light italic serif">Mental Vitality.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-500 max-w-lg leading-relaxed mb-10">
+              Personalized strategies for a calmer mind[cite: 101]. At **Mission 100**, we provide holistic support for stress and happiness measurement to ensure peace of mind[cite: 25].
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button className="bg-[#0F172A] hover:bg-indigo-700 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-2xl shadow-indigo-100 flex items-center justify-center gap-3 group">
+                Check Stress Score Now [cite: 120]
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+              </button>
+              <button className="bg-white border-2 border-slate-100 text-slate-600 px-10 py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all">
+                Our Philosophy [cite: 264]
+              </button>
+            </div>
+          </div>
+          
+          <div className="lg:w-1/2 w-full relative">
+            <div className="relative z-10 bg-white p-3 rounded-[3.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] border border-indigo-50">
+              <img 
+                src="https://images.unsplash.com/photo-1518241353330-0f797f8e8b2b?auto=format&fit=crop&q=80&w=1000" 
+                alt="Mental Clarity and Focus" 
+                className="rounded-[3rem] grayscale-[15%] hover:grayscale-0 transition-all duration-1000"
+              />
+            </div>
+            {/* Minimalist Data Badge */}
+            <div className="absolute -bottom-8 lg:-left-12 left-6 right-6 lg:right-auto bg-white p-8 rounded-3xl shadow-2xl border border-indigo-50 z-20">
+              <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-2">Stress Resilience [cite: 104]</p>
+              <div className="flex items-center gap-4">
+                <span className="text-5xl font-black text-[#0F172A]">92%</span>
+                <Brain className="text-indigo-600" size={32} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. STRESS RESILIENCE STAT SECTION */}
-      <section className="max-w-6xl mx-auto px-6 -mt-12">
-        <div className="bg-slate-900 rounded-4xl p-10 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-white">
-          <div className="space-y-2">
-            <span className="text-blue-400 font-bold uppercase text-xs tracking-widest">Active Monitoring</span>
-            <h3 className="text-2xl font-bold">Stress Resilience Score</h3>
-            <p className="text-gray-400 text-sm italic">Cognitive load & mindset stability analysis</p>
+      {/* 2. CORE PILLARS - Deep Professional Scroll */}
+      <section className="py-32 px-6 lg:px-12 bg-[#0F172A] text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-20 items-end mb-24">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 italic">Measuring the <br/>Science of Joy [cite: 141]</h2>
+              <p className="text-indigo-200/50 text-lg leading-relaxed">
+                Our core pillars prioritize preventative mental health and long-term emotional well-being preservation[cite: 119, 150].
+              </p>
+            </div>
+            <div className="h-px bg-indigo-500/20 w-full hidden lg:block"></div>
           </div>
-          <div className="text-center">
-            <span className="text-7xl font-black text-white">92%</span>
-            <div className="w-64 bg-gray-700 h-2 rounded-full mt-4 overflow-hidden">
-                <div className="bg-blue-500 h-full w-[92%]"></div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="flex justify-between text-xs font-bold uppercase">
-                <span>Cognitive Load:</span>
-                <span className="text-green-400">Optimal</span>
-            </div>
-            <div className="flex justify-between text-xs font-bold uppercase">
-                <span>Mindset Stability:</span>
-                <span className="text-blue-400">High</span>
-            </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Stress Management",
+                desc: "Personalized strategies for a calmer mind and burnout prevention frameworks[cite: 101, 118].",
+                icon: <Activity strokeWidth={1.5} />
+              },
+              {
+                title: "Happiness Index",
+                desc: "Scientific score based on lifestyle and mood to measure emotional vitality[cite: 140, 143].",
+                icon: <Smile strokeWidth={1.5} />
+              },
+              {
+                title: "Behavioral Analysis",
+                desc: "Understanding the psychology of longevity through pattern recognition[cite: 160, 163].",
+                icon: <Brain strokeWidth={1.5} />
+              }
+            ].map((pillar, idx) => (
+              <div key={idx} className="group p-12 rounded-[3rem] bg-indigo-900/10 border border-indigo-500/10 hover:border-indigo-400 transition-all duration-500">
+                <div className="w-14 h-14 bg-indigo-600 rounded-2xl flex items-center justify-center mb-10 shadow-xl shadow-indigo-900/40 group-hover:scale-110 transition-transform">
+                  {React.cloneElement(pillar.icon, { size: 28, className: "text-white" })}
+                </div>
+                <h4 className="text-2xl font-bold mb-4 uppercase tracking-tight">{pillar.title} </h4>
+                <p className="text-indigo-200/40 leading-relaxed text-sm">
+                  {pillar.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 3. CORE PILLARS SECTION */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl font-black text-gray-900 mb-8">Our Core Pillars</h2>
-            <div className="space-y-4">
+      {/* 3. DIAGNOSTIC PRECISION SECTION */}
+      <section className="py-32 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+          <div className="order-2 lg:order-1 relative">
+             <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-[12px] border-[#F8FAFF]">
+                <img 
+                  src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=800" 
+                  alt="Neuro-Mapping Assessment" 
+                  className="w-full h-full object-cover"
+                />
+             </div>
+             <div className="absolute top-10 -right-8 bg-[#0F172A] text-white p-8 rounded-3xl shadow-2xl transform -rotate-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Cognitive Load [cite: 151]</p>
+                <p className="text-3xl font-black italic">Optimal</p>
+             </div>
+          </div>
+          
+          <div className="order-1 lg:order-2 space-y-10">
+            <div className="w-12 h-1 bg-indigo-600"></div>
+            <h2 className="text-4xl md:text-6xl font-black text-[#0F172A] leading-tight tracking-tighter">
+              Advanced <br /><span className="text-indigo-600 font-light italic serif">Neuro-Mapping.</span>
+            </h2>
+            <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
+              We focus on focus and memory optimization protocols[cite: 137]. Our assessments ensure your cognitive load remains optimal through advanced neuro-mapping[cite: 136, 151].
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               {[
-                { title: "Neuro-Mapping", desc: "Advanced neuro-mapping and cognitive assessments to track brain health." },
-                { title: "Stress Tracking", desc: "Advanced stress-level tracking and biofeedback monitoring." },
-                { title: "Mindfulness Support", desc: "Mindfulness and cognitive behavioral support for long-term emotional well-being." },
-                { title: "Burnout Prevention", desc: "Personalized burnout prevention frameworks and resilience training." }
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-5 border border-gray-100 rounded-2xl hover:border-blue-200 hover:bg-blue-50/50 transition-all">
-                  <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <span className="text-white text-xs font-bold">✔</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">{item.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+                { title: "Biofeedback", desc: "Advanced stress-level tracking[cite: 116]." },
+                { title: "CBT Support", desc: "Mindfulness and cognitive support[cite: 117]." },
+                { title: "EQ Coaching", desc: "Emotional intelligence for longevity[cite: 144]." },
+                { title: "Serotonin Strategies", desc: "Precision neurotransmitter optimization[cite: 146]." }
+              ].map((tool, i) => (
+                <div key={i} className="flex gap-4 group">
+                   <div className="mt-1 w-5 h-5 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                      <Zap size={10} />
+                   </div>
+                   <div>
+                      <h5 className="font-bold text-indigo-950 text-sm mb-1">{tool.title}</h5>
+                      <p className="text-[11px] text-slate-400 leading-relaxed">{tool.desc}</p>
+                   </div>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="order-1 md:order-2 bg-blue-600 rounded-[3rem] p-12 text-white flex flex-col justify-center min-h-100 relative overflow-hidden">
-             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-20 -mb-20 blur-3xl"></div>
-             <h3 className="text-2xl font-bold mb-4 italic uppercase tracking-tighter">Happiness Index: 8.5/10</h3>
-             <p className="text-lg opacity-90 mb-8 leading-relaxed">
-               "We provide specialized neuro-care and mental health support focused on long-term quality of life preservation."
-             </p>
-             <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-black hover:scale-105 transition-transform">
-               CHECK STRESS SCORE NOW
-             </button>
+      {/* 4. BEHAVIORAL ANALYSIS METRICS */}
+      <section className="py-32 px-6 lg:px-12 bg-[#F8FAFF]">
+        <div className="max-w-7xl mx-auto">
+           <div className="bg-white rounded-[4rem] p-12 md:p-24 shadow-2xl border border-indigo-50 flex flex-col lg:grid lg:grid-cols-2 gap-20 items-center">
+              <div>
+                 <h3 className="text-4xl font-bold text-[#0F172A] mb-8 italic tracking-tight">Psychometric Self-Discovery [cite: 162]</h3>
+                 <p className="text-slate-500 text-lg mb-10 leading-relaxed">
+                   Understanding the psychology of longevity[cite: 160]. We use behavioral pattern recognition for healthier habits and strengths-based roadmaps[cite: 163, 164].
+                 </p>
+                 <button className="px-12 py-6 bg-indigo-600 text-white rounded-2xl font-black shadow-xl shadow-indigo-100 hover:bg-[#0F172A] transition-all uppercase tracking-widest text-xs">
+                    Test Your Personality [cite: 167]
+                 </button>
+              </div>
+              <div className="w-full space-y-5">
+                 {[
+                   { label: "Mindset Stability", value: "High", color: "indigo", cite: "166" },
+                   { label: "Happiness Index", value: "8.5/10", color: "indigo", cite: "130" },
+                   { label: "Emotional Resilience", value: "Optimal", color: "indigo", cite: "165" }
+                 ].map((stat, i) => (
+                   <div key={i} className="p-8 bg-[#F8FAFF] rounded-3xl border border-indigo-50 flex justify-between items-center group hover:bg-white hover:shadow-lg transition-all">
+                      <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{stat.label}</span>
+                      <span className="text-2xl font-black text-indigo-600 italic tracking-tighter">{stat.value}</span>
+                   </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* 5. HOLISTIC RESILIENCE SECTION */}
+      <section className="py-32 px-6 lg:px-12 bg-white overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+           <Waves size={800} />
+        </div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
+           <div className="lg:w-1/2 space-y-10">
+              <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] leading-tight">
+                Emotional <br /><span className="text-indigo-600 italic font-light serif">Vitality Protocol.</span>
+              </h2>
+              <p className="text-lg text-slate-500 leading-relaxed">
+                Holistic support for stress and happiness measurement to ensure peace of mind[cite: 25]. We provide the tools necessary to achieve a vibrant century of life[cite: 15].
+              </p>
+              <div className="grid sm:grid-cols-2 gap-8 pt-4">
+                 <div className="space-y-4">
+                    <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
+                       <HeartHandshake size={24} />
+                    </div>
+                    <h5 className="font-bold text-indigo-950">Emotional Support</h5>
+                    <p className="text-sm text-slate-400 leading-relaxed">Therapeutic support for anxiety and burnout[cite: 136].</p>
+                 </div>
+                 <div className="space-y-4">
+                    <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
+                       <Sparkles size={24} />
+                    </div>
+                    <h5 className="font-bold text-indigo-950">Resilience Training</h5>
+                    <p className="text-sm text-slate-400 leading-relaxed">Long-term emotional resilience training protocols[cite: 137, 165].</p>
+                 </div>
+              </div>
+           </div>
+           <div className="lg:w-1/2 w-full">
+              <div className="bg-[#0F172A] rounded-[4rem] p-16 text-white relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[100px] opacity-20 -mr-32 -mt-32"></div>
+                 <h4 className="text-3xl font-bold mb-8 italic">Happiness Measurement [cite: 244]</h4>
+                 <p className="text-indigo-200/50 mb-10 leading-relaxed">
+                    A scientific score based on lifestyle and mood[cite: 143]. Social connectivity and community-based health support are central to our longevity framework[cite: 145].
+                 </p>
+                 <button className="text-indigo-400 font-bold uppercase tracking-widest text-xs flex items-center gap-3 group">
+                    Begin Assessment [cite: 147] <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                 </button>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* 6. WELLNESS INQUIRIES (FAQs) */}
+      <section className="py-32 px-6 lg:px-12 bg-[#F8FAFF] border-t border-indigo-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4 italic">Wellness Inquiries [cite: 244]</h2>
+            <p className="text-slate-400 uppercase tracking-[0.3em] text-[10px] font-bold">Scientific mental health support</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { 
+                q: "What exactly is 'Happiness Measurement'?", 
+                a: "It is a scientific score based on lifestyle and mood, used to measure the science of a joyful life[cite: 141, 143, 244]." 
+              },
+              { 
+                q: "How is stress resilience tracked?", 
+                a: "Utilizing advanced stress-level tracking and biofeedback to provide personalized burnout prevention frameworks[cite: 116, 118]." 
+              },
+              { 
+                q: "What is involved in behavioral analysis?", 
+                a: "It includes psychometric testing for self-discovery and behavioral pattern recognition for healthier habits[cite: 162, 163]." 
+              },
+              { 
+                q: "Do you provide cognitive assessments?", 
+                a: "Yes, we utilize advanced neuro-mapping and cognitive assessments to ensure focus and memory optimization[cite: 136, 137]." 
+              }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-indigo-50 group cursor-pointer hover:shadow-xl transition-all">
+                <h5 className="font-bold text-[#0F172A] text-lg flex justify-between items-center">
+                  {faq.q} <Plus className="text-indigo-400 group-hover:rotate-90 transition-transform" />
+                </h5>
+                <p className="mt-6 text-slate-500 leading-relaxed text-sm hidden group-hover:block transition-all">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. CLINICAL DISCLAIMER SECTION */}
-      <section className="bg-slate-50 py-12 px-6 border-t border-gray-100">
+      {/* 7. CLINICAL DISCLAIMER */}
+      <section className="bg-white py-16 px-6 border-t border-slate-100">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] leading-loose">
-            Mission 100 provides preventative care and mental health optimization. <br />
-            Consultations and risk assessments do not replace emergency psychiatric clinical diagnosis or emergency care.
-          </p>
+           <p className="text-[10px] text-slate-300 uppercase tracking-[0.2em] leading-relaxed">
+             Mission 100 provides preventative mental health support and behavioral analysis frameworks[cite: 150, 175]. <br />
+             Assessments and wellness plans do not replace professional psychiatric clinical diagnosis, psychological therapy, or emergency care[cite: 121, 148, 150]. <br />
+             In case of a medical emergency, visit your nearest hospital immediately[cite: 270].
+           </p>
         </div>
       </section>
+
     </main>
   );
 }
