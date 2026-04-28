@@ -89,15 +89,15 @@ const FormStepOne = ({ onNext }) => {
             <select {...register("testName", { required: "Required" })} className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none">
               <option value="">Select Test</option>
               <option value="Bone Test">Bone Test</option>
-              <option value="Stree Test">Stree Test</option>
+              <option value="Stress Test">Stress Test</option>
               <option value="Sugar Test">Sugar Test</option>
               <option value="Lft & Kft Test">Lft & Kft Test</option>
               <option value="Diabities Test">Diabities Test</option>
               <option value="Family Pack Test">Family Pack Test</option>
               <option value="Personality Test">Personality Test</option>
               <option value="Blood Group Test">Blood Group Test</option>
-              <option value="Bosy Fitness Test">Bosy Fitness Test</option>
-              <option value="Full Body Checkup - 2999">Full Body Checkup - 2999</option>
+              <option value="Body Fitness Test">Body Fitness Test</option>
+              <option value="Full Body Checkup">Full Body Checkup</option>
               <option value="Senior Citizen Checkup For Men">Senior Citizen Checkup For Men</option>
               <option value="Senior Citizen Checkup For Women">Senior Citizen Checkup For Women</option>
               <option value="Body Mineral and Vitamin Checkup">Body Mineral and Vitamin Checkup</option>
@@ -117,12 +117,12 @@ const FormStepOne = ({ onNext }) => {
               className="mt-1 block w-full p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none"
             >
               <option value="">Select a Gym</option>
-              <option value="Anytime Fitness Preet Vihar|599">Anytime Fitness Preet Vihar - ₹599</option>
-              <option value="Cult Fit Preet Vihar|999">Cult Fit Preet Vihar - ₹999</option>
-              <option value="WTF Laxmi Nagar|699">WTF Laxmi Nagar - ₹699</option>
-              <option value="Inferno Laxmi Nagar|199">Inferno Laxmi Nagar - ₹199</option>
-              <option value="Neelkhand Laxmi Nagar|399">Neelkhand Laxmi Nagar - ₹399</option>
-              <option value="Vision Fitness Laxmi Nagar|499">Vision Fitness Laxmi Nagar - ₹499</option>
+              <option value="Anytime Fitness Preet Vihar|599">Anytime Fitness Preet Vihar</option>
+              <option value="Cult Fit Preet Vihar|999">Cult Fit Preet Vihar</option>
+              <option value="WTF Laxmi Nagar|699">WTF Laxmi Nagar</option>
+              <option value="Inferno Laxmi Nagar|199">Inferno Laxmi Nagar</option>
+              <option value="Neelkhand Laxmi Nagar|399">Neelkhand Laxmi Nagar</option>
+              <option value="Vision Fitness Laxmi Nagar|499">Vision Fitness Laxmi Nagar</option>
             </select>
           </div>
         </div>
