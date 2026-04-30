@@ -72,7 +72,7 @@ export default function AntiAgingSciencePage() {
             </div>
           </div>
 
-          <div className="order-1 md:order-2 bg-emerald-700 rounded-[3rem] p-12 text-white flex flex-col justify-center min-h-[400px] relative overflow-hidden">
+          <div className="order-1 md:order-2 bg-emerald-700 rounded-[3rem] p-12 text-white flex flex-col justify-center min-h-100 relative overflow-hidden">
              <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mb-20 blur-3xl"></div>
              <div className="mb-6">
                 <Microscope className="w-12 h-12 text-emerald-300" />

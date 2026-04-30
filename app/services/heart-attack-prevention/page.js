@@ -88,12 +88,12 @@ export default function HeartPreventionPremium() {
           </div>
           
           <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-slate-100 shadow-2xl bg-white">
+            <div className="absolute -inset-1 bg-linear-to-r from-emerald-100 to-teal-100 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <div className="relative aspect-4/5 rounded-4xl overflow-hidden border border-slate-100 shadow-2xl bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?auto=format&fit=crop&q=80&w=800" 
                 alt="Heart Health Diagnostics" 
-                className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover grayscale-30 hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl">
                 <div className="flex items-center gap-4">
@@ -162,12 +162,12 @@ export default function HeartPreventionPremium() {
                   <Microscope className="text-emerald-600 mb-4 group-hover:text-white" size={40} />
                   <p className="font-bold text-slate-900 group-hover:text-white">ECG Analysis</p>
                 </div>
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg">
+                <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg">
                   <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Cardiac Lab" />
                 </div>
               </div>
               <div className="space-y-4 pt-12">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg">
+                <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg">
                   <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Medical Diagnostics" />
                 </div>
                 <div className="aspect-square rounded-3xl bg-emerald-50 flex flex-col items-center justify-center p-8 text-center">
@@ -176,7 +176,7 @@ export default function HeartPreventionPremium() {
                 </div>
               </div>
             </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[120%] bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[120%] bg-[radial-gradient(#10b981_1px,transparent_1px)] bg-size-[24px_24px] opacity-10"></div>
           </div>
 
           <div className="space-y-10">

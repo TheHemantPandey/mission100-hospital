@@ -151,7 +151,7 @@ export default function LongevityModelingPage() {
       <section className="py-32 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div className="order-2 lg:order-1 relative">
-             <div className="aspect-[4/5] bg-teal-50 rounded-[3.5rem] flex items-center justify-center p-12 shadow-inner">
+             <div className="aspect-4/5 bg-teal-50 rounded-[3.5rem] flex items-center justify-center p-12 shadow-inner">
                 <div className="grid grid-cols-2 gap-6 w-full">
                   <div className="aspect-square bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-6 border border-teal-50">
                     <Database className="text-teal-600 mb-4" />

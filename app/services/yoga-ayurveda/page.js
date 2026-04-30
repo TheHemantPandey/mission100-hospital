@@ -46,7 +46,7 @@ export default function YogaAyurvedaPage() {
       />
 
       {/* 1. HERO SECTION - Earthy Healing Theme */}
-      <section className="bg-gradient-to-b from-emerald-900 to-[#F8FAF9] py-24 px-6 border-b border-emerald-100/20">
+      <section className="bg-linear-to-b from-emerald-900 to-[#F8FAF9] py-24 px-6 border-b border-emerald-100/20">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-emerald-50 border border-emerald-100">
             <span className="text-sm font-bold text-emerald-800 uppercase tracking-[0.2em]">
@@ -148,7 +148,7 @@ export default function YogaAyurvedaPage() {
 
       {/* 4. YOGIC PHYSIOLOGY SECTION - Modern Tech Style */}
       <section className="bg-emerald-950 py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-900 to-emerald-950 opacity-50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-emerald-900 to-emerald-950 opacity-50"></div>
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="text-white relative z-10">
             <h2 className="text-4xl font-black mb-10 uppercase leading-tight">Yogic <br/><span className="text-emerald-400 font-light italic">Neuro-Physiology</span></h2>
@@ -172,7 +172,7 @@ export default function YogaAyurvedaPage() {
             </div>
           </div>
 
-          <div className="bg-emerald-50 rounded-[4rem] p-16 text-slate-800 flex flex-col justify-center min-h-[500px] relative overflow-hidden shadow-2xl">
+          <div className="bg-emerald-50 rounded-[4rem] p-16 text-slate-800 flex flex-col justify-center min-h-125 relative overflow-hidden shadow-2xl">
              <div className="relative z-10">
                 <div className="mb-8">
                     <Activity className="w-20 h-20 text-emerald-600" />

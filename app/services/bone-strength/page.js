@@ -59,7 +59,7 @@ export default function BoneStrengthLongevity() {
 
       {/* 1. HERO SECTION: THE FOUNDATION */}
       <section className="relative pt-32 pb-24 px-6 md:px-12 bg-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-50 z-0"></div>
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-size-[32px_32px] opacity-50 z-0"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-50 rounded-full blur-[100px] z-0"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
@@ -86,11 +86,11 @@ export default function BoneStrengthLongevity() {
           
           <div className="lg:w-2/5 w-full">
             <div className="relative group">
-              <div className="aspect-[3/4] overflow-hidden rounded-[3rem] shadow-2xl border-[12px] border-white">
+              <div className="aspect-3/4 overflow-hidden rounded-[3rem] shadow-2xl border-12 border-white">
                 <img 
                   src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000" 
                   alt="Abstract Mobility and Strength" 
-                  className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
               <div className="absolute top-10 -right-6 bg-blue-600 text-white p-6 rounded-2xl shadow-xl border-4 border-white transform rotate-3">

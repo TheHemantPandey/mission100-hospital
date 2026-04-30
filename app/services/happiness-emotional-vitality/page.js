@@ -93,7 +93,7 @@ export default function HappinessVitalityPage() {
               <img 
                 src="https://images.unsplash.com/photo-1499209974431-9dac3adaf471?auto=format&fit=crop&q=80&w=1000" 
                 alt="Emotional Peace and Wellness" 
-                className="rounded-[3rem] grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
+                className="rounded-[3rem] grayscale-20 hover:grayscale-0 transition-all duration-1000"
               />
             </div>
             {/* Floating Vitality Card */}
@@ -161,7 +161,7 @@ export default function HappinessVitalityPage() {
       <section className="py-32 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative order-2 lg:order-1">
-             <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border-[15px] border-[#FFFDF9]">
+             <div className="aspect-4/5 rounded-[4rem] overflow-hidden shadow-2xl border-15 border-[#FFFDF9]">
                 <img 
                   src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800" 
                   alt="Holistic Emotional Support" 

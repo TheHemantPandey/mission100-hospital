@@ -90,7 +90,7 @@ export default function MetabolicSugarControl() {
           </div>
           <div className="lg:w-2/5 w-full relative">
             <div className="bg-white p-4 rounded-[3rem] shadow-2xl border border-emerald-50 relative overflow-hidden">
-               <div className="aspect-square bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-[2.5rem] flex flex-col items-center justify-center text-white p-10">
+               <div className="aspect-square bg-linear-to-br from-emerald-500 to-emerald-700 rounded-[2.5rem] flex flex-col items-center justify-center text-white p-10">
                   <LineChart size={80} strokeWidth={1} className="opacity-50 mb-6" />
                   <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-80 mb-2">Stability Index</p>
                   <p className="text-6xl font-black italic">Stable</p>

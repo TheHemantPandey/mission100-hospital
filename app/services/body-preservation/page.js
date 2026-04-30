@@ -113,7 +113,7 @@ export default function BodyPreservationFlagship() {
               alt="Clinical Monitoring" 
               className="w-full h-full object-cover opacity-60"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-[#020617] to-transparent"></div>
           </div>
         </div>
       </section>

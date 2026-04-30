@@ -87,7 +87,7 @@ export default function VitaminsVitalityPage() {
           </div>
           <div className="lg:w-2/5 w-full relative">
             <div className="bg-white p-4 rounded-[3.5rem] shadow-2xl border border-emerald-50 relative overflow-hidden">
-               <div className="aspect-square bg-gradient-to-br from-emerald-600 to-[#0F172A] rounded-[3rem] flex flex-col items-center justify-center text-white p-10">
+               <div className="aspect-square bg-linear-to-br from-emerald-600 to-[#0F172A] rounded-[3rem] flex flex-col items-center justify-center text-white p-10">
                   <div className="relative mb-6">
                     <Droplets size={80} strokeWidth={1} className="opacity-40" />
                     <Zap size={32} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-emerald-400" />
@@ -177,11 +177,11 @@ export default function VitaminsVitalityPage() {
       <section className="py-32 px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
           <div className="lg:w-1/2 relative">
-             <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-[12px] border-slate-50">
+             <div className="aspect-4/5 rounded-[3.5rem] overflow-hidden shadow-2xl border-12 border-slate-50">
                 <img 
                   src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800" 
                   alt="Precision Lab Testing" 
-                  className="w-full h-full object-cover grayscale-[20%]"
+                  className="w-full h-full object-cover grayscale-20"
                 />
              </div>
              <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-2xl border border-emerald-50">

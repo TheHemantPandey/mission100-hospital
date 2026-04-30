@@ -94,7 +94,7 @@ export default function BehavioralAnalysisPage() {
               <img 
                 src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1000" 
                 alt="Cognitive and Behavioral Awareness" 
-                className="rounded-[3rem] grayscale-[40%] hover:grayscale-0 transition-all duration-1000"
+                className="rounded-[3rem] grayscale-40 hover:grayscale-0 transition-all duration-1000"
               />
             </div>
             {/* Minimalist Analytical Card */}
@@ -163,11 +163,11 @@ export default function BehavioralAnalysisPage() {
       <section className="py-32 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div className="order-2 lg:order-1 relative">
-             <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-[12px] border-[#F8F7F5]">
+             <div className="aspect-4/5 rounded-[3.5rem] overflow-hidden shadow-2xl border-12 border-[#F8F7F5]">
                 <img 
                   src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" 
                   alt="Behavioral Lab Analysis" 
-                  className="w-full h-full object-cover grayscale-[30%]"
+                  className="w-full h-full object-cover grayscale-30"
                 />
              </div>
              <div className="absolute top-10 -right-8 bg-[#1A1A1A] text-white p-8 rounded-3xl shadow-2xl transform -rotate-3">
@@ -229,7 +229,7 @@ export default function BehavioralAnalysisPage() {
                      { label: "Habit Efficiency", value: "Optimal", score: "88%" },
                      { label: "Resilience Level", value: "Stable", score: "92%" }
                    ].map((stat, i) => (
-                     <div key={i} className="p-8 bg-white/5 rounded-[2rem] border border-white/10 flex justify-between items-center group hover:bg-white/10 transition-all">
+                     <div key={i} className="p-8 bg-white/5 rounded-4xl border border-white/10 flex justify-between items-center group hover:bg-white/10 transition-all">
                         <span className="text-xs font-bold uppercase tracking-[0.2em] text-stone-500">{stat.label}</span>
                         <div className="text-right">
                           <span className="block text-2xl font-black text-orange-500 italic leading-none">{stat.value}</span>

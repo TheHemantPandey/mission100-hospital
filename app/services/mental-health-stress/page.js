@@ -93,7 +93,7 @@ export default function MentalHealthWellness() {
               <img 
                 src="https://images.unsplash.com/photo-1518241353330-0f797f8e8b2b?auto=format&fit=crop&q=80&w=1000" 
                 alt="Mental Clarity and Focus" 
-                className="rounded-[3rem] grayscale-[15%] hover:grayscale-0 transition-all duration-1000"
+                className="rounded-[3rem] grayscale-15 hover:grayscale-0 transition-all duration-1000"
               />
             </div>
             {/* Minimalist Data Badge */}
@@ -157,7 +157,7 @@ export default function MentalHealthWellness() {
       <section className="py-32 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
           <div className="order-2 lg:order-1 relative">
-             <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl border-[12px] border-[#F8FAFF]">
+             <div className="aspect-4/5 rounded-[3.5rem] overflow-hidden shadow-2xl border-12 border-[#F8FAFF]">
                 <img 
                   src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=800" 
                   alt="Neuro-Mapping Assessment" 

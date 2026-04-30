@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white w-full border-b border-gray-100 sticky top-0 z-[100] shadow-sm">
+    <nav className="bg-white w-full border-b border-gray-100 sticky top-0 z-100 shadow-sm">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-3 px-4 sm:px-6">
         
         {/* Logo Section */}
@@ -79,7 +79,7 @@ const Navbar = () => {
 
               {/* DATA OPTIMIZATION: Only render the list if Services is open (Mobile) or being hovered (Desktop) */}
               {(servicesOpen) && (
-                <div className="md:absolute left-0 mt-0 w-full md:w-72 bg-white md:border border-gray-100 rounded-xl md:shadow-xl z-[110] overflow-hidden">
+                <div className="md:absolute left-0 mt-0 w-full md:w-72 bg-white md:border border-gray-100 rounded-xl md:shadow-xl z-110 overflow-hidden">
                   <div className="py-2 pl-4 md:pl-0 border-l-2 border-green-100 md:border-l-0">
                     {demoServices.map((service, index) => (
                       <Link
