@@ -2,6 +2,8 @@
 
 import React, { useRef, useState, memo } from "react";
 import Image from "next/image";
+// 1. IMPORT DOCTOR DATA FROM JSON
+import practitioners from "@/data/doctor.json";
 import {
   GraduationCap,
   Stethoscope,
@@ -23,14 +25,7 @@ const specializations = [
   { id: "Psychiatry", label: "Psychiatry" },
 ];
 
-const practitioners = [
-  { id: 1, name: "Dr. Gautam Sharma", specialty: "Cardiology", education: "MD - AIIMS Delhi", fee: "1200", lang: ["Eng", "Hin"], nextSlot: "Today 4:00 PM", img: "https://www.shutterstock.com/image-photo/indian-male-senior-doctor-standing-260nw-2271587313.jpg" },
-  { id: 2, name: "Dr. Vikram Singh", specialty: "Internal Medicine", education: "MD - AIIMS Delhi", fee: "800", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 10:00 AM", img: "https://thumbs.dreamstime.com/b/portrait-happy-young-handsome-indian-man-doctor-smiling-studio-shot-against-white-background-137823661.jpg" },
-  { id: 3, name: "Dr. Abhay Sharma", specialty: "Gastroenterology", education: "MD - AIIMS Delhi", fee: "1000", lang: ["Eng", "Hin"], nextSlot: "Today 6:00 PM", img: "https://t4.ftcdn.net/jpg/02/57/48/67/360_F_257486764_GnnrHRNIBV93mAwR0aiNkS0x5UjDfIcl.jpg" },
-  { id: 4, name: "Dr. Vishnu Singh", specialty: "Orthopedics", education: "MS - AIIMS Delhi", fee: "1500", lang: ["Eng", "Hin"], nextSlot: "Tomorrow 2:00 PM", img: "https://img.freepik.com/premium-photo/young-handsome-indian-male-doctor-with-stethoscope-his-neck-writing-notes_156779-1614.jpg"},
-];
-
-// Reusable Specialty Button for cleaner code
+// Reusable Specialty Button
 const SpecialtyButton = ({ spec, isActive, onClick }) => (
   <button
     onClick={onClick}
@@ -44,7 +39,7 @@ const SpecialtyButton = ({ spec, isActive, onClick }) => (
   </button>
 );
 
-// Reusable Doctor Card with optimized Image handling
+// Reusable Doctor Card
 const DoctorCard = memo(({ doc }) => (
   <div className="min-w-70 md:min-w-[320px] snap-center bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
     <div className="relative h-48 overflow-hidden rounded-t-2xl bg-slate-200">
@@ -54,7 +49,6 @@ const DoctorCard = memo(({ doc }) => (
         fill
         sizes="(max-width: 768px) 280px, 320px"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        // Don't use priority here because these cards are usually lower on the page
       />
       <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-white/20 text-green-800 text-[10px] px-3 py-1.5 rounded-full font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
         <Stethoscope size={12} className="text-green-600" /> {doc.specialty}
@@ -110,7 +104,7 @@ const DoctorSection = () => {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 340; // Card width + gap
+      const scrollAmount = 340; 
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -118,6 +112,7 @@ const DoctorSection = () => {
     }
   };
 
+  // The 'practitioners' variable now refers to your imported JSON data
   const filteredPractitioners =
     activeSpecialty === "all"
       ? practitioners
@@ -126,8 +121,6 @@ const DoctorSection = () => {
   return (
     <section className="py-12 md:py-20 px-4 md:px-8 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        
-        {/* Header - More compact on mobile */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-2">
             <span className="text-green-600 font-bold uppercase tracking-widest text-xs md:text-[14px]">Mission100 Team</span>
@@ -139,7 +132,6 @@ const DoctorSection = () => {
             </p>
           </div>
           
-          {/* Scroll Buttons - Hidden on very small screens to save space */}
           <div className="hidden sm:flex gap-3">
             <button
               onClick={() => scroll("left")}
@@ -158,7 +150,6 @@ const DoctorSection = () => {
           </div>
         </div>
 
-        {/* Categories Bar */}
         <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-10 pb-1 scroll-smooth">
           {specializations.map((spec) => (
             <SpecialtyButton 
@@ -173,7 +164,6 @@ const DoctorSection = () => {
           ))}
         </div>
 
-        {/* Doctors Grid/Carousel */}
         <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-10 px-1"

@@ -21,13 +21,11 @@ const Faq = dynamic(() => import("@/components/Faq"));
 export default function Home() {
   return (
     <>
-      {/* Hero Section - FIXED: min-h-fit on mobile removes empty vertical space */}
       <section className="relative font-bold flex items-center justify-center w-full min-h-fit lg:h-screen overflow-hidden">
         
-        {/* FIXED: Reduced top padding (pt-4) for mobile to pull content up */}
         <div className="relative flex justify-center h-full w-full px-4 pt-4 pb-12 md:py-0 items-center flex-col isolate">
           <Image
-            src="/Hero-Bg.jpg" 
+            src="/Hero-bg.png" 
             alt="Hero Background"
             fill
             priority
@@ -36,21 +34,19 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-white/20 -z-10" />
           
-          {/* Optional: Hidden on mobile to avoid a hard line at the top gap */}
           <div className="hidden md:block absolute top-0 w-full h-0.5 bg-black z-10" />
 
-          {/* Container capped at xl to prevent ultra-wide stretching */}
+          {/* Container adjusted to allow for a larger image on the right */}
           <div className="flex items-center justify-center p-2 sm:p-4 text-green-900 w-full max-w-7xl mx-auto h-full">
-            <div className="flex flex-col items-center justify-center w-full">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-0">
               
-              <h1 className="mb-6 md:mb-10 text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-center uppercase">
-                Live 100 Years, Live 100% Better
-              </h1>
+              {/* LEFT SIDE: Original Text Sizes Restored */}
+              <div className="flex flex-col items-center md:items-start">
+                <h1 className="mb-6 md:mb-10 text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-center md:text-left uppercase">
+                  Live 100 Years, Live 100% Better
+                </h1>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-10 md:gap-12 lg:gap-16 w-full">
-                
                 <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
-                  {/* Vertical Text - Hidden on mobile, visible from Foldables (sm) up */}
                   <div className="hidden sm:flex flex-col items-center text-xs sm:text-sm md:text-xl tracking-[0.4em] md:tracking-[0.8em] [writing-mode:vertical-rl] rotate-180 opacity-80">
                     MAKING
                   </div>
@@ -64,30 +60,29 @@ export default function Home() {
                     </h2>
                   </div>
                 </div>
-
-                {/* Optimized Hero Image */}
-                <div className="relative w-44 h-44 sm:w-60 sm:h-60 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-112.5 xl:h-112.5 max-h-[35vh] md:max-h-[50vh] overflow-hidden shrink-0">
-                  <Image
-                    src="/meditation.png"
-                    alt="Meditation"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 176px, (max-width: 768px) 240px, (max-width: 1024px) 320px, 450px"
-                    priority
-                    quality={85}
-                  />
-                </div>
               </div>
+
+              {/* RIGHT SIDE: Meditation Image (Made Larger) */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] max-h-[50vh] md:max-h-[90vh] overflow-visible shrink-0">
+                <Image
+                  src="/meditate.png"
+                  alt="Meditation"
+                  fill
+                  className="object-contain object-center md:object-right-bottom"
+                  sizes="(max-width: 768px) 320px, (max-width: 1280px) 600px, 800px"
+                  priority
+                  quality={90}
+                />
+              </div>
+
             </div>
           </div>
           <div className="absolute bottom-0 w-full h-0.5 bg-black z-20" />
         </div>
       </section>
 
-      {/* Critical Component (Loaded Immediately) */}
       <AboutSection />
-
-      {/* Non-Critical Components (Loaded only on scroll) */}
+      {/* ... other components remain the same ... */}
       <DoctorSection />
       <Heart />
       <Stress />

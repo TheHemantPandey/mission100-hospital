@@ -220,7 +220,7 @@ export default function TestDetailPage({ params }) {
                   <button className="w-full bg-red-600 text-white py-4 rounded-xl font-bold text-base tracking-widest hover:bg-red-700 shadow-xl transition-all">
                      Book Consultation
                   </button>
-                  <a href="tel:9220620209" className="block w-full border border-gray-300 py-4 rounded-xl font-bold text-gray-800 text-center text-sm hover:bg-gray-50 transition-colors">
+                  <a href="tel:9220620209" className="block w-full border border-gray-300 py-4 rounded-xl font-bold text-gray-800 text-center text-2sm hover:bg-gray-50 transition-colors">
                     Call: 9220-620-209
                   </a>
                 </div>

@@ -109,25 +109,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Clinical Emergency Notice */}
-        <div className="pt-10 border-t border-slate-900">
-          <div className="flex flex-col md:flex-row gap-6 items-center bg-slate-900/50 p-8 rounded-[2.5rem] border border-slate-800 shadow-inner">
-            <div className="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center shrink-0 border border-red-500/20">
-              <AlertCircle className="text-red-500 w-8 h-8" />
-            </div>
-            <div className="text-center md:text-left">
-              <h4 className="text-xs font-black text-white uppercase tracking-widest mb-2">
-                Emergency Medical Notice
-              </h4>
-              <p className="text-[11px] text-slate-500 leading-relaxed italic max-w-4xl">
-                Mission 100™ provides preventive care and health optimization research. Assessments on this platform are for wellness guidance 
-                only and do not replace emergency medical or clinical treatment. In case of a medical emergency, visit your nearest hospital immediately.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Final Footer Bottom */}
+        
+         {/* Final Footer Bottom */}
         <div className="py-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
           <div className="flex items-center gap-3 bg-slate-900/30 px-5 py-2.5 rounded-full border border-slate-800">
             <ShieldCheck className="text-emerald-500" size={18} />

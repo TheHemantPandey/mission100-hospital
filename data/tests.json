@@ -38,13 +38,17 @@
     "title": "Complete Heart Checkup at Home",
     "oldPrice": 999,
     "currentPrice": 499,
-    "alsoKnownAs": ["Cardiac Wellness Profile", "Heart Attack Prevention Checkup"],
+    "alsoKnownAs": ["Complete Heart Checkup", "Heart Attack Prevention Checkup"],
     "shortDescription": "Prevent heart attack before it happens. This early detection package is designed to monitor your heart health conveniently at your home.",
     "totalParameters": 4,
-    "image": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=400",
+    "image": "/test-images/heart-test.png",
     "specialFeatures": [
-        "Doctor Consultation",
-        "Diet & Lifestyle Advice"
+        "Doctor Consultation Report",
+        "Diet & Lifestyle Advice",
+        "Free Home Sample Collection",
+        "Instant / Same Day Reporting",
+        "Doctor Verified Report",
+        "Special Welcome Offer"
     ],
     "includes": [
       {
