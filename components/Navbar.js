@@ -76,6 +76,7 @@ const Navbar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
+              
 
               {/* DATA OPTIMIZATION: Only render the list if Services is open (Mobile) or being hovered (Desktop) */}
               {(servicesOpen) && (
@@ -94,6 +95,11 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
+            </li>
+
+            
+            <li>
+              <Link href="/find-a-test" onClick={closeMenu} className="block py-2 text-gray-700 hover:text-green-600">Find a Test</Link>
             </li>
 
             <li>

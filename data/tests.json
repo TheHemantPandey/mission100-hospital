@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "slug": "fever-health-package",
+    "title": "Fever Health Package",
+    "oldPrice": 3998,
+    "currentPrice": 1999,
+    "alsoKnownAs": ["Fever Health Package", "Fever Advance Package"],
+    "shortDescription": "The fever health package intends to screen and ascertain among the general possible causes for your fever.",
+    "totalParameters": 11,
+    "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=400",
+    "includes": [
+      {
+        "mainParam": "Liver Function Test",
+        "nestedCount": 12,
+        "nestedParams": ["Bilirubin (Total)", "Bilirubin (Direct)", "AST (SGOT)", "ALT (SGPT)", "Alkaline Phosphatase"]
+      },
+      {
+        "mainParam": "CBC",
+        "nestedCount": 22,
+        "nestedParams": ["Hemoglobin", "Total RBC", "Platelet Count", "Neutrophils", "Lymphocytes", "Monocytes"]
+      },
+      {
+        "mainParam": "Widal",
+        "nestedCount": 4,
+        "nestedParams": ["S. Typhi O", "S. Typhi H", "S. Paratyphi AH", "S. Paratyphi BH"]
+      }
+    ],
+    "bottomDetails": {
+      "preparation": "First morning midstream urine sample preferred",
+      "reportingTAT": "Same Day*",
+      "specializations": ["Fever", "Health Checkup"]
+    }
+  },
+  {
+    "id": 2,
+    "slug": "complete-heart-checkup-at-home",
+    "title": "Complete Heart Checkup at Home",
+    "oldPrice": 999,
+    "currentPrice": 499,
+    "alsoKnownAs": ["Cardiac Wellness Profile", "Heart Attack Prevention Checkup"],
+    "shortDescription": "Prevent heart attack before it happens. This early detection package is designed to monitor your heart health conveniently at your home.",
+    "totalParameters": 4,
+    "image": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=400",
+    "specialFeatures": [
+        "Doctor Consultation",
+        "Diet & Lifestyle Advice"
+    ],
+    "includes": [
+      {
+        "mainParam": "ECG Test",
+        "nestedCount": 1,
+        "nestedParams": ["Detect heart problems early"]
+      },
+      {
+        "mainParam": "Blood Pressure Check",
+        "nestedCount": 1,
+        "nestedParams": ["Monitor your blood pressure levels"]
+      },
+      {
+        "mainParam": "Blood Sugar Test",
+        "nestedCount": 1,
+        "nestedParams": ["Know your sugar levels"]
+      },
+      {
+        "mainParam": "Pulse Rate Monitoring",
+        "nestedCount": 1,
+        "nestedParams": ["Check your heart rate variability"]
+      }
+    ],
+    "bottomDetails": {
+      "preparation": "No specific fasting required. Home visit included in the package.",
+      "reportingTAT": "Instant / Same Day",
+      "specializations": ["Heart Health", "Preventive Care"]
+    }
+  }
+]
