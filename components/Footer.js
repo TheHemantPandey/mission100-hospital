@@ -70,7 +70,7 @@ const Footer = () => {
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">Clinical Care</h4>
               <ul className="space-y-4 text-sm">
                 <li><a href="/services/heart-attack-prevention" className="hover:text-emerald-500 transition-colors">Heart Attack Prevention</a></li>
-                <li><a href="/services/mental-health-stress" className="hover:text-emerald-500 transition-colors">Mental Health & Stress</a></li>
+                <li><a href="/services/mental-health-stress" className="hover:text-emerald-500 transition-colors">Mental Health Stress</a></li>
                 <li><a href="/services/anti-aging-science" className="hover:text-emerald-500 transition-colors">Anti-Aging Science</a></li>
                 <li><a href="/services/bone-strength" className="hover:text-emerald-500 transition-colors">Body & Bone Strength</a></li>
                 <li><a href="/services/yoga-ayurveda" className="hover:text-emerald-500 transition-colors">Yoga & Ayurveda</a></li>

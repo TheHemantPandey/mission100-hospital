@@ -94,9 +94,9 @@ const AboutUs = () => {
             />
             <ServiceCard 
               emoji="🧠"
-              title="Mental Health & Stress"
+              title="Mental Health Stress"
               description="Holistic support for stress and happiness measurement to ensure peace of mind."
-              href="/services/mental-health&stress"
+              href="/services/mental-health-stress"
             />
             <ServiceCard 
               emoji="🦴"

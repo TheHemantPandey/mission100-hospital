@@ -51,7 +51,7 @@ const MentalHealthSection = () => {
             </div>
 
             <div>
-              <Link href="/services/mental-health&stress" className="contents">
+              <Link href="/services/mental-health-stress" className="contents">
                 <button className="w-full sm:w-fit flex items-center justify-center gap-2.5 bg-indigo-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-indigo-700 transition-all active:scale-95 group">
                   Test Mental Health Now
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
