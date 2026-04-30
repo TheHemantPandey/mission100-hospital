@@ -14,10 +14,50 @@ import {
   Compass
 } from 'lucide-react';
 
+// --- 1. METADATA (For Search Engines) ---
+export const metadata = {
+  title: "Personality & Behavioral Analysis",
+  description: "Explore the psychology of longevity with Mission 100 Hospital. Our behavioral analysis and psychometric testing identify patterns to build a foundation for a healthy century of life.",
+  keywords: ["Behavioral Analysis", "Psychometric Testing", "Personality Analysis", "Psychology of Longevity", "Mindset Coaching New Delhi"],
+};
+
 export default function BehavioralAnalysisPage() {
+  
+  // --- 2. BREADCRUMB SCHEMA (For Rich Snippets) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Behavioral Analysis",
+        "item": "https://www.mission100hospital.com/services/behavioral-analysis"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#F8F7F5] text-[#1A1A1A] font-sans selection:bg-orange-100">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION: THE PSYCHOLOGY OF LONGEVITY */}
       <section className="relative pt-32 pb-24 px-6 md:px-12 bg-white overflow-hidden">
         {/* Subtle abstract background textures */}

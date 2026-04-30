@@ -7,9 +7,11 @@ import LongevityModeling from "@/components/about/LongevityModeling";
 import TrustSection from "@/components/about/TrustSection";
 import DoctorSection from "@/components/DoctorCard";
 
+// --- UPDATED METADATA ---
 export const metadata = {
-  title: "About Us | Mission 100 - Helping you Live Longer",
+  title: "About Us", 
   description: "Mission 100 is dedicated to preventive healthcare, blending ancient Ayurveda with modern longevity science to help you live a vibrant 100-year life.",
+  keywords: ["Preventive Healthcare", "Longevity Science", "Ayurveda and Modern Medicine", "Mission 100 Team"],
 };
 
 export default function AboutPage() {

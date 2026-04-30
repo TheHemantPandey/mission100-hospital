@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mission100.in/sitemap.xml

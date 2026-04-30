@@ -5,6 +5,13 @@ import QueryForm from "@/components/QueryForm";
 // Only import the icons that are working
 import { ArrowUpRight } from "lucide-react";
 
+// --- UPDATED METADATA ---
+export const metadata = {
+  title: "Contact Us",
+  description: "Get in touch with Mission 100 Hospital in Laxmi Nagar, New Delhi. Call us at +91 9220 620 209 or visit us for preventive healthcare consultations.",
+  keywords: ["Contact Mission 100", "Hospital Location New Delhi", "Book Appointment", "Preventive Health Query"],
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -102,7 +109,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-8 w-full h-56 bg-gray-100 rounded-4xl overflow-hidden border border-gray-200">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.947271960236!2d77.27962497610113!3d28.6313337841315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcad67e10813%3A0x6333633857e101!2sMetroplex%20East!5e0!3m2!1sen!2sin!4v1713432000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.92131924619!2d77.2798!3d28.632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfcb58667ba1b%3A0xc345f096230f81d!2sLaxmi%20Nagar%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1714400000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

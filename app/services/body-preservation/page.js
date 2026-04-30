@@ -18,10 +18,50 @@ import {
   Sparkles
 } from 'lucide-react';
 
+// --- 1. METADATA (ABOVE THE FUNCTION) ---
+export const metadata = {
+  title: "Body Preservation & Vitality Strategy",
+  description: "Mission 100 Hospital's flagship body preservation protocol. Focuses on vitality preservation, prenatal strength, and geriatric longevity through data-driven diagnostics.",
+  keywords: ["Body Preservation", "Vitality Index", "Prenatal Health", "Geriatric Longevity", "Mission 100 Hospital"],
+};
+
 export default function BodyPreservationFlagship() {
+
+  // --- 2. BREADCRUMB SCHEMA LOGIC ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Body Preservation",
+        "item": "https://www.mission100hospital.com/services/body-preservation"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-cyan-900 selection:text-cyan-100 uppercase-none">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION: THE BIOLOGICAL MANDATE */}
       <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-[#020617] overflow-hidden">
         {/* Animated Quantum Background */}
@@ -35,7 +75,7 @@ export default function BodyPreservationFlagship() {
             <span className="text-cyan-400 font-light italic serif lowercase">Preservation.</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-400 max-w-3xl leading-relaxed mb-10">
-            Dedicated to the revolutionary idea that healthcare should be preventive rather than just reactive[cite: 14]. We preserve health just before end-of-life stages to ensure maximum longevity[cite: 34].
+            Dedicated to the revolutionary idea that healthcare should be preventive rather than just reactive. We preserve health just before end-of-life stages to ensure maximum longevity.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <button className="bg-cyan-500 hover:bg-cyan-400 text-[#020617] px-10 py-5 rounded-xl font-black transition-all shadow-[0_0_30px_rgba(34,211,238,0.3)] flex items-center justify-center gap-3 group uppercase tracking-widest text-xs">
@@ -50,20 +90,20 @@ export default function BodyPreservationFlagship() {
       <section className="py-24 px-6 lg:px-12 border-y border-slate-900 bg-[#020617]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold text-white italic">"Live 100 Years, Live 100% Better" [cite: 10, 12]</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white italic">"Live 100 Years, Live 100% Better"</h2>
             <p className="text-slate-400 leading-relaxed text-lg">
-              Our core mission is to provide the tools, data, and guidance necessary for every individual to achieve a healthy, vibrant century of life[cite: 15]. We ensure that the aging process is managed with dignity, strength, and scientific precision[cite: 16].
+              Our core mission is to provide the tools, data, and guidance necessary for every individual to achieve a healthy, vibrant century of life. We ensure that the aging process is managed with dignity, strength, and scientific precision.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
                 <ShieldCheck className="text-cyan-400 mb-4" />
                 <h4 className="font-bold text-white text-sm mb-2 uppercase tracking-widest">Biological baseline</h4>
-                <p className="text-xs text-slate-500">Expert focus on prenatal care to establish health baselines[cite: 19].</p>
+                <p className="text-xs text-slate-500">Expert focus on prenatal care to establish health baselines.</p>
               </div>
               <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
                 <Activity className="text-cyan-400 mb-4" />
                 <h4 className="font-bold text-white text-sm mb-2 uppercase tracking-widest">Scientific Integrity</h4>
-                <p className="text-xs text-slate-500">Modern Radiology integrated with traditional wellness practices[cite: 18].</p>
+                <p className="text-xs text-slate-500">Modern Radiology integrated with traditional wellness practices.</p>
               </div>
             </div>
           </div>
@@ -83,24 +123,24 @@ export default function BodyPreservationFlagship() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black uppercase mb-6 tracking-tighter">Lifecycle <br/>Preservation</h2>
-            <p className="text-slate-500 text-lg">We focus heavily on the specific needs of three critical stages[cite: 16]:</p>
+            <p className="text-slate-500 text-lg">We focus heavily on the specific needs of three critical stages:</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
               { 
                 title: "Prenatal Focus", 
-                desc: "Expert focus on the child before birth to ensure strength from the very beginning[cite: 16, 19].", 
+                desc: "Expert focus on the child before birth to ensure strength from the very beginning.", 
                 icon: <Heart className="text-cyan-600" /> 
               },
               { 
                 title: "Adult Vitality", 
-                desc: "Data-driven insights including ECG heart risk and body deficiency monitoring[cite: 19].", 
+                desc: "Data-driven insights including ECG heart risk and body deficiency monitoring.", 
                 icon: <Zap className="text-cyan-600" /> 
               },
               { 
                 title: "Geriatric Longevity", 
-                desc: "Specialized longevity science to help the elderly manage aging with dignity[cite: 16, 19].", 
+                desc: "Specialized longevity science to help the elderly manage aging with dignity.", 
                 icon: <History className="text-cyan-600" /> 
               }
             ].map((item, i) => (
@@ -124,15 +164,15 @@ export default function BodyPreservationFlagship() {
                <div className="grid grid-cols-2 gap-8 text-center relative z-10">
                   <div className="space-y-2">
                     <p className="text-4xl font-black text-cyan-400 italic">ECG</p>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Cardiac Safety [cite: 19]</p>
+                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Cardiac Safety</p>
                   </div>
                   <div className="space-y-2">
                     <p className="text-4xl font-black text-cyan-400 italic">DXA</p>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Osteoporosis Detection [cite: 110]</p>
+                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Osteoporosis Detection</p>
                   </div>
                   <div className="col-span-2 pt-8">
                     <p className="text-7xl font-black text-white leading-none tracking-tighter">98%</p>
-                    <p className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mt-4">Diagnostic accuracy goal [cite: 95]</p>
+                    <p className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mt-4">Diagnostic accuracy goal</p>
                   </div>
                </div>
             </div>
@@ -142,13 +182,13 @@ export default function BodyPreservationFlagship() {
               Integrated <br /><span className="text-cyan-400 font-light italic serif lowercase">Diagnostics.</span>
             </h2>
             <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
-              Modern Radiology and Pathology integrated with traditional wellness practices for a complete health ecosystem[cite: 18].
+              Modern Radiology and Pathology integrated with traditional wellness practices for a complete health ecosystem.
             </p>
             <div className="space-y-4 pt-4">
               {[
-                { title: "ECG risk analysis", desc: "Prioritizing cardiac safety through advanced assessment[cite: 19, 22]." },
-                { title: "Deficiency monitoring", desc: "Data-driven insights into body deficiency tracking[cite: 19]." },
-                { title: "Predictive Modeling", desc: "Utilizing modeling to predict and extend healthy years[cite: 30]." }
+                { title: "ECG risk analysis", desc: "Prioritizing cardiac safety through advanced assessment." },
+                { title: "Deficiency monitoring", desc: "Data-driven insights into body deficiency tracking." },
+                { title: "Predictive Modeling", desc: "Utilizing modeling to predict and extend healthy years." }
               ].map((point, i) => (
                 <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 group hover:bg-white/10 transition-colors">
                   <div className="mt-1"><Plus className="text-cyan-400" size={16} /></div>
@@ -171,14 +211,14 @@ export default function BodyPreservationFlagship() {
             <div className="lg:w-1/2 relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 italic">Skeletal Foundation</h2>
               <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                Monitoring bone measurement and body strength to maintain mobility into old age[cite: 27, 108].
+                Monitoring bone measurement and body strength to maintain mobility into old age.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                  {[
-                   { t: "DXA Scanning", d: "Early osteoporosis detection[cite: 110]." },
-                   { t: "Optimization", d: "Vitamin D and Calcium plans[cite: 111]." },
-                   { t: "Strength plans", d: "Weight-bearing exercise focus[cite: 112]." },
-                   { t: "Fall prevention", d: "Assessment and modern tools[cite: 113]." }
+                   { t: "DXA Scanning", d: "Early osteoporosis detection." },
+                   { t: "Optimization", d: "Vitamin D and Calcium plans." },
+                   { t: "Strength plans", d: "Weight-bearing exercise focus." },
+                   { t: "Fall prevention", d: "Assessment and modern tools." }
                  ].map((box, i) => (
                    <div key={i} className="space-y-1">
                       <div className="flex items-center gap-2 text-cyan-400 font-black text-[10px] uppercase tracking-widest">
@@ -193,9 +233,9 @@ export default function BodyPreservationFlagship() {
                <div className="bg-white/5 border border-white/10 rounded-[3rem] p-12 text-center">
                   <Award className="text-cyan-400 mx-auto mb-6" size={48} />
                   <p className="text-[10px] uppercase font-black text-slate-500 tracking-[0.4em] mb-4">Bone Health Status</p>
-                  <p className="text-5xl font-black text-white italic tracking-tighter">Normal (T-Score) [cite: 123]</p>
+                  <p className="text-5xl font-black text-white italic tracking-tighter">Normal (T-Score)</p>
                   <button className="mt-12 w-full py-5 bg-cyan-500 text-[#020617] rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white transition-all shadow-xl">
-                    Get Bone Density Test [cite: 114]
+                    Get Bone Density Test
                   </button>
                </div>
             </div>
@@ -212,18 +252,18 @@ export default function BodyPreservationFlagship() {
                Anti-Aging <br /><span className="text-cyan-600 font-light italic serif lowercase">Science & Research.</span>
              </h2>
              <p className="text-lg text-slate-500 leading-relaxed">
-               Utilizing death prediction modeling to extend your healthy years[cite: 30, 171]. Our pillars focus on biological age testing and telomere analysis[cite: 173].
+               Utilizing death prediction modeling to extend your healthy years. Our pillars focus on biological age testing and telomere analysis.
              </p>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="space-y-3">
                    <Dna className="text-cyan-600" size={24} />
                    <h5 className="font-bold text-[#0F172A] uppercase tracking-widest text-xs">Biological age</h5>
-                   <p className="text-[11px] text-slate-400 leading-relaxed">Personalized cellular regeneration protocols[cite: 173].</p>
+                   <p className="text-[11px] text-slate-400 leading-relaxed">Personalized cellular regeneration protocols.</p>
                 </div>
                 <div className="space-y-3">
                    <Sparkles className="text-cyan-600" size={24} />
                    <h5 className="font-bold text-[#0F172A] uppercase tracking-widest text-xs">Metabolic Tuning</h5>
-                   <p className="text-[11px] text-slate-400 leading-relaxed">Advanced antioxidant and metabolic optimization[cite: 174].</p>
+                   <p className="text-[11px] text-slate-400 leading-relaxed">Advanced antioxidant and metabolic optimization.</p>
                 </div>
              </div>
           </div>
@@ -232,7 +272,7 @@ export default function BodyPreservationFlagship() {
                 <Microscope size={60} className="text-cyan-600 mb-8" />
                 <h3 className="text-3xl font-black text-[#0F172A] italic mb-6 uppercase tracking-tighter">Cellular restoration</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-10 max-w-xs">
-                  Healthcare should be preventive rather than just reactive[cite: 14]. We focus on the elderly to ensure scientific precision[cite: 16].
+                  Healthcare should be preventive rather than just reactive. We focus on the elderly to ensure scientific precision.
                 </p>
                 <div className="flex items-center gap-2 text-cyan-600 font-black text-[10px] uppercase tracking-widest">
                   Active Monitoring Protocol <ArrowRight size={14} />
@@ -250,12 +290,12 @@ export default function BodyPreservationFlagship() {
             <div className="p-10 bg-white rounded-[3rem] shadow-sm border border-slate-100 group hover:shadow-xl transition-all">
                <Shield className="text-cyan-500 mb-6" size={32} />
                <h4 className="font-bold text-[#0F172A] text-lg uppercase mb-4 tracking-widest">Panchakarma</h4>
-               <p className="text-sm text-slate-400 leading-relaxed italic">"Ancient detoxification techniques to restore biological harmony[cite: 225]."</p>
+               <p className="text-sm text-slate-400 leading-relaxed italic">"Ancient detoxification techniques to restore biological harmony."</p>
             </div>
             <div className="p-10 bg-[#020617] rounded-[3rem] shadow-2xl border border-slate-800 text-white group hover:border-cyan-500/50 transition-all">
                <Zap className="text-cyan-400 mb-6" size={32} />
                <h4 className="font-bold text-white text-lg uppercase mb-4 tracking-widest">Herbal Protocols</h4>
-               <p className="text-sm text-slate-500 leading-relaxed italic">"Herbal rejuvenation and stress-relief protocols for total vitality[cite: 226]."</p>
+               <p className="text-sm text-slate-500 leading-relaxed italic">"Herbal rejuvenation and stress-relief protocols for total vitality."</p>
             </div>
           </div>
         </div>
@@ -269,11 +309,11 @@ export default function BodyPreservationFlagship() {
           </div>
           <p className="text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.2em] leading-relaxed text-center italic">
             Mission 100 provides preventive care and health optimization research. <br />
-            Consultations and risk assessments on this platform are for user guidance only and do not replace emergency medical care[cite: 94, 270]. <br />
-            In case of a medical emergency, visit your nearest hospital immediately[cite: 270].
+            Consultations and risk assessments on this platform are for user guidance only and do not replace emergency medical care. <br />
+            In case of a medical emergency, visit your nearest hospital immediately.
           </p>
           <div className="mt-12 pt-8 border-t border-slate-200 text-slate-300 text-[10px] font-bold uppercase tracking-widest text-center">
-             © 2026 MISSION 100™ HOSPITAL. ALL RIGHTS RESERVED[cite: 273].
+             © 2026 MISSION 100™ HOSPITAL. ALL RIGHTS RESERVED.
           </div>
         </div>
       </section>

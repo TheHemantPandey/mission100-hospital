@@ -15,10 +15,50 @@ import {
   Waves
 } from 'lucide-react';
 
+// --- 1. METADATA (For Search Engines) ---
+export const metadata = {
+  title: "Mental Health, Stress & Cognitive Clarity",
+  description: "Mission 100 Hospital provides advanced neuro-mapping, stress resilience tracking, and behavioral analysis to optimize cognitive clarity and mental vitality for a 100-year life.",
+  keywords: ["Mental Health New Delhi", "Stress Management", "Neuro-mapping", "Cognitive Clarity", "Behavioral Analysis", "Mission 100 Hospital"],
+};
+
 export default function MentalHealthWellness() {
+  
+  // --- 2. BREADCRUMB SCHEMA (For Rich Snippets) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Mental Health & Stress",
+        "item": "https://www.mission100hospital.com/services/mental-health&stress"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#FAFAFF] text-[#0F172A] font-sans selection:bg-indigo-100">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION - Clinical Authority & Calm */}
       <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-white overflow-hidden">
         {/* Soft Indigo Gradient Background */}
@@ -28,22 +68,22 @@ export default function MentalHealthWellness() {
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="lg:w-1/2">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border border-indigo-100">
-              Mission 100 Psychiatry & Wellness [cite: 45, 55]
+              Mission 100 Psychiatry & Wellness
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-[#0F172A] leading-[1.05] mb-8 tracking-tighter">
               Cognitive Clarity. <br />
               <span className="text-indigo-600 font-light italic serif">Mental Vitality.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-lg leading-relaxed mb-10">
-              Personalized strategies for a calmer mind[cite: 101]. At **Mission 100**, we provide holistic support for stress and happiness measurement to ensure peace of mind[cite: 25].
+              Personalized strategies for a calmer mind. At **Mission 100**, we provide holistic support for stress and happiness measurement to ensure peace of mind.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <button className="bg-[#0F172A] hover:bg-indigo-700 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-2xl shadow-indigo-100 flex items-center justify-center gap-3 group">
-                Check Stress Score Now [cite: 120]
+                Check Stress Score Now
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
               </button>
               <button className="bg-white border-2 border-slate-100 text-slate-600 px-10 py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all">
-                Our Philosophy [cite: 264]
+                Our Philosophy
               </button>
             </div>
           </div>
@@ -58,7 +98,7 @@ export default function MentalHealthWellness() {
             </div>
             {/* Minimalist Data Badge */}
             <div className="absolute -bottom-8 lg:-left-12 left-6 right-6 lg:right-auto bg-white p-8 rounded-3xl shadow-2xl border border-indigo-50 z-20">
-              <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-2">Stress Resilience [cite: 104]</p>
+              <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em] mb-2">Stress Resilience</p>
               <div className="flex items-center gap-4">
                 <span className="text-5xl font-black text-[#0F172A]">92%</span>
                 <Brain className="text-indigo-600" size={32} />
@@ -73,9 +113,9 @@ export default function MentalHealthWellness() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-end mb-24">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8 italic">Measuring the <br/>Science of Joy [cite: 141]</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 italic">Measuring the <br/>Science of Joy</h2>
               <p className="text-indigo-200/50 text-lg leading-relaxed">
-                Our core pillars prioritize preventative mental health and long-term emotional well-being preservation[cite: 119, 150].
+                Our core pillars prioritize preventative mental health and long-term emotional well-being preservation.
               </p>
             </div>
             <div className="h-px bg-indigo-500/20 w-full hidden lg:block"></div>
@@ -85,17 +125,17 @@ export default function MentalHealthWellness() {
             {[
               {
                 title: "Stress Management",
-                desc: "Personalized strategies for a calmer mind and burnout prevention frameworks[cite: 101, 118].",
+                desc: "Personalized strategies for a calmer mind and burnout prevention frameworks.",
                 icon: <Activity strokeWidth={1.5} />
               },
               {
                 title: "Happiness Index",
-                desc: "Scientific score based on lifestyle and mood to measure emotional vitality[cite: 140, 143].",
+                desc: "Scientific score based on lifestyle and mood to measure emotional vitality.",
                 icon: <Smile strokeWidth={1.5} />
               },
               {
                 title: "Behavioral Analysis",
-                desc: "Understanding the psychology of longevity through pattern recognition[cite: 160, 163].",
+                desc: "Understanding the psychology of longevity through pattern recognition.",
                 icon: <Brain strokeWidth={1.5} />
               }
             ].map((pillar, idx) => (
@@ -125,7 +165,7 @@ export default function MentalHealthWellness() {
                 />
              </div>
              <div className="absolute top-10 -right-8 bg-[#0F172A] text-white p-8 rounded-3xl shadow-2xl transform -rotate-3">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Cognitive Load [cite: 151]</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-2">Cognitive Load</p>
                 <p className="text-3xl font-black italic">Optimal</p>
              </div>
           </div>
@@ -136,15 +176,15 @@ export default function MentalHealthWellness() {
               Advanced <br /><span className="text-indigo-600 font-light italic serif">Neuro-Mapping.</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
-              We focus on focus and memory optimization protocols[cite: 137]. Our assessments ensure your cognitive load remains optimal through advanced neuro-mapping[cite: 136, 151].
+              We focus on focus and memory optimization protocols. Our assessments ensure your cognitive load remains optimal through advanced neuro-mapping.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               {[
-                { title: "Biofeedback", desc: "Advanced stress-level tracking[cite: 116]." },
-                { title: "CBT Support", desc: "Mindfulness and cognitive support[cite: 117]." },
-                { title: "EQ Coaching", desc: "Emotional intelligence for longevity[cite: 144]." },
-                { title: "Serotonin Strategies", desc: "Precision neurotransmitter optimization[cite: 146]." }
+                { title: "Biofeedback", desc: "Advanced stress-level tracking." },
+                { title: "CBT Support", desc: "Mindfulness and cognitive support." },
+                { title: "EQ Coaching", desc: "Emotional intelligence for longevity." },
+                { title: "Serotonin Strategies", desc: "Precision neurotransmitter optimization." }
               ].map((tool, i) => (
                 <div key={i} className="flex gap-4 group">
                    <div className="mt-1 w-5 h-5 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
@@ -166,19 +206,19 @@ export default function MentalHealthWellness() {
         <div className="max-w-7xl mx-auto">
            <div className="bg-white rounded-[4rem] p-12 md:p-24 shadow-2xl border border-indigo-50 flex flex-col lg:grid lg:grid-cols-2 gap-20 items-center">
               <div>
-                 <h3 className="text-4xl font-bold text-[#0F172A] mb-8 italic tracking-tight">Psychometric Self-Discovery [cite: 162]</h3>
+                 <h3 className="text-4xl font-bold text-[#0F172A] mb-8 italic tracking-tight">Psychometric Self-Discovery</h3>
                  <p className="text-slate-500 text-lg mb-10 leading-relaxed">
-                   Understanding the psychology of longevity[cite: 160]. We use behavioral pattern recognition for healthier habits and strengths-based roadmaps[cite: 163, 164].
+                   Understanding the psychology of longevity. We use behavioral pattern recognition for healthier habits and strengths-based roadmaps.
                  </p>
                  <button className="px-12 py-6 bg-indigo-600 text-white rounded-2xl font-black shadow-xl shadow-indigo-100 hover:bg-[#0F172A] transition-all uppercase tracking-widest text-xs">
-                    Test Your Personality [cite: 167]
+                    Test Your Personality
                  </button>
               </div>
               <div className="w-full space-y-5">
                  {[
-                   { label: "Mindset Stability", value: "High", color: "indigo", cite: "166" },
-                   { label: "Happiness Index", value: "8.5/10", color: "indigo", cite: "130" },
-                   { label: "Emotional Resilience", value: "Optimal", color: "indigo", cite: "165" }
+                   { label: "Mindset Stability", value: "High", color: "indigo" },
+                   { label: "Happiness Index", value: "8.5/10", color: "indigo" },
+                   { label: "Emotional Resilience", value: "Optimal", color: "indigo" }
                  ].map((stat, i) => (
                    <div key={i} className="p-8 bg-[#F8FAFF] rounded-3xl border border-indigo-50 flex justify-between items-center group hover:bg-white hover:shadow-lg transition-all">
                       <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{stat.label}</span>
@@ -201,7 +241,7 @@ export default function MentalHealthWellness() {
                 Emotional <br /><span className="text-indigo-600 italic font-light serif">Vitality Protocol.</span>
               </h2>
               <p className="text-lg text-slate-500 leading-relaxed">
-                Holistic support for stress and happiness measurement to ensure peace of mind[cite: 25]. We provide the tools necessary to achieve a vibrant century of life[cite: 15].
+                Holistic support for stress and happiness measurement to ensure peace of mind. We provide the tools necessary to achieve a vibrant century of life.
               </p>
               <div className="grid sm:grid-cols-2 gap-8 pt-4">
                  <div className="space-y-4">
@@ -209,26 +249,26 @@ export default function MentalHealthWellness() {
                        <HeartHandshake size={24} />
                     </div>
                     <h5 className="font-bold text-indigo-950">Emotional Support</h5>
-                    <p className="text-sm text-slate-400 leading-relaxed">Therapeutic support for anxiety and burnout[cite: 136].</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">Therapeutic support for anxiety and burnout.</p>
                  </div>
                  <div className="space-y-4">
                     <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
                        <Sparkles size={24} />
                     </div>
                     <h5 className="font-bold text-indigo-950">Resilience Training</h5>
-                    <p className="text-sm text-slate-400 leading-relaxed">Long-term emotional resilience training protocols[cite: 137, 165].</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">Long-term emotional resilience training protocols.</p>
                  </div>
               </div>
            </div>
            <div className="lg:w-1/2 w-full">
               <div className="bg-[#0F172A] rounded-[4rem] p-16 text-white relative overflow-hidden">
                  <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full blur-[100px] opacity-20 -mr-32 -mt-32"></div>
-                 <h4 className="text-3xl font-bold mb-8 italic">Happiness Measurement [cite: 244]</h4>
+                 <h4 className="text-3xl font-bold mb-8 italic">Happiness Measurement</h4>
                  <p className="text-indigo-200/50 mb-10 leading-relaxed">
-                    A scientific score based on lifestyle and mood[cite: 143]. Social connectivity and community-based health support are central to our longevity framework[cite: 145].
+                    A scientific score based on lifestyle and mood. Social connectivity and community-based health support are central to our longevity framework.
                  </p>
                  <button className="text-indigo-400 font-bold uppercase tracking-widest text-xs flex items-center gap-3 group">
-                    Begin Assessment [cite: 147] <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                    Begin Assessment <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                  </button>
               </div>
            </div>
@@ -239,7 +279,7 @@ export default function MentalHealthWellness() {
       <section className="py-32 px-6 lg:px-12 bg-[#F8FAFF] border-t border-indigo-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-[#0F172A] mb-4 italic">Wellness Inquiries [cite: 244]</h2>
+            <h2 className="text-4xl font-bold text-[#0F172A] mb-4 italic">Wellness Inquiries</h2>
             <p className="text-slate-400 uppercase tracking-[0.3em] text-[10px] font-bold">Scientific mental health support</p>
           </div>
 
@@ -247,19 +287,19 @@ export default function MentalHealthWellness() {
             {[
               { 
                 q: "What exactly is 'Happiness Measurement'?", 
-                a: "It is a scientific score based on lifestyle and mood, used to measure the science of a joyful life[cite: 141, 143, 244]." 
+                a: "It is a scientific score based on lifestyle and mood, used to measure the science of a joyful life." 
               },
               { 
                 q: "How is stress resilience tracked?", 
-                a: "Utilizing advanced stress-level tracking and biofeedback to provide personalized burnout prevention frameworks[cite: 116, 118]." 
+                a: "Utilizing advanced stress-level tracking and biofeedback to provide personalized burnout prevention frameworks." 
               },
               { 
                 q: "What is involved in behavioral analysis?", 
-                a: "It includes psychometric testing for self-discovery and behavioral pattern recognition for healthier habits[cite: 162, 163]." 
+                a: "It includes psychometric testing for self-discovery and behavioral pattern recognition for healthier habits." 
               },
               { 
                 q: "Do you provide cognitive assessments?", 
-                a: "Yes, we utilize advanced neuro-mapping and cognitive assessments to ensure focus and memory optimization[cite: 136, 137]." 
+                a: "Yes, we utilize advanced neuro-mapping and cognitive assessments to ensure focus and memory optimization." 
               }
             ].map((faq, i) => (
               <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-indigo-50 group cursor-pointer hover:shadow-xl transition-all">
@@ -279,9 +319,9 @@ export default function MentalHealthWellness() {
       <section className="bg-white py-16 px-6 border-t border-slate-100">
         <div className="max-w-4xl mx-auto text-center">
            <p className="text-[10px] text-slate-300 uppercase tracking-[0.2em] leading-relaxed">
-             Mission 100 provides preventative mental health support and behavioral analysis frameworks[cite: 150, 175]. <br />
-             Assessments and wellness plans do not replace professional psychiatric clinical diagnosis, psychological therapy, or emergency care[cite: 121, 148, 150]. <br />
-             In case of a medical emergency, visit your nearest hospital immediately[cite: 270].
+             Mission 100 provides preventative mental health support and behavioral analysis frameworks. <br />
+             Assessments and wellness plans do not replace professional psychiatric clinical diagnosis, psychological therapy, or emergency care. <br />
+             In case of a medical emergency, visit your nearest hospital immediately.
            </p>
         </div>
       </section>

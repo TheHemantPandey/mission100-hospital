@@ -13,13 +13,52 @@ import {
   Dna
 } from 'lucide-react';
 
+// --- 1. METADATA (ABOVE THE FUNCTION) ---
+export const metadata = {
+  title: "Bone Strength & Density Testing",
+  description: "Advanced DXA scanning and bone mineral density testing at Mission 100 Hospital to prevent osteoporosis and maintain lifelong mobility.",
+  keywords: ["Bone health", "Osteoporosis prevention", "DEXA scan New Delhi", "Bone strength", "Skeletal longevity"],
+};
+
 export default function BoneStrengthLongevity() {
+
+  // --- 2. BREADCRUMB SCHEMA LOGIC ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Bone Strength",
+        "item": "https://www.mission100hospital.com/services/bone-strength"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#F1F5F9] text-[#1E293B] font-sans selection:bg-blue-100">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION: THE FOUNDATION */}
       <section className="relative pt-32 pb-24 px-6 md:px-12 bg-white overflow-hidden">
-        {/* Structural background elements */}
         <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-50 z-0"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-50 rounded-full blur-[100px] z-0"></div>
 
@@ -54,7 +93,6 @@ export default function BoneStrengthLongevity() {
                   className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              {/* Floating Data Badge */}
               <div className="absolute top-10 -right-6 bg-blue-600 text-white p-6 rounded-2xl shadow-xl border-4 border-white transform rotate-3">
                 <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">T-Score Status</p>
                 <p className="text-3xl font-black">Stable</p>

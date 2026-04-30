@@ -1,9 +1,50 @@
 import React from 'react';
 import { Leaf, Sun, Moon, Wind, Compass, Flower2, ChevronRight, Activity, Zap, Shield, Sparkles } from 'lucide-react';
 
+// --- 1. METADATA (For Search Engines) ---
+export const metadata = {
+  title: "Yoga & Ayurvedic Wisdom | Vedic Longevity",
+  description: "Integrate 5,000 years of Ayurvedic wisdom with modern longevity science at Mission 100 Hospital. Explore Dosha-specific nutrition, Pranayama bio-feedback, and seasonal alignment.",
+  keywords: ["Ayurveda New Delhi", "Yoga for Longevity", "Dosha Analysis", "Panchakarma", "Vedic Science", "Mission 100 Hospital"],
+};
+
 export default function YogaAyurvedaPage() {
+
+  // --- 2. BREADCRUMB SCHEMA (For Rich Snippets) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Yoga & Ayurveda",
+        "item": "https://www.mission100hospital.com/services/yoga-ayurveda"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#F8FAF9]">
+
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION - Earthy Healing Theme */}
       <section className="bg-gradient-to-b from-emerald-900 to-[#F8FAF9] py-24 px-6 border-b border-emerald-100/20">
         <div className="max-w-6xl mx-auto text-center">
@@ -191,8 +232,8 @@ export default function YogaAyurvedaPage() {
       <footer className="bg-white py-12 px-6 border-t border-emerald-50">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.2em] leading-loose">
-            Mission 100 Ayurvedic protocols are supportive and preventative[cite: 228]. <br />
-            Yoga and herbal suggestions should be integrated with your existing medical treatments and discussed with a certified practitioner[cite: 228].
+            Mission 100 Ayurvedic protocols are supportive and preventative. <br />
+            Yoga and herbal suggestions should be integrated with your existing medical treatments and discussed with a certified practitioner.
           </p>
         </div>
       </footer>

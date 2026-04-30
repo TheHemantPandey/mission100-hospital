@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "FAQ", 
+  description: "Find answers to frequently asked questions about Mission 100 Hospital's preventive care, longevity modeling, heart risk assessments, and Ayurveda services.",
+  keywords: ["Preventive Healthcare FAQ", "Heart Risk Assessment", "Longevity Modeling", "Mission 100 Hospital Questions"],
+};
+
 export default function FAQPage() {
   const faqs = [
     {
@@ -45,8 +51,28 @@ export default function FAQPage() {
     }
   ];
 
+  // --- NEW: FAQ SCHEMA GENERATOR ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-white pb-20">
+      {/* ADDING THE SCHEMA TO THE HEAD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HEADER SECTION */}
       <section className="bg-green-50 py-24 px-6 text-center border-b border-green-100">
         <div className="max-w-4xl mx-auto">
@@ -97,7 +123,7 @@ export default function FAQPage() {
       <section className="mt-20 py-10 border-t border-gray-100">
         <div className="max-w-4xl mx-auto text-center px-6">
           <p className="text-[10px] text-gray-400 uppercase tracking-widest leading-loose">
-            Mission 100 provides preventative care and health optimization. <br />
+            Mission 100 Hospital provides preventative care and health optimization. <br />
             Consultations and risk assessments do not replace emergency medical or psychiatric care.
           </p>
         </div>

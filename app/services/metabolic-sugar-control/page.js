@@ -14,10 +14,50 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
+// --- 1. METADATA (For Search Engines) ---
+export const metadata = {
+  title: "Metabolic Sugar Control & CGM Monitoring",
+  description: "Master your glucose stability with Mission 100 Hospital. We integrate Continuous Glucose Monitoring (CGM), HBA1C control, and precision nutrition to manage sugar naturally and prevent long-term complications.",
+  keywords: ["Sugar Control", "Metabolic Health", "CGM Monitoring", "HBA1C Risk Reduction", "Precision Nutrition New Delhi", "Mission 100 Hospital"],
+};
+
 export default function MetabolicSugarControl() {
+  
+  // --- 2. BREADCRUMB SCHEMA (For Rich Snippets) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Metabolic Sugar Control",
+        "item": "https://www.mission100hospital.com/services/metabolic-sugar-control"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-white text-slate-900 font-sans selection:bg-emerald-100">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION: THE VITALITY VISION */}
       <section className="relative pt-32 pb-24 px-6 bg-slate-50 overflow-hidden border-b border-emerald-50">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-emerald-50/30 skew-x-12 translate-x-32 z-0"></div>

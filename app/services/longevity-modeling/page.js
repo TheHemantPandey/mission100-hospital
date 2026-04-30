@@ -13,10 +13,50 @@ import {
   Layers
 } from 'lucide-react';
 
+// --- 1. METADATA (For Search Engines) ---
+export const metadata = {
+  title: "Longevity Modeling & Anti-Aging Science",
+  description: "Advanced biological age testing and telomere analysis at Mission 100 Hospital. We utilize death prediction modeling and preventive healthcare to manage the aging process with scientific precision.",
+  keywords: ["Longevity Modeling", "Anti-Aging Science", "Biological Age Testing", "Telomere Analysis", "Preventive Healthcare New Delhi"],
+};
+
 export default function LongevityModelingPage() {
+  
+  // --- 2. BREADCRUMB SCHEMA (For Rich Snippets) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mission100hospital.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mission100hospital.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Longevity Modeling",
+        "item": "https://www.mission100hospital.com/services/longevity-modeling"
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-[#F8FAFB] text-[#0F172A] font-sans selection:bg-teal-100">
       
+      {/* --- 3. INJECT SCHEMA SCRIPT --- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* 1. HERO SECTION: DATA-DRIVEN LONGEVITY */}
       <section className="relative pt-32 pb-24 px-6 lg:px-12 bg-white overflow-hidden">
         {/* Subtle Geometric Background */}
@@ -28,22 +68,22 @@ export default function LongevityModelingPage() {
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="lg:w-3/5 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 text-teal-700 text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border border-teal-100">
-              Mission 100 Longevity Protocol [cite: 3]
+              Mission 100 Longevity Protocol
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-[#0F172A] leading-[1.05] mb-8 tracking-tighter uppercase">
               Anti-Aging <br />
               <span className="text-teal-600 font-light italic serif lowercase">Science & Modeling.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-10">
-              Utilizing data to extend your healthy years[cite: 171]. We integrate death prediction modeling and preventive healthcare to ensure the aging process is managed with scientific precision[cite: 30, 16].
+              Utilizing data to extend your healthy years. We integrate death prediction modeling and preventive healthcare to ensure the aging process is managed with scientific precision.
             </p>
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-5">
               <button className="bg-[#0F172A] hover:bg-teal-700 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-2xl shadow-teal-100 flex items-center justify-center gap-3 group">
-                Analyze Biological Age [cite: 176]
+                Analyze Biological Age 
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
               </button>
               <button className="bg-white border-2 border-slate-100 text-slate-600 px-10 py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all">
-                Our Longevity Vision [cite: 13]
+                Our Longevity Vision 
               </button>
             </div>
           </div>
@@ -54,12 +94,12 @@ export default function LongevityModelingPage() {
               <div className="relative z-10">
                 <Clock className="text-teal-400 mb-6" size={48} />
                 <p className="text-xs font-bold uppercase tracking-widest text-teal-500 mb-2">Longevity Modeling </p>
-                <h3 className="text-4xl font-black italic mb-6">Age: -5.2 Years [cite: 179]</h3>
+                <h3 className="text-4xl font-black italic mb-6">Age: -5.2 Years </h3>
                 <div className="space-y-4">
                   <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
                     <div className="bg-teal-500 h-full w-[92%]"></div>
                   </div>
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Cellular Regeneration Stability [cite: 173]</p>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Cellular Regeneration Stability </p>
                 </div>
               </div>
             </div>
@@ -71,7 +111,7 @@ export default function LongevityModelingPage() {
       <section className="py-24 px-6 lg:px-12 bg-[#0F172A] text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold mb-6 italic tracking-tight">Longevity Core Pillars [cite: 172]</h2>
+            <h2 className="text-4xl font-bold mb-6 italic tracking-tight">Longevity Core Pillars </h2>
             <div className="w-24 h-1 bg-teal-500 mx-auto"></div>
           </div>
           
@@ -79,17 +119,17 @@ export default function LongevityModelingPage() {
             {[
               {
                 title: "Biological Age Testing",
-                desc: "Advanced biological age testing and telomere analysis to track true vitality[cite: 173].",
+                desc: "Advanced biological age testing and telomere analysis to track true vitality.",
                 icon: <Dna strokeWidth={1.5} />
               },
               {
                 title: "Longevity Modeling",
-                desc: "Data-driven risk modeling to extend your healthy years and predict future outcomes[cite: 173].",
+                desc: "Data-driven risk modeling to extend your healthy years and predict future outcomes.",
                 icon: <LineChart strokeWidth={1.5} />
               },
               {
                 title: "Cellular Protocols",
-                desc: "Personalized cellular regeneration protocols designed for geriatric longevity science[cite: 173, 19].",
+                desc: "Personalized cellular regeneration protocols designed for geriatric longevity science.",
                 icon: <Layers strokeWidth={1.5} />
               }
             ].map((pillar, idx) => (
@@ -119,15 +159,15 @@ export default function LongevityModelingPage() {
                   </div>
                   <div className="aspect-square bg-[#0F172A] rounded-3xl shadow-lg flex flex-col items-center justify-center p-6 text-white translate-y-12">
                     <Activity className="text-teal-400 mb-4" />
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 text-center">Vitality Metrics [cite: 207]</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 text-center">Vitality Metrics </p>
                   </div>
                   <div className="aspect-square bg-teal-600 rounded-3xl shadow-lg flex flex-col items-center justify-center p-6 text-white">
                     <Microscope className="text-white mb-4" />
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-teal-200 text-center">Pathology [cite: 18]</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-teal-200 text-center">Pathology </p>
                   </div>
                   <div className="aspect-square bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-6 border border-teal-50 translate-y-12">
                     <ShieldCheck className="text-teal-600 mb-4" />
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 text-center">Prevention [cite: 14]</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 text-center">Prevention </p>
                   </div>
                 </div>
              </div>
@@ -139,15 +179,15 @@ export default function LongevityModelingPage() {
               Advanced <br /><span className="text-teal-600 font-light italic serif lowercase">Metabolic Optimization.</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
-              We focus on advanced antioxidant and metabolic optimization to extend your healthy years[cite: 174, 171]. Our approach integrates traditional Ayurveda with modern radiology[cite: 18].
+              We focus on advanced antioxidant and metabolic optimization to extend your healthy years. Our approach integrates traditional Ayurveda with modern radiology.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               {[
-                { title: "Metabolic Tuning", desc: "Optimizing metabolic and vitality pathways[cite: 174]." },
-                { title: "Death Prediction", desc: "Utilizing modeling for death prediction and longevity[cite: 30]." },
-                { title: "Radiology", desc: "Modern Radiology integrated with Ayurveda[cite: 18]." },
-                { title: "Deficiency Monitoring", desc: "Advanced body deficiency monitoring[cite: 19]." }
+                { title: "Metabolic Tuning", desc: "Optimizing metabolic and vitality pathways." },
+                { title: "Death Prediction", desc: "Utilizing modeling for death prediction and longevity." },
+                { title: "Radiology", desc: "Modern Radiology integrated with Ayurveda." },
+                { title: "Deficiency Monitoring", desc: "Advanced body deficiency monitoring." }
               ].map((tool, i) => (
                 <div key={i} className="flex gap-4 group">
                    <div className="mt-1 w-5 h-5 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors">
@@ -168,12 +208,12 @@ export default function LongevityModelingPage() {
       <section className="py-20 px-6 lg:px-12 bg-[#F8FAFF] border-t border-slate-100">
         <div className="max-w-4xl mx-auto text-center">
            <p className="text-[10px] text-slate-300 uppercase tracking-[0.2em] leading-relaxed">
-             Mission 100 provides longevity research and preventative health insights[cite: 177]. <br />
-             Longevity modeling and cellular protocols do not replace clinical medical treatment[cite: 177]. <br />
-             Healthcare at Mission 100 is designed to be preventive rather than reactive[cite: 14].
+             Mission 100 provides longevity research and preventative health insights. <br />
+             Longevity modeling and cellular protocols do not replace clinical medical treatment. <br />
+             Healthcare at Mission 100 is designed to be preventive rather than reactive.
            </p>
            <div className="mt-10 pt-8 border-t border-slate-200 text-slate-400 text-[10px] font-bold uppercase tracking-widest">
-              © 2026 MISSION 100™ HOSPITAL. ALL RIGHTS RESERVED[cite: 273].
+              © 2026 MISSION 100™ HOSPITAL. ALL RIGHTS RESERVED.
            </div>
         </div>
       </section>
