@@ -10,7 +10,7 @@ export default function sitemap() {
     'happiness-emotional-vitality',
     'heart-attack-prevention',
     'longevity-modeling',
-    'mental-health&stress',
+    'mental-health-stress',
     'metabolic-sugar-control',
     'Vitamins',
     'yoga-ayurveda'
