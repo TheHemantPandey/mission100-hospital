@@ -1,24 +1,20 @@
-import BookingForm from "@/components/Booking/BookingForm";
+import FormStepOne from "@/components/Booking/FormStepOne";
 
-// --- METADATA (Google can read this) ---
 export const metadata = {
-  title: "Book an Appointment",
-  description: "Schedule your health consultation or laboratory test at Mission 100 Hospital. Secure and easy online booking for patients in New Delhi.",
-  keywords: ["Book Doctor Appointment", "Online Lab Test Booking", "Mission 100 Hospital Scheduling"],
+  title: "Book Heart Attack Prevention Test | Mission 100 Hospital",
+  description: "Secure your appointment for a Heart Attack Prevention Test at Mission 100 Hospital. Fast booking and secure payment.",
 };
 
 export default function BookingPage() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl w-full bg-white shadow-xl rounded-2xl p-8">
+    <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-16 px-4">
+      <div className="max-w-3xl w-full bg-white shadow-2xl rounded-3xl p-10 border border-slate-100">
         
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-900">Schedule Your Visit</h1>
-          <p className="text-gray-500 mt-2">Take the first step towards a 100-year healthy life.</p>
+        <div className="mb-10 text-center">
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Finalize Your Appointment</h1>
         </div>
 
-        {/* This is your actual form logic */}
-        <BookingForm />
+        <FormStepOne />
 
       </div>
     </main>

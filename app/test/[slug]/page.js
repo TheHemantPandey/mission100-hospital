@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, use } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'; // Already imported
 import testsData from '@/data/tests.json';
 import { 
   ChevronDown, 
@@ -37,8 +37,6 @@ export default function TestDetailPage({ params }) {
   return (
     <div className="min-h-screen bg-[#f3f4f6] font-sans pb-20 relative">
       
-      
-
       {/* Top Banner Image */}
       <div className="w-full h-48 md:h-64 lg:h-80 overflow-hidden">
         <div 
@@ -76,13 +74,17 @@ export default function TestDetailPage({ params }) {
               </div>
             </div>
 
-            {/* 2. Mobile Home Collection Info (Simplified) */}
+            {/* 2. Mobile Home Collection Info (Updated with Link) */}
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 lg:hidden">
               <div className="flex items-center gap-3 mb-6 p-3 bg-red-50 rounded-lg border border-red-100">
                 <Home className="text-red-600" size={20} />
                 <span className="font-bold text-red-800 text-sm">FREE Home Sample Collection</span>
               </div>
-              <button className="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-sm shadow-md mb-3">Book Consultation</button>
+              <Link href="/book-appointment">
+                <button className="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-sm shadow-md mb-3">
+                  Book Test
+                </button>
+              </Link>
               <a href="tel:9220620209" className="block w-full border border-gray-300 py-3 rounded-lg font-bold text-gray-800 text-center text-xs">
                 Call: 9220-620-209
               </a>
@@ -189,7 +191,7 @@ export default function TestDetailPage({ params }) {
 
           </div>
 
-          {/* DESKTOP SIDEBAR */}
+          {/* DESKTOP SIDEBAR (Updated with Link)[cite: 6] */}
           <div className="hidden lg:block">
             <div className="sticky top-8 space-y-6">
               <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-8">
@@ -204,7 +206,6 @@ export default function TestDetailPage({ params }) {
                   </div>
                 </div>
                 
-                {/* Safety checklist replacing the pincode check */}
                 <div className="space-y-3 border-t pt-6">
                   <div className="flex items-center gap-3">
                     <ShieldCheck size={18} className="text-green-600" />
@@ -217,15 +218,16 @@ export default function TestDetailPage({ params }) {
                 </div>
 
                 <div className="space-y-3">
-                  <button className="w-full bg-red-600 text-white py-4 rounded-xl font-bold text-base tracking-widest hover:bg-red-700 shadow-xl transition-all">
-                     Book Consultation
-                  </button>
+                  <Link href="/book-appointment">
+                    <button className="w-full bg-red-600 text-white py-4 rounded-xl font-bold text-base tracking-widest hover:bg-red-700 shadow-xl transition-all">
+                       Book Test
+                    </button>
+                  </Link>
                   <a href="tel:9220620209" className="block w-full border border-gray-300 py-4 rounded-xl font-bold text-gray-800 text-center text-2sm hover:bg-gray-50 transition-colors">
                     Call: 9220-620-209
                   </a>
                 </div>
               </div>
-              
             </div>
           </div>
           

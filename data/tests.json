@@ -1,39 +1,7 @@
 [
+  
   {
     "id": 1,
-    "slug": "fever-health-package",
-    "title": "Fever Health Package",
-    "oldPrice": 3998,
-    "currentPrice": 1999,
-    "alsoKnownAs": ["Fever Health Package", "Fever Advance Package"],
-    "shortDescription": "The fever health package intends to screen and ascertain among the general possible causes for your fever.",
-    "totalParameters": 11,
-    "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=400",
-    "includes": [
-      {
-        "mainParam": "Liver Function Test",
-        "nestedCount": 12,
-        "nestedParams": ["Bilirubin (Total)", "Bilirubin (Direct)", "AST (SGOT)", "ALT (SGPT)", "Alkaline Phosphatase"]
-      },
-      {
-        "mainParam": "CBC",
-        "nestedCount": 22,
-        "nestedParams": ["Hemoglobin", "Total RBC", "Platelet Count", "Neutrophils", "Lymphocytes", "Monocytes"]
-      },
-      {
-        "mainParam": "Widal",
-        "nestedCount": 4,
-        "nestedParams": ["S. Typhi O", "S. Typhi H", "S. Paratyphi AH", "S. Paratyphi BH"]
-      }
-    ],
-    "bottomDetails": {
-      "preparation": "First morning midstream urine sample preferred",
-      "reportingTAT": "Same Day*",
-      "specializations": ["Fever", "Health Checkup"]
-    }
-  },
-  {
-    "id": 2,
     "slug": "complete-heart-checkup-at-home",
     "title": "Complete Heart Checkup at Home",
     "oldPrice": 999,
