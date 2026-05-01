@@ -40,7 +40,7 @@ export default function FindATest() {
               className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 flex flex-col hover:shadow-xl transition-all duration-300"
             >
               {/* Card Image */}
-              <div className="aspect-[16/9] w-full overflow-hidden">
+              <div className="aspect-video w-full overflow-hidden">
                 <img 
                   src={pkg.image} 
                   alt={pkg.title} 
@@ -49,7 +49,7 @@ export default function FindATest() {
               </div>
 
               {/* Card Content */}
-              <div className="p-6 flex-grow">
+              <div className="p-6 grow">
                 
                 {/* Test Name: Truncate for single line */}
                 <h2 

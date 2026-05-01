@@ -110,7 +110,7 @@ export default function TestDetailPage({ params }) {
 
             {/* 4. Package Highlights */}
             {test.specialFeatures && (
-              <div className="bg-gradient-to-br from-red-50 to-white p-6 md:p-10 rounded-xl shadow-sm border border-red-100">
+              <div className="bg-linear-to-br from-red-50 to-white p-6 md:p-10 rounded-xl shadow-sm border border-red-100">
                 <div className="flex items-center gap-2 mb-6">
                   <Star className="text-red-600 fill-red-600" size={20} />
                   <h3 className="font-bold text-gray-900 text-base md:text-xl uppercase tracking-tight">Package Highlights</h3>
