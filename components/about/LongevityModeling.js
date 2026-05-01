@@ -71,18 +71,6 @@ const MissionHero = () => {
           </div>
         </div>
 
-        {/* 4. Bottom Sticky Contact Info - Responsive positioning */}
-        <div className="fixed md:absolute bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-3 md:gap-4 z-20">
-            <div className="hidden sm:flex items-center gap-3 bg-white border border-slate-100 py-3 px-6 rounded-full shadow-lg shadow-slate-200">
-                <Phone size={18} className="text-slate-900" />
-                <span className="text-slate-900 font-bold text-sm tracking-tight">+91 9220 620 209</span>
-            </div>
-            <div className="bg-[#25D366] p-4 rounded-full text-white shadow-xl hover:scale-110 transition-all cursor-pointer active:scale-95">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.405c0 6.555-5.332 11.887-11.886 11.887-2.012 0-3.986-.51-5.742-1.477l-6.244 1.702zm6.75-3.193c1.513.899 3.3 1.373 5.123 1.373 5.45 0 9.886-4.437 9.886-9.888 0-2.64-1.028-5.122-2.894-6.989s-4.349-2.894-6.992-2.894c-5.451 0-9.888 4.437-9.888 9.889 0 1.942.57 3.842 1.649 5.467l-1.077 3.932 4.027-1.096z" />
-                </svg>
-            </div>
-        </div>
 
       </div>
     </section>

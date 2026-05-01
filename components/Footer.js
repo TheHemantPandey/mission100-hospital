@@ -80,10 +80,10 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">Trust Center</h4>
               <ul className="space-y-4 text-sm">
-                <li><a href="/about" className="hover:text-emerald-500 transition-colors">Our Philosophy</a></li>
+                <li><a href="/about" className="hover:text-emerald-500 transition-colors">About Us</a></li>
                 <li><a href="/faq" className="hover:text-emerald-500 transition-colors">Help & FAQ</a></li>
-                <li><a href="/privacy" className="hover:text-emerald-500 transition-colors">Privacy Policy</a></li>
-                <li><a href="/terms" className="hover:text-emerald-500 transition-colors">Terms of Use</a></li>
+                <li><a href="/privacy-policy" className="hover:text-emerald-500 transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-of-use" className="hover:text-emerald-500 transition-colors">Terms of Use</a></li>
               </ul>
             </div>
 
