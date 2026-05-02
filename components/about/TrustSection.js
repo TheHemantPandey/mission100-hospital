@@ -58,8 +58,8 @@ const TrustSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Email Us</h4>
-                  <a href="mailto:info@mission100.in" className="text-slate-500 text-sm font-medium hover:text-green-600 transition-colors">
-                    info@mission100hospital.in
+                  <a href="mailto:info@mission100.com" className="text-slate-500 text-sm font-medium hover:text-green-600 transition-colors">
+                    info@mission100hospital.com
                   </a>
                 </div>
               </div>

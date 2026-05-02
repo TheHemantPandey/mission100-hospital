@@ -3,7 +3,6 @@ import MissionHero from "@/components/about/MissionHero";
 import Philosophy from "@/components/about/Philosophy";
 import HybridApproach from "@/components/about/HybridApproach";
 import CorePillars from "@/components/about/CorePillars";
-import LongevityModeling from "@/components/about/LongevityModeling";
 import TrustSection from "@/components/about/TrustSection";
 import DoctorSection from "@/components/DoctorCard";
 
@@ -34,8 +33,6 @@ export default function AboutPage() {
         <DoctorSection />
       </div>
 
-      {/* 6. Advanced Tech: Biological Age & Longevity Modeling */}
-      <LongevityModeling />
 
       {/* 7. Footer Info: Contact, Address, and Medical Disclaimers */}
       <TrustSection />

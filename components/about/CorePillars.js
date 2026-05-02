@@ -8,7 +8,7 @@ const PillarCard = memo(({ pillar }) => (
       {pillar.icon}
     </div>
 
-    <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-green-700 transition-colors">
+    <h4 className="text-2xl font-extrabold text-slate-900 mb-3 group-hover:text-green-700 transition-colors">
       {pillar.title}
     </h4>
     
@@ -18,8 +18,8 @@ const PillarCard = memo(({ pillar }) => (
 
     <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
       <div className="flex flex-col">
-        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{pillar.scoreLabel}</span>
-        <span className="text-xl font-black text-slate-900 tracking-tight">{pillar.score}</span>
+        <span className="text-[12px] font-bold text-slate-600 uppercase tracking-wider">{pillar.scoreLabel}</span>
+        <span className="text-2xl font-black text-slate-900 tracking-tight">{pillar.score}</span>
       </div>
       <div className="bg-green-50 text-green-700 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
         <TrendingUp size={18} />
@@ -98,34 +98,6 @@ const CorePillars = () => {
           ))}
         </div>
 
-        {/* Metabolic & Vitality Highlight */}
-        <div className="mt-12 p-6 md:p-12 bg-slate-900 rounded-[2.5rem] md:rounded-[3rem] text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/10 blur-[80px] rounded-full" />
-          
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
-            <div>
-              <h4 className="text-xl md:text-2xl font-bold mb-4">Metabolic & Vitality Testing</h4>
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
-                Mastering your glucose for long-term vitality through Continuous Glucose Monitoring (CGM) integration and full-spectrum vitamin deficiency screening.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] md:text-xs font-bold text-green-400">Glucose Stability</span>
-                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] md:text-xs font-bold text-blue-400">Micronutrient Precision</span>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/5 border border-white/10 p-5 md:p-6 rounded-3xl text-center">
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">88%</div>
-                <div className="text-[9px] md:text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">Vitality Level</div>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-5 md:p-6 rounded-3xl text-center">
-                <div className="text-2xl md:text-3xl font-black text-green-400">Stable</div>
-                <div className="text-[9px] md:text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">Metabolic Balance</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>

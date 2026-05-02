@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 // Reusable Service Card Component to reduce code duplication and improve performance
 const ServiceCard = ({ emoji, title, description, href }) => (
@@ -16,7 +16,12 @@ const ServiceCard = ({ emoji, title, description, href }) => (
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
         </svg>
       </button>
     </Link>
@@ -27,7 +32,6 @@ const AboutUs = () => {
   return (
     <section className="bg-white text-gray-800 font-sans py-8 md:py-16 lg:py-20 px-4 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
-        
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-green-700 mb-4 uppercase tracking-wide">
@@ -38,7 +42,6 @@ const AboutUs = () => {
           </p>
           <div className="w-20 h-1 bg-green-400 mx-auto mt-4 md:mt-6"></div>
         </div>
-
         {/* Vision Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 md:mb-20">
           <div className="space-y-4 md:space-y-6">
@@ -66,7 +69,8 @@ const AboutUs = () => {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-green-500 mr-2">✔</span>
-                Modern Radiology and Pathology integrated with traditional Ayurveda.
+                Modern Radiology and Pathology integrated with traditional
+                Ayurveda.
               </li>
               <li className="flex items-start">
                 <span className="text-green-500 mr-2">✔</span>
@@ -74,10 +78,49 @@ const AboutUs = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-green-500 mr-2">✔</span>
-                Data-driven insights: ECG heart risk analysis & body deficiency monitoring.
+                Data-driven insights: ECG heart risk analysis & body deficiency
+                monitoring.
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Heart Test Banner Section */}
+        <div className="mb-16 md:mb-20">
+          <div className="flex flex-col items-center mb-4">
+            <span className="bg-red-100 text-red-600 text-sm md:text-2xl font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-2 animate-pulse">
+              🔥 Limited Time Launch Offer
+            </span>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800 text-center px-4">
+              Book Your First Heart Checkup at an Exclusive Low Price
+            </h3>
+          </div>
+
+          <Link
+            href="/test/complete-heart-checkup-at-home"
+            className="block group"
+          >
+            <div className="relative w-full overflow-hidden rounded-2xl shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-[1.01] border-2 border-transparent hover:border-green-500">
+              {/* Desktop & Large Screens Image (Visible from 'md' breakpoint up) */}
+              <img
+                src="/ad/heart-prvention1.jpg"
+                alt="Complete Heart Checkup Desktop"
+                className="hidden md:block w-full h-auto object-cover"
+              />
+
+              {/* Mobile & Tablet Image (Hidden from 'md' breakpoint up) */}
+              <img
+                src="/ad/heart-prevention2.jpg"
+                alt="Complete Heart Checkup Mobile"
+                className="block md:hidden w-full h-auto object-cover"
+              />
+
+              {/* Visual Call to Action Overlay */}
+              <div className="absolute bottom-4 right-4 bg-green-600 text-white px-6 py-2 rounded-lg font-bold shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hidden md:block">
+                Book Test Now
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Clinical Focus Grid */}
@@ -86,37 +129,37 @@ const AboutUs = () => {
             Our Main Clinical Focus Areas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <ServiceCard 
+            <ServiceCard
               emoji="❤️"
               title="Heart Attack Prevention"
               description="Prioritizing cardiac safety through advanced ECG analysis and risk assessment."
               href="/services/heart-attack-prevention"
             />
-            <ServiceCard 
+            <ServiceCard
               emoji="🧠"
               title="Mental Health Stress"
               description="Holistic support for stress and happiness measurement to ensure peace of mind."
               href="/services/mental-health-stress"
             />
-            <ServiceCard 
+            <ServiceCard
               emoji="🦴"
               title="Body & Bone Strength"
               description="Monitoring bone measurement and body strength to maintain mobility into old age."
               href="/services/bone-strength"
             />
-            <ServiceCard 
+            <ServiceCard
               emoji="⏳"
               title="Anti-Aging Science"
               description="Utilizing preventive healthcare and death prediction modeling to extend your healthy years."
               href="/services/anti-aging-science"
             />
-            <ServiceCard 
+            <ServiceCard
               emoji="🧘"
               title="Yoga & Ayurveda"
               description="Blending ancient wellness practices with modern medicine for a complete health ecosystem."
               href="/services/yoga-ayurveda"
             />
-            <ServiceCard 
+            <ServiceCard
               emoji="🧍"
               title="Body Preservation"
               description="Preserving body health just before end-of-life stages to ensure maximum longevity."

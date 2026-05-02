@@ -88,8 +88,8 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div className="flex flex-col">
                   <span className="text-gray-400 text-[10px] font-bold uppercase mb-1 tracking-tighter">Mail Us</span>
-                  <a href="mailto:info@mission100hospital.in" className="text-xl md:text-2xl font-bold text-gray-900 hover:text-green-600 transition-colors">
-                    info@mission100hospital.in
+                  <a href="mailto:info@mission100hospital.com" className="text-xl md:text-2xl font-bold text-gray-900 hover:text-green-600 transition-colors">
+                    info@mission100hospital.com
                   </a>
                 </div>
                 <div className="flex flex-col">
@@ -126,12 +126,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* EMERGENCY DISCLAIMER */}
-      <section className="bg-gray-50 py-12 px-6 border-t border-gray-100 text-center">
-        <p className="text-[10px] md:text-xs text-gray-400 uppercase font-medium tracking-[0.2em] max-w-3xl mx-auto">
-          *Mission 100 Hospital provides preventative care and health optimization. Consultations and risk assessments do not replace emergency medical care.
-        </p>
-      </section>
     </main>
   );
 }
