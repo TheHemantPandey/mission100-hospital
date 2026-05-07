@@ -1,4 +1,5 @@
 import React from 'react';
+import Beginning from "@/components/about/Beginning";
 import MissionHero from "@/components/about/MissionHero";
 import Philosophy from "@/components/about/Philosophy";
 import HybridApproach from "@/components/about/HybridApproach";
@@ -16,6 +17,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-white">
+
+      {/* 0. Introduction: The "100-Year Life" Vision */}
+      <Beginning />
+
       {/* 1. Introduction: The "100-Year Life" Vision */}
       <MissionHero />
 

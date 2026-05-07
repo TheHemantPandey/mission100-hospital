@@ -85,6 +85,35 @@ const AboutUs = () => {
           </div>
         </div>
 
+
+       {/* Founder Award Image Section */}
+      <div className="px-4 md:px-8 lg:px-8  border-t border-gray-100">
+       
+        <div className="max-w-7xl mx-auto py-10 md:py-16 grid grid-cols-1 md:grid-cols-[1.4fr_0.6fr] gap-8 lg:gap-16 items-center">
+          <div className=" max-w-225 mx-auto overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
+           <img
+              src="/Malaika Arora.png" 
+              alt="Founder receiving an award from Malaika Arora at the 2022 Awards"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="text-center md:text-left px-2 md:px-0">
+            {/* Added space-y-4 to the parent div to create nice gaps between paragraphs */}
+            <div className="space-y-4">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                The founder of <strong>Mission100 Hospital</strong> is being honored with a prestigious entrepreneurship award by renowned Bollywood celebrity <strong>Malaika Arora</strong> at the Business & Influencer Awards.
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                This remarkable milestone serves as a powerful testament to his relentless dedication to innovation and societal impact. The award highlights his extraordinary journey in redefining traditional paradigms and his unwavering commitment to building a proactive, preventive ecosystem.
+              </p>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+
         {/* Heart Test Banner Section */}
         <div className="mb-16 md:mb-20">
           <div className="flex flex-col items-center mb-4">
@@ -168,6 +197,8 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+
+      
     </section>
   );
 };
