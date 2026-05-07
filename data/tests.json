@@ -1,5 +1,4 @@
 [
-  
   {
     "id": 1,
     "slug": "complete-heart-checkup-at-home",
@@ -44,6 +43,102 @@
       "preparation": "No specific fasting required. Home visit included in the package.",
       "reportingTAT": "Instant / Same Day",
       "specializations": ["Heart Health", "Preventive Care"]
+    }
+  },
+  {
+    "id": 2,
+    "slug": "full-body-checkup",
+    "title": "Full Body Checkup",
+    "oldPrice": 3999,
+    "currentPrice": 1999,
+    "alsoKnownAs": ["Master Health Checkup", "Comprehensive Body Test", "Whole Body Checkup"],
+    "shortDescription": "A comprehensive package of essential tests to evaluate your overall health and detect potential risks early. Complete health, complete peace of mind.",
+    "totalParameters": 14,
+    "image": "/test-images/full-body-checkup.png",
+    "specialFeatures": [
+        "Free Home Sample Collection",
+        "Accurate Testing",
+        "Expert Care",
+        "Trusted Results",
+        "Affordable Price",
+        "ECG & Blood Pressure Included"
+    ],
+    "includes": [
+      {
+        "mainParam": "CBC",
+        "nestedCount": 1,
+        "nestedParams": ["Complete Blood Count"]
+      },
+      {
+        "mainParam": "Glucose Fasting",
+        "nestedCount": 1,
+        "nestedParams": ["Fasting Blood Sugar"]
+      },
+      {
+        "mainParam": "Lipid Profile",
+        "nestedCount": 1,
+        "nestedParams": ["Cholesterol evaluation"]
+      },
+      {
+        "mainParam": "Liver Function Test (LFT)",
+        "nestedCount": 1,
+        "nestedParams": ["Liver health evaluation"]
+      },
+      {
+        "mainParam": "Kidney Function Test (KFT)",
+        "nestedCount": 1,
+        "nestedParams": ["Kidney health evaluation"]
+      },
+      {
+        "mainParam": "Vitamin B12",
+        "nestedCount": 1,
+        "nestedParams": ["B12 Levels check"]
+      },
+      {
+        "mainParam": "Vitamin D, 25- Hydroxy",
+        "nestedCount": 1,
+        "nestedParams": ["Vitamin D Levels check"]
+      },
+      {
+        "mainParam": "Iron Profile",
+        "nestedCount": 1,
+        "nestedParams": ["Iron Levels evaluation"]
+      },
+      {
+        "mainParam": "Hb A1c",
+        "nestedCount": 1,
+        "nestedParams": ["3-month average blood sugar"]
+      },
+      {
+        "mainParam": "Free Thyroid Test",
+        "nestedCount": 3,
+        "nestedParams": ["FT3", "FT4", "TSH"]
+      },
+      {
+        "mainParam": "ESR",
+        "nestedCount": 1,
+        "nestedParams": ["Erythrocyte Sedimentation Rate"]
+      },
+      {
+        "mainParam": "Urine R/M",
+        "nestedCount": 1,
+        "nestedParams": ["Routine and Microscopy"]
+      },
+      {
+        "mainParam": "ECG",
+        "nestedCount": 1,
+        "nestedParams": ["Electrocardiogram test"]
+      },
+      {
+        "mainParam": "Blood Pressure",
+        "nestedCount": 1,
+        "nestedParams": ["Blood pressure reading"]
+      }
+    ],
+    "bottomDetails": {
+      "preparation": "10-12 hours of fasting is required for Glucose Fasting and Lipid Profile. Lab technician will visit your home.",
+      "reportingTAT": "Next Day Reporting",
+      "specializations": ["General Health", "Preventive Care", "Comprehensive Care"]
     }
   }
 ]

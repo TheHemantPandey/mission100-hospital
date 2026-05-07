@@ -4,6 +4,17 @@ import AboutSection from "@/components/AboutUs";
 
 // PERFORMANCE: Dynamic imports ensure these only load when needed
 const DoctorSection = dynamic(() => import("@/components/DoctorCard"), { ssr: true });
+
+// Proto Device dynamically loaded 
+const ProtoDevice = dynamic(() => import('../components/ProtoDevice'), {
+  loading: () => (
+    <div className="min-h-screen flex items-center justify-center text-emerald-600 font-bold animate-pulse">
+      Loading Mission 100 Tech...
+    </div>
+  )
+  // ssr: false has been removed
+});
+
 const Heart = dynamic(() => import("@/components/Heart"));
 const Stress = dynamic(() => import("@/components/Stress"));
 const BoneTesting = dynamic(() => import("@/components/Bone-testing"));
@@ -82,8 +93,11 @@ export default function Home() {
       </section>
 
       <AboutSection />
-      {/* ... other components remain the same ... */}
       <DoctorSection />
+      
+      {/* PROTO Device Section injected here */}
+      <ProtoDevice />
+
       <Heart />
       <Stress />
       <BoneTesting />
