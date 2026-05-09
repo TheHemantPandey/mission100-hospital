@@ -36,7 +36,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "hement.pandey2121@gmail.com, mission100hospital@gmail.com",
+      to: "mission100hospital@gmail.com, hement.pandey2121@gmail.com",
       subject: `New Test Booking: ${testName} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; max-width: 600px;">
