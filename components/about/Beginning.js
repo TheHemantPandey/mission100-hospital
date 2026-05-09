@@ -29,7 +29,7 @@ const MissionVision = () => {
               that healthcare should be <strong>preventive</strong> rather than just reactive.
               Our core mission is to provide the tools, data, and guidance
               necessary for every individual to achieve a healthy, vibrant
-              century of life
+              century of life. We are committed to empowering you with the knowledge and resources to take control of your health journey, ensuring that you not only live longer but also live better.
             </p>
             <p className="text-base md:text-lg leading-relaxed text-gray-700">
               We believe that by focusing on comprehensive well-being from early childhood to the senior years, we can help you manage the aging process with dignity, strength, and scientific precision.
