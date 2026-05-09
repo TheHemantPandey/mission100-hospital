@@ -101,7 +101,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
-                href="https://www.instagram.com/youngindiashow/"
+                href="https://www.instagram.com/mission100hospital/"
                 target="_blank"
                 className="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500 hover:text-white transition-all duration-300 group"
               >

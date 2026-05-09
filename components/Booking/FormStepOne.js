@@ -7,6 +7,20 @@ import AboutMission100 from "../AboutMission100";
 const FormStepOne = () => {
   const [isSending, setIsSending] = useState(false);
   
+  // 1. ADD FUTURE TESTS HERE
+  // Simply add a new block for any new tests you create. 
+  // Make sure the key exactly matches the <option value="..."> in your select dropdown.
+  const testConfig = {
+    "Heart Attack Prevention Test": {
+      paymentLink: "https://rzp.io/rzp/ec6qUrsR",
+      redirectPage: "/test/complete-heart-checkup-at-home"
+    },
+    "Full Body Checkup": {
+      paymentLink: "https://rzp.io/rzp/Ne1N6jv",
+      redirectPage: "/test/full-body-checkup" // Update this if your actual route is different
+    }
+  };
+
   const {
     register,
     handleSubmit,
@@ -20,7 +34,7 @@ const FormStepOne = () => {
       city: "",
       age: "",
       gender: "",
-      testName: "Heart Attack Prevention Test",
+      testName: "", // Starts empty so validation works
       appointmentDate: "",
       appointmentTime: ""
     }
@@ -48,7 +62,7 @@ const FormStepOne = () => {
   const onSubmit = async (data) => {
     setIsSending(true);
     try {
-      // 1. Send data to your API for Nodemailer processing
+      // Send data to your API for Nodemailer processing
       const response = await fetch("/api/send-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,14 +70,22 @@ const FormStepOne = () => {
       });
 
       if (response.ok) {
-        // 2. Open payment link in a new tab
-        window.open("https://rzp.io/rzp/dTEwA6is", "_blank");
+        // 2. Fetch the correct links based on the user's test selection
+        const selectedTestInfo = testConfig[data.testName];
 
-        // 3. Clear the form
-        reset();
+        if (selectedTestInfo) {
+          // Open the specific payment link in a new tab
+          window.open(selectedTestInfo.paymentLink, "_blank");
 
-        // 4. Redirect current tab to the specific heart checkup page
-        window.location.href = "/test/complete-heart-checkup-at-home"; 
+          // Clear the form
+          reset();
+
+          // Redirect current tab to the specific test page
+          window.location.href = selectedTestInfo.redirectPage; 
+        } else {
+          // Fallback just in case something goes wrong
+          alert("Test routing information not found.");
+        }
       } else {
         alert("There was an issue sending your details. Please try again.");
       }
@@ -132,15 +154,18 @@ const FormStepOne = () => {
           <div>
             <label className="block text-sm font-bold text-slate-700 mb-1">Preferred Test *</label>
             <div className="relative">
-              <select {...register("testName", { required: "Required" })} className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none appearance-none cursor-pointer">
+              <select {...register("testName", { required: "Test selection is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer ${errors.testName ? 'border-red-500' : 'border-slate-200'}`}>
+                {/* Added an empty placeholder option so validation forces the user to choose */}
+                <option value="">Select a Test</option>
                 <option value="Heart Attack Prevention Test">Heart Attack Prevention Test</option>
+                <option value="Full Body Checkup">Full Body Checkup</option>
               </select>
               <Activity className="absolute right-4 top-4 w-5 h-5 text-slate-400 pointer-events-none" />
             </div>
+            <ErrorMsg name="testName" />
           </div>
         </div>
 
-        {/* --- NEW SCHEDULE SECTION --- */}
         <div className="border-t border-slate-100 pt-8">
           <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-green-600" /> Schedule Details
@@ -179,7 +204,6 @@ const FormStepOne = () => {
             </div>
           </div>
         </div>
-        {/* --------------------------- */}
 
         <div className="border-t border-slate-100 pt-8">
           <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
