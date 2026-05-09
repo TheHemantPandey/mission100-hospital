@@ -53,7 +53,7 @@
     "currentPrice": 1999,
     "alsoKnownAs": ["Master Health Checkup", "Comprehensive Body Test", "Whole Body Checkup"],
     "shortDescription": "A comprehensive package of essential tests to evaluate your overall health and detect potential risks early. Complete health, complete peace of mind.",
-    "totalParameters": 14,
+    "totalParameters": 87,
     "image": "/test-images/full-body-checkup.png",
     "specialFeatures": [
         "Free Home Sample Collection",
@@ -66,73 +66,177 @@
     "includes": [
       {
         "mainParam": "CBC",
-        "nestedCount": 1,
-        "nestedParams": ["Complete Blood Count"]
+        "nestedCount": 22,
+        "nestedParams": [
+          "Hemoglobin",
+          "Platelet Count",
+          "Neutrophils",
+          "Monocytes",
+          "Basophils",
+          "Absolute Lymphocyte Count",
+          "Absolute Eosinophil Count",
+          "Hematocrit (PCV)",
+          "Mean Corp. Hemoglobin (MCH)",
+          "Red Cell Dist. Width (RDW-CV)",
+          "Mean Platelet Volume (MPV)",
+          "Total RBC",
+          "Total Leucocyte Count (WBC)",
+          "Lymphocytes",
+          "Eosinophils",
+          "Absolute Neutrophil Count",
+          "Absolute Monocyte Count",
+          "Absolute Basophil Count",
+          "Mean Corpuscular Volume (MCV)",
+          "MCH Concentration (MCHC)",
+          "Red Cell Dist. Width (RDW-SD)",
+          "Mentzer Index"
+        ]
       },
       {
         "mainParam": "Glucose Fasting",
         "nestedCount": 1,
-        "nestedParams": ["Fasting Blood Sugar"]
+        "nestedParams": [
+          "Blood Sugar Fasting"
+        ]
       },
       {
         "mainParam": "Lipid Profile",
-        "nestedCount": 1,
-        "nestedParams": ["Cholesterol evaluation"]
+        "nestedCount": 8,
+        "nestedParams": [
+          "Total Cholesterol",
+          "HDL Cholesterol",
+          "LDL Cholesterol",
+          "LDL / HDL Ratio",
+          "Triglyceride",
+          "VLDL Cholesterol",
+          "Non-HDL Cholesterol",
+          "TC / HDL Ratio"
+        ]
       },
       {
         "mainParam": "Liver Function Test (LFT)",
-        "nestedCount": 1,
-        "nestedParams": ["Liver health evaluation"]
+        "nestedCount": 12,
+        "nestedParams": [
+          "Total Protein",
+          "Globulin",
+          "Total Bilirubin",
+          "Unconjugated Bilirubin",
+          "SGPT (ALT)",
+          "Alkaline Phosphatase",
+          "Albumin",
+          "A/G Ratio",
+          "Conjugated Bilirubin",
+          "SGOT (AST)",
+          "SGOT/SGPT Ratio",
+          "Gamma Glutamyl Transferase"
+        ]
       },
       {
         "mainParam": "Kidney Function Test (KFT)",
-        "nestedCount": 1,
-        "nestedParams": ["Kidney health evaluation"]
+        "nestedCount": 11,
+        "nestedParams": [
+          "Blood Urea",
+          "Creatinine",
+          "Calcium",
+          "BUN/Creatinine Ratio",
+          "Sodium",
+          "Chloride",
+          "Blood Urea Nitrogen",
+          "Uric Acid",
+          "Phosphorus",
+          "Urea/Creatinine Ratio",
+          "Potassium"
+        ]
       },
       {
         "mainParam": "Vitamin B12",
         "nestedCount": 1,
-        "nestedParams": ["B12 Levels check"]
+        "nestedParams": [
+          "Vitamin B-12"
+        ]
       },
       {
         "mainParam": "Vitamin D, 25- Hydroxy",
-        "nestedCount": 1,
-        "nestedParams": ["Vitamin D Levels check"]
+        "nestedCount": 2,
+        "nestedParams": [
+          "Vitamin D-OH",
+          "Vitamin D Total"
+        ]
       },
       {
         "mainParam": "Iron Profile",
-        "nestedCount": 1,
-        "nestedParams": ["Iron Levels evaluation"]
+        "nestedCount": 3,
+        "nestedParams": [
+          "Iron",
+          "Transferrin Saturation",
+          "Total Iron Binding Capacity"
+        ]
       },
       {
         "mainParam": "Hb A1c",
-        "nestedCount": 1,
-        "nestedParams": ["3-month average blood sugar"]
+        "nestedCount": 2,
+        "nestedParams": [
+          "HbA1C",
+          "90 Day Average Blood Glucose"
+        ]
       },
       {
-        "mainParam": "Free Thyroid Test",
+        "mainParam": "Free Thyroid Test [FT3, FT4, TSH]",
         "nestedCount": 3,
-        "nestedParams": ["FT3", "FT4", "TSH"]
+        "nestedParams": [
+          "Free Triiodothyronine [FT3]",
+          "Thyroid Stimulating Hormone (TSH)",
+          "Free Thyroxine [FT4]"
+        ]
+      },
+      {
+        "mainParam": "Urine R/M",
+        "nestedCount": 22,
+        "nestedParams": [
+          "Urine Quantity",
+          "Urinary Transparency",
+          "Urinary Specific Gravity",
+          "Urinary Glucose",
+          "Urobilinogen",
+          "Urinary Nitrites",
+          "Leukocyte esterase",
+          "Epithelial Cells (Squamous)",
+          "Urinary RBC",
+          "Pathological Casts",
+          "Crystals",
+          "Urine Colour",
+          "Urinary pH",
+          "Urinary Protein",
+          "Urinary Ketones",
+          "Urine Bilirubin",
+          "Blood [In Urine]",
+          "Pus Cells [In Urine]",
+          "Epithelial Cells (Non-Squamous)",
+          "Hyaline Casts",
+          "Yeast Cells",
+          "Other Morphology"
+        ]
       },
       {
         "mainParam": "ESR",
         "nestedCount": 1,
-        "nestedParams": ["Erythrocyte Sedimentation Rate"]
-      },
-      {
-        "mainParam": "Urine R/M",
-        "nestedCount": 1,
-        "nestedParams": ["Routine and Microscopy"]
+        "nestedParams": [
+          "Erythrocyte Sedimentation Rate"
+        ]
       },
       {
         "mainParam": "ECG",
         "nestedCount": 1,
-        "nestedParams": ["Electrocardiogram test"]
+        "nestedParams": [
+          "Electrocardiogram test"
+        ]
       },
       {
         "mainParam": "Blood Pressure",
         "nestedCount": 1,
-        "nestedParams": ["Blood pressure reading"]
+        "nestedParams": [
+          "Blood pressure reading"
+        ]
       }
     ],
     "bottomDetails": {
