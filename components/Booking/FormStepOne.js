@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { MapPin, Activity, AlertCircle } from "lucide-react"; 
+import { MapPin, Activity, AlertCircle, Calendar, Clock } from "lucide-react"; 
 import AboutMission100 from "../AboutMission100";
 
 const FormStepOne = () => {
@@ -20,7 +20,9 @@ const FormStepOne = () => {
       city: "",
       age: "",
       gender: "",
-      testName: "Heart Attack Prevention Test" 
+      testName: "Heart Attack Prevention Test",
+      appointmentDate: "",
+      appointmentTime: ""
     }
   });
 
@@ -31,6 +33,9 @@ const FormStepOne = () => {
   };
 
   const availableCities = selectedState ? locations[selectedState] : [];
+
+  // Get today's date in YYYY-MM-DD format to prevent past date selection
+  const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
     if (selectedState === "Delhi") {
@@ -43,7 +48,7 @@ const FormStepOne = () => {
   const onSubmit = async (data) => {
     setIsSending(true);
     try {
-      // 1. Send data to your API for Nodemailer processing[cite: 4, 5]
+      // 1. Send data to your API for Nodemailer processing
       const response = await fetch("/api/send-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,10 +56,10 @@ const FormStepOne = () => {
       });
 
       if (response.ok) {
-        // 2. Open payment link in a new tab[cite: 5]
+        // 2. Open payment link in a new tab
         window.open("https://rzp.io/rzp/dTEwA6is", "_blank");
 
-        // 3. Clear the form[cite: 5]
+        // 3. Clear the form
         reset();
 
         // 4. Redirect current tab to the specific heart checkup page
@@ -134,6 +139,47 @@ const FormStepOne = () => {
             </div>
           </div>
         </div>
+
+        {/* --- NEW SCHEDULE SECTION --- */}
+        <div className="border-t border-slate-100 pt-8">
+          <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-green-600" /> Schedule Details
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1">Select Date *</label>
+              <div className="relative">
+                <input 
+                  type="date" 
+                  min={today}
+                  {...register("appointmentDate", { required: "Date is required" })} 
+                  className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer ${errors.appointmentDate ? 'border-red-500' : 'border-slate-200'}`} 
+                />
+              </div>
+              <ErrorMsg name="appointmentDate" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1">Select Time Slot *</label>
+              <div className="relative">
+                <select 
+                  {...register("appointmentTime", { required: "Time slot is required" })} 
+                  className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer ${errors.appointmentTime ? 'border-red-500' : 'border-slate-200'}`}
+                >
+                  <option value="">Choose preferred time</option>
+                  <option value="07:00 AM - 09:00 AM">07:00 AM - 09:00 AM</option>
+                  <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
+                  <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
+                  <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                  <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
+                </select>
+                <Clock className="absolute right-4 top-4 w-5 h-5 text-slate-400 pointer-events-none" />
+              </div>
+              <ErrorMsg name="appointmentTime" />
+            </div>
+          </div>
+        </div>
+        {/* --------------------------- */}
 
         <div className="border-t border-slate-100 pt-8">
           <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
