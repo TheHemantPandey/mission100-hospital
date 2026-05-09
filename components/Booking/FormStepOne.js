@@ -251,7 +251,7 @@ const FormStepOne = () => {
                 required: "6-digit Pincode required", 
                 pattern: { value: /^[0-9]{6}$/, message: "Pincode must be exactly 6 digits" } 
               })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.pinCode ? 'border-red-500' : 'border-slate-200'}`} placeholder="6-digit Pincode" />
-              <ErrorMsg name="pinCode" />
+              <ErrorMsg name="PinCode" />
             </div>
 
             <div>
