@@ -74,12 +74,12 @@ export default function Home() {
               </div>
 
               {/* RIGHT SIDE: Meditation Image (Made Larger) */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[700px] xl:h-[700px] max-h-[50vh] md:max-h-[90vh] overflow-visible shrink-0">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-125 md:h-125 lg:w-150 lg:h-150 xl:w-175 xl:h-175 max-h-[50vh] md:max-h-[90vh] overflow-visible shrink-0">
                 <Image
                   src="/meditate.png"
                   alt="Meditation"
                   fill
-                  className="object-contain object-center md:object-right-bottom"
+                  className="object-contain object-center md:object-bottom-right"
                   sizes="(max-width: 768px) 320px, (max-width: 1280px) 600px, 800px"
                   priority
                   quality={90}

@@ -9,19 +9,20 @@ const WhatsAppButton = () => {
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-4">
+    // Added "hidden lg:flex" here to hide on mobile/tablet and show on PC
+    <div className="fixed bottom-8 right-8 z-50 hidden lg:flex flex-col items-center gap-4">
       
       {/* 1. CALL BUTTON (Placed Above) */}
       <a
         href={`tel:${phoneNumber}`}
-        className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#003d7a] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
+        className="flex items-center justify-center w-16 h-16 bg-[#003d7a] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
         aria-label="Call Hospital"
       >
         {/* Tooltip */}
         <span className="absolute right-20 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
           Call us now!
         </span>
-        <Phone className="w-6 h-6 md:w-7 md:h-7 fill-white" />
+        <Phone className="w-7 h-7 fill-white" />
       </a>
 
       {/* 2. WHATSAPP BUTTON (Bottom) */}
@@ -29,7 +30,7 @@ const WhatsAppButton = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
+        className="flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
         aria-label="Contact on WhatsApp"
       >
         {/* Tooltip */}
@@ -39,7 +40,7 @@ const WhatsAppButton = () => {
 
         {/* WhatsApp SVG Icon */}
         <svg 
-          className="w-8 h-8 md:w-9 md:h-9 text-white" 
+          className="w-9 h-9 text-white" 
           fill="currentColor" 
           viewBox="0 0 24 24"
         >
