@@ -68,11 +68,11 @@ const Navbar = () => {
 
           {/* Mobile Only: Top "Home" Button */}
           <Link
-            href="/"
+            href="/join-us"
             className="md:hidden bg-green-600 text-white px-5 py-2 rounded-full font-bold text-sm shadow-sm active:scale-95 transition-all"
             onClick={closeMenu}
           >
-            Home
+            Join Us
           </Link>
 
           {/* Desktop Only: Navigation Links */}
@@ -127,6 +127,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/contact" className="text-gray-700 hover:text-green-600">Contact</Link>
+              </li>
+              <li>
+                <Link href="/join-us" className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95">Join Us</Link>
               </li>
 
               {/* Desktop Call to Action Button */}
