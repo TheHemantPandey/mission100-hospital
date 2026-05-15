@@ -26,7 +26,7 @@ const categories = [
       "Dermatologist",
       "Orthopedic",
     ],
-    href: "/join-us/medical",
+    href: "/join-us/medical-expert",
     gradient: "from-green-100 via-white to-cyan-100",
   },
   {
@@ -40,11 +40,11 @@ const categories = [
       "Weight Loss Coach",
       "Online Fitness Coach",
     ],
-    href: "/join-us/fitness",
+    href: "/join-us/fitness-expert",
     gradient: "from-cyan-100 via-white to-green-100",
   },
   {
-    title: "Yoga & Wellness",
+    title: "Yoga & Wellness Coach",
     icon: <HeartPulse className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />,
     description:
       "Yoga instructors, meditation coaches and mindfulness experts.",
@@ -54,7 +54,7 @@ const categories = [
       "Breathwork Expert",
       "Mindfulness Coach",
     ],
-    href: "/join-us/yoga",
+    href: "/join-us/yoga-wellness-coach",
     gradient: "from-green-100 via-white to-cyan-100",
   },
   {
@@ -68,23 +68,10 @@ const categories = [
       "Clinical Nutritionist",
       "Weight Management Expert",
     ],
-    href: "/join-us/nutrition",
+    href: "/join-us/nutrition-expert",
     gradient: "from-cyan-100 via-white to-green-100",
   },
-  {
-    title: "Mental Wellness",
-    icon: <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />,
-    description:
-      "Mental wellness coaches, therapists and stress management experts.",
-    specializations: [
-      "Therapist",
-      "Mental Wellness Coach",
-      "Stress Management Expert",
-      "Counselor",
-    ],
-    href: "/join-us/mental-wellness",
-    gradient: "from-green-100 via-white to-cyan-100",
-  },
+  
 ];
 
 const whyJoin = [

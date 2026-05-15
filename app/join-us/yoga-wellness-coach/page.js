@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import {
-  Stethoscope,
+  Heart,
   User,
   Mail,
   Phone,
@@ -19,9 +19,13 @@ import {
   HeartHandshake,
   ShieldCheck,
   CheckCircle2,
+  Sparkles,
+  Activity,
+  Flower2,
+  Sun,
 } from "lucide-react";
 
-export default function MedicalJoinPage() {
+export default function YogaWellnessCoachJoinPage() {
   const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState({});
@@ -37,9 +41,14 @@ export default function MedicalJoinPage() {
     experience: "",
     specialization: "",
     otherSpecialization: "",
-    consultationMode: "",
-    hospital: "",
-    registrationId: "",
+    sessionMode: "",
+    currentOrganization: "",
+    certificationId: "",
+    instagram: "",
+    youtube: "",
+    clientsHandled: "",
+    meditationExperience: "",
+    languagesKnown: "",
     whyJoin: "",
     about: "",
   });
@@ -237,7 +246,7 @@ export default function MedicalJoinPage() {
       }
 
       const response = await fetch(
-        "/api/join-medical",
+        "/api/join-yoga-wellness-coach",
         {
           method: "POST",
           body: form,
@@ -262,9 +271,14 @@ export default function MedicalJoinPage() {
           experience: "",
           specialization: "",
           otherSpecialization: "",
-          consultationMode: "",
-          hospital: "",
-          registrationId: "",
+          sessionMode: "",
+          currentOrganization: "",
+          certificationId: "",
+          instagram: "",
+          youtube: "",
+          clientsHandled: "",
+          meditationExperience: "",
+          languagesKnown: "",
           whyJoin: "",
           about: "",
         });
@@ -296,89 +310,83 @@ export default function MedicalJoinPage() {
     "border-red-400 focus:ring-red-400";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-cyan-50 to-green-50 py-8 sm:py-10 md:py-16 px-4 sm:px-6">
+    <div className="min-h-screen bg-linear-to-b from-white via-green-50 to-emerald-50 py-8 sm:py-10 md:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
-        {/* MAIN CARD */}
-        <div className="rounded-[32px] overflow-hidden shadow-2xl border border-white/60 bg-white">
+        <div className="rounded-4xl overflow-hidden shadow-2xl border border-white/60 bg-white">
 
-          {/* HEADER */}
-          <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-500 p-6 sm:p-10 md:p-14 text-white relative overflow-hidden">
+          <div className="bg-linear-to-r from-green-500 via-emerald-500 to-teal-500 p-6 sm:p-10 md:p-14 text-white relative overflow-hidden">
 
             <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10">
 
               <div className="w-18 h-18 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-lg mb-6">
-                <Stethoscope className="w-9 h-9" />
+                <Heart className="w-9 h-9" />
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                Join as Medical Expert
+                Join as Yoga & Wellness Coach
               </h1>
 
               <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
-                Become a verified healthcare professional on Mission100 Hospital and help people improve their health and lifestyle.
+                Become a verified yoga and wellness coach on Mission100 Hospital and help people improve their physical, mental and spiritual well-being.
               </p>
             </div>
           </div>
 
-        {/* TOP INFO SECTION */}
-<div className="hidden lg:grid lg:grid-cols-3 gap-5 mb-4 mt-4 mx-4">
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
-            <div className="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-4">
-              <ShieldCheck className="w-7 h-7 text-green-600" />
+          <div className="hidden lg:grid lg:grid-cols-3 gap-5 mb-4 mt-4 mx-4">
+
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+              <div className="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-4">
+                <ShieldCheck className="w-7 h-7 text-green-600" />
+              </div>
+
+              <h3 className="text-lg font-bold text-gray-900">
+                Trusted Wellness Profile
+              </h3>
+
+              <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                Build your professional yoga and wellness presence with Mission100 Hospital.
+              </p>
             </div>
 
-            <h3 className="text-lg font-bold text-gray-900">
-              Verified Professional Profile
-            </h3>
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-4">
+                <HeartHandshake className="w-7 h-7 text-emerald-600" />
+              </div>
 
-            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-              Build trusted online presence with Mission100 Hospital.
-            </p>
-          </div>
+              <h3 className="text-lg font-bold text-gray-900">
+                Transform Lives
+              </h3>
 
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
-            <div className="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center mb-4">
-              <HeartHandshake className="w-7 h-7 text-cyan-600" />
+              <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                Guide people toward a healthier, peaceful and balanced lifestyle.
+              </p>
             </div>
 
-            <h3 className="text-lg font-bold text-gray-900">
-              Help More Patients
-            </h3>
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+              <div className="w-14 h-14 rounded-2xl bg-teal-100 flex items-center justify-center mb-4">
+                <CheckCircle2 className="w-7 h-7 text-teal-600" />
+              </div>
 
-            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-              Connect with people seeking better health and wellness.
-            </p>
-          </div>
+              <h3 className="text-lg font-bold text-gray-900">
+                Easy Application Process
+              </h3>
 
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-7 h-7 text-emerald-600" />
+              <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                Submit your profile and our team will review your application carefully.
+              </p>
             </div>
-
-            <h3 className="text-lg font-bold text-gray-900">
-              Easy Application Process
-            </h3>
-
-            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-              Submit your details and our team will review your profile.
-            </p>
           </div>
-        </div>
 
-
-          {/* FORM */}
           <form
             onSubmit={handleSubmit}
             className="p-4 sm:p-6 md:p-10 lg:p-12 space-y-8"
           >
 
-            {/* GRID */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
-              {/* FULL NAME */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   Full Name *
@@ -392,7 +400,7 @@ export default function MedicalJoinPage() {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    placeholder="Dr. John Doe"
+                    placeholder="John Doe"
                     className={`${inputClass} pl-12 ${
                       errors.fullName
                         ? errorInputClass
@@ -409,7 +417,6 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
-              {/* EMAIL */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   Email Address *
@@ -423,7 +430,7 @@ export default function MedicalJoinPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="doctor@example.com"
+                    placeholder="coach@example.com"
                     className={`${inputClass} pl-12 ${
                       errors.email
                         ? errorInputClass
@@ -440,7 +447,6 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
-              {/* MOBILE */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   Mobile Number *
@@ -474,7 +480,6 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
-              {/* DOB */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   Date of Birth *
@@ -504,7 +509,6 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
-              {/* STATE */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   State *
@@ -540,7 +544,6 @@ export default function MedicalJoinPage() {
                 </div>
               </div>
 
-              {/* CITY */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   City *
@@ -561,10 +564,9 @@ export default function MedicalJoinPage() {
                 </div>
               </div>
 
-              {/* QUALIFICATION */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Qualification *
+                  Yoga Certifications / Qualification *
                 </label>
 
                 <div className="relative mt-2">
@@ -575,14 +577,13 @@ export default function MedicalJoinPage() {
                     name="qualification"
                     value={formData.qualification}
                     onChange={handleChange}
-                    placeholder="MBBS, MD"
+                    placeholder="RYT, Yoga Diploma, Wellness Certification"
                     className={`${inputClass} pl-12 border-gray-200`}
                     required
                   />
                 </div>
               </div>
 
-              {/* EXPERIENCE */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
                   Experience *
@@ -596,17 +597,16 @@ export default function MedicalJoinPage() {
                     name="experience"
                     value={formData.experience}
                     onChange={handleChange}
-                    placeholder="5+ Years"
+                    placeholder="3+ Years"
                     className={`${inputClass} pl-12 border-gray-200`}
                     required
                   />
                 </div>
               </div>
 
-              {/* SPECIALIZATION */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Specialization *
+                  Yoga / Wellness Specialization *
                 </label>
 
                 <select
@@ -620,16 +620,16 @@ export default function MedicalJoinPage() {
                     Select Specialization
                   </option>
 
-                  <option>General Physician</option>
-                  <option>Cardiologist</option>
-                  <option>Dermatologist</option>
-                  <option>Orthopedic</option>
-                  <option>Pediatrician</option>
-                  <option>Gynecologist</option>
-                  <option>Dentist</option>
-                  <option>Neurologist</option>
-                  <option>Physiotherapist</option>
-                  <option>Ayurveda Doctor</option>
+                  <option>Yoga Instructor</option>
+                  <option>Meditation Coach</option>
+                  <option>Pranayama Expert</option>
+                  <option>Ayurveda Wellness Coach</option>
+                  <option>Mindfulness Coach</option>
+                  <option>Prenatal Yoga Coach</option>
+                  <option>Therapeutic Yoga Expert</option>
+                  <option>Holistic Wellness Coach</option>
+                  <option>Stress Management Coach</option>
+                  <option>Online Yoga Trainer</option>
                   <option>Other</option>
                 </select>
 
@@ -649,15 +649,14 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
-              {/* CONSULTATION */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Consultation Mode *
+                  Session Mode *
                 </label>
 
                 <select
-                  name="consultationMode"
-                  value={formData.consultationMode}
+                  name="sessionMode"
+                  value={formData.sessionMode}
                   onChange={handleChange}
                   className={`${inputClass} border-gray-200 mt-2`}
                   required
@@ -672,10 +671,9 @@ export default function MedicalJoinPage() {
                 </select>
               </div>
 
-              {/* HOSPITAL */}
-              <div className="md:col-span-2">
+              <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Current / Previous Hospital or Clinic
+                  Current Studio / Organization
                 </label>
 
                 <div className="relative mt-2">
@@ -683,19 +681,18 @@ export default function MedicalJoinPage() {
 
                   <input
                     type="text"
-                    name="hospital"
-                    value={formData.hospital}
+                    name="currentOrganization"
+                    value={formData.currentOrganization}
                     onChange={handleChange}
-                    placeholder="ABC Hospital"
+                    placeholder="Yoga Studio / Wellness Center"
                     className={`${inputClass} pl-12 border-gray-200`}
                   />
                 </div>
               </div>
 
-              {/* REGISTRATION */}
-              <div className="md:col-span-2">
+              <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Medical Registration ID
+                  Certification ID / License
                 </label>
 
                 <div className="relative mt-2">
@@ -703,17 +700,107 @@ export default function MedicalJoinPage() {
 
                   <input
                     type="text"
-                    name="registrationId"
-                    value={formData.registrationId}
+                    name="certificationId"
+                    value={formData.certificationId}
                     onChange={handleChange}
-                    placeholder="Medical Registration ID"
+                    placeholder="Certification ID"
                     className={`${inputClass} pl-12 border-gray-200`}
                   />
                 </div>
               </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Instagram Profile
+                </label>
+
+                <div className="relative mt-2">
+                  <Sparkles className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+
+                  <input
+                    type="text"
+                    name="instagram"
+                    value={formData.instagram}
+                    onChange={handleChange}
+                    placeholder="https://instagram.com/username"
+                    className={`${inputClass} pl-12 border-gray-200`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  YouTube Channel
+                </label>
+
+                <div className="relative mt-2">
+                  <Activity className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+
+                  <input
+                    type="text"
+                    name="youtube"
+                    value={formData.youtube}
+                    onChange={handleChange}
+                    placeholder="https://youtube.com/@channel"
+                    className={`${inputClass} pl-12 border-gray-200`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Approximate Clients Guided
+                </label>
+
+                <div className="relative mt-2">
+                  <Sun className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+
+                  <input
+                    type="text"
+                    name="clientsHandled"
+                    value={formData.clientsHandled}
+                    onChange={handleChange}
+                    placeholder="300+ Clients"
+                    className={`${inputClass} pl-12 border-gray-200`}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Meditation / Healing Experience
+                </label>
+
+                <div className="relative mt-2">
+                  <Flower2 className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+
+                  <input
+                    type="text"
+                    name="meditationExperience"
+                    value={formData.meditationExperience}
+                    onChange={handleChange}
+                    placeholder="Meditation, Reiki, Breathwork etc."
+                    className={`${inputClass} pl-12 border-gray-200`}
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Languages You Can Teach In
+                </label>
+
+                <input
+                  type="text"
+                  name="languagesKnown"
+                  value={formData.languagesKnown}
+                  onChange={handleChange}
+                  placeholder="Hindi, English, Sanskrit"
+                  className={`${inputClass} border-gray-200 mt-2`}
+                />
+              </div>
             </div>
 
-            {/* WHY JOIN */}
             <div>
               <label className="text-sm font-semibold text-gray-700">
                 Why do you want to join Mission100 Hospital? *
@@ -730,10 +817,9 @@ export default function MedicalJoinPage() {
               ></textarea>
             </div>
 
-            {/* ABOUT */}
             <div>
               <label className="text-sm font-semibold text-gray-700">
-                Kindly brief about yourself, experiences, expertise and interests *
+                Tell us about your yoga journey, wellness expertise and achievements *
               </label>
 
               <textarea
@@ -747,13 +833,11 @@ export default function MedicalJoinPage() {
               ></textarea>
             </div>
 
-            {/* FILE UPLOADS */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-              {/* PHOTO */}
-              <div className="rounded-3xl border-2 border-dashed border-cyan-200 bg-cyan-50 p-6">
+              <div className="rounded-3xl border-2 border-dashed border-green-200 bg-green-50 p-6">
                 <div className="flex items-center gap-3">
-                  <Upload className="w-6 h-6 text-cyan-600" />
+                  <Upload className="w-6 h-6 text-green-600" />
 
                   <h3 className="font-semibold text-gray-900">
                     Upload Professional Photo *
@@ -773,13 +857,12 @@ export default function MedicalJoinPage() {
                 />
               </div>
 
-              {/* RESUME */}
-              <div className="rounded-3xl border-2 border-dashed border-green-200 bg-green-50 p-6">
+              <div className="rounded-3xl border-2 border-dashed border-emerald-200 bg-emerald-50 p-6">
                 <div className="flex items-center gap-3">
-                  <FileText className="w-6 h-6 text-green-600" />
+                  <FileText className="w-6 h-6 text-emerald-600" />
 
                   <h3 className="font-semibold text-gray-900">
-                    Upload Resume / CV *
+                    Upload Resume / Portfolio *
                   </h3>
                 </div>
 
@@ -797,11 +880,10 @@ export default function MedicalJoinPage() {
               </div>
             </div>
 
-            {/* EXTRA DOCUMENTS */}
             <div className="rounded-3xl border-2 border-dashed border-gray-200 bg-gray-50 p-6 sm:p-8">
 
               <div className="flex items-center gap-3">
-                <Upload className="w-6 h-6 text-cyan-600" />
+                <Upload className="w-6 h-6 text-green-600" />
 
                 <h3 className="text-lg font-semibold text-gray-900">
                   Additional Certifications / Documents
@@ -809,7 +891,7 @@ export default function MedicalJoinPage() {
               </div>
 
               <p className="mt-2 text-sm text-gray-500">
-                Optional • Upload certificates, awards or licenses.
+                Optional • Upload yoga certificates, wellness achievements or awards.
               </p>
 
               <div className="mt-6 space-y-5">
@@ -870,15 +952,14 @@ export default function MedicalJoinPage() {
                 <button
                   type="button"
                   onClick={addMoreDocument}
-                  className="mt-6 rounded-2xl bg-gradient-to-r from-green-500 to-cyan-500 px-6 py-4 text-white font-semibold"
+                  className="mt-6 rounded-2xl bg-linear-to-r from-green-500 to-emerald-500 px-6 py-4 text-white font-semibold"
                 >
                   + Upload One More Document
                 </button>
               )}
             </div>
 
-            {/* REVIEW BOX */}
-            <div className="rounded-3xl border border-green-100 bg-gradient-to-r from-green-50 to-cyan-50 p-5 sm:p-6">
+            <div className="rounded-3xl border border-green-100 bg-linear-to-r from-green-50 to-emerald-50 p-5 sm:p-6">
 
               <div className="flex items-start gap-4">
 
@@ -892,20 +973,19 @@ export default function MedicalJoinPage() {
                   </h3>
 
                   <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
-                    After submitting your application, our team will carefully review your profile and documents. If shortlisted, we will contact you for the next steps.
+                    After submitting your application, our team will review your profile, certifications and wellness experience. Shortlisted coaches will be contacted for the next steps.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* SUBMIT */}
             <button
               type="submit"
               disabled={loading}
               className={`w-full rounded-2xl py-4 sm:py-5 text-white font-semibold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-3 ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-gradient-to-r from-green-500 to-cyan-500 hover:shadow-2xl"
+                  : "bg-linear-to-r from-green-500 to-emerald-500 hover:shadow-2xl"
               }`}
             >
               {loading ? (
