@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import {
   Stethoscope,
   User,
@@ -15,27 +16,40 @@ import {
   Building2,
   Send,
   BadgeCheck,
+  HeartHandshake,
+  ShieldCheck,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function MedicalJoinPage() {
   const [loading, setLoading] = useState(false);
+
+  const [errors, setErrors] = useState({});
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     mobile: "",
     dob: "",
+    state: "",
     city: "",
     qualification: "",
     experience: "",
-    registrationId: "",
     specialization: "",
+    otherSpecialization: "",
     consultationMode: "",
     hospital: "",
+    registrationId: "",
+    whyJoin: "",
     about: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [additionalDocuments, setAdditionalDocuments] = useState([
+    {
+      name: "",
+      file: null,
+    },
+  ]);
 
   const validateField = (name, value) => {
     let error = "";
@@ -43,7 +57,15 @@ export default function MedicalJoinPage() {
     switch (name) {
       case "fullName":
         if (value.trim().length < 3) {
-          error = "Name must be at least 3 characters";
+          error = "Please enter valid full name";
+        }
+        break;
+
+      case "email":
+        if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+        ) {
+          error = "Please enter valid email";
         }
         break;
 
@@ -53,33 +75,30 @@ export default function MedicalJoinPage() {
         }
         break;
 
-      case "email":
-        if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
-        ) {
-          error = "Enter valid email address";
-        }
-        break;
-
       case "dob":
-        const dobDate = new Date(value);
-        const today = new Date();
+        if (!value) {
+          error = "Please select date of birth";
+        } else {
+          const dobDate = new Date(value);
+          const today = new Date();
 
-        let age = today.getFullYear() - dobDate.getFullYear();
+          let age =
+            today.getFullYear() - dobDate.getFullYear();
 
-        const monthDiff =
-          today.getMonth() - dobDate.getMonth();
+          const monthDiff =
+            today.getMonth() - dobDate.getMonth();
 
-        if (
-          monthDiff < 0 ||
-          (monthDiff === 0 &&
-            today.getDate() < dobDate.getDate())
-        ) {
-          age--;
-        }
+          if (
+            monthDiff < 0 ||
+            (monthDiff === 0 &&
+              today.getDate() < dobDate.getDate())
+          ) {
+            age--;
+          }
 
-        if (age < 18) {
-          error = "Minimum age should be 18 years";
+          if (age < 18) {
+            error = "Minimum age should be 18 years";
+          }
         }
 
         break;
@@ -99,12 +118,44 @@ export default function MedicalJoinPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
 
     validateField(name, value);
+  };
+
+  const addMoreDocument = () => {
+    if (additionalDocuments.length >= 5) return;
+
+    setAdditionalDocuments([
+      ...additionalDocuments,
+      {
+        name: "",
+        file: null,
+      },
+    ]);
+  };
+
+  const removeDocument = (index) => {
+    const updated = [...additionalDocuments];
+
+    updated.splice(index, 1);
+
+    setAdditionalDocuments(updated);
+  };
+
+  const handleDocumentChange = (
+    index,
+    field,
+    value
+  ) => {
+    const updated = [...additionalDocuments];
+
+    updated[index][field] = value;
+
+    setAdditionalDocuments(updated);
   };
 
   const handleSubmit = async (e) => {
@@ -113,82 +164,85 @@ export default function MedicalJoinPage() {
     let valid = true;
 
     Object.keys(formData).forEach((key) => {
-      const isValid = validateField(key, formData[key]);
+      const isValid = validateField(
+        key,
+        formData[key]
+      );
 
       if (!isValid) valid = false;
     });
 
     if (!valid) {
-  const firstError = Object.values(errors).find(
-    (error) => error
-  );
+      alert("Please fix all errors before submitting");
+      return;
+    }
 
-  alert(firstError || "Please fix errors before submitting");
+    if (!e.target.photo.files[0]) {
+      alert("Professional photo is required");
+      return;
+    }
 
-  return;
-}
+    if (!e.target.resume.files[0]) {
+      alert("Resume / CV is required");
+      return;
+    }
 
     setLoading(true);
 
     try {
       const form = new FormData();
 
-      // TEXT DATA
       Object.keys(formData).forEach((key) => {
         form.append(key, formData[key]);
       });
 
-      // PROFILE PHOTO
-      if (e.target.photo.files[0]) {
-        const photo = e.target.photo.files[0];
+      const photo = e.target.photo.files[0];
 
-        if (photo.size > 5 * 1024 * 1024) {
-          alert("Profile photo must be under 5MB");
-          setLoading(false);
-          return;
-        }
-
-        form.append("photo", photo);
-      }
-
-      // RESUME
-      if (e.target.resume.files[0]) {
-        const resume = e.target.resume.files[0];
-
-        if (resume.size > 10 * 1024 * 1024) {
-          alert("Resume must be under 10MB");
-          setLoading(false);
-          return;
-        }
-
-        form.append("resume", resume);
-      }
-
-      // EXTRA DOCUMENTS
-      const documents = e.target.documents.files;
-
-      if (documents.length > 10) {
-        alert("Maximum 10 documents allowed");
+      if (photo.size > 5 * 1024 * 1024) {
+        alert("Photo size should be under 5MB");
         setLoading(false);
         return;
       }
 
-      for (let i = 0; i < documents.length; i++) {
-        const file = documents[i];
+      form.append("photo", photo);
 
-        if (file.size > 10 * 1024 * 1024) {
-          alert(`${file.name} exceeds 10MB limit`);
-          setLoading(false);
-          return;
-        }
+      const resume = e.target.resume.files[0];
 
-        form.append("documents", file);
+      if (resume.size > 10 * 1024 * 1024) {
+        alert("Resume size should be under 10MB");
+        setLoading(false);
+        return;
       }
 
-      const response = await fetch("/api/join-medical", {
-        method: "POST",
-        body: form,
-      });
+      form.append("resume", resume);
+
+      for (
+        let i = 0;
+        i < additionalDocuments.length;
+        i++
+      ) {
+        const doc = additionalDocuments[i];
+
+        if (doc.file) {
+          form.append(
+            "additionalDocNames",
+            doc.name
+          );
+
+          form.append(
+            "additionalDocuments",
+            doc.file
+          );
+        }
+      }
+
+      const response = await fetch(
+        "/api/join-medical",
+        {
+          method: "POST",
+          body: form,
+        }
+      );
 
       const data = await response.json();
 
@@ -202,22 +256,33 @@ export default function MedicalJoinPage() {
           email: "",
           mobile: "",
           dob: "",
+          state: "",
           city: "",
           qualification: "",
           experience: "",
-          registrationId: "",
           specialization: "",
+          otherSpecialization: "",
           consultationMode: "",
           hospital: "",
+          registrationId: "",
+          whyJoin: "",
           about: "",
         });
 
+        setAdditionalDocuments([
+          {
+            name: "",
+            file: null,
+          },
+        ]);
       } else {
-        alert(data.message || "Something went wrong");
+        alert(
+          data.message || "Something went wrong"
+        );
       }
-
     } catch (error) {
       console.log(error);
+
       alert("Error submitting form");
     }
 
@@ -231,20 +296,21 @@ export default function MedicalJoinPage() {
     "border-red-400 focus:ring-red-400";
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-white via-cyan-50 to-green-50 py-10 sm:py-14 md:py-20 px-4 sm:px-6">
+    <div className="min-h-screen bg-gradient-to-b from-white via-cyan-50 to-green-50 py-8 sm:py-10 md:py-16 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
-        <div className="rounded-[30px] sm:rounded-[40px] overflow-hidden shadow-2xl border border-white/50 bg-white">
+        {/* MAIN CARD */}
+        <div className="rounded-[32px] overflow-hidden shadow-2xl border border-white/60 bg-white">
 
           {/* HEADER */}
-          <div className="bg-linear-to-r from-green-500 via-emerald-500 to-cyan-500 p-6 sm:p-10 md:p-14 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-500 p-6 sm:p-10 md:p-14 text-white relative overflow-hidden">
 
-            <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
 
             <div className="relative z-10">
 
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-5 shadow-lg">
-                <Stethoscope className="w-8 h-8 sm:w-10 sm:h-10" />
+              <div className="w-18 h-18 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center shadow-lg mb-6">
+                <Stethoscope className="w-9 h-9" />
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
@@ -252,11 +318,56 @@ export default function MedicalJoinPage() {
               </h1>
 
               <p className="mt-4 text-sm sm:text-base md:text-lg text-white/90 max-w-3xl leading-relaxed">
-                Become a verified healthcare professional on Mission100
-                and help people improve their health and lifestyle.
+                Become a verified healthcare professional on Mission100 Hospital and help people improve their health and lifestyle.
               </p>
             </div>
           </div>
+
+        {/* TOP INFO SECTION */}
+<div className="hidden lg:grid lg:grid-cols-3 gap-5 mb-4 mt-4 mx-4">
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+            <div className="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-4">
+              <ShieldCheck className="w-7 h-7 text-green-600" />
+            </div>
+
+            <h3 className="text-lg font-bold text-gray-900">
+              Verified Professional Profile
+            </h3>
+
+            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+              Build trusted online presence with Mission100 Hospital.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+            <div className="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center mb-4">
+              <HeartHandshake className="w-7 h-7 text-cyan-600" />
+            </div>
+
+            <h3 className="text-lg font-bold text-gray-900">
+              Help More Patients
+            </h3>
+
+            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+              Connect with people seeking better health and wellness.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-4">
+              <CheckCircle2 className="w-7 h-7 text-emerald-600" />
+            </div>
+
+            <h3 className="text-lg font-bold text-gray-900">
+              Easy Application Process
+            </h3>
+
+            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+              Submit your details and our team will review your profile.
+            </p>
+          </div>
+        </div>
+
 
           {/* FORM */}
           <form
@@ -270,7 +381,7 @@ export default function MedicalJoinPage() {
               {/* FULL NAME */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Full Name
+                  Full Name *
                 </label>
 
                 <div className="relative mt-2">
@@ -281,11 +392,13 @@ export default function MedicalJoinPage() {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    required
                     placeholder="Dr. John Doe"
                     className={`${inputClass} pl-12 ${
-                      errors.fullName ? errorInputClass : "border-gray-200"
+                      errors.fullName
+                        ? errorInputClass
+                        : "border-gray-200"
                     }`}
+                    required
                   />
                 </div>
 
@@ -299,7 +412,7 @@ export default function MedicalJoinPage() {
               {/* EMAIL */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Email Address
+                  Email Address *
                 </label>
 
                 <div className="relative mt-2">
@@ -310,11 +423,13 @@ export default function MedicalJoinPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
                     placeholder="doctor@example.com"
                     className={`${inputClass} pl-12 ${
-                      errors.email ? errorInputClass : "border-gray-200"
+                      errors.email
+                        ? errorInputClass
+                        : "border-gray-200"
                     }`}
+                    required
                   />
                 </div>
 
@@ -328,32 +443,28 @@ export default function MedicalJoinPage() {
               {/* MOBILE */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Mobile Number
+                  Mobile Number *
                 </label>
 
-                <div className="relative mt-2">
-                  <Phone className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-
-                  <div className="flex">
-                    <div className="px-4 rounded-l-2xl border border-r-0 border-gray-200 bg-gray-100 flex items-center text-gray-600 font-medium">
-                      +91
-                    </div>
-
-                    <input
-                      type="text"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleChange}
-                      required
-                      maxLength={10}
-                      placeholder="9876543210"
-                      className={`w-full rounded-r-2xl border px-4 py-4 outline-none ${
-                        errors.mobile
-                          ? errorInputClass
-                          : "border-gray-200"
-                      }`}
-                    />
+                <div className="mt-2 flex">
+                  <div className="px-4 rounded-l-2xl border border-r-0 border-gray-200 bg-gray-100 flex items-center text-gray-700 font-medium">
+                    +91
                   </div>
+
+                  <input
+                    type="text"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    maxLength={10}
+                    placeholder="9876543210"
+                    className={`w-full rounded-r-2xl border px-4 py-4 outline-none ${
+                      errors.mobile
+                        ? errorInputClass
+                        : "border-gray-200"
+                    }`}
+                    required
+                  />
                 </div>
 
                 {errors.mobile && (
@@ -366,7 +477,7 @@ export default function MedicalJoinPage() {
               {/* DOB */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Date of Birth
+                  Date of Birth *
                 </label>
 
                 <div className="relative mt-2">
@@ -377,10 +488,12 @@ export default function MedicalJoinPage() {
                     name="dob"
                     value={formData.dob}
                     onChange={handleChange}
-                    required
                     className={`${inputClass} pl-12 ${
-                      errors.dob ? errorInputClass : "border-gray-200"
+                      errors.dob
+                        ? errorInputClass
+                        : "border-gray-200"
                     }`}
+                    required
                   />
                 </div>
 
@@ -391,10 +504,46 @@ export default function MedicalJoinPage() {
                 )}
               </div>
 
+              {/* STATE */}
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  State *
+                </label>
+
+                <div className="relative mt-2">
+                  <MapPin className="absolute left-4 top-4 w-5 h-5 text-gray-400 z-10" />
+
+                  <select
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                    className={`${inputClass} pl-12 border-gray-200 appearance-none`}
+                    required
+                  >
+                    <option value="">
+                      Select State
+                    </option>
+
+                    <option>Delhi</option>
+                    <option>Uttar Pradesh</option>
+                    <option>Haryana</option>
+                    <option>Punjab</option>
+                    <option>Maharashtra</option>
+                    <option>Rajasthan</option>
+                    <option>Bihar</option>
+                    <option>West Bengal</option>
+                    <option>Karnataka</option>
+                    <option>Tamil Nadu</option>
+                    <option>Gujarat</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
               {/* CITY */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  City
+                  City *
                 </label>
 
                 <div className="relative mt-2">
@@ -405,9 +554,9 @@ export default function MedicalJoinPage() {
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    required
-                    placeholder="Delhi"
+                    placeholder="New Delhi"
                     className={`${inputClass} pl-12 border-gray-200`}
+                    required
                   />
                 </div>
               </div>
@@ -415,7 +564,7 @@ export default function MedicalJoinPage() {
               {/* QUALIFICATION */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Qualification
+                  Qualification *
                 </label>
 
                 <div className="relative mt-2">
@@ -426,9 +575,9 @@ export default function MedicalJoinPage() {
                     name="qualification"
                     value={formData.qualification}
                     onChange={handleChange}
-                    required
                     placeholder="MBBS, MD"
                     className={`${inputClass} pl-12 border-gray-200`}
+                    required
                   />
                 </div>
               </div>
@@ -436,7 +585,7 @@ export default function MedicalJoinPage() {
               {/* EXPERIENCE */}
               <div>
                 <label className="text-sm font-semibold text-gray-700">
-                  Experience
+                  Experience *
                 </label>
 
                 <div className="relative mt-2">
@@ -447,15 +596,104 @@ export default function MedicalJoinPage() {
                     name="experience"
                     value={formData.experience}
                     onChange={handleChange}
-                    required
                     placeholder="5+ Years"
+                    className={`${inputClass} pl-12 border-gray-200`}
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* SPECIALIZATION */}
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Specialization *
+                </label>
+
+                <select
+                  name="specialization"
+                  value={formData.specialization}
+                  onChange={handleChange}
+                  className={`${inputClass} border-gray-200 mt-2`}
+                  required
+                >
+                  <option value="">
+                    Select Specialization
+                  </option>
+
+                  <option>General Physician</option>
+                  <option>Cardiologist</option>
+                  <option>Dermatologist</option>
+                  <option>Orthopedic</option>
+                  <option>Pediatrician</option>
+                  <option>Gynecologist</option>
+                  <option>Dentist</option>
+                  <option>Neurologist</option>
+                  <option>Physiotherapist</option>
+                  <option>Ayurveda Doctor</option>
+                  <option>Other</option>
+                </select>
+
+                {formData.specialization ===
+                  "Other" && (
+                  <input
+                    type="text"
+                    name="otherSpecialization"
+                    value={
+                      formData.otherSpecialization
+                    }
+                    onChange={handleChange}
+                    placeholder="Enter specialization"
+                    className={`${inputClass} border-gray-200 mt-4`}
+                    required
+                  />
+                )}
+              </div>
+
+              {/* CONSULTATION */}
+              <div>
+                <label className="text-sm font-semibold text-gray-700">
+                  Consultation Mode *
+                </label>
+
+                <select
+                  name="consultationMode"
+                  value={formData.consultationMode}
+                  onChange={handleChange}
+                  className={`${inputClass} border-gray-200 mt-2`}
+                  required
+                >
+                  <option value="">
+                    Select Mode
+                  </option>
+
+                  <option>Online</option>
+                  <option>Offline</option>
+                  <option>Both</option>
+                </select>
+              </div>
+
+              {/* HOSPITAL */}
+              <div className="md:col-span-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Current / Previous Hospital or Clinic
+                </label>
+
+                <div className="relative mt-2">
+                  <Building2 className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+
+                  <input
+                    type="text"
+                    name="hospital"
+                    value={formData.hospital}
+                    onChange={handleChange}
+                    placeholder="ABC Hospital"
                     className={`${inputClass} pl-12 border-gray-200`}
                   />
                 </div>
               </div>
 
-              {/* REGISTRATION ID */}
-              <div>
+              {/* REGISTRATION */}
+              <div className="md:col-span-2">
                 <label className="text-sm font-semibold text-gray-700">
                   Medical Registration ID
                 </label>
@@ -468,87 +706,34 @@ export default function MedicalJoinPage() {
                     name="registrationId"
                     value={formData.registrationId}
                     onChange={handleChange}
-                    required
-                    placeholder="Registration ID"
+                    placeholder="Medical Registration ID"
                     className={`${inputClass} pl-12 border-gray-200`}
                   />
                 </div>
               </div>
+            </div>
 
-              {/* SPECIALIZATION */}
-              <div>
-                <label className="text-sm font-semibold text-gray-700">
-                  Specialization
-                </label>
+            {/* WHY JOIN */}
+            <div>
+              <label className="text-sm font-semibold text-gray-700">
+                Why do you want to join Mission100 Hospital? *
+              </label>
 
-                <select
-                  name="specialization"
-                  value={formData.specialization}
-                  onChange={handleChange}
-                  required
-                  className={`${inputClass} border-gray-200 mt-2`}
-                >
-                  <option value="">Select Specialization</option>
-                  <option>General Physician</option>
-                  <option>Cardiologist</option>
-                  <option>Dermatologist</option>
-                  <option>Orthopedic</option>
-                  <option>Pediatrician</option>
-                  <option>Gynecologist</option>
-                  <option>Dentist</option>
-                  <option>Neurologist</option>
-                  <option>Physiotherapist</option>
-                  <option>Ayurveda Doctor</option>
-                </select>
-              </div>
-
-              {/* CONSULTATION */}
-              <div>
-                <label className="text-sm font-semibold text-gray-700">
-                  Consultation Mode
-                </label>
-
-                <select
-                  name="consultationMode"
-                  value={formData.consultationMode}
-                  onChange={handleChange}
-                  required
-                  className={`${inputClass} border-gray-200 mt-2`}
-                >
-                  <option value="">Select Mode</option>
-                  <option>Online</option>
-                  <option>Offline</option>
-                  <option>Both</option>
-                </select>
-              </div>
-
-              {/* HOSPITAL */}
-              <div className="md:col-span-2">
-                <label className="text-sm font-semibold text-gray-700">
-                  Hospital / Clinic Name
-                </label>
-
-                <div className="relative mt-2">
-                  <Building2 className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-
-                  <input
-                    type="text"
-                    name="hospital"
-                    value={formData.hospital}
-                    onChange={handleChange}
-                    required
-                    placeholder="ABC Hospital"
-                    className={`${inputClass} pl-12 border-gray-200`}
-                  />
-                </div>
-              </div>
-
+              <textarea
+                name="whyJoin"
+                value={formData.whyJoin}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Tell us why you want to become part of Mission100 Hospital..."
+                className={`${inputClass} border-gray-200 mt-2`}
+                required
+              ></textarea>
             </div>
 
             {/* ABOUT */}
             <div>
               <label className="text-sm font-semibold text-gray-700">
-                About Yourself
+                Kindly brief about yourself, experiences, expertise and interests *
               </label>
 
               <textarea
@@ -556,9 +741,9 @@ export default function MedicalJoinPage() {
                 value={formData.about}
                 onChange={handleChange}
                 rows="5"
-                required
                 placeholder="Tell us about yourself..."
                 className={`${inputClass} border-gray-200 mt-2`}
+                required
               ></textarea>
             </div>
 
@@ -571,7 +756,7 @@ export default function MedicalJoinPage() {
                   <Upload className="w-6 h-6 text-cyan-600" />
 
                   <h3 className="font-semibold text-gray-900">
-                    Upload Profile Photo
+                    Upload Professional Photo *
                   </h3>
                 </div>
 
@@ -584,6 +769,7 @@ export default function MedicalJoinPage() {
                   name="photo"
                   accept="image/*"
                   className="mt-5 block w-full rounded-xl border border-gray-200 bg-white p-3 text-sm"
+                  required
                 />
               </div>
 
@@ -593,7 +779,7 @@ export default function MedicalJoinPage() {
                   <FileText className="w-6 h-6 text-green-600" />
 
                   <h3 className="font-semibold text-gray-900">
-                    Upload Resume / CV
+                    Upload Resume / CV *
                   </h3>
                 </div>
 
@@ -606,16 +792,16 @@ export default function MedicalJoinPage() {
                   name="resume"
                   accept=".pdf,.doc,.docx"
                   className="mt-5 block w-full rounded-xl border border-gray-200 bg-white p-3 text-sm"
+                  required
                 />
               </div>
-
             </div>
 
             {/* EXTRA DOCUMENTS */}
             <div className="rounded-3xl border-2 border-dashed border-gray-200 bg-gray-50 p-6 sm:p-8">
 
               <div className="flex items-center gap-3">
-                <Upload className="w-6 h-6 text-gray-700" />
+                <Upload className="w-6 h-6 text-cyan-600" />
 
                 <h3 className="text-lg font-semibold text-gray-900">
                   Additional Certifications / Documents
@@ -623,53 +809,125 @@ export default function MedicalJoinPage() {
               </div>
 
               <p className="mt-2 text-sm text-gray-500">
-                Optional • Upload certificates, awards, licenses or
-                other supporting documents.
+                Optional • Upload certificates, awards or licenses.
               </p>
 
-              <p className="mt-1 text-xs text-gray-400">
-                Max 10 files • 10MB each
-              </p>
+              <div className="mt-6 space-y-5">
 
-              <input
-                type="file"
-                name="documents"
-                multiple
-                accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
-                className="mt-5 block w-full rounded-xl border border-gray-200 bg-white p-4 text-sm"
-              />
+                {additionalDocuments.map(
+                  (doc, index) => (
+                    <div
+                      key={index}
+                      className="rounded-2xl border border-gray-200 bg-white p-5"
+                    >
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+                        <input
+                          type="text"
+                          placeholder="Certificate / Document Name"
+                          value={doc.name}
+                          onChange={(e) =>
+                            handleDocumentChange(
+                              index,
+                              "name",
+                              e.target.value
+                            )
+                          }
+                          className={`${inputClass} border-gray-200`}
+                        />
+
+                        <input
+                          type="file"
+                          accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+                          onChange={(e) =>
+                            handleDocumentChange(
+                              index,
+                              "file",
+                              e.target.files[0]
+                            )
+                          }
+                          className="block w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 text-sm"
+                        />
+                      </div>
+
+                      {index > 0 && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            removeDocument(index)
+                          }
+                          className="mt-4 text-sm font-semibold text-red-500"
+                        >
+                          Remove Document
+                        </button>
+                      )}
+                    </div>
+                  )
+                )}
+              </div>
+
+              {additionalDocuments.length < 5 && (
+                <button
+                  type="button"
+                  onClick={addMoreDocument}
+                  className="mt-6 rounded-2xl bg-gradient-to-r from-green-500 to-cyan-500 px-6 py-4 text-white font-semibold"
+                >
+                  + Upload One More Document
+                </button>
+              )}
             </div>
 
+            {/* REVIEW BOX */}
+            <div className="rounded-3xl border border-green-100 bg-gradient-to-r from-green-50 to-cyan-50 p-5 sm:p-6">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-7 h-7 text-green-600" />
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    Application Review Process
+                  </h3>
+
+                  <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+                    After submitting your application, our team will carefully review your profile and documents. If shortlisted, we will contact you for the next steps.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* SUBMIT */}
             <button
-  type="submit"
-  disabled={loading}
-  className={`w-full rounded-2xl py-4 sm:py-5 text-white font-semibold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-3 ${
-    loading
-      ? "bg-gray-400 cursor-not-allowed"
-      : "bg-linear-to-r from-green-500 to-cyan-500 hover:shadow-2xl"
-  }`}
->
-  {loading ? (
-    <>
-      {/* SPINNER */}
-      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              type="submit"
+              disabled={loading}
+              className={`w-full rounded-2xl py-4 sm:py-5 text-white font-semibold text-base sm:text-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-3 ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-green-500 to-cyan-500 hover:shadow-2xl"
+              }`}
+            >
+              {loading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
 
-      Uploading Documents & Submitting...
-    </>
-  ) : (
-    <>
-      Submit Application
+                  Uploading & Submitting...
+                </>
+              ) : (
+                <>
+                  Submit Application
 
-      <Send className="w-5 h-5" />
-    </>
-  )}
-</button>
-{loading && (
-  <div className="text-center text-sm text-gray-500 mt-4">
-    Please wait while we upload your files securely...
-  </div>
-)}
+                  <Send className="w-5 h-5" />
+                </>
+              )}
+            </button>
 
+            {loading && (
+              <div className="text-center text-sm text-gray-500">
+                Please wait while we securely upload your files...
+              </div>
+            )}
           </form>
         </div>
       </div>

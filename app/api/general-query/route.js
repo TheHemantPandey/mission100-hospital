@@ -19,7 +19,7 @@ export async function POST(req) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, 
+      to: "mission100hospital@gmail.com, hement.pandey2121@gmail.com",
       subject: `Mission 100 - General Query: ${subject}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 2px solid #0056b3; border-radius: 15px;">

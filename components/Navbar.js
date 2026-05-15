@@ -5,14 +5,23 @@ import Link from "next/link";
 
 // Memoized Service List to prevent re-calculating on every render
 const demoServices = [
-  { name: "Heart Attack Prevention", href: "/services/heart-attack-prevention" },
+  {
+    name: "Heart Attack Prevention",
+    href: "/services/heart-attack-prevention",
+  },
   { name: "Mental Health Stress", href: "/services/mental-health-stress" },
   { name: "Anti-Aging Science", href: "/services/anti-aging-science" },
   { name: "Body & Bone Strength", href: "/services/bone-strength" },
   { name: "Yoga & Ayurveda", href: "/services/yoga-ayurveda" },
-  { name: "Metabolic & Sugar Control", href: "/services/metabolic-sugar-control" },
+  {
+    name: "Metabolic & Sugar Control",
+    href: "/services/metabolic-sugar-control",
+  },
   { name: "Vitamins", href: "/services/Vitamins" },
-  { name: "Happiness & Emotional Vitality", href: "/services/happiness-emotional-vitality" },
+  {
+    name: "Happiness & Emotional Vitality",
+    href: "/services/happiness-emotional-vitality",
+  },
   { name: "Longevity Modeling", href: "/services/longevity-modeling" },
   { name: "Behavioral Analysis", href: "/services/behavioral-analysis" },
   { name: "Body Preservation", href: "/services/body-preservation" },
@@ -20,8 +29,8 @@ const demoServices = [
 
 const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false); 
-  
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+
   const navRef = useRef(null);
 
   const closeMenu = () => {
@@ -51,9 +60,12 @@ const Navbar = () => {
       {/* ========================================= */}
       <nav className="bg-white w-full border-b border-gray-100 shadow-sm relative">
         <div className="max-w-7xl flex items-center justify-between mx-auto p-3 px-4 sm:px-6">
-          
           {/* Logo Section */}
-          <Link href="/" className="flex items-center space-x-2" onClick={closeMenu}>
+          <Link
+            href="/"
+            className="flex items-center space-x-2"
+            onClick={closeMenu}
+          >
             <Image
               src="/main-logo1.png"
               alt="Mission100 Hospital Logo"
@@ -79,10 +91,17 @@ const Navbar = () => {
           <div className="hidden md:block w-auto">
             <ul className="flex flex-row items-center font-medium space-x-6 lg:space-x-8">
               <li>
-                <Link href="/" className="text-gray-700 hover:text-green-600">Home</Link>
+                <Link href="/" className="text-gray-700 hover:text-green-600">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-700 hover:text-green-600">About</Link>
+                <Link
+                  href="/about"
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  About
+                </Link>
               </li>
 
               {/* SERVICES DROPDOWN - Desktop Hover */}
@@ -99,8 +118,18 @@ const Navbar = () => {
                   className="flex items-center gap-1 text-gray-700 group-hover:text-green-600 py-2"
                 >
                   Services
-                  <svg className={`w-4 h-4 transition-transform ${desktopServicesOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  <svg
+                    className={`w-4 h-4 transition-transform ${desktopServicesOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
 
@@ -123,13 +152,28 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link href="/find-a-test" className="text-gray-700 hover:text-green-600">Find a Test</Link>
+                <Link
+                  href="/find-a-test"
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Find a Test
+                </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-700 hover:text-green-600">Contact</Link>
+                <Link
+                  href="/contact"
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Contact
+                </Link>
               </li>
               <li>
-                <Link href="/join-us" className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95">Join Us</Link>
+                <Link
+                  href="/join-us"
+                  className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95"
+                >
+                  Join Us
+                </Link>
               </li>
 
               {/* Desktop Call to Action Button */}
@@ -150,38 +194,94 @@ const Navbar = () => {
       {/* 2. MOBILE BOTTOM NAVIGATION BAR           */}
       {/* ========================================= */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-100 flex justify-around items-center px-1 py-1 pb-2 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
-        
         {/* 1. Find a Test */}
-        <Link href="/find-a-test" onClick={closeMenu} className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><circle cx="11.5" cy="14.5" r="2.5"/><path d="M13.3 16.3 15 18"/>
+        <Link
+          href="/find-a-test"
+          onClick={closeMenu}
+          className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6" />
+            <circle cx="11.5" cy="14.5" r="2.5" />
+            <path d="M13.3 16.3 15 18" />
           </svg>
           <span className="text-[10px] mt-1 font-medium">Find a Test</span>
         </Link>
 
         {/* 2. Book Appt */}
-        <Link href="/book-appointment" onClick={closeMenu} className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>
+        <Link
+          href="/book-appointment"
+          onClick={closeMenu}
+          className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+            <line x1="16" x2="16" y1="2" y2="6" />
+            <line x1="8" x2="8" y1="2" y2="6" />
+            <line x1="3" x2="21" y1="10" y2="10" />
           </svg>
           <span className="text-[10px] mt-1 font-medium">Book Appt</span>
         </Link>
 
         {/* 3. Home */}
-        <Link href="/" onClick={closeMenu} className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
           <span className="text-[10px] mt-1 font-medium">Home</span>
         </Link>
 
-        {/* 4. WhatsApp Chat - UPDATE NUMBER */}
-        <a href="https://wa.me/9220620209" target="_blank" rel="noreferrer" className="flex flex-col items-center justify-center p-2 text-[#25D366] hover:text-green-600 w-full">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 3.4L3 21" />
+        {/* 4. Contact Us */}
+        <a
+          href="/contact"
+          className="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-green-600 w-full transition-colors"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          <span className="text-[10px] mt-1 font-medium">WhatsApp</span>
+          <span className="text-[10px] mt-1 font-medium">Contact Us</span>
         </a>
 
         {/* 5. Compact Services Drop-up */}
@@ -208,11 +308,20 @@ const Navbar = () => {
           )}
 
           {/* Toggle Button */}
-          <button 
-            onClick={() => setMobileServicesOpen(!mobileServicesOpen)} 
-            className={`flex flex-col items-center justify-center p-2 w-full transition-colors ${mobileServicesOpen ? 'text-green-600' : 'text-gray-600'}`}
+          <button
+            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+            className={`flex flex-col items-center justify-center p-2 w-full transition-colors ${mobileServicesOpen ? "text-green-600" : "text-gray-600"}`}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               {mobileServicesOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" />
               ) : (
@@ -223,11 +332,12 @@ const Navbar = () => {
                 </>
               )}
             </svg>
-            <span className="text-[10px] mt-1 font-medium">{mobileServicesOpen ? 'Close' : 'Services'}</span>
+            <span className="text-[10px] mt-1 font-medium">
+              {mobileServicesOpen ? "Close" : "Services"}
+            </span>
           </button>
         </div>
       </nav>
-      
     </div>
   );
 };
