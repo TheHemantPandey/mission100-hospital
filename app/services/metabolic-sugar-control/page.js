@@ -279,19 +279,7 @@ export default function MetabolicSugarControl() {
         </div>
       </section>
 
-      {/* 7. CLINICAL DISCLAIMER */}
-      <section className="bg-[#0F172A] py-16 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] leading-relaxed">
-            Mission 100 provides metabolic health optimization and preventative care. <br />
-            Glucose monitoring and wellness plans do not replace clinical medical advice or emergency medical treatment for diabetic complications. <br />
-            In case of a medical emergency, please visit your nearest hospital immediately.
-          </p>
-          <div className="mt-10 pt-8 border-t border-slate-800 text-slate-600 text-[10px] font-bold uppercase tracking-widest">
-            © 2026 Mission 100™ Hospital. All Rights Reserved.
-          </div>
-        </div>
-      </section>
+
 
     </main>
   );

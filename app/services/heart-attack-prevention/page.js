@@ -1,108 +1,166 @@
-import React from 'react';
-import Link from 'next/link';
-import { 
-  Heart, 
-  Activity, 
-  ShieldCheck, 
-  Stethoscope, 
-  Leaf, 
-  Microscope, 
-  Clock, 
+import React from "react";
+import Link from "next/link";
+import {
+  Heart,
+  Activity,
+  ShieldCheck,
+  Stethoscope,
+  Leaf,
+  Microscope,
+  Clock3,
   ArrowRight,
-  CheckCircle2
-} from 'lucide-react';
+  CheckCircle2,
+  Sparkles,
+  HeartPulse,
+  Brain,
+} from "lucide-react";
 
-// --- 1. METADATA (ABOVE THE FUNCTION) ---
 export const metadata = {
-  title: "Heart Attack Prevention & Cardiac Safety",
-  description: "Proactive cardiac risk assessments and heart health modeling at Mission 100 Hospital to identify heart attack risks before emergencies occur.",
-  keywords: ["Heart attack prevention", "Cardiac safety", "ECG analysis", "Heart health score", "Mission 100 Hospital"],
+  title: "Heart Attack Prevention | Mission100 Hospital",
+  description:
+    "Advanced preventive heart health analysis, cardiac risk assessment, ECG monitoring and wellness support at Mission100 Hospital.",
+  keywords: [
+    "Heart Attack Prevention",
+    "Cardiac Risk Assessment",
+    "Heart Health",
+    "Mission100 Hospital",
+    "ECG Analysis",
+    "Preventive Healthcare",
+  ],
 };
 
 export default function HeartPreventionPremium() {
-  
-  // --- 2. BREADCRUMB SCHEMA LOGIC ---
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.mission100hospital.com"
+        position: 1,
+        name: "Home",
+        item: "https://www.mission100hospital.com",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://www.mission100hospital.com/services"
+        position: 2,
+        name: "Services",
+        item: "https://www.mission100hospital.com/services",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "Heart Attack Prevention",
-        "item": "https://www.mission100hospital.com/services/heart-attack-prevention"
-      }
-    ]
+        position: 3,
+        name: "Heart Attack Prevention",
+        item:
+          "https://www.mission100hospital.com/services/heart-attack-prevention",
+      },
+    ],
   };
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-emerald-100">
-      
-      {/* --- 3. INJECT SCHEMA SCRIPT HERE --- */}
+    <main className="min-h-screen bg-gradient-to-b from-cyan-50 via-white to-emerald-50 overflow-x-hidden">
+      {/* SCHEMA */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
       />
 
-      {/* 1. PREMIUM HERO SECTION */}
-      <section className="relative pt-32 pb-20 px-6 bg-white overflow-hidden">
-        {/* Abstract background shapes for a modern medical look */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 skew-x-12 translate-x-20 z-0"></div>
-        
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-100">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Mission 100 Longevity Protocol
+      {/* HERO */}
+      <section className="relative py-12 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6">
+        <div className="absolute top-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-emerald-200/30 blur-3xl rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 md:w-[400px] md:h-[400px] bg-cyan-200/30 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* LEFT */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-100 to-cyan-100 border border-emerald-200 text-emerald-700 px-5 py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm mb-6 w-fit">
+              <Sparkles size={16} className="shrink-0" />
+              Mission100 Cardiac Protection Program
             </div>
-            <h1 className="text-5xl lg:text-7xl font-light text-slate-900 leading-[1.1] mb-8">
-              The Science of <br />
-              <span className="font-black text-emerald-600">Heart Longevity.</span>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6">
+              <span className="bg-gradient-to-r from-emerald-600 via-green-500 to-cyan-500 bg-clip-text text-transparent">
+                Heart Attack
+              </span>
+              <br />
+              <span className="text-slate-900">Prevention</span>
             </h1>
-            <p className="text-lg text-slate-600 max-w-xl leading-relaxed mb-10">
-              Healthcare should be preventive rather than just reactive. Our mission is to provide the data and guidance for every individual to achieve a healthy, vibrant century of life.
+
+            <p className="text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mb-8">
+              Mission100 Hospital helps identify early cardiac risks using
+              modern diagnostics, ECG analysis, preventive wellness programs,
+              and personalized heart health guidance.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/book-appointment" className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-600 transition-all flex items-center justify-center gap-2">
-                Book Cardiac Scan <ArrowRight size={18} />
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <Link
+                href="/book-appointment"
+                className="bg-gradient-to-r from-emerald-600 to-cyan-500 hover:from-emerald-700 hover:to-cyan-600 text-white px-8 py-4 sm:py-5 rounded-2xl font-black shadow-xl hover:shadow-emerald-200 transition-all flex items-center justify-center gap-2 text-center"
+              >
+                Book Heart Checkup
+                <ArrowRight size={18} className="shrink-0" />
               </Link>
-              <button className="bg-white border border-slate-200 text-slate-600 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all">
-                Download Risk Guide
-              </button>
+
+              <Link
+                href="/contact"
+                className="bg-white border border-slate-200 text-slate-700 px-8 py-4 sm:py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all text-center flex items-center justify-center"
+              >
+                Contact Our Team
+              </Link>
+            </div>
+
+            {/* STATS */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-12 w-full max-w-xl">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-5 border border-slate-100 shadow-lg text-center">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-emerald-600">24/7</h3>
+                <p className="text-[10px] sm:text-xs md:text-sm text-slate-500 font-medium mt-1">
+                  Monitoring Support
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-5 border border-slate-100 shadow-lg text-center">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-cyan-600">94%</h3>
+                <p className="text-[10px] sm:text-xs md:text-sm text-slate-500 font-medium mt-1">
+                  Early Risk Detection
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-5 border border-slate-100 shadow-lg text-center">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-green-600">100+</h3>
+                <p className="text-[10px] sm:text-xs md:text-sm text-slate-500 font-medium mt-1">
+                  Wellness Programs
+                </p>
+              </div>
             </div>
           </div>
-          
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-linear-to-r from-emerald-100 to-teal-100 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <div className="relative aspect-4/5 rounded-4xl overflow-hidden border border-slate-100 shadow-2xl bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?auto=format&fit=crop&q=80&w=800" 
-                alt="Heart Health Diagnostics" 
-                className="w-full h-full object-cover grayscale-30 hover:grayscale-0 transition-all duration-700"
+
+          {/* RIGHT */}
+          <div className="relative w-full max-w-md lg:max-w-none mx-auto">
+            <div className="absolute -inset-4 sm:-inset-5 bg-gradient-to-r from-emerald-200 to-cyan-200 rounded-[40px] blur-3xl opacity-40 pointer-events-none"></div>
+
+            <div className="relative overflow-hidden rounded-[32px] sm:rounded-[40px] shadow-2xl border border-white/40 bg-slate-100">
+              <img
+                src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?auto=format&fit=crop&q=80&w=1200"
+                alt="Heart Prevention"
+                className="w-full aspect-[4/5] md:aspect-auto md:h-[600px] lg:h-[650px] object-cover select-none"
               />
-              <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-emerald-500 flex items-center justify-center text-white">
-                    <Activity size={24} />
+
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-white/40 shadow-xl">
+                <div className="flex items-center gap-4 sm:gap-5">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white shadow-lg shrink-0">
+                    <Activity size={24} className="sm:hidden" />
+                    <Activity size={30} className="hidden sm:block" />
                   </div>
+
                   <div>
-                    <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Real-time Analysis</p>
-                    <p className="text-xl font-black text-slate-900 italic leading-none">98.4% Precision</p>
+                    <p className="text-[10px] sm:text-sm uppercase tracking-widest text-emerald-600 font-black">
+                      Advanced ECG Analysis
+                    </p>
+
+                    <h3 className="text-base sm:text-2xl font-black text-slate-900">
+                      Real-Time Heart Monitoring
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -111,88 +169,149 @@ export default function HeartPreventionPremium() {
         </div>
       </section>
 
-      {/* 2. CORE METHODOLOGY SECTION */}
-      <section className="py-24 px-6 bg-slate-50">
+      {/* FEATURES */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
-            <div className="max-w-2xl">
-              <h2 className="text-sm font-black text-emerald-600 uppercase tracking-[0.2em] mb-4">The Methodology</h2>
-              <h3 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">Proactive Cardiac Safety Through Advanced Modeling.</h3>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-xs sm:text-sm font-bold mb-4 shadow-sm">
+              <ShieldCheck size={16} className="shrink-0" />
+              Preventive Cardiac Care
             </div>
-            <p className="text-slate-500 text-lg max-w-sm">We focus on identifying critical risks before they become medical emergencies.</p>
+
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-4 sm:mb-6">
+              Protect Your Heart Before Emergencies Happen
+            </h2>
+
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              We combine preventive healthcare, diagnostics, and lifestyle
+              management to help patients reduce future cardiac risks.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
-                icon: <Heart className="text-emerald-600" />,
-                title: "Risk Assessments",
-                desc: "Data-driven insights to identify potential cardiac vulnerabilities early."
+                icon: HeartPulse,
+                title: "Cardiac Risk Analysis",
+                desc: "Identify heart-related risks before major symptoms or emergencies occur.",
               },
               {
-                icon: <ShieldCheck className="text-emerald-600" />,
-                title: "Cardiac Safety",
-                desc: "Prioritizing immediate safety through advanced ECG and diagnostic protocols."
+                icon: Microscope,
+                title: "Advanced Diagnostics",
+                desc: "ECG analysis, pathology support, and wellness screening for better prevention.",
               },
               {
-                icon: <Stethoscope className="text-emerald-600" />,
-                title: "Longevity Support",
-                desc: "Expert guidance for achieving a healthy, vibrant, and active century of life."
-              }
+                icon: Brain,
+                title: "Lifestyle Guidance",
+                desc: "Diet, yoga, stress management and wellness programs for long-term health.",
+              },
             ].map((item, i) => (
-              <div key={i} className="p-10 bg-white rounded-3xl border border-slate-100 hover:shadow-xl transition-all group">
-                <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-500">
-                  {React.cloneElement(item.icon, { size: 28 })}
+              <div
+                key={i}
+                className={`bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-300 group ${
+                  i === 2 ? "sm:col-span-2 md:col-span-1" : ""
+                }`}
+              >
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white mb-6 sm:mb-7 shadow-lg shadow-emerald-200 group-hover:scale-105 transition-all shrink-0">
+                  <item.icon size={26} className="sm:hidden" />
+                  <item.icon size={30} className="hidden sm:block" />
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h4>
-                <p className="text-slate-500 leading-relaxed text-sm">{item.desc}</p>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 sm:mb-4">
+                  {item.title}
+                </h3>
+
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. DIAGNOSTIC DEPTH SECTION */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-          <div className="relative">
-            <div className="relative z-10 grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-square rounded-3xl bg-slate-100 flex flex-col items-center justify-center p-8 text-center group hover:bg-emerald-600 transition-colors duration-500">
-                  <Microscope className="text-emerald-600 mb-4 group-hover:text-white" size={40} />
-                  <p className="font-bold text-slate-900 group-hover:text-white">ECG Analysis</p>
-                </div>
-                <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Cardiac Lab" />
-                </div>
+      {/* PROCESS */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* IMAGES */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 order-2 lg:order-1">
+            <div className="space-y-4 sm:space-y-5">
+              <div className="bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 text-white shadow-2xl">
+                <Clock3 size={36} className="mb-4 sm:hidden" />
+                <Clock3 size={42} className="hidden sm:block sm:mb-5" />
+
+                <h3 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
+                  Early Detection
+                </h3>
+
+                <p className="text-emerald-50 text-sm sm:text-base leading-relaxed">
+                  Detect risks before severe cardiac complications arise.
+                </p>
               </div>
-              <div className="space-y-4 pt-12">
-                <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover" alt="Medical Diagnostics" />
-                </div>
-                <div className="aspect-square rounded-3xl bg-emerald-50 flex flex-col items-center justify-center p-8 text-center">
-                  <Clock className="text-emerald-600 mb-4" size={40} />
-                  <p className="font-bold text-slate-900 leading-tight">Early Risk Identification</p>
-                </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800"
+                alt="Diagnostics"
+                className="rounded-[24px] sm:rounded-[32px] h-48 sm:h-[320px] w-full object-cover shadow-xl"
+              />
+            </div>
+
+            <div className="space-y-4 sm:space-y-5 sm:pt-12">
+              <img
+                src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800"
+                alt="Heart Monitoring"
+                className="rounded-[24px] sm:rounded-[32px] h-48 sm:h-[320px] w-full object-cover shadow-xl"
+              />
+
+              <div className="bg-slate-900 rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 text-white shadow-2xl">
+                <Heart size={36} className="mb-4 text-emerald-400 sm:hidden" />
+                <Heart size={42} className="hidden sm:block sm:mb-5 text-emerald-400" />
+
+                <h3 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
+                  Heart Wellness
+                </h3>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  Improve long-term heart strength with guided wellness support.
+                </p>
               </div>
             </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[120%] w-[120%] bg-[radial-gradient(#10b981_1px,transparent_1px)] bg-size-[24px_24px] opacity-10"></div>
           </div>
 
-          <div className="space-y-10">
-            <h3 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight uppercase">Advanced <br /><span className="text-emerald-600 font-light italic serif lowercase">Heart Health Score.</span></h3>
-            <p className="text-lg text-slate-500 leading-relaxed">Our diagnostic modeling provides a comprehensive Heart Health Score, allowing us to build personalized roadmaps for lifelong vitality.</p>
-            
-            <div className="space-y-4">
+          {/* CONTENT */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-2">
+            <div className="inline-flex items-center gap-2 bg-cyan-100 text-cyan-700 px-4 py-2 rounded-full text-xs sm:text-sm font-bold mb-4 shadow-sm w-fit">
+              <Activity size={16} className="shrink-0" />
+              Heart Health Monitoring
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-6">
+              Advanced Heart Health Analysis
+            </h2>
+
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+              Our cardiac safety programs focus on ECG interpretation, early
+              risk detection, preventive care, and complete wellness support to
+              help individuals live healthier and safer lives.
+            </p>
+
+            <div className="space-y-4 w-full max-w-xl">
               {[
-                "Prioritizing cardiac safety with precision ECG.",
-                "Identifying critical heart risks before they occur.",
-                "Achieving a healthy century through expert data.",
-                "Managing aging with dignity and scientific precision."
-              ].map((point, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 transition-all">
-                  <CheckCircle2 className="text-emerald-500 shrink-0" size={20} />
-                  <p className="text-sm font-bold text-slate-700">{point}</p>
+                "Advanced ECG & cardiac diagnostics",
+                "Heart attack risk identification",
+                "Lifestyle & wellness counseling",
+                "Preventive healthcare programs",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl sm:rounded-2xl p-4 sm:p-5 hover:shadow-lg transition-all text-left"
+                >
+                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={20} className="text-emerald-600" />
+                  </div>
+
+                  <p className="font-bold text-slate-700 text-sm sm:text-base">{item}</p>
                 </div>
               ))}
             </div>
@@ -200,73 +319,97 @@ export default function HeartPreventionPremium() {
         </div>
       </section>
 
-      {/* 4. CLINICAL INTEGRATION SECTION */}
-      <section className="py-24 px-6 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <Leaf className="mx-auto text-emerald-400 mb-8" size={48} />
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 italic">Integrating Modern Science with Traditional Wellness.</h2>
-          <p className="text-slate-400 text-lg mb-12 leading-relaxed">We blend advanced Radiology and Pathology with holistic support to ensure the aging process is managed with scientific precision.</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/services/yoga-ayurveda" className="px-8 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all font-bold text-sm tracking-widest uppercase">
-              Vedic Practices
+      {/* WELLNESS */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-emerald-500/20 blur-3xl rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-500/20 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div className="max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center">
+          <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 sm:mb-8 border border-white/10 shrink-0">
+            <Leaf size={32} className="text-emerald-400 sm:hidden" />
+            <Leaf size={48} className="hidden sm:block text-emerald-400" />
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black leading-tight mb-6 sm:mb-8">
+            Modern Cardiac Science +
+            <br />
+            Holistic Wellness
+          </h2>
+
+          <p className="text-slate-300 text-base sm:text-lg max-w-3xl leading-relaxed mb-8 sm:mb-12">
+            Mission100 Hospital integrates diagnostics, preventive medicine,
+            yoga, stress management, nutrition, and wellness science for better
+            heart longevity.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+            <Link
+              href="/services/yoga-ayurveda"
+              className="bg-white/10 hover:bg-white/20 border border-white/10 px-8 py-4 rounded-2xl font-bold transition-all text-center"
+            >
+              Yoga & Wellness
             </Link>
-            <Link href="/services/anti-aging-science" className="px-8 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all font-bold text-sm tracking-widest uppercase">
+
+            <Link
+              href="/services/anti-aging-science"
+              className="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-2xl font-black transition-all shadow-xl text-center"
+            >
               Longevity Science
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 5. SUMMARY CALL TO ACTION */}
-      <section className="py-24 px-6 bg-white">
+      {/* CTA */}
+      <section className="py-12 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-emerald-600 rounded-[3rem] p-12 md:p-24 text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[180px] opacity-10 -mr-48 -mt-48"></div>
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-              <div className="max-w-xl">
-                <h3 className="text-4xl font-black mb-6 italic tracking-tight">Your Heart Longevity Journey Begins Now.</h3>
-                <p className="text-emerald-50 text-lg opacity-90 leading-relaxed mb-8">Join the Mission 100 network and get the scientific guidance necessary to live 100 healthy years.</p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/book-appointment" className="bg-white text-emerald-700 px-10 py-5 rounded-2xl font-black shadow-xl hover:scale-105 transition-transform text-center uppercase tracking-widest text-xs">
-                    Start Heart Analysis
-                  </Link>
+          <div className="relative overflow-hidden rounded-[32px] sm:rounded-[40px] bg-gradient-to-br lg:bg-gradient-to-r from-emerald-600 via-green-500 to-cyan-500 p-8 sm:p-12 md:p-20 shadow-2xl">
+            <div className="absolute top-0 right-0 w-72 h-72 md:w-[400px] md:h-[400px] bg-white/20 blur-3xl rounded-full pointer-events-none"></div>
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
+              <div className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-xs sm:text-sm font-bold mb-6 shadow-sm w-fit text-white">
+                  <Sparkles size={16} className="shrink-0" />
+                  Mission100 Preventive Healthcare
                 </div>
+
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white leading-tight mb-4 sm:mb-6">
+                  Start Your Heart Safety Journey Today
+                </h2>
+
+                <p className="text-emerald-50 text-sm sm:text-lg leading-relaxed mb-8">
+                  Book your preventive heart health consultation and receive
+                  expert cardiac guidance from Mission100 Hospital.
+                </p>
+
+                <Link
+                  href="/book-appointment"
+                  className="inline-flex items-center justify-center gap-3 bg-white text-emerald-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-black shadow-2xl hover:scale-105 transition-all w-full sm:w-auto"
+                >
+                  Book Appointment
+                  <ArrowRight size={20} className="shrink-0" />
+                </Link>
               </div>
-              <div className="flex gap-4">
-                <div className="h-32 w-24 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center justify-center">
-                  <p className="text-3xl font-black leading-none">100</p>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mt-2">Years</p>
+
+              <div className="grid grid-cols-2 gap-4 sm:gap-5 w-full lg:w-auto">
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-center border border-white/10">
+                  <h3 className="text-3xl sm:text-5xl font-black text-white">100+</h3>
+                  <p className="text-emerald-50 text-xs sm:text-sm mt-2 font-semibold">
+                    Wellness Programs
+                  </p>
                 </div>
-                <div className="h-32 w-24 bg-white/20 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col items-center justify-center">
-                  <p className="text-3xl font-black leading-none">94%</p>
-                  <p className="text-[10px] font-bold uppercase tracking-widest mt-2">Safety</p>
+
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-center border border-white/10">
+                  <h3 className="text-3xl sm:text-5xl font-black text-white">94%</h3>
+                  <p className="text-emerald-50 text-xs sm:text-sm mt-2 font-semibold">
+                    Risk Detection
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* 7. DISCLAIMER & FOOTER */}
-      <section className="bg-white py-12 px-6 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] leading-loose max-w-3xl mx-auto mb-10">
-            Mission 100 provides preventive care and health optimization research. Consultations and risk assessments on this platform are for user guidance only and do not replace emergency medical care. In case of a medical emergency, please visit your nearest hospital immediately.
-          </p>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-slate-50">
-            <div className="text-left">
-              <h4 className="font-black text-slate-900">MISSION 100™ HOSPITAL</h4>
-              <p className="text-xs text-slate-500 uppercase tracking-widest">Live 100 Years, Live 100% Better</p>
-            </div>
-            <div className="flex gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest">
-              <Link href="/privacy" className="hover:text-emerald-600">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-emerald-600">Terms of Service</Link>
-              <Link href="/contact" className="hover:text-emerald-600">Help Center</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </main>
   );
 }

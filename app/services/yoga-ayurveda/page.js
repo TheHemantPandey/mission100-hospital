@@ -46,7 +46,7 @@ export default function YogaAyurvedaPage() {
       />
 
       {/* 1. HERO SECTION - Earthy Healing Theme */}
-      <section className="bg-linear-to-b from-emerald-900 to-[#F8FAF9] py-24 px-6 border-b border-emerald-100/20">
+      <section className="bg-linear-to-b from-emerald-900 to-[#054d1d] py-24 px-6 border-b border-emerald-100/20">
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-emerald-50 border border-emerald-100">
             <span className="text-sm font-bold text-emerald-800 uppercase tracking-[0.2em]">
@@ -215,28 +215,7 @@ export default function YogaAyurvedaPage() {
         </div>
       </section>
 
-      {/* 6. FINAL CTA */}
-      <section className="bg-emerald-900 py-24 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-        <div className="max-w-3xl mx-auto relative z-10">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Ready to find your center?</h2>
-            <p className="text-emerald-100 mb-10 text-lg opacity-80">Get a personalized Ayurvedic assessment and custom yoga protocol tailored to your unique bio-type.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <input type="email" placeholder="Your email address" className="px-6 py-4 rounded-xl border-none focus:ring-2 ring-emerald-500/30 w-full sm:w-80 bg-white" />
-                <button className="bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-400 transition-all uppercase tracking-wider shadow-lg">Start My Journey</button>
-            </div>
-        </div>
-      </section>
 
-      {/* 7. FOOTER DISCLAIMER */}
-      <footer className="bg-white py-12 px-6 border-t border-emerald-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.2em] leading-loose">
-            Mission 100 Ayurvedic protocols are supportive and preventative. <br />
-            Yoga and herbal suggestions should be integrated with your existing medical treatments and discussed with a certified practitioner.
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }
