@@ -2,17 +2,20 @@ import React, { memo } from "react";
 import Image from "next/image";
 import {
   ShieldCheck,
-  AlertCircle,
-  HeartPulse,
-  Stethoscope,
   Mail,
   Phone,
   MapPin,
-  Zap,
+  Briefcase,
+  Handshake,
+  HeartPulse,
+  Dumbbell,
+  Brain,
+  Stethoscope,
   Activity,
+  ChevronRight,
 } from "lucide-react";
 
-// Raw SVG Components to avoid "module not found" or "export doesn't exist" errors
+// Instagram Icon
 const InstagramIcon = () => (
   <svg
     width="20"
@@ -30,6 +33,7 @@ const InstagramIcon = () => (
   </svg>
 );
 
+// Linkedin Icon
 const LinkedinIcon = () => (
   <svg
     width="20"
@@ -47,32 +51,16 @@ const LinkedinIcon = () => (
   </svg>
 );
 
-const YoutubeIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 11.75a29 29 0 0 0-.46-5.33z"></path>
-    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-  </svg>
-);
-
 const Footer = () => {
   return (
     <footer className="bg-[#020617] text-slate-400 border-t border-slate-900 mt-20 font-sans selection:bg-emerald-500/30">
       <div className="mx-auto w-full max-w-7xl px-6 pt-16 lg:px-8">
-        {/* Main Content Grid */}
+        {/* TOP SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
-          {/* Brand Identity Section */}
+          {/* BRAND */}
           <div className="lg:col-span-4 space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-[#020617] rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20 rotate-3 transition-transform duration-300 overflow-hidden">
+              <div className="w-14 h-14 bg-[#020617] rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20 rotate-3 overflow-hidden">
                 <a
                   href="/"
                   className="flex items-center justify-center w-full h-full"
@@ -86,6 +74,7 @@ const Footer = () => {
                   />
                 </a>
               </div>
+
               <div>
                 <h3 className="text-2xl font-black text-green-800 tracking-tighter uppercase italic">
                   Mission{" "}
@@ -93,37 +82,43 @@ const Footer = () => {
                 </h3>
               </div>
             </div>
+
             <p className="text-sm leading-relaxed max-w-sm">
               Empowering your journey toward a 100-year life through preventive
-              healthcare, Ayurveda, and modern vitality science.
+              healthcare, Ayurveda, advanced diagnostics, wellness coaching,
+              fitness science, and holistic healing.
             </p>
 
-            {/* Social Links */}
+            {/* SOCIAL */}
             <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/mission100hospital/"
                 target="_blank"
-                className="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500 hover:text-white transition-all duration-300 group"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500 hover:text-white transition-all duration-300"
               >
                 <InstagramIcon />
               </a>
+
               <a
                 href="https://www.linkedin.com/company/young-india-show/"
                 target="_blank"
-                className="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500 hover:text-white transition-all duration-300 group"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500 hover:text-white transition-all duration-300"
               >
                 <LinkedinIcon />
               </a>
+
               <a
                 href="https://www.facebook.com/profile.php?id=61589020733638"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-slate-900 hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                className="p-3 rounded-xl bg-slate-900 hover:bg-blue-600 hover:text-white transition-all duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -137,142 +132,260 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Navigation Sections */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+          {/* LINKS SECTION */}
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-10">
+            {/* QUICK LINKS */}
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
-                Clinical Care
+                Quick Links
               </h4>
+
+              <ul className="space-y-4 text-sm">
+                {[
+                  ["Home", "/"],
+                  ["About Us", "/about"],
+                  ["Find a Test", "/find-a-test"],
+                  ["Contact", "/contact"],
+                  ["Blogs", "/blogs"],
+                  ["FAQ", "/faq"],
+                ].map(([label, href]) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                    >
+                      <ChevronRight size={14} />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* SERVICES */}
+            <div className="space-y-6">
+              <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
+                Services
+              </h4>
+
+              <ul className="space-y-4 text-sm">
+                {[
+                  [
+                    "Heart Attack Prevention",
+                    "/services/heart-attack-prevention",
+                  ],
+                  ["Mental Health", "/services/mental-health-stress"],
+                  ["Anti Aging Science", "/services/anti-aging-science"],
+                  ["Body & Bone Strength", "/services/bone-strength"],
+                  ["Yoga & Ayurveda", "/services/yoga-ayurveda"],
+                  ["Full Body Checkup", "/services/full-body-checkup"],
+                ].map(([label, href]) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                    >
+                      <ChevronRight size={14} />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* JOIN US */}
+            <div className="space-y-6">
+              <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
+                Join Us As
+              </h4>
+
               <ul className="space-y-4 text-sm">
                 <li>
                   <a
-                    href="/services/heart-attack-prevention"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/join-us/medical-expert"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Heart Attack Prevention
+                    <Stethoscope size={15} />
+                    General Physician
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/services/mental-health-stress"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/join-us/medical-expert"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Mental Health Stress
+                    <HeartPulse size={15} />
+                    Cardiologist
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/services/anti-aging-science"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/join-us/medical-expert"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Anti-Aging Science
+                    <Stethoscope size={15} />
+                    Medical Expert
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/services/bone-strength"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/join-us/fitness-expert"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Body & Bone Strength
+                    <Dumbbell size={15} />
+                    Fitness Expert
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/services/yoga-ayurveda"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/join-us/yoga-wellness-coach"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Yoga & Ayurveda
+                    <HeartPulse size={15} />
+                    Yoga & Wellness Coach
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/join-us/nutrition-expert"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <Brain size={15} />
+                    Nutrition Expert
                   </a>
                 </li>
               </ul>
             </div>
 
+            {/* PARTNERSHIP */}
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
-                Trust Center
+                Business
               </h4>
+
               <ul className="space-y-4 text-sm">
                 <li>
                   <a
-                    href="/about"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/take-franchise"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    About Us
+                    <Briefcase size={15} />
+                    Take Franchise
                   </a>
                 </li>
+
                 <li>
                   <a
-                    href="/faq"
-                    className="hover:text-emerald-500 transition-colors"
+                    href="/become-partner"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
-                    Help & FAQ
+                    <Handshake size={15} />
+                    Become Partner
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="/privacy-policy"
-                    className="hover:text-emerald-500 transition-colors"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
+                    <ChevronRight size={14} />
                     Privacy Policy
                   </a>
                 </li>
+
                 <li>
                   <a
                     href="/terms-of-use"
-                    className="hover:text-emerald-500 transition-colors"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
+                    <ChevronRight size={14} />
                     Terms of Use
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/refund-policy"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <ChevronRight size={14} />
+                    Refund Policy
                   </a>
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
 
-            <div className="col-span-2 md:col-span-1 space-y-6">
-              <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
-                Direct Connect
-              </h4>
-              <div className="space-y-4 text-sm">
-                <div className="flex gap-3 group">
-                  <Phone size={16} className="text-emerald-500 shrink-0 mt-1" />
-                  <a
-                    href="tel:+919220620209"
-                    className="text-slate-200 font-bold hover:text-emerald-500 transition-colors tracking-tight"
-                  >
-                    +91 9220 620 209
-                  </a>
-                </div>
-                <div className="flex gap-3 group">
-                  <Mail size={16} className="text-emerald-500 shrink-0 mt-1" />
-                  <a
-                    href="mailto:info@mission100hospital.com"
-                    className="text-slate-300 break-all font-medium hover:text-emerald-500 transition-colors tracking-tight"
-                  >
-                    info@mission100hospital.com
-                  </a>
-                </div>
-                <div className="flex gap-3">
-                  <MapPin
-                    size={16}
-                    className="text-emerald-500 shrink-0 mt-1"
-                  />
-                  <p className="text-xs leading-relaxed">
-                    Metroplex East Tower, Office No. 147, Laxmi Nagar, 110092
-                  </p>
-                </div>
+        {/* CONTACT BAR */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-slate-800 py-10">
+          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
+            <div className="flex items-start gap-4">
+              <Phone className="text-emerald-500 mt-1" size={18} />
+              <div>
+                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                  Call Us
+                </p>
+                <a
+                  href="tel:+919220620209"
+                  className="text-white font-semibold hover:text-emerald-500 transition-colors"
+                >
+                  +91 9220 620 209
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
+            <div className="flex items-start gap-4">
+              <Mail className="text-emerald-500 mt-1" size={18} />
+              <div>
+                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                  Email
+                </p>
+                <a
+                  href="mailto:info@mission100hospital.com"
+                  className="text-white font-semibold break-all hover:text-emerald-500 transition-colors"
+                >
+                  info@mission100hospital.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
+            <div className="flex items-start gap-4">
+              <MapPin className="text-emerald-500 mt-1" size={18} />
+              <div>
+                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                  Address
+                </p>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Metroplex East Tower, Office No. 147, Laxmi Nagar, Delhi -
+                  110092
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Final Footer Bottom */}
-        <div className="py-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
+        {/* BOTTOM */}
+        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-900">
           <div className="flex items-center gap-3 bg-slate-900/30 px-5 py-2.5 rounded-full border border-slate-800">
             <ShieldCheck className="text-emerald-500" size={18} />
+
             <span className="text-[11px] font-bold text-slate-500 tracking-widest uppercase">
               © 2026 <span className="text-white">Mission100™ Hospital</span>.
               All Rights Reserved.
             </span>
           </div>
+
           <p className="text-[10px] font-black text-slate-700 uppercase tracking-[0.4em] italic">
             Life at 100%
           </p>
