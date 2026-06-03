@@ -49,7 +49,7 @@ const ExpertCard = memo(({ doc }) => (
       {/* Upper Image Section with Dynamic Badge */}
       <div className="relative h-52 overflow-hidden rounded-t-2xl bg-slate-100">
         <Image
-          src={doc.img}
+          src={doc.pic}
           alt={doc.name}
           fill
           sizes="(max-width: 768px) 290px, 320px"
