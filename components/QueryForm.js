@@ -159,7 +159,7 @@ const QueryForm = () => {
   };
 
   return (
-    <section className="w-full">
+    <section id="Contact-Support" className="w-full">
 
       <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/50 bg-white shadow-2xl">
 
