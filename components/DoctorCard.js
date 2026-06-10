@@ -55,7 +55,7 @@ const ExpertCard = memo(({ doc }) => (
           sizes="(max-width: 768px) 290px, 320px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-white/20 text-green-800 text-[10px] px-3 py-1.5 rounded-full font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
+        <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md border border-white/20 text-green-800 text-[10px] px-3 py-1.5 rounded-full font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-md">
           <Sparkles size={11} className="text-green-600" /> {doc.specialty}
         </div>
       </div>

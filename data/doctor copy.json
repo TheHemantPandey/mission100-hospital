@@ -1,76 +1,6 @@
 [
-  {
-    "id": 1,
-    "slug": "ayushi-gangwar",
-    "name": "Ayushi Gangwar",
-    "specialty": "Dietitian",
-    "qualification": "M.Sc (Food and Nutrition)",
-    "expertise": "Clinical Nutrition & Personalized Diet Planning",
-    "consultationType": "Online",
-    "languages": [
-      "Hindi"
-    ],
-    "nextSlot": "Tomorrow • 10:00 AM",
-    "img": "/mission100-experts/ayushi-gangwar.jpg",
-    "about": "Ayushi has expertise in clinical nutrition, personalized diet planning, and therapeutic nutrition counseling. She provides practical, evidence-based dietary guidance to help patients improve their health, drawing from her experience at Chandan Hospital.",
-    "areasOfFocus": [
-      "Diabetes Management",
-      "Hypertension",
-      "Weight Management",
-      "Gluten-Free Diets"
-    ],
-    "certifications": []
-  },
+   
   
-  {
-    "id": 2,
-    "slug": "shikha-sharma",
-    "name": "Shikha Sharma",
-    "specialty": "Clinical Nutritionist",
-    "qualification": "MSc Nutrition Science",
-    "expertise": "Clinical Nutrition & Hospital-Based Diet Planning",
-    "consultationType": "Online",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "nextSlot": "Today • 4:00 PM",
-    "img": "/mission100-experts/shikha-sharma.jpg",
-    "about": "Shikha Sharma is a clinical nutritionist with experience in hospital settings. She specializes in creating balanced, personalized diet plans tailored to both vegetarian and non-vegetarian lifestyles to support overall health and clinical recovery.",
-    "areasOfFocus": [
-      "Clinical Nutrition",
-      "Vegetarian & Non-Vegetarian Diets",
-      "Medical Nutritional Therapy"
-    ],
-    "certifications": [
-      "Certified Dietitian Nutritionist"
-    ]
-  },
-  {
-    "id": 3,
-    "slug": "dr-ujjwal-kumar",
-    "name": "Dr. Ujjwal Kumar",
-    "specialty": "General Physician",
-    "qualification": "BHMS",
-    "expertise": "Holistic Healthcare & Patient Management",
-    "consultationType": "Online",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "nextSlot": "Tomorrow • 11:00 AM",
-    "img": "/mission100-experts/ujjwal-kumar.jpg",
-    "about": "Dr. Ujjwal Kumar is a dedicated and compassionate healthcare professional. With clinical experience as a Duty Medical Officer and a background in homeopathic medicine, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
-    "areasOfFocus": [
-      "Holistic Healthcare",
-      "Homeopathic Treatment",
-      "Patient Management",
-      "Emergency Handling"
-    ],
-    "certifications": [
-      "Medical Registration ID: AL 2484"
-    ]
-  },
   {
     "id": 4,
     "slug": "dr-ritwika-saha",
@@ -94,31 +24,6 @@
     ],
     "certifications": [
       "Medical Registration ID: 83963"
-    ]
-  },
-  {
-    "id": 5,
-    "slug": "dr-souvik-mahapatra",
-    "name": "Dr. Souvik Mahapatra",
-    "specialty": "General Physician",
-    "qualification": "MBBS",
-    "expertise": "Outpatient Consultation & Clinical Counseling",
-    "consultationType": "Online",
-    "languages": [
-      "English",
-      "Hindi",
-      "Bengali"
-    ],
-    "nextSlot": "Tomorrow • 10:00 AM",
-    "img": "/mission100-experts/souvik-mahapatra.jpg",
-    "about": "Dr. Souvik Mahapatra is a dedicated medical professional currently practicing at CMRI. He focuses on thorough patient counseling and continuously advancing his clinical knowledge to provide excellent outpatient care.",
-    "areasOfFocus": [
-      "Outpatient Consultation",
-      "Patient Counseling",
-      "General Medicine"
-    ],
-    "certifications": [
-      "Medical Registration ID: 104375 (WBMC)"
     ]
   },
   {
