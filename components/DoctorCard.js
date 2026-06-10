@@ -20,8 +20,8 @@ import {
 // Updated categories representing the wellness ecosystem
 const categories = [
   { id: "all", label: "✨ All Experts" },
-  { id: "Cardiology", label: "❤️ Cardiology" },
   { id: "General Physician", label: "🩺 General Physician" },
+  { id: "Gym Trainer", label: "❤️ Gym Trainer" },
   { id: "Dietitian", label: "🥗 Dietitian" },
   { id: "Nutritionist", label: "🍎 Nutritionist" },
   { id: "Fitness Coach", label: "💪 Fitness Coach" },
@@ -191,7 +191,7 @@ const DoctorSection = () => {
           </div>
         </div>
 
-        {/* Categories Tab Row */}
+        {/* Categories Tab Row
         <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-10 pb-1 scroll-smooth">
           {categories.map((cat) => (
             <CategoryButton 
@@ -204,7 +204,7 @@ const DoctorSection = () => {
               }}
             />
           ))}
-        </div>
+        </div> */}
 
         {/* Dynamic Card Horizontal Scrolling Deck */}
         <div
