@@ -106,55 +106,8 @@
     "Integrative Dietetics"
   ]
 },
-  {
-    "id": 5,
-    "slug": "dr-ujjwal-kumar",
-    "name": "Dr. Ujjwal Kumar",
-    "specialty": "General Physician",
-    "qualification": "BHMS",
-    "expertise": "Holistic Healthcare & Patient Management",
-    "consultationType": "Online",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "nextSlot": "Available For Today",
-    "img": "/mission100-experts/ujjawal2.png",
-    "pic": "/mission100-experts/ujjawal2.png",
-    "about": "Dr. Ujjwal Kumar is a dedicated and compassionate healthcare professional. With clinical experience as a Duty Medical Officer and a background in homeopathic medicine, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
-    "areasOfFocus": [
-      "Holistic Healthcare",
-      "Homeopathic Treatment",
-      "Patient Management",
-      "Emergency Handling"
-    ],
-    "certifications": []
-  },
-  {
-    "id": 6,
-    "slug": "Dr-Souvik-Mahapatra",
-    "name": "Dr. Souvik Mahapatra",
-    "specialty": "General Physician",
-    "qualification": "MBBS",
-    "expertise": "Comprehensive Medical Care & Patient Management",
-    "consultationType": "Online",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "nextSlot": "Available For Today",
-    "img": "/mission100-experts/souvik-pic.jpeg",
-    "pic": "/mission100-experts/souvik.png",
-    "about": "Dr. Souvik Mahapatra is a dedicated and compassionate healthcare professional. With clinical experience as a General Physician and a background in comprehensive medical care, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
-    "areasOfFocus": [
-      "Comprehensive Medical Care",
-      "Patient Management",
-      "Preventive Healthcare"
-    ],
-    "certifications": []
-  },
-  {
-  "id": 7,
+{
+  "id": 5,
   "slug": "Ms-Laxmi-Singh",
   "name": "Ms. Laxmi Singh",
   "specialty": "Yoga Instructor",
@@ -180,5 +133,52 @@
     "Yoga Certification Board - Yoga Teaching and Evaluation",
     "PG Diploma in Yoga Education"
   ]
-}
+},
+  {
+    "id": 6,
+    "slug": "dr-ujjwal-kumar",
+    "name": "Dr. Ujjwal Kumar",
+    "specialty": "General Physician",
+    "qualification": "BHMS",
+    "expertise": "Holistic Healthcare & Patient Management",
+    "consultationType": "Online",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "nextSlot": "Available For Today",
+    "img": "/mission100-experts/ujjawal2.png",
+    "pic": "/mission100-experts/ujjawal2.png",
+    "about": "Dr. Ujjwal Kumar is a dedicated and compassionate healthcare professional. With clinical experience as a Duty Medical Officer and a background in homeopathic medicine, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
+    "areasOfFocus": [
+      "Holistic Healthcare",
+      "Homeopathic Treatment",
+      "Patient Management",
+      "Emergency Handling"
+    ],
+    "certifications": []
+  },
+  {
+    "id": 7,
+    "slug": "Dr-Souvik-Mahapatra",
+    "name": "Dr. Souvik Mahapatra",
+    "specialty": "General Physician",
+    "qualification": "MBBS",
+    "expertise": "Comprehensive Medical Care & Patient Management",
+    "consultationType": "Online",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "nextSlot": "Available For Today",
+    "img": "/mission100-experts/souvik-pic.jpeg",
+    "pic": "/mission100-experts/souvik.png",
+    "about": "Dr. Souvik Mahapatra is a dedicated and compassionate healthcare professional. With clinical experience as a General Physician and a background in comprehensive medical care, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
+    "areasOfFocus": [
+      "Comprehensive Medical Care",
+      "Patient Management",
+      "Preventive Healthcare"
+    ],
+    "certifications": []
+  }
 ]
