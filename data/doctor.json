@@ -1,29 +1,26 @@
 [
   {
     "id": 1,
-    "slug": "Mr-Aswin",
-    "name": "Mr. Aswin",
-    "specialty": "Gym Trainer",
-    "qualification": "Anytime Fitness Gym Trainer and Coach",
-    "expertise": "Certified Fitness Trainer and Gym Coach with dedicated experience.",
-    "consultationType": "Offline & Online",
+    "slug": "Dr-Souvik-Mahapatra",
+    "name": "Dr. Souvik Mahapatra",
+    "specialty": "General Physician",
+    "qualification": "MBBS",
+    "expertise": "Comprehensive Medical Care & Patient Management",
+    "consultationType": "Online",
     "languages": [
       "Hindi",
       "English"
     ],
     "nextSlot": "Available For Today",
-    "img": "/mission100-experts/aswin-img.jpg",
-    "pic": "/mission100-experts/aswiin.jpg",
-    "about": "Mr. Aswin is a dedicated and compassionate fitness professional. With clinical experience as a Fitness Trainer and Gym Coach, he is committed to providing holistic fitness solutions and comprehensive patient care.",
+    "img": "/mission100-experts/souvik-pic.jpeg",
+    "pic": "/mission100-experts/souvik.png",
+    "about": "Dr. Souvik Mahapatra is a dedicated and compassionate healthcare professional. With clinical experience as a General Physician and a background in comprehensive medical care, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
     "areasOfFocus": [
-      "Holistic Healthcare",
-      "Homeopathic Treatment",
+      "Comprehensive Medical Care",
       "Patient Management",
-      "Emergency Handling"
+      "Preventive Healthcare"
     ],
-    "certifications": [
-      "Certifies Gym Trainer and Coach"
-    ]
+    "certifications": []
   },
   {
     "id": 2,
@@ -74,68 +71,7 @@
     ]
   },
   {
-  "id": 4,
-  "slug": "priyanka-bhagat",
-  "name": "Priyanka Bhagat",
-  "specialty": "Nutritionist & Weight Loss Expert",
-  "qualification": "Principles of Nutrition, Gut Health, Holistic Health, Integrative Dietetics",
-  "expertise": "Weight Management, Nutrition Counseling & Holistic Wellness",
-  "consultationType": "Online",
-  "languages": [
-    "Hindi",
-    "English"
-  ],
-  "nextSlot": "Available For Today",
-  "img": "/mission100-experts/priyanka-bhagat.jpg",
-  "pic": "/mission100-experts/priyanka-bhagat.jpg",
-  "about": "Priyanka Bhagat is a Nutritionist and Weight Loss Expert with 6 years of experience in the health and wellness industry. She specializes in nutrition counseling, lifestyle modification, weight management, and holistic wellness. With certifications in Principles of Nutrition, Gut Health, Holistic Health, and Integrative Dietetics, she helps clients achieve sustainable health goals through personalized nutrition strategies and evidence-based guidance. She has successfully guided more than 100 clients toward healthier lifestyles through consistent coaching, education, and wellness consultations.",
-  "areasOfFocus": [
-    "Weight Loss Management",
-    "Nutrition Counseling",
-    "Lifestyle Modification",
-    "Holistic Wellness",
-    "Gut Health",
-    "Weight Gain Programs",
-    "Healthy Eating Habits",
-    "Preventive Healthcare"
-  ],
-  "certifications": [
-    "Principles of Nutrition",
-    "Gut Health",
-    "Holistic Health",
-    "Integrative Dietetics"
-  ]
-},
-{
-  "id": 5,
-  "slug": "Ms-Laxmi-Singh",
-  "name": "Ms. Laxmi Singh",
-  "specialty": "Yoga Instructor",
-  "qualification": "PG Diploma in Yoga Education",
-  "expertise": "Yoga Teaching, Evaluation & Holistic Wellness",
-  "consultationType": "Offline & Online",
-  "languages": [
-    "Hindi",
-    "English"
-  ],
-  "nextSlot": "Available For Today",
-  "img": "/mission100-experts/laxmi-singh2.png",
-  "pic": "/mission100-experts/laxmi-singh2.png",
-  "about": "Ms. Laxmi Singh is a certified Yoga Instructor dedicated to promoting physical, mental, and emotional well-being through yoga. She holds a Post Graduation Diploma in Yoga Education and is certified by the Yoga Certification Board in Yoga Teaching and Evaluation. Her approach combines traditional yoga practices with modern wellness techniques to help individuals achieve a healthier and balanced lifestyle.",
-  "areasOfFocus": [
-    "Yoga Teaching",
-    "Yoga Evaluation",
-    "Stress Management",
-    "Holistic Wellness",
-    "Lifestyle Improvement"
-  ],
-  "certifications": [
-    "Yoga Certification Board - Yoga Teaching and Evaluation",
-    "PG Diploma in Yoga Education"
-  ]
-},
-  {
-    "id": 6,
+    "id": 4,
     "slug": "dr-ujjwal-kumar",
     "name": "Dr. Ujjwal Kumar",
     "specialty": "General Physician",
@@ -159,26 +95,90 @@
     "certifications": []
   },
   {
-    "id": 7,
-    "slug": "Dr-Souvik-Mahapatra",
-    "name": "Dr. Souvik Mahapatra",
-    "specialty": "General Physician",
-    "qualification": "MBBS",
-    "expertise": "Comprehensive Medical Care & Patient Management",
+    "id": 5,
+    "slug": "Ms-Laxmi-Singh",
+    "name": "Ms. Laxmi Singh",
+    "specialty": "Yoga Instructor",
+    "qualification": "PG Diploma in Yoga Education",
+    "expertise": "Yoga Teaching, Evaluation & Holistic Wellness",
+    "consultationType": "Offline & Online",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "nextSlot": "Available For Today",
+    "img": "/mission100-experts/laxmi-singh2.png",
+    "pic": "/mission100-experts/laxmi-singh2.png",
+    "about": "Ms. Laxmi Singh is a certified Yoga Instructor dedicated to promoting physical, mental, and emotional well-being through yoga. She holds a Post Graduation Diploma in Yoga Education and is certified by the Yoga Certification Board in Yoga Teaching and Evaluation. Her approach combines traditional yoga practices with modern wellness techniques to help individuals achieve a healthier and balanced lifestyle.",
+    "areasOfFocus": [
+      "Yoga Teaching",
+      "Yoga Evaluation",
+      "Stress Management",
+      "Holistic Wellness",
+      "Lifestyle Improvement"
+    ],
+    "certifications": [
+      "Yoga Certification Board - Yoga Teaching and Evaluation",
+      "PG Diploma in Yoga Education"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "priyanka-bhagat",
+    "name": "Priyanka Bhagat",
+    "specialty": "Nutritionist & Weight Loss Expert",
+    "qualification": "Principles of Nutrition, Gut Health, Holistic Health, Integrative Dietetics",
+    "expertise": "Weight Management, Nutrition Counseling & Holistic Wellness",
     "consultationType": "Online",
     "languages": [
       "Hindi",
       "English"
     ],
     "nextSlot": "Available For Today",
-    "img": "/mission100-experts/souvik-pic.jpeg",
-    "pic": "/mission100-experts/souvik.png",
-    "about": "Dr. Souvik Mahapatra is a dedicated and compassionate healthcare professional. With clinical experience as a General Physician and a background in comprehensive medical care, he is committed to providing holistic healthcare solutions and comprehensive patient care.",
+    "img": "/mission100-experts/priyanka-bhagat.jpg",
+    "pic": "/mission100-experts/priyanka-bhagat.jpg",
+    "about": "Priyanka Bhagat is a Nutritionist and Weight Loss Expert with 6 years of experience in the health and wellness industry. She specializes in nutrition counseling, lifestyle modification, weight management, and holistic wellness. With certifications in Principles of Nutrition, Gut Health, Holistic Health, and Integrative Dietetics, she helps clients achieve sustainable health goals through personalized nutrition strategies and evidence-based guidance. She has successfully guided more than 100 clients toward healthier lifestyles through consistent coaching, education, and wellness consultations.",
     "areasOfFocus": [
-      "Comprehensive Medical Care",
-      "Patient Management",
+      "Weight Loss Management",
+      "Nutrition Counseling",
+      "Lifestyle Modification",
+      "Holistic Wellness",
+      "Gut Health",
+      "Weight Gain Programs",
+      "Healthy Eating Habits",
       "Preventive Healthcare"
     ],
-    "certifications": []
+    "certifications": [
+      "Principles of Nutrition",
+      "Gut Health",
+      "Holistic Health",
+      "Integrative Dietetics"
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "Mr-Aswin",
+    "name": "Mr. Aswin",
+    "specialty": "Gym Trainer",
+    "qualification": "Anytime Fitness Gym Trainer and Coach",
+    "expertise": "Certified Fitness Trainer and Gym Coach with dedicated experience.",
+    "consultationType": "Offline & Online",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "nextSlot": "Available For Today",
+    "img": "/mission100-experts/aswin-img.jpg",
+    "pic": "/mission100-experts/aswiin.jpg",
+    "about": "Mr. Aswin is a dedicated and compassionate fitness professional. With clinical experience as a Fitness Trainer and Gym Coach, he is committed to providing holistic fitness solutions and comprehensive patient care.",
+    "areasOfFocus": [
+      "Holistic Healthcare",
+      "Homeopathic Treatment",
+      "Patient Management",
+      "Emergency Handling"
+    ],
+    "certifications": [
+      "Certifies Gym Trainer and Coach"
+    ]
   }
 ]

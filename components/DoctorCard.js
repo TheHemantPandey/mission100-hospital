@@ -176,17 +176,17 @@ const DoctorSection = () => {
           <div className="hidden sm:flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="p-3.5 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
+              className="p-1.5 rounded-full bg-green-500 border text-white border-slate-200 shadow-sm hover:bg-green-700 hover:text-white transition-all active:scale-90"
               aria-label="Scroll Left"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={35} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-3.5 rounded-full bg-white border border-slate-200 text-slate-600 shadow-sm hover:bg-green-600 hover:text-white transition-all active:scale-90"
+              className="p-1.5 rounded-full bg-green-500 border text-white border-slate-200 shadow-sm hover:bg-green-700 hover:text-white transition-all active:scale-90"
               aria-label="Scroll Right"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={34} />
             </button>
           </div>
         </div>
