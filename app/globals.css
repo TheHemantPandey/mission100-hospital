@@ -12,3 +12,16 @@
     scrollbar-width: none;
   }
 }   
+
+img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img::selection,
+img::-moz-selection {
+  background: transparent;
+}
