@@ -1,6 +1,7 @@
 'use client'; // Required in Next.js App Router for state and useEffect
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function HospitalPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,45 +20,64 @@ export default function HospitalPopup() {
     sessionStorage.setItem('mission100_popup_seen', 'true');
   };
 
-  // If the popup shouldn't be open, render nothing
   if (!isOpen) return null;
 
   return (  
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      {/* Popup Box Container 
-        Increased size from max-w-md to max-w-3xl, and removed padding (p-0) 
-        so the image sits perfectly inside.
+      
+      {/* 
+        ===================================================================
+        HOW TO ADJUST THE OVERALL POPUP SIZE:
+        Find "max-w-3xl" below and change it to:
+        - max-w-md   (Smallest)
+        - max-w-lg   (Small)
+        - max-w-xl   (Medium)
+        - max-w-2xl  (Large)
+        - max-w-3xl  (Extra Large - Current)
+        - max-w-5xl  (Massive)
+        - max-w-[800px] (Custom exact pixel size)
+        ===================================================================
       */}
-      <div className="relative w-full max-w-3xl transform overflow-hidden rounded-xl bg-white shadow-2xl transition-all">
+      <div className="relative w-full max-w-3xl transform transition-all flex flex-col gap-4">
         
-        {/* Top Right Close 'X' Button */}
+        {/* Top Right Close 'X' Button 
+            Moved slightly higher and to the right so it floats nicely
+        */}
         <button 
           onClick={closePopup}
-          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-gray-500 hover:bg-gray-100 hover:text-gray-900 text-2xl font-bold shadow-sm transition-colors"
+          className="absolute -top-4 -right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-600 hover:bg-gray-200 hover:text-gray-900 text-2xl font-bold shadow-lg transition-colors"
           aria-label="Close popup"
         >
           &times;
         </button>
 
-        {/* DESKTOP / LAPTOP IMAGE 
-            'hidden md:block' means it stays hidden on small screens 
-            but becomes visible on medium (768px) screens and larger.
-        */}
-        <img 
-          src="/popup-image/popup-1.png" 
-          alt="Mission 100 Hospital Free Health Checkup" 
-          className="hidden md:block w-full h-auto object-contain"
-        />
+        {/* Image Container (White background is restricted ONLY to the image) */}
+        <div className="w-full bg-white rounded-xl overflow-hidden shadow-2xl">
+          {/* DESKTOP / LAPTOP IMAGE */}
+          <img 
+            src="/popup-image/popup-1.png" 
+            alt="Mission 100 Hospital Free Health Checkup" 
+            className="hidden md:block w-full h-auto object-contain"
+          />
 
-        {/* MOBILE / TABLET IMAGE 
-            'block md:hidden' means it is visible on small screens 
-            but disappears on medium (768px) screens and larger.
-        */}
-        <img 
-          src="/popup-image/popup-2.png" 
-          alt="Mission 100 Hospital Free Health Checkup - Mobile" 
-          className="block md:hidden w-full h-auto object-contain"
-        />
+          {/* MOBILE / TABLET IMAGE */}
+          <img 
+            src="/popup-image/popup-2.png" 
+            alt="Mission 100 Hospital Free Health Checkup - Mobile" 
+            className="block md:hidden w-full h-auto object-contain"
+          />
+        </div>
+
+        {/* CTA Button Section (Now Transparent) */}
+        <div className="w-full flex justify-center">
+          <Link 
+            href="/find-a-test"
+            onClick={closePopup}
+            className="flex w-full md:w-3/4 items-center justify-center rounded-lg bg-green-600 py-2.5 px-4 text-center text-base sm:text-lg font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-200 hover:bg-green-700 hover:scale-[1.02] active:scale-95 uppercase tracking-wide border-2 border-green-700"
+          >
+            Click here for free test
+          </Link>
+        </div>
         
       </div>
     </div>
