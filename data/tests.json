@@ -229,5 +229,49 @@
       "reportingTAT": "within 24-48 hours",
       "specializations": ["General Health", "Preventive Care", "Health Checkup"]
     }
+  },
+  {
+    "id": 3,
+    "slug": "free-heart-checkup",
+    "title": "Complete Heart Checkup at Home",
+    "oldPrice": 499,
+    "currentPrice": "Free",
+    "alsoKnownAs": ["Complete Heart Checkup", "Heart Attack Prevention Checkup"],
+    "shortDescription": "Prevent heart attack before it happens. This early detection package is designed to monitor your heart health conveniently at your home.",
+    "totalParameters": 4,
+    "image": "/test-images/heart-test.png",
+    "specialFeatures": [
+        "Free Home Sample Collection",
+        "Same Day / Next Day Reporting",
+        "Doctor Verified Report",
+        "Special Welcome Offer"
+    ],
+    "includes": [
+      {
+        "mainParam": "ECG Test",
+        "nestedCount": 1,
+        "nestedParams": ["Detect heart problems early"]
+      },
+      {
+        "mainParam": "Blood Pressure Check",
+        "nestedCount": 1,
+        "nestedParams": ["Monitor your blood pressure levels"]
+      },
+      {
+        "mainParam": "Blood Sugar Test",
+        "nestedCount": 1,
+        "nestedParams": ["Know your sugar levels"]
+      },
+      {
+        "mainParam": "Pulse Rate Monitoring",
+        "nestedCount": 1,
+        "nestedParams": ["Check your heart rate variability"]
+      }
+    ],
+    "bottomDetails": {
+      "preparation": "No specific fasting required. Home visit included in the package.",
+      "reportingTAT": "within 24-48 hours",
+      "specializations": ["Heart Health", "Preventive Care"]
+    }
   }
 ]
