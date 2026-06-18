@@ -76,7 +76,7 @@ export default function Home() {
               {/* RIGHT SIDE: Meditation Image (Made Larger) */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-125 md:h-125 lg:w-150 lg:h-150 xl:w-175 xl:h-175 max-h-[50vh] md:max-h-[90vh] overflow-visible shrink-0">
                 <Image
-                  src="/meditate.png"
+                  src="/meditate1.png"
                   alt="Meditation"
                   fill
                   className="object-contain object-center md:object-bottom-right"
