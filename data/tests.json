@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "complete-heart-checkup-at-home",
-    "title": "Complete Heart Checkup at Home",
+    "title": "Heart Checkup at Home",
     "oldPrice": 999,
     "currentPrice": 499,
     "alsoKnownAs": [
@@ -191,6 +191,27 @@
         "nestedCount": 1,
         "nestedParams": [
           "ESR"
+        ]
+      },
+      {
+        "mainParam": "Blood Pressure Check",
+        "nestedCount": 1,
+        "nestedParams": [
+          "Monitor your blood pressure levels"
+        ]
+      },
+      {
+        "mainParam": "Blood Sugar Test",
+        "nestedCount": 1,
+        "nestedParams": [
+          "Know your sugar levels"
+        ]
+      },
+      {
+        "mainParam": "Pulse Rate Monitoring",
+        "nestedCount": 1,
+        "nestedParams": [
+          "Check your heart rate variability"
         ]
       }
     ],
