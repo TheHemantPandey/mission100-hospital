@@ -226,9 +226,10 @@ export default function FindATest() {
                     </div>
 
                     {/* BUTTON */}
+
                     <Link
                       href={`/test/${pkg.slug}`}
-                      className="mt-7 w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-green-500 to-cyan-500 px-5 py-4 text-white font-bold shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                      className="mt-7 w-full flex items-center justify-center gap-2 rounded-xl bg-green-500 bg-gradient-to-r from-green-500 to-cyan-500 px-5 py-4 text-white font-bold shadow-lg hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                     >
                       View Details
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
