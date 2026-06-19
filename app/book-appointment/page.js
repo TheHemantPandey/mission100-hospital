@@ -1,22 +1,26 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { MapPin, Activity, AlertCircle, Calendar, Clock } from "lucide-react"; 
-import AboutMission100 from "@/components/AboutMission100"; // Make sure this path is correct for your project structure
+import { MapPin, Activity, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag } from "lucide-react"; 
+import AboutMission100 from "@/components/AboutMission100";
+import Script from "next/script";
 
 export default function BookingPage() {
   const [isSending, setIsSending] = useState(false);
   
-  // 1. ADD FUTURE TESTS HERE
-  const testConfig = {
-    "Heart Attack Prevention Test": {
-      paymentLink: "https://rzp.io/rzp/ec6qUrsR",
-      redirectPage: "/test/complete-heart-checkup-at-home"
-    },
-    "Full Body Checkup": {
-      paymentLink: "https://rzp.io/rzp/Ne1N6jv",
-      redirectPage: "/test/full-body-checkup"
-    }
+  // --- NEW UI STATES ---
+  const [appliedCode, setAppliedCode] = useState(null);
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [isCheckingCode, setIsCheckingCode] = useState(false);
+  const [referralInput, setReferralInput] = useState("");
+  const [referralError, setReferralError] = useState("");
+  
+  // Custom Popup State
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const basePriceConfig = {
+    "Heart Attack Prevention Test": 2000, 
+    "Full Body Checkup": 899              
   };
 
   const {
@@ -28,17 +32,19 @@ export default function BookingPage() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      state: "",
-      city: "",
-      age: "",
-      gender: "",
-      testName: "",
-      appointmentDate: "",
-      appointmentTime: ""
+      firstName: "", lastName: "", state: "", city: "", age: "", gender: "", 
+      contactNo: "", testName: "", appointmentDate: "", appointmentTime: "", 
+      houseNo: "", street: "", pinCode: "", landmark: ""
     }
   });
 
   const selectedState = watch("state");
+  const selectedTest = watch("testName"); // Watch the test to update price dynamically
+  
+  // Calculate the live price for the button
+  const currentBasePrice = basePriceConfig[selectedTest] || 0;
+  const finalPrice = Math.max(0, currentBasePrice - discountAmount);
+
   const locations = {
     "Delhi": ["Delhi"],
     "Uttar Pradesh": ["Noida", "Greater Noida"]
@@ -48,64 +54,166 @@ export default function BookingPage() {
   const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
-    if (selectedState === "Delhi") {
-      setValue("city", "Delhi");
-    } else {
-      setValue("city", "");
-    }
+    if (selectedState === "Delhi") setValue("city", "Delhi");
+    else setValue("city", "");
   }, [selectedState, setValue]);
+
+  // --- NEW: Apply Referral Function ---
+  const handleApplyReferral = async (e) => {
+    e.preventDefault();
+    setReferralError("");
+    if (!referralInput.trim()) return;
+
+    setIsCheckingCode(true);
+    try {
+      const res = await fetch("/api/payment/check-referral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ referralCode: referralInput }),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setAppliedCode(referralInput.toUpperCase());
+        setDiscountAmount(data.discountAmount);
+        setReferralInput("");
+      } else {
+        setReferralError(data.error);
+      }
+    } catch (err) {
+      setReferralError("Network error. Please try again.");
+    } finally {
+      setIsCheckingCode(false);
+    }
+  };
+
+  // --- NEW: Remove Referral Function ---
+  const handleRemoveReferral = () => {
+    setAppliedCode(null);
+    setDiscountAmount(0);
+    setReferralError("");
+  };
 
   const onSubmit = async (data) => {
     setIsSending(true);
     try {
-      // Send data to your API for Nodemailer processing
-      const response = await fetch("/api/send-enquiry", {
+      await fetch("/api/send-enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
-        // Fetch the correct links based on the user's test selection
-        const selectedTestInfo = testConfig[data.testName];
+      const orderResponse = await fetch("/api/payment/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          referralCode: appliedCode // Send the verified code
+        }),
+      });
 
-        if (selectedTestInfo) {
-          // Open the specific payment link in a new tab
-          window.open(selectedTestInfo.paymentLink, "_blank");
-          // Clear the form
-          reset();
-          // Redirect current tab to the specific test page
-          window.location.href = selectedTestInfo.redirectPage; 
-        } else {
-          alert("Test routing information not found.");
-        }
-      } else {
-        alert("There was an issue sending your details. Please try again.");
+      const orderData = await orderResponse.json();
+
+      if (!orderResponse.ok) {
+        alert(orderData.error || "Something went wrong.");
+        setIsSending(false);
+        return; 
       }
+
+      // --- FREE TEST LOGIC (Trigger Custom Popup immediately) ---
+      if (orderData.isFree) {
+        setShowSuccessPopup(true);
+        setIsSending(false);
+        return; 
+      }
+
+      // --- PAID LOGIC ---
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, 
+        amount: orderData.order.amount,
+        currency: orderData.order.currency,
+        name: "Mission 100 Hospital",
+        description: `Payment for ${data.testName}`,
+        order_id: orderData.order.id,
+        handler: async function (response) {
+          const verifyResponse = await fetch('/api/payment/verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                referralCode: appliedCode
+            })
+          });
+
+          if (verifyResponse.ok) {
+            // Trigger Custom Popup instead of alert!
+            setShowSuccessPopup(true);
+          } else {
+            alert("Payment verification failed.");
+          }
+        },
+        prefill: {
+            name: `${data.firstName} ${data.lastName}`,
+            contact: data.contactNo
+        },
+        theme: { color: "#16a34a" }
+      };
+
+      const rzp1 = new window.Razorpay(options);
+      rzp1.open();
+
     } catch (error) {
       console.error("Submission Error:", error);
+      alert("An unexpected error occurred.");
     } finally {
       setIsSending(false);
     }
   };
 
+  // Function to close popup and clear form
+  const handleClosePopup = () => {
+    setShowSuccessPopup(false);
+    reset();
+    handleRemoveReferral();
+    window.scrollTo(0, 0);
+  };
+
   const ErrorMsg = ({ name }) => (
-    errors[name] ? (
-      <p className="text-red-500 text-xs mt-1 flex items-center gap-1 font-medium">
-        <AlertCircle className="w-3 h-3" /> {errors[name].message}
-      </p>
-    ) : null
+    errors[name] ? <p className="text-red-500 text-xs mt-1 flex items-center gap-1 font-medium"><AlertCircle className="w-3 h-3" /> {errors[name].message}</p> : null
   );
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-16 px-4">
+    <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-16 px-4 relative">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
+
+      {/* --- CUSTOM SUCCESS POPUP --- */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm px-4">
+          <div className="bg-white rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl transform transition-all text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-12 h-12 text-green-600" />
+            </div>
+            <h2 className="text-2xl font-extrabold text-slate-800 mb-2">Booking Confirmed!</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              Thank you for choosing Mission 100 Hospital. Your appointment details have been securely recorded. Our team will contact you shortly.
+            </p>
+            <button 
+              onClick={handleClosePopup}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-colors"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-4xl w-full bg-white shadow-2xl rounded-3xl p-6 md:p-10 border border-slate-100">
-        
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Finalize Your Appointment</h1>
         </div>
 
-        {/* Start of form content */}
         <div className="max-w-4xl mx-auto">
           <AboutMission100 />
 
@@ -114,27 +222,28 @@ export default function BookingPage() {
               Appointment Details
             </h2>
             
+            {/* --- Personal Details --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">First Name *</label>
-                <input {...register("firstName", { required: "First name is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.firstName ? 'border-red-500' : 'border-slate-200'}`} placeholder="First Name" />
+                <input {...register("firstName", { required: "First name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="First Name" />
                 <ErrorMsg name="firstName" />
               </div>
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Last Name *</label>
-                <input {...register("lastName", { required: "Last name is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.lastName ? 'border-red-500' : 'border-slate-200'}`} placeholder="Last Name" />
+                <input {...register("lastName", { required: "Last name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Last Name" />
                 <ErrorMsg name="lastName" />
               </div>
               
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Age *</label>
-                <input type="number" {...register("age", { required: "Age is required", min: { value: 1, message: "Valid age required" } })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.age ? 'border-red-500' : 'border-slate-200'}`} placeholder="Enter Age" />
+                <input type="number" {...register("age", { required: "Age is required", min: 1 })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter Age" />
                 <ErrorMsg name="age" />
               </div>
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Gender *</label>
-                <select {...register("gender", { required: "Gender is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer ${errors.gender ? 'border-red-500' : 'border-slate-200'}`}>
+                <select {...register("gender", { required: "Gender is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200">
                   <option value="">Select Gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -145,17 +254,14 @@ export default function BookingPage() {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Contact Number *</label>
-                <input type="tel" {...register("contactNo", { 
-                  required: "10-digit mobile number required", 
-                  pattern: { value: /^[0-9]{10}$/, message: "Number must be exactly 10 digits" } 
-                })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.contactNo ? 'border-red-500' : 'border-slate-200'}`} placeholder="Mobile Number" />
+                <input type="tel" {...register("contactNo", { required: "10-digit number required", pattern: { value: /^[0-9]{10}$/ } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Mobile Number" />
                 <ErrorMsg name="contactNo" />
               </div>
               
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Preferred Test *</label>
                 <div className="relative">
-                  <select {...register("testName", { required: "Test selection is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer ${errors.testName ? 'border-red-500' : 'border-slate-200'}`}>
+                  <select {...register("testName", { required: "Test selection is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
                     <option value="">Select a Test</option>
                     <option value="Heart Attack Prevention Test">Heart Attack Prevention Test</option>
                     <option value="Full Body Checkup">Full Body Checkup</option>
@@ -166,6 +272,7 @@ export default function BookingPage() {
               </div>
             </div>
 
+            {/* --- Schedule Details --- */}
             <div className="border-t border-slate-100 pt-8">
               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-green-600" /> Schedule Details
@@ -173,30 +280,17 @@ export default function BookingPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Select Date *</label>
-                  <div className="relative">
-                    <input 
-                      type="date" 
-                      min={today}
-                      {...register("appointmentDate", { required: "Date is required" })} 
-                      className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer ${errors.appointmentDate ? 'border-red-500' : 'border-slate-200'}`} 
-                    />
-                  </div>
+                  <input type="date" min={today} {...register("appointmentDate", { required: "Date is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200" />
                   <ErrorMsg name="appointmentDate" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Select Time Slot *</label>
                   <div className="relative">
-                    <select 
-                      {...register("appointmentTime", { required: "Time slot is required" })} 
-                      className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer ${errors.appointmentTime ? 'border-red-500' : 'border-slate-200'}`}
-                    >
+                    <select {...register("appointmentTime", { required: "Time slot is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
                       <option value="">Choose preferred time</option>
                       <option value="07:00 AM - 09:00 AM">07:00 AM - 09:00 AM</option>
                       <option value="09:00 AM - 11:00 AM">09:00 AM - 11:00 AM</option>
                       <option value="11:00 AM - 01:00 PM">11:00 AM - 01:00 PM</option>
-                      <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
-                      <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
                     </select>
                     <Clock className="absolute right-4 top-4 w-5 h-5 text-slate-400 pointer-events-none" />
                   </div>
@@ -205,6 +299,7 @@ export default function BookingPage() {
               </div>
             </div>
 
+            {/* --- Address Details --- */}
             <div className="border-t border-slate-100 pt-8">
               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-green-600" /> Home Consultation Address
@@ -212,65 +307,93 @@ export default function BookingPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-slate-700 mb-1">House / Flat / Building *</label>
-                  <input {...register("houseNo", { required: "Building/House number is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.houseNo ? 'border-red-500' : 'border-slate-200'}`} />
-                  <ErrorMsg name="houseNo" />
+                  <input {...register("houseNo", { required: "Required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" />
                 </div>
-
                 <div className="md:col-span-2">
                   <label className="block text-sm font-bold text-slate-700 mb-1">Street / Locality *</label>
-                  <input {...register("street", { required: "Street/Locality is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.street ? 'border-red-500' : 'border-slate-200'}`} />
-                  <ErrorMsg name="street" />
+                  <input {...register("street", { required: "Required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">State *</label>
-                  <select {...register("state", { required: "State is required" })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.state ? 'border-red-500' : 'border-slate-200'}`}>
+                  <select {...register("state", { required: "Required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200">
                     <option value="">Select State</option>
                     <option value="Delhi">Delhi</option>
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                   </select>
-                  <ErrorMsg name="state" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">City *</label>
-                  <select 
-                    {...register("city", { required: "City is required" })} 
-                    disabled={selectedState === "Delhi"}
-                    className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none disabled:opacity-60 ${errors.city ? 'border-red-500' : 'border-slate-200'}`}
-                  >
+                  <select {...register("city", { required: "Required" })} disabled={selectedState === "Delhi"} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none disabled:opacity-60 border-slate-200">
                     <option value="">Select City</option>
                     {availableCities.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
-                  <ErrorMsg name="city" />
                 </div>
-
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Pincode *</label>
-                  <input {...register("pinCode", { 
-                    required: "6-digit Pincode required", 
-                    pattern: { value: /^[0-9]{6}$/, message: "Pincode must be exactly 6 digits" } 
-                  })} className={`w-full p-4 bg-slate-50 border rounded-2xl outline-none ${errors.pinCode ? 'border-red-500' : 'border-slate-200'}`} placeholder="6-digit Pincode" />
-                  <ErrorMsg name="PinCode" />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">Landmark</label>
-                  <input {...register("landmark")} className="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none" placeholder="Nearby Landmark" />
+                  <input {...register("pinCode", { required: "Required", pattern: /^[0-9]{6}$/ })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="6-digit Pincode" />
                 </div>
               </div>
             </div>
 
+            {/* --- UPGRADED: Referral Code Section --- */}
+            <div className="border-t border-slate-100 pt-8 mt-6">
+               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                 <Tag className="w-5 h-5 text-green-600"/> Discount & Referrals
+               </h3>
+               
+               {!appliedCode ? (
+                 <div className="space-y-2">
+                    <label className="block text-sm font-bold text-slate-700 mb-1">Referral Code (Optional)</label>
+                    <div className="flex gap-3">
+                      <input 
+                        value={referralInput}
+                        onChange={(e) => setReferralInput(e.target.value.toUpperCase())}
+                        className="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-semibold" 
+                        placeholder="ENTER CODE" 
+                      />
+                      <button 
+                        onClick={handleApplyReferral}
+                        disabled={isCheckingCode || !referralInput}
+                        className="px-8 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-700 disabled:opacity-50 transition-colors"
+                      >
+                        {isCheckingCode ? "Checking..." : "Apply"}
+                      </button>
+                    </div>
+                    {referralError && <p className="text-red-500 text-sm font-medium mt-2">{referralError}</p>}
+                 </div>
+               ) : (
+                 <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-green-600" />
+                      <div>
+                        <p className="text-green-800 font-bold">Code '{appliedCode}' Applied!</p>
+                        <p className="text-green-600 text-sm font-medium">You saved ₹{discountAmount}</p>
+                      </div>
+                    </div>
+                    <button 
+                      type="button" 
+                      onClick={handleRemoveReferral}
+                      className="text-red-500 hover:text-red-700 font-bold text-sm px-3 py-2 flex items-center gap-1"
+                    >
+                      <XCircle className="w-4 h-4" /> Remove
+                    </button>
+                 </div>
+               )}
+            </div>
+
+            {/* --- UPGRADED: Dynamic Submit Button --- */}
             <button 
               type="submit" 
-              disabled={isSending} 
-              className={`w-full mt-10 text-white py-5 rounded-2xl font-black text-xl transition-all shadow-lg active:scale-[0.98] ${isSending ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-slate-900'}`}
+              disabled={isSending || !selectedTest} 
+              className={`w-full mt-10 text-white py-5 rounded-2xl font-black text-xl transition-all shadow-lg active:scale-[0.98] ${isSending || !selectedTest ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
             >
-              {isSending ? "Processing..." : "Continue to Pay"}
+              {isSending ? "Processing..." : 
+               !selectedTest ? "Select a test to continue" :
+               finalPrice === 0 ? "Book Free Appointment" : 
+               `Continue to Pay - ₹${finalPrice}`}
             </button>
           </form>
         </div>
-
       </div>
     </main>
   );
