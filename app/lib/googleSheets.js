@@ -1,10 +1,18 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 
-// Initialize the Google Auth client using environment variables
+// 1. Grab the Base64 key string from Hostinger's environment variables
+const base64Key = process.env.GOOGLE_PRIVATE_KEY?.trim() || '';
+
+// 2. Safely unpack the Base64 string back into a real Google private key
+const formattedPrivateKey = base64Key.includes('-----BEGIN PRIVATE KEY-----')
+  ? base64Key.replace(/"/g, '').replace(/\\n/g, '\n')
+  : Buffer.from(base64Key, 'base64').toString('utf8');
+
+// 3. Connect to Google Sheets using the cleanly decoded key
 const serviceAccountAuth = new JWT({
   email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL.trim(),
-  key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'), 
+  key: formattedPrivateKey, 
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
