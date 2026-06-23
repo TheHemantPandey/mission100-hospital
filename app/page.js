@@ -94,10 +94,7 @@ export default function Home() {
 
       <AboutSection />
       <DoctorSection />
-      
-      {/* PROTO Device Section injected here */}
       <ProtoDevice />
-
       <Heart />
       <Stress />
       <BoneTesting />

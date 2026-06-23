@@ -152,6 +152,108 @@ const AboutUs = () => {
           </Link>
         </div>
 
+        {/* --- NEW SECTION: Quick Actions Banners --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {[
+            {
+              title: "Get 100% Free Heart Prevention Checkup",
+              sub: "Book Now",
+              bg: "bg-[#eefcf4]",
+              subColor: "text-green-700",
+              href: "/medicines",
+              icon: (
+                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              ),
+            },
+            {
+              title: "Memborship Plans",
+              sub: "Explore Now",
+              bg: "bg-[#fff6e4]",
+              subColor: "text-yellow-700",
+              href: "/health-insurance",
+              icon: (
+                <svg className="w-8 h-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              ),
+            },
+            {
+              title: "Find a test",
+              sub: "AT HOME",
+              bg: "bg-[#fdf0f4]",
+              subColor: "text-pink-700",
+              href: "/lab-tests",
+              icon: (
+                <svg className="w-8 h-8 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              ),
+            },
+            {
+              title: "Doctor Appointment",
+              sub: "BOOK Consultation NOW",
+              bg: "bg-[#f4f0ff]",
+              subColor: "text-purple-700",
+              href: "/doctor-appointment",
+              icon: (
+                <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              ),
+            },
+          ].map((item, idx) => (
+            <Link href={item.href} key={idx} className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 hover:shadow-md hover:scale-[1.02] group ${item.bg}`}>
+              <div className="flex items-center gap-4">
+                <div className="flex-shrink-0">{item.icon}</div>
+                <div>
+                  {/* Replaces \n with <br/> for the two-line title seen in the screenshot */}
+                  <h4 className="font-bold text-gray-800 text-sm md:text-base leading-tight">
+                    {item.title.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}
+                  </h4>
+                  <p className={`text-xs font-bold uppercase mt-1 ${item.subColor}`}>{item.sub}</p>
+                </div>
+              </div>
+              <svg className="w-5 h-5 text-gray-400 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          ))}
+        </div>
+
+        {/* --- NEW SECTION: Browse by Health Conditions --- */}
+        <div className="mb-16 md:mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Browse by Health Conditions</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { name: "Diabetes Care", href: "/conditions/diabetes", icon: "🩸" },
+              { name: "Cardiac Care", href: "/conditions/cardiac", icon: "❤️" },
+              { name: "Stomach Care", href: "/conditions/stomach", icon: "🍏" },
+              { name: "Pain Relief", href: "/conditions/pain", icon: "⚡" },
+              { name: "Liver Care", href: "/conditions/liver", icon: "🧬" },
+              { name: "Oral Care", href: "/conditions/oral", icon: "🦷" },
+              { name: "Respiratory", href: "/conditions/respiratory", icon: "🫁" },
+              { name: "Sexual Health", href: "/conditions/sexual-health", icon: "⚧️" },
+              { name: "Elderly Care", href: "/conditions/elderly", icon: "🧑‍🦯" },
+              { name: "Cold & Immunity", href: "/conditions/immunity", icon: "🛡️" },
+            ].map((condition, idx) => (
+              <Link href={condition.href} key={idx} className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl bg-white transition-all duration-300 hover:border-green-400 hover:shadow-md group">
+                {/* Note: If you want to use real images instead of emojis later, replace the div below with:
+                    <img src={`/icons/${condition.icon}.png`} alt={condition.name} className="w-10 h-10 object-contain" /> 
+                */}
+                <div className="w-12 h-12 flex-shrink-0 bg-gray-50 rounded-lg flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
+                  {condition.icon}
+                </div>
+                <span className="font-semibold text-gray-700 text-sm md:text-base group-hover:text-green-700 transition-colors">
+                  {condition.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+
         {/* Clinical Focus Grid */}
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-900">

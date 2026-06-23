@@ -55,7 +55,7 @@ export default function HospitalPopup() {
         <div className="w-full bg-white rounded-xl overflow-hidden shadow-2xl">
           {/* DESKTOP / LAPTOP IMAGE */}
           <img 
-            src="/popup-image/popup-1.png" 
+            src="/popup-image/popup-1.jpg" 
             alt="Mission 100 Hospital Free Health Checkup" 
             className="hidden md:block w-full h-auto object-contain"
           />
