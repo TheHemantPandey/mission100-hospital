@@ -197,7 +197,7 @@ export default function BookingPage() {
             </div>
             <h2 className="text-2xl font-extrabold text-slate-800 mb-2">Booking Confirmed!</h2>
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Thank you for choosing Mission 100 Hospital. Your appointment details have been securely recorded. Our team will contact you shortly.
+              Thank you for choosing Mission 100 Hospitalality. Your appointment details have been securely recorded. Our team will contact you shortly.
             </p>
             <button 
               onClick={handleClosePopup}
