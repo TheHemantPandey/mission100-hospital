@@ -40,7 +40,7 @@ export default function ContactPage() {
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-200 bg-white shadow-sm text-green-700 text-sm font-semibold">
               <HeartPulse className="w-4 h-4" />
-              Mission100 Healthcare
+              Mission 100 Healthcare
             </div>
 
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 leading-[1.05]">
