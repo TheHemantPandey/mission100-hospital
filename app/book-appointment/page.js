@@ -19,8 +19,8 @@ export default function BookingPage() {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const basePriceConfig = {
-    "Heart Attack Prevention Test": 2000, 
-    "Full Body Checkup": 899              
+    "Heart Attack Prevention Test : 499": 499, 
+    "Full Body Checkup : 999": 999              
   };
 
   const {
@@ -263,8 +263,8 @@ export default function BookingPage() {
                 <div className="relative">
                   <select {...register("testName", { required: "Test selection is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
                     <option value="">Select a Test</option>
-                    <option value="Heart Attack Prevention Test">Heart Attack Prevention Test</option>
-                    <option value="Full Body Checkup">Full Body Checkup</option>
+                    <option value="Heart Attack Prevention Test : 499">Heart Attack Prevention Test : 499</option>
+                    <option value="Full Body Checkup : 999">Full Body Checkup : 999</option>
                   </select>
                   <Activity className="absolute right-4 top-4 w-5 h-5 text-slate-400 pointer-events-none" />
                 </div>

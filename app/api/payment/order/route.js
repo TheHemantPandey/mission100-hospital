@@ -4,8 +4,8 @@ import { validateReferral, addPendingBooking } from '../../../lib/googleSheets';
 
 // 1. The Official Backend Source of Truth for Prices
 const basePrices = {
-    "Heart Attack Prevention Test": 2000,
-    "Full Body Checkup": 899
+    "Heart Attack Prevention Test : 499": 499, 
+    "Full Body Checkup : 999": 999              
 };
 
 // Initialize Razorpay with your secret keys
