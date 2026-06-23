@@ -262,7 +262,7 @@ export default function BookingPage() {
                 <label className="block text-sm font-bold text-slate-700 mb-1">Preferred Test *</label>
                 <div className="relative">
                   <select {...register("testName", { required: "Test selection is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
-                    <option value="">Select Prefered Test</option>
+                    <option value="">Select a Test</option>
                     <option value="Heart Attack Prevention Test : 499">Heart Attack Prevention Test : 499</option>
                     <option value="Full Body Checkup : 999">Full Body Checkup : 999</option>
                   </select>
