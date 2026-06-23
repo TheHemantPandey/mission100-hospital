@@ -3,13 +3,16 @@ import { validateReferral } from '../../../lib/googleSheets';
 
 export async function POST(request) {
     try {
-        const { referralCode } = await request.json();
+        // Extract BOTH the code and the selected test name from the frontend request
+        const { referralCode, testName } = await request.json();
 
-        if (!referralCode) {
-            return NextResponse.json({ error: "Please enter a code" }, { status: 400 });
+        // Ensure both pieces of data were actually sent
+        if (!referralCode || !testName) {
+            return NextResponse.json({ error: "Both a referral code and a selected test are required." }, { status: 400 });
         }
 
-        const check = await validateReferral(referralCode);
+        // Pass BOTH to your updated Google Sheets validation function
+        const check = await validateReferral(referralCode, testName);
         
         if (check.valid) {
             return NextResponse.json({ 

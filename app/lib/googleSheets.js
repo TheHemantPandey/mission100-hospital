@@ -18,13 +18,12 @@ const serviceAccountAuth = new JWT({
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
-
 // Create an instance of the document helper
 const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID.trim(), serviceAccountAuth);
 
 // Helper function to connect to the sheet and get access to tabs
 async function getSheetTabs() {
-  await doc.loadInfo(); // Loads document properties and worksheets
+  await doc.loadInfo(); 
   
   const bookingsSheet = doc.sheetsByTitle['Bookings'];
   const referralsSheet = doc.sheetsByTitle['Referrals'];
@@ -36,8 +35,8 @@ async function getSheetTabs() {
   return { bookingsSheet, referralsSheet };
 }
 
-// 1. Function to check if a referral code is valid
-export async function validateReferral(codeStr) {
+// 1. Function to check if a referral code is valid FOR A SPECIFIC TEST
+export async function validateReferral(codeStr, testNameFromUser) {
   const { referralsSheet } = await getSheetTabs();
   const rows = await referralsSheet.getRows();
   
@@ -47,6 +46,17 @@ export async function validateReferral(codeStr) {
   if (!codeRow) {
     return { valid: false, message: "Invalid code" };
   }
+
+  // --- NEW: Check if code applies to the selected test ---
+  const applicableTest = codeRow.get('Applicable Test')?.trim() || 'All';
+  
+  if (applicableTest.toLowerCase() !== 'all' && applicableTest.toLowerCase() !== testNameFromUser.trim().toLowerCase()) {
+    return { 
+      valid: false, 
+      message: `This coupon is only valid for the "${applicableTest}" test.` 
+    };
+  }
+  // ---------------------------------------------------------
   
   const discountAmount = parseFloat(codeRow.get('Discount Amount') || 0);
   const maxUses = parseInt(codeRow.get('Max Uses') || 0);
@@ -77,7 +87,7 @@ export async function addPendingBooking(bookingData) {
     Price: bookingData.price,
     'Payment Status': bookingData.status,
     'Order ID': bookingData.orderId || 'N/A',
-    'Referral Code Used': bookingData.referralCode || 'None' // Tracks referral codes securely
+    'Referral Code Used': bookingData.referralCode || 'None' 
   });
   
   return newRow;

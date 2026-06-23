@@ -8,14 +8,12 @@ import Script from "next/script";
 export default function BookingPage() {
   const [isSending, setIsSending] = useState(false);
   
-  // --- NEW UI STATES ---
   const [appliedCode, setAppliedCode] = useState(null);
   const [discountAmount, setDiscountAmount] = useState(0);
   const [isCheckingCode, setIsCheckingCode] = useState(false);
   const [referralInput, setReferralInput] = useState("");
   const [referralError, setReferralError] = useState("");
   
-  // Custom Popup State
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const basePriceConfig = {
@@ -39,9 +37,8 @@ export default function BookingPage() {
   });
 
   const selectedState = watch("state");
-  const selectedTest = watch("testName"); // Watch the test to update price dynamically
+  const selectedTest = watch("testName"); 
   
-  // Calculate the live price for the button
   const currentBasePrice = basePriceConfig[selectedTest] || 0;
   const finalPrice = Math.max(0, currentBasePrice - discountAmount);
 
@@ -58,10 +55,17 @@ export default function BookingPage() {
     else setValue("city", "");
   }, [selectedState, setValue]);
 
-  // --- NEW: Apply Referral Function ---
+  // --- Apply Referral Function ---
   const handleApplyReferral = async (e) => {
     e.preventDefault();
     setReferralError("");
+    
+    // Safety Check: Ensure a test is selected first
+    if (!selectedTest) {
+      setReferralError("Please select a Preferred Test above before applying a coupon.");
+      return;
+    }
+
     if (!referralInput.trim()) return;
 
     setIsCheckingCode(true);
@@ -69,8 +73,13 @@ export default function BookingPage() {
       const res = await fetch("/api/payment/check-referral", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ referralCode: referralInput }),
+        // Sends BOTH the coupon code and the selected test name to your new API
+        body: JSON.stringify({ 
+          referralCode: referralInput,
+          testName: selectedTest 
+        }),
       });
+      
       const data = await res.json();
 
       if (res.ok) {
@@ -78,7 +87,7 @@ export default function BookingPage() {
         setDiscountAmount(data.discountAmount);
         setReferralInput("");
       } else {
-        setReferralError(data.error);
+        setReferralError(data.error); 
       }
     } catch (err) {
       setReferralError("Network error. Please try again.");
@@ -87,12 +96,18 @@ export default function BookingPage() {
     }
   };
 
-  // --- NEW: Remove Referral Function ---
   const handleRemoveReferral = () => {
     setAppliedCode(null);
     setDiscountAmount(0);
     setReferralError("");
   };
+
+  // Auto-remove coupon if the user changes their test selection
+  useEffect(() => {
+    if (appliedCode) {
+      handleRemoveReferral();
+    }
+  }, [selectedTest]);
 
   const onSubmit = async (data) => {
     setIsSending(true);
@@ -108,7 +123,7 @@ export default function BookingPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          referralCode: appliedCode // Send the verified code
+          referralCode: appliedCode 
         }),
       });
 
@@ -120,14 +135,14 @@ export default function BookingPage() {
         return; 
       }
 
-      // --- FREE TEST LOGIC (Trigger Custom Popup immediately) ---
+      // Free test bypass
       if (orderData.isFree) {
         setShowSuccessPopup(true);
         setIsSending(false);
         return; 
       }
 
-      // --- PAID LOGIC ---
+      // Razorpay checkout
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, 
         amount: orderData.order.amount,
@@ -148,7 +163,6 @@ export default function BookingPage() {
           });
 
           if (verifyResponse.ok) {
-            // Trigger Custom Popup instead of alert!
             setShowSuccessPopup(true);
           } else {
             alert("Payment verification failed.");
@@ -172,7 +186,6 @@ export default function BookingPage() {
     }
   };
 
-  // Function to close popup and clear form
   const handleClosePopup = () => {
     setShowSuccessPopup(false);
     reset();
@@ -188,7 +201,7 @@ export default function BookingPage() {
     <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-16 px-4 relative">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
 
-      {/* --- CUSTOM SUCCESS POPUP --- */}
+      {/* Success Popup */}
       {showSuccessPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm px-4">
           <div className="bg-white rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl transform transition-all text-center">
@@ -197,7 +210,7 @@ export default function BookingPage() {
             </div>
             <h2 className="text-2xl font-extrabold text-slate-800 mb-2">Booking Confirmed!</h2>
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Thank you for choosing Mission 100 Hospitalality. Your appointment details have been securely recorded. Our team will contact you shortly.
+              Thank you for choosing Mission 100 Hospital. Your appointment details have been securely recorded. Our team will contact you shortly.
             </p>
             <button 
               onClick={handleClosePopup}
@@ -222,7 +235,6 @@ export default function BookingPage() {
               Appointment Details
             </h2>
             
-            {/* --- Personal Details --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">First Name *</label>
@@ -272,7 +284,6 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* --- Schedule Details --- */}
             <div className="border-t border-slate-100 pt-8">
               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-green-600" /> Schedule Details
@@ -299,7 +310,6 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* --- Address Details --- */}
             <div className="border-t border-slate-100 pt-8">
               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-green-600" /> Home Consultation Address
@@ -335,7 +345,6 @@ export default function BookingPage() {
               </div>
             </div>
 
-            {/* --- UPGRADED: Referral Code Section --- */}
             <div className="border-t border-slate-100 pt-8 mt-6">
                <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                  <Tag className="w-5 h-5 text-green-600"/> Discount & Referrals
@@ -381,7 +390,6 @@ export default function BookingPage() {
                )}
             </div>
 
-            {/* --- UPGRADED: Dynamic Submit Button --- */}
             <button 
               type="submit" 
               disabled={isSending || !selectedTest} 
