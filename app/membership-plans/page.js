@@ -21,7 +21,7 @@ const posterImages = [
   { id: 'pro', name: 'Pro Fitness Plan', imgUrl: '/membership-plans/pro-fitness-plan.png', btnColor: 'bg-green-600 hover:bg-green-700 text-white' }
 ];
 
-const comparisonImageUrl = "/membership-plans/comparison.jpg";
+const comparisonImageUrl = "/membership-plans/comparison-plan.jpg";
 
 // --- Simple hook for animating numbers ---
 const useAnimatedCounter = (end, duration = 2000) => {
