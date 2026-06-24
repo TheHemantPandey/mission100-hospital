@@ -118,7 +118,7 @@ const ExpertCard = memo(({ doc }) => (
     {/* Dual Prominent Call to Actions */}
     <div className="p-5 pt-0 space-y-2 mt-2">
       <Link 
-        href="/book-test"
+        href="/doctor-appointment"
         className="w-full flex items-center justify-center gap-2 bg-green-600 text-white py-3 rounded-xl text-xs font-bold hover:bg-green-700 transition-all active:scale-[0.98] shadow-sm"
       >
         <CalendarCheck size={15} /> Book Consultation
@@ -191,20 +191,6 @@ const DoctorSection = () => {
           </div>
         </div>
 
-        {/* Categories Tab Row
-        <div className="flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 mb-10 pb-1 scroll-smooth">
-          {categories.map((cat) => (
-            <CategoryButton 
-              key={cat.id}
-              cat={cat}
-              isActive={activeCategory === cat.id}
-              onClick={() => {
-                setActiveCategory(cat.id);
-                if (scrollRef.current) scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-              }}
-            />
-          ))}
-        </div> */}
 
         {/* Dynamic Card Horizontal Scrolling Deck */}
         <div

@@ -152,7 +152,7 @@ export default async function ExpertProfilePage({ params }) {
               )}
             </div>
 
-            {/* Universal "How it Works" Section (Fills empty space & builds trust) */}
+            {/* Universal "How it Works" Section */}
             <div className="bg-slate-900 rounded-3xl p-6 md:p-8 shadow-lg text-white">
               <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
                 <Activity className="text-green-400" /> How Mission100 Consultations Work
@@ -230,8 +230,9 @@ export default async function ExpertProfilePage({ params }) {
                   </div>
                 </div>
 
+                {/* Updated Route Link Passing Expert Slug via Query String */}
                 <Link
-                  href="/book-test"
+                  href={`/doctor-appointment?expert=${expert.slug}`}
                   className="w-full flex items-center justify-center gap-2 bg-green-600 text-white py-4 rounded-xl text-base font-bold hover:bg-green-700 transition-all active:scale-[0.98] shadow-lg shadow-green-600/20"
                 >
                   <CalendarCheck size={20} /> Book Consultation Now
