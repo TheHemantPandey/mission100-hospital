@@ -179,7 +179,7 @@ const Navbar = () => {
               {/* Desktop Call to Action Button */}
               <li>
                 <Link
-                  href="/book-appointment"
+                  href="/book-test"
                   className="inline-block text-center px-6 py-2.5 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95 text-sm lg:text-base"
                 >
                   Book consultation Now
@@ -220,7 +220,7 @@ const Navbar = () => {
 
         {/* 2. Book Appt */}
         <Link
-          href="/book-appointment"
+          href="/book-test"
           onClick={closeMenu}
           className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full"
         >

@@ -229,8 +229,8 @@
     "id": 3,
     "slug": "heart-checkup-at-home",
     "title": "Heart Checkup at Home",
-    "oldPrice": 499,
-    "currentPrice": "Free",
+    "oldPrice": 999,
+    "currentPrice": 499,
     "alsoKnownAs": [
       "Complete Heart Checkup",
       "Heart Attack Prevention Checkup"

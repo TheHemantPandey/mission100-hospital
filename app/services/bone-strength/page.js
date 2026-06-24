@@ -45,7 +45,7 @@ export default function BoneStrengthLongevity() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
-                href="/book-appointment"
+                href="/book-test"
                 className="bg-slate-900 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-blue-600 transition"
               >
                 Book DXA Scan <ChevronRight size={18} />

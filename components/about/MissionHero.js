@@ -50,7 +50,7 @@ const MissionHero = () => {
           </div>
 
           <div className="flex items-center gap-6 pt-4">
-            <Link href="/book-appointment">
+            <Link href="/book-test">
               <button className="px-10 py-5 bg-green-600 text-white text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-[#0f172a] transition-all active:scale-95">
                 Book Consultation Now
               </button>

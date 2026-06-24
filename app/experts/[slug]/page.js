@@ -231,7 +231,7 @@ export default async function ExpertProfilePage({ params }) {
                 </div>
 
                 <Link
-                  href="/book-appointment"
+                  href="/book-test"
                   className="w-full flex items-center justify-center gap-2 bg-green-600 text-white py-4 rounded-xl text-base font-bold hover:bg-green-700 transition-all active:scale-[0.98] shadow-lg shadow-green-600/20"
                 >
                   <CalendarCheck size={20} /> Book Consultation Now

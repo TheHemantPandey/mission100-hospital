@@ -118,7 +118,7 @@ const ExpertCard = memo(({ doc }) => (
     {/* Dual Prominent Call to Actions */}
     <div className="p-5 pt-0 space-y-2 mt-2">
       <Link 
-        href="/book-appointment"
+        href="/book-test"
         className="w-full flex items-center justify-center gap-2 bg-green-600 text-white py-3 rounded-xl text-xs font-bold hover:bg-green-700 transition-all active:scale-[0.98] shadow-sm"
       >
         <CalendarCheck size={15} /> Book Consultation

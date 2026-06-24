@@ -95,7 +95,7 @@ export default function HeartPreventionPremium() {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
-                href="/book-appointment"
+                href="/book-test"
                 className="bg-gradient-to-r from-emerald-600 to-cyan-500 hover:from-emerald-700 hover:to-cyan-600 text-white px-8 py-4 sm:py-5 rounded-2xl font-black shadow-xl hover:shadow-emerald-200 transition-all flex items-center justify-center gap-2 text-center"
               >
                 Book Heart Checkup
@@ -383,7 +383,7 @@ export default function HeartPreventionPremium() {
                 </p>
 
                 <Link
-                  href="/book-appointment"
+                  href="/book-test"
                   className="inline-flex items-center justify-center gap-3 bg-white text-emerald-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-black shadow-2xl hover:scale-105 transition-all w-full sm:w-auto"
                 >
                   Book Appointment

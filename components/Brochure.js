@@ -16,7 +16,7 @@ const Brochure = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           {/* Navigation to Booking Page */}
           <Link 
-            href="/book-appointment"
+            href="/book-test"
             className="w-full sm:w-fit bg-white text-green-700 px-10 py-4 rounded-full font-bold hover:bg-green-50 transition-all active:scale-95 shadow-md"
           >
             Book Appointment

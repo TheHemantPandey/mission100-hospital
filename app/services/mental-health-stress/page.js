@@ -100,7 +100,7 @@ export default function MentalHealthWellness() {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
-                href="/book-appointment"
+                href="/book-test"
                 className="bg-gradient-to-r from-emerald-600 to-cyan-500 hover:from-emerald-700 hover:to-cyan-600 text-white px-8 py-4 rounded-2xl font-black transition-all duration-300 shadow-xl hover:shadow-emerald-200 flex items-center justify-center gap-3 text-center"
               >
                 Book Consultation
@@ -406,7 +406,7 @@ export default function MentalHealthWellness() {
                 </p>
 
                 <Link
-                  href="/book-appointment"
+                  href="/book-test"
                   className="inline-flex items-center justify-center gap-3 bg-white text-emerald-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-black hover:scale-105 transition-all duration-300 shadow-xl w-full sm:w-auto"
                 >
                   Book Appointment

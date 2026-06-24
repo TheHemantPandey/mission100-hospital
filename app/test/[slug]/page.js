@@ -80,7 +80,7 @@ export default function TestDetailPage({ params }) {
                 <Home className="text-red-600" size={20} />
                 <span className="font-bold text-red-800 text-sm">FREE Home Sample Collection</span>
               </div>
-              <Link href="/book-appointment">
+              <Link href="/book-test">
                 <button className="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-sm shadow-md mb-3">
                   Book Test
                 </button>
@@ -218,7 +218,7 @@ export default function TestDetailPage({ params }) {
                 </div>
 
                 <div className="space-y-3">
-                  <Link href="/book-appointment">
+                  <Link href="/book-test">
                     <button className="w-full bg-red-600 text-white py-4 rounded-xl font-bold text-base tracking-widest hover:bg-red-700 shadow-xl transition-all">
                        Book Test
                     </button>

@@ -27,7 +27,7 @@ export default function sitemap() {
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     { url: `${baseUrl}/about`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), priority: 0.7 },
-    { url: `${baseUrl}/book-appointment`, lastModified: new Date(), priority: 0.9 },
+    { url: `${baseUrl}/book-test`, lastModified: new Date(), priority: 0.9 },
     { url: `${baseUrl}/faq`, lastModified: new Date(), priority: 0.5 },
     ...serviceUrls, // This injects all your service pages into the map
   ];
