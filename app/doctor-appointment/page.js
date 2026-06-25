@@ -206,7 +206,7 @@ function AppointmentFormContent() {
 
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Consultation Mode *</label>
-              <div className="flex gap-4 h-[58px]">
+              <div className="flex gap-4 h-14.5">
                 {allowedModes.map(mode => (
                   <label 
                     key={mode} 
