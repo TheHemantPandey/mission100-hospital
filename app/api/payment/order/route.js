@@ -4,6 +4,7 @@ import { validateReferral, addPendingBooking } from '../../../lib/googleSheets';
 
 // 1. The Official Backend Source of Truth for Prices
 const basePrices = {
+    "Complete Health Checkup : 1999": 1999,
     "Heart Attack Prevention Test : 499": 499, 
     "Full Body Checkup : 999": 999              
 };

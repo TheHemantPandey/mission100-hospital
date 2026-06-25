@@ -1,61 +1,192 @@
 [
   {
     "id": 1,
-    "slug": "complete-heart-checkup-at-home",
-    "title": "Heart Checkup at Home",
-    "oldPrice": 999,
-    "currentPrice": 499,
+    "slug": "complete-health-checkup",
+    "title": "Complete Health Checkup",
+    "oldPrice": 3499,
+    "currentPrice": 1999,
     "alsoKnownAs": [
-      "Complete Heart Checkup",
-      "Heart Attack Prevention Checkup"
+      "Total Care",
+      "Full Body Checkup Total Care",
+      "Total Care Tests",
+      "Whole Body Health 1999 Package",
+      "Preventive Health Checkup"
     ],
-    "shortDescription": "Prevent heart attack before it happens. This early detection package is designed to monitor your heart health conveniently at your home.",
-    "totalParameters": 4,
-    "image": "/test-images/heart-test.png",
+    "shortDescription": "Complete Health Checkup is one of the most popular health checkup packages. It includes Kidney Function Test, Liver Function Test, HbA1C, Vitamin D, Vitamin B12, Thyroid Function Tests and many more to provide a complete overview of your health.",
+    "totalParameters": 87,
+    "image": "/test-images/complete-health-checkup.png",
     "specialFeatures": [
       "Doctor Consultation Report",
       "Diet & Lifestyle Advice",
       "Free Home Sample Collection",
-      "Instant / Same Day Reporting",
+      "Same Day Reporting",
       "Doctor Verified Report",
-      "Special Welcome Offer"
+      "Special Health Package Offer"
     ],
     "includes": [
       {
-        "mainParam": "ECG Test",
-        "nestedCount": 1,
+        "mainParam": "CBC",
+        "nestedCount": 22,
         "nestedParams": [
-          "Detect heart problems early"
+          "Hemoglobin",
+          "Total RBC",
+          "Platelet Count",
+          "Total Leucocyte Count (WBC)",
+          "Neutrophils",
+          "Lymphocytes",
+          "Monocytes",
+          "Eosinophils",
+          "Basophils",
+          "Absolute Neutrophil Count",
+          "Absolute Lymphocyte Count",
+          "Absolute Monocyte Count",
+          "Absolute Eosinophil Count",
+          "Absolute Basophil Count",
+          "Hematocrit (PCV)",
+          "Mean Corpuscular Volume (MCV)",
+          "Mean Corp. Hemoglobin (MCH)",
+          "MCH Concentration (MCHC)",
+          "Red Cell Dist. Width (RDW-CV)",
+          "Red Cell Dist. Width (RDW-SD)",
+          "Mean Platelet Volume (MPV)",
+          "Mentzer Index"
         ]
       },
       {
-        "mainParam": "Blood Pressure Check",
+        "mainParam": "Glucose Fasting",
         "nestedCount": 1,
         "nestedParams": [
-          "Monitor your blood pressure levels"
+          "Blood Sugar Fasting"
         ]
       },
       {
-        "mainParam": "Blood Sugar Test",
-        "nestedCount": 1,
+        "mainParam": "Lipid Profile",
+        "nestedCount": 8,
         "nestedParams": [
-          "Know your sugar levels"
+          "Total Cholesterol",
+          "Triglyceride",
+          "HDL Cholesterol",
+          "VLDL Cholesterol",
+          "LDL Cholesterol",
+          "Non-HDL Cholesterol",
+          "LDL / HDL Ratio",
+          "TC / HDL Ratio"
         ]
       },
       {
-        "mainParam": "Pulse Rate Monitoring",
+        "mainParam": "Liver Function Test",
+        "nestedCount": 12,
+        "nestedParams": [
+          "Total Protein",
+          "Albumin",
+          "Globulin",
+          "A/G Ratio",
+          "Total Bilirubin",
+          "Conjugated Bilirubin",
+          "Unconjugated Bilirubin",
+          "SGOT (AST)",
+          "SGPT (ALT)",
+          "SGOT/SGPT Ratio",
+          "Alkaline Phosphatase",
+          "Gamma Glutamyl Transferase"
+        ]
+      },
+      {
+        "mainParam": "Kidney Function Test",
+        "nestedCount": 11,
+        "nestedParams": [
+          "Blood Urea",
+          "Blood Urea Nitrogen",
+          "Creatinine",
+          "Uric Acid",
+          "Calcium",
+          "Phosphorus",
+          "BUN/Creatinine Ratio",
+          "Urea/Creatinine Ratio",
+          "Sodium",
+          "Potassium",
+          "Chloride"
+        ]
+      },
+      {
+        "mainParam": "Vitamin B12",
         "nestedCount": 1,
         "nestedParams": [
-          "Check your heart rate variability"
+          "Vitamin B-12"
+        ]
+      },
+      {
+        "mainParam": "Vitamin D, 25 - Hydroxy",
+        "nestedCount": 1,
+        "nestedParams": [
+          "25-OH Vitamin D (Total)"
+        ]
+      },
+      {
+        "mainParam": "Iron Profile",
+        "nestedCount": 3,
+        "nestedParams": [
+          "Iron",
+          "Total Iron Binding Capacity",
+          "Transferrin Saturation"
+        ]
+      },
+      {
+        "mainParam": "Hb A1c",
+        "nestedCount": 2,
+        "nestedParams": [
+          "HbA1C",
+          "90 Day Average Blood Glucose"
+        ]
+      },
+      {
+        "mainParam": "Free Thyroid Test [FT3,FT4,TSH]",
+        "nestedCount": 3,
+        "nestedParams": [
+          "Free Triiodothyronine [FT3]",
+          "Free Thyroxine [FT4]",
+          "Thyroid Stimulating Hormone (TSH)"
+        ]
+      },
+      {
+        "mainParam": "ESR",
+        "nestedCount": 1,
+        "nestedParams": [
+          "ESR"
+        ]
+      },
+      {
+        "mainParam": "Urine R/M",
+        "nestedCount": 22,
+        "nestedParams": [
+          "Urine Quantity",
+          "Urine Colour",
+          "Urinary Transparency",
+          "Urinary pH",
+          "Urinary Specific Gravity",
+          "Urinary Protein",
+          "Urinary Glucose",
+          "Urinary Ketones",
+          "Urobilinogen",
+          "Urine Bilirubin",
+          "Urinary Nitrites",
+          "Blood [In Urine]",
+          "Leukocyte Esterase",
+          "Pus Cells [In Urine]",
+          "Epithelial Cells (Squamous)",
+          "Epithelial Cells (Non-Squamous)",
+          "Urinary RBC"
         ]
       }
     ],
     "bottomDetails": {
-      "preparation": "No specific fasting required. Home visit included in the package.",
-      "reportingTAT": "Instant / Same Day",
+      "preparation": "10-12 hours fasting is recommended before sample collection. Water is allowed.",
+      "reportingTAT": "Same Day / Next Day",
       "specializations": [
+        "Full Body Checkup",
+        "Diabetes Screening",
         "Heart Health",
-        "Preventive Care"
+        "Thyroid Health"
       ]
     }
   },
