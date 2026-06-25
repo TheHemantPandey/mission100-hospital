@@ -3,11 +3,10 @@
 import React, { useState, useEffect, use } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { MapPin, ShieldCheck, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag } from "lucide-react"; 
+import { MapPin, ShieldCheck, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag, Mail, HeartPulse, ShieldAlert } from "lucide-react"; 
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
 
-// Pricing and plan internal keys mapping
 const planPriceConfig = {
   "silver-plan": { name: "Silver Care", price: 2999 },
   "gold-plan": { name: "Gold Care", price: 4999 },
@@ -16,7 +15,6 @@ const planPriceConfig = {
 };
 
 export default function BuyMembershipPage({ params }) {
-  // Safely unwrap page params matching Next.js structural frameworks
   const resolvedParams = use(params);
   const router = useRouter();
 
@@ -28,7 +26,6 @@ export default function BuyMembershipPage({ params }) {
   const [referralError, setReferralError] = useState("");
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
-  // Fallback pattern logic: Use path slug if valid, otherwise default directly to platinum-plan
   const initialPlanSlug = planPriceConfig[resolvedParams.slug] ? resolvedParams.slug : "platinum-plan";
 
   const {
@@ -40,9 +37,10 @@ export default function BuyMembershipPage({ params }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "", lastName: "", state: "", city: "", age: "", gender: "", 
-      contactNo: "", planSlug: initialPlanSlug, appointmentDate: "", appointmentTime: "", 
-      houseNo: "", street: "", pinCode: "", landmark: ""
+      firstName: "", lastName: "", email: "", state: "", city: "", dob: "", gender: "", 
+      bloodGroup: "", contactNo: "", emergencyName: "", emergencyContactNo: "", emergencyRelationship: "",
+      medicalConditions: "", planSlug: initialPlanSlug, appointmentDate: "", appointmentTime: "", 
+      houseNo: "", street: "", pinCode: "", landmark: "", termsAccepted: false, infoAccurate: false, marketingConsent: false
     }
   });
 
@@ -65,7 +63,6 @@ export default function BuyMembershipPage({ params }) {
     else setValue("city", "");
   }, [selectedState, setValue]);
 
-  // --- Apply Referral Function ---
   const handleApplyReferral = async (e) => {
     e.preventDefault();
     setReferralError("");
@@ -84,7 +81,7 @@ export default function BuyMembershipPage({ params }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           referralCode: referralInput,
-          testName: currentPlanDetails.name // Passing name matching your backend structure
+          testName: currentPlanDetails.name 
         }),
       });
       
@@ -110,28 +107,88 @@ export default function BuyMembershipPage({ params }) {
     setReferralError("");
   };
 
-  // Auto-remove coupon if user changes their selected layout
   useEffect(() => {
     if (appliedCode) {
       handleRemoveReferral();
     }
   }, [selectedPlanSlug]);
 
-  const onSubmit = async (data) => {
+  // --- CONNECTED OVERLAY ON SUBMIT HANDLING ---
+  const onSubmit = async (formData) => {
     setIsSending(true);
-    // Placeholder configuration framework waiting for your integrated payment flow callback
     try {
-      console.log("Submitting Membership Details Form Data:", {
-        ...data,
-        planName: currentPlanDetails.name,
-        finalPrice: finalPrice,
-        referralCode: appliedCode
+      // 1. Initialized order configuration with backend payload signature mapping
+      const response = await fetch("/api/membership/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          referralCode: appliedCode || ""
+        })
       });
-      
-      // Temporary successful window action layout state trigger
-      setShowSuccessPopup(true);
+
+      const orderData = await response.json();
+
+      if (!response.ok) {
+        alert(orderData.error || "Failed to create membership order layout.");
+        setIsSending(false);
+        return;
+      }
+
+      // If it is entirely free due to referral discount deduction logic
+      if (orderData.isFree) {
+        setShowSuccessPopup(true);
+        setIsSending(false);
+        return;
+      }
+
+      // 2. Open Native Razorpay window overlay mapping
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: orderData.order.amount,
+        currency: orderData.order.currency,
+        name: "Mission 100 Hospital",
+        description: `${currentPlanDetails.name} Activation`,
+        order_id: orderData.order.id,
+        handler: async function (response) {
+          try {
+            // Trigger confirmation signature validation routine
+            const verifyRes = await fetch("/api/membership/verify", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                referralCode: appliedCode || "None"
+              })
+            });
+
+            if (verifyRes.ok) {
+              setShowSuccessPopup(true);
+            } else {
+              alert("Payment verification failed. Please reach support team.");
+            }
+          } catch (err) {
+            console.error("Signature verification step call crashed:", err);
+          }
+        },
+        prefill: {
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          contact: formData.contactNo,
+        },
+        theme: {
+          color: "#16a34a", // Clean green matching branding guidelines
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
     } catch (error) {
       console.error("Submission Error:", error);
+      alert("Something went wrong processing checkouts.");
     } finally {
       setIsSending(false);
     }
@@ -152,7 +209,6 @@ export default function BuyMembershipPage({ params }) {
     <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center py-16 px-4 relative">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
 
-      {/* Success Popup */}
       {showSuccessPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm px-4">
           <div className="bg-white rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl transform transition-all text-center">
@@ -197,11 +253,21 @@ export default function BuyMembershipPage({ params }) {
                 <input {...register("lastName", { required: "Last name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Last Name" />
                 <ErrorMsg name="lastName" />
               </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-bold text-slate-700 mb-1">Email Address *</label>
+                <input type="email" {...register("email", { 
+                  required: "Email address is required", 
+                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address format" } 
+                })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="example@domain.com" />
+                <p className="text-xs text-slate-400 mt-1 flex items-center gap-1"><Mail className="w-3 h-3" /> Used for confirmations, invoices, reports, and portal access.</p>
+                <ErrorMsg name="email" />
+              </div>
               
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-1">Age *</label>
-                <input type="number" {...register("age", { required: "Age is required", min: 1 })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter Age" />
-                <ErrorMsg name="age" />
+                <label className="block text-sm font-bold text-slate-700 mb-1">Date of Birth *</label>
+                <input type="date" max={today} {...register("dob", { required: "Date of Birth is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200" />
+                <ErrorMsg name="dob" />
               </div>
 
               <div>
@@ -217,11 +283,27 @@ export default function BuyMembershipPage({ params }) {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Contact Number *</label>
-                <input type="tel" {...register("contactNo", { required: "10-digit number required", pattern: { value: /^[0-9]{10}$/ } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Mobile Number" />
+                <input type="tel" {...register("contactNo", { required: "10-digit number required", pattern: { value: /^[0-9]{10}$/, message: "Must be a valid 10-digit mobile layout" } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Mobile Number" />
                 <ErrorMsg name="contactNo" />
               </div>
-              
+
               <div>
+                <label className="block text-sm font-bold text-slate-700 mb-1">Blood Group (Optional)</label>
+                <select {...register("bloodGroup")} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200">
+                  <option value="">Select Blood Group</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="Unknown">Unknown</option>
+                </select>
+              </div>
+              
+              <div className="md:col-span-2">
                 <label className="block text-sm font-bold text-slate-700 mb-1">Membership Plan *</label>
                 <div className="relative">
                   <select {...register("planSlug", { required: "Plan selection is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
@@ -233,6 +315,46 @@ export default function BuyMembershipPage({ params }) {
                   <ShieldCheck className="absolute right-4 top-4 w-5 h-5 text-slate-400 pointer-events-none" />
                 </div>
                 <ErrorMsg name="planSlug" />
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 pt-8">
+              <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <ShieldAlert className="w-5 h-5 text-red-500" /> Emergency Contact Details
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Contact Name *</label>
+                  <input {...register("emergencyName", { required: "Emergency name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Full Name" />
+                  <ErrorMsg name="emergencyName" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Contact Number *</label>
+                  <input type="tel" {...register("emergencyContactNo", { required: "Emergency number required", pattern: { value: /^[0-9]{10}$/, message: "Must be a 10-digit number" } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="10-digit Mobile" />
+                  <ErrorMsg name="emergencyContactNo" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Relationship *</label>
+                  <select {...register("emergencyRelationship", { required: "Select relationship status" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200">
+                    <option value="">Select Relationship</option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Son/Daughter">Son/Daughter</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <ErrorMsg name="emergencyRelationship" />
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 pt-8">
+              <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <HeartPulse className="w-5 h-5 text-indigo-600" /> Existing Medical Conditions (Optional)
+              </h3>
+              <p className="text-xs text-slate-400 mb-3">Helps our medical professionals assess your parameters accurately.</p>
+              <div>
+                <textarea rows={3} {...register("medicalConditions")} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200 resize-none" placeholder="Mention past diagnosis, conditions, allergies or ongoing treatments..." />
               </div>
             </div>
 
@@ -340,6 +462,46 @@ export default function BuyMembershipPage({ params }) {
                     </button>
                  </div>
                )}
+            </div>
+
+            <div className="border-t border-slate-100 pt-8 space-y-4">
+              <div className="flex items-start gap-3">
+                <input 
+                  type="checkbox" 
+                  id="infoAccurate" 
+                  {...register("infoAccurate", { required: "You must confirm the accuracy of information provided." })}
+                  className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
+                />
+                <label htmlFor="infoAccurate" className="text-sm font-medium text-slate-600 cursor-pointer">
+                  I confirm that all information provided is accurate. <span className="text-red-500">*</span>
+                </label>
+              </div>
+              <ErrorMsg name="infoAccurate" />
+
+              <div className="flex items-start gap-3">
+                <input 
+                  type="checkbox" 
+                  id="termsAccepted" 
+                  {...register("termsAccepted", { required: "You must accept the terms and conditions." })}
+                  className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
+                />
+                <label htmlFor="termsAccepted" className="text-sm font-medium text-slate-600 cursor-pointer">
+                  I agree to Mission100 Membership Terms & Conditions. <span className="text-red-500">*</span>
+                </label>
+              </div>
+              <ErrorMsg name="termsAccepted" />
+
+              <div className="flex items-start gap-3">
+                <input 
+                  type="checkbox" 
+                  id="marketingConsent" 
+                  {...register("marketingConsent")}
+                  className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
+                />
+                <label htmlFor="marketingConsent" className="text-sm font-medium text-slate-600 cursor-pointer">
+                  I consent to receive SMS, WhatsApp and Email updates.
+                </label>
+              </div>
             </div>
 
             <button 
