@@ -12,7 +12,10 @@ import {
   User, 
   Video, 
   Building2,
-  Sparkles
+  Sparkles,
+  Mail,
+  Languages,
+  Users
 } from "lucide-react"; 
 import AboutMission100 from "@/components/AboutMission100";
 import practitioners from "@/data/doctor.json";
@@ -39,16 +42,20 @@ function AppointmentFormContent() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "", lastName: "", age: "", gender: "", contactNo: "",
+      firstName: "", lastName: "", email: "", dob: "", gender: "", contactNo: "",
+      whatsappNo: "", sameAsMobile: false, patientType: "New", languagePreference: "Both",
       doctorId: initialDoctorId, consultationMode: "",
-      appointmentDate: "", appointmentTime: "", symptomNotes: "",
-      houseNo: "", street: "", state: "", city: "", pinCode: ""
+      appointmentDate: "", appointmentTime: "", reasonForConsultation: "",
+      houseNo: "", street: "", state: "", city: "", pinCode: "",
+      infoAccurate: false, contactConsent: false
     }
   });
 
   const selectedDoctorId = watch("doctorId");
   const selectedState = watch("state");
   const selectedMode = watch("consultationMode");
+  const sameAsMobile = watch("sameAsMobile");
+  const contactNo = watch("contactNo");
 
   const locations = {
     "Delhi": ["Delhi"],
@@ -58,7 +65,14 @@ function AppointmentFormContent() {
   const availableCities = selectedState ? locations[selectedState] : [];
   const today = new Date().toISOString().split('T')[0];
 
-  // Side-effect: Adjust modes dynamically when the chosen expert shifts
+  // Sync WhatsApp number if checkbox is checked
+  useEffect(() => {
+    if (sameAsMobile && contactNo) {
+      setValue("whatsappNo", contactNo);
+    }
+  }, [sameAsMobile, contactNo, setValue]);
+
+  // Adjust modes dynamically when the chosen expert shifts
   useEffect(() => {
     if (!selectedDoctorId) {
       setAllowedModes(["Online", "Offline"]);
@@ -84,19 +98,47 @@ function AppointmentFormContent() {
 
   useEffect(() => {
     if (selectedState === "Delhi") setValue("city", "Delhi");
-    else setValue("city", "");
-  }, [selectedState, setValue]);
+    else if (selectedMode === "Online") {
+      // For online consultations, do not clear values if state is manually chosen
+    } else {
+      setValue("city", "");
+    }
+  }, [selectedState, selectedMode, setValue]);
+
+  // Automated Age Calculator from DOB
+  const calculateAge = (dobString) => {
+    if (!dobString) return null;
+    const todayDate = new Date();
+    const birthDate = new Date(dobString);
+    let calculatedAge = todayDate.getFullYear() - birthDate.getFullYear();
+    const m = todayDate.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && todayDate.getDate() < birthDate.getDate())) {
+      calculatedAge--;
+    }
+    return calculatedAge;
+  };
 
   const onSubmit = async (data) => {
     setIsSending(true);
     try {
       const finalDoc = practitioners.find(p => p.id === Number(data.doctorId));
-      console.log("Processing Appointment Request Object:", {
+      const computedAge = calculateAge(data.dob);
+
+      const submissionPayload = {
         ...data,
+        calculatedAge: computedAge,
         doctorName: finalDoc ? finalDoc.name : "Unassigned",
         specialty: finalDoc ? finalDoc.specialty : "General"
-      });
-      
+      };
+
+      // Clean address properties contextually if Online to reduce API payload payload burden
+      if (data.consultationMode === "Online") {
+        delete submissionPayload.houseNo;
+        delete submissionPayload.street;
+        delete submissionPayload.pinCode;
+      }
+
+      console.log("Processing Appointment Request Object:", submissionPayload);
       setShowSuccessPopup(true);
     } catch (error) {
       console.error("Submission error:", error);
@@ -148,10 +190,10 @@ function AppointmentFormContent() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 mt-8">
         
-        {/* SECTION 1: Patient Demographics */}
+        {/* SECTION 1: Patient Information */}
         <div>
           <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 pb-2 border-b border-slate-100">
-            <User className="w-5 h-5 text-green-600" /> 1. Patient Demographics
+            <User className="w-5 h-5 text-green-600" /> 1. Patient Demographics & Profile
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -164,10 +206,21 @@ function AppointmentFormContent() {
               <input {...register("lastName", { required: "Last name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Last name" />
               <ErrorMsg name="lastName" />
             </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-bold text-slate-700 mb-1">Email Address *</label>
+              <input type="email" {...register("email", { 
+                required: "Email address is required",
+                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address format" }
+              })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="example@domain.com" />
+              <p className="text-xs text-slate-400 mt-1 flex items-center gap-1"><Mail className="w-3 h-3" /> Used for appointment confirmation, prescription sharing, and link tracking.</p>
+              <ErrorMsg name="email" />
+            </div>
+
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-1">Age *</label>
-              <input type="number" {...register("age", { required: "Age is required", min: 1 })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter age" />
-              <ErrorMsg name="age" />
+              <label className="block text-sm font-bold text-slate-700 mb-1">Date of Birth *</label>
+              <input type="date" max={today} {...register("dob", { required: "Date of birth is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200" />
+              <ErrorMsg name="dob" />
             </div>
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Gender *</label>
@@ -179,10 +232,48 @@ function AppointmentFormContent() {
               </select>
               <ErrorMsg name="gender" />
             </div>
-            <div className="md:col-span-2">
+
+            <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Mobile Contact Number *</label>
-              <input type="tel" {...register("contactNo", { required: "Valid 10-digit number required", pattern: { value: /^[0-9]{10}$/ } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter 10-digit phone number" />
+              <input type="tel" {...register("contactNo", { required: "Valid 10-digit number required", pattern: { value: /^[0-9]{10}$/, message: "Must be a 10-digit number" } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter 10-digit mobile number" />
               <ErrorMsg name="contactNo" />
+            </div>
+
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-sm font-bold text-slate-700">WhatsApp Number</label>
+                <label className="flex items-center gap-1 text-xs font-semibold text-green-600 cursor-pointer select-none">
+                  <input type="checkbox" {...register("sameAsMobile")} className="w-3.5 h-3.5 accent-green-600 rounded" />
+                  Same as Mobile Number
+                </label>
+              </div>
+              <input type="tel" disabled={sameAsMobile} {...register("whatsappNo", { 
+                required: !sameAsMobile ? "WhatsApp number is required for consultations" : false, 
+                pattern: { value: /^[0-9]{10}$/, message: "Must be a 10-digit number" } 
+              })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200 disabled:opacity-60" placeholder="Enter WhatsApp number" />
+              <ErrorMsg name="whatsappNo" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1 flex items-center gap-1.5"><Users className="w-4 h-4 text-slate-500" /> Patient Type *</label>
+              <div className="grid grid-cols-2 gap-4 h-14.5">
+                {["New", "Existing"].map((type) => (
+                  <label key={type} className={`flex items-center justify-center border rounded-2xl cursor-pointer font-semibold text-sm transition-all select-none ${watch("patientType") === type ? "bg-slate-900 text-white border-slate-900 shadow-sm" : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"}`}>
+                    <input type="radio" value={type} {...register("patientType")} className="sr-only" />
+                    {type} Patient
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1 flex items-center gap-1.5"><Languages className="w-4 h-4 text-slate-500" /> Preferred Language *</label>
+              <select {...register("languagePreference", { required: "Language preference required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200">
+                <option value="Both">Both (Hindi & English)</option>
+                <option value="Hindi">Hindi</option>
+                <option value="English">English</option>
+              </select>
+              <ErrorMsg name="languagePreference" />
             </div>
           </div>
         </div>
@@ -254,28 +345,36 @@ function AppointmentFormContent() {
               <ErrorMsg name="appointmentTime" />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-1">Symptoms / Medical Notes (Optional)</label>
-              <textarea {...register("symptomNotes")} rows={3} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200 resize-none" placeholder="Briefly write any physical symptoms, goals, or historical background notes..." />
+              <label className="block text-sm font-bold text-slate-700 mb-1">Reason for Consultation *</label>
+              <input type="text" {...register("reasonForConsultation", { required: "Reason for consultation is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="e.g. Fever, Diabetes Follow-up, Weight Loss Consultation, Skin Problem" />
+              <ErrorMsg name="reasonForConsultation" />
             </div>
           </div>
         </div>
 
-        {/* SECTION 4: Mandatory Address Block */}
+        {/* SECTION 4: Address Block (Dynamic Layout Configuration) */}
         <div>
           <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2 pb-2 border-b border-slate-100">
-            <MapPin className="w-5 h-5 text-green-600" /> 4. Patient Address Details (Mandatory)
+            <MapPin className="w-5 h-5 text-green-600" /> 4. Patient Location Details
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-1">House / Flat / Building No. *</label>
-              <input { ...register("houseNo", { required: "House number required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Flat, House number, Building name" />
-              <ErrorMsg name="houseNo" />
-            </div>
-            <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-1">Street / Locality / Area *</label>
-              <input { ...register("street", { required: "Street name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Street, area, sector name" />
-              <ErrorMsg name="street" />
-            </div>
+            
+            {/* Contextual verification rendering layout layer */}
+            {selectedMode === "Offline" && (
+              <>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-bold text-slate-700 mb-1">House / Flat / Building No. *</label>
+                  <input { ...register("houseNo", { required: selectedMode === "Offline" ? "House number required" : false })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Flat, House number, Building name" />
+                  <ErrorMsg name="houseNo" />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Street / Locality / Area *</label>
+                  <input { ...register("street", { required: selectedMode === "Offline" ? "Street name is required" : false })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Street, area, sector name" />
+                  <ErrorMsg name="street" />
+                </div>
+              </>
+            )}
+
             <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">State *</label>
               <select {...register("state", { required: "State choice required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200">
@@ -293,12 +392,44 @@ function AppointmentFormContent() {
               </select>
               <ErrorMsg name="city" />
             </div>
-            <div>
-              <label className="block text-sm font-bold text-slate-700 mb-1">6-Digit Pincode *</label>
-              <input {...register("pinCode", { required: "Pincode required", pattern: { value: /^[0-9]{6}$/, message: "Must be a 6-digit number" } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="e.g. 110001" />
-              <ErrorMsg name="pinCode" />
-            </div>
+
+            {selectedMode === "Offline" && (
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-1">6-Digit Pincode *</label>
+                <input {...register("pinCode", { required: selectedMode === "Offline" ? "Pincode required" : false, pattern: { value: /^[0-9]{6}$/, message: "Must be a 6-digit number" } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="e.g. 110001" />
+                <ErrorMsg name="pinCode" />
+              </div>
+            )}
           </div>
+        </div>
+
+        {/* SECTION 5: Mandatory Legal Declarations */}
+        <div className="border-t border-slate-100 pt-6 space-y-4">
+          <div className="flex items-start gap-3">
+            <input 
+              type="checkbox" 
+              id="infoAccurate" 
+              {...register("infoAccurate", { required: "You must confirm that all info provided is accurate." })}
+              className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer animate-none"
+            />
+            <label htmlFor="infoAccurate" className="text-sm font-medium text-slate-600 cursor-pointer select-none">
+              I confirm that all information provided is accurate. <span className="text-red-500">*</span>
+            </label>
+          </div>
+          <ErrorMsg name="infoAccurate" />
+
+          <div className="flex items-start gap-3">
+            <input 
+              type="checkbox" 
+              id="contactConsent" 
+              {...register("contactConsent", { required: "You must consent to being contacted regarding this appointment." })}
+              className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
+            />
+            <label htmlFor="contactConsent" className="text-sm font-medium text-slate-600 cursor-pointer select-none">
+              I consent to being contacted regarding this consultation request. <span className="text-red-500">*</span>
+            </label>
+          </div>
+          <ErrorMsg name="contactConsent" />
         </div>
 
         {/* Submit Action */}
