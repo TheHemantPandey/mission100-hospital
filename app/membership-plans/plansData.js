@@ -13,10 +13,18 @@ export const plans = {
       { title: "Young Professionals", desc: "Active lifestyle preventive monitoring" },
       { title: "Preventive Care", desc: "Stop health problems before they arise" }
     ],
+    features: [
+      "Basic Silver Care Plan Coverage",
+      "12 Online Doctor Consultations Per Year",
+      "Full Body Health Checkup at Home",
+      "Blood Sugar Test at Home",
+      "Blood Pressure Monitoring at Home",
+      "Oxygen (SpO2) Monitoring at Home"
+    ],
     theme: {
       badge: "bg-slate-100 text-slate-800 border-slate-200",
       button: "bg-slate-900 hover:bg-slate-800 text-white shadow-slate-900/10",
-      text: "text-slate-700",
+      text: "text-slate-700", 
       glow: "bg-slate-500/10"
     }
   },
@@ -34,6 +42,18 @@ export const plans = {
       { title: "Parents", desc: "Comprehensive care tailored for elder dependencies" },
       { title: "Regular Checkups", desc: "Routine diagnostics and constant tracking" },
       { title: "Home Healthcare", desc: "Doorstep sample collections and on-call testing" }
+    ],
+    features: [
+      "12 Online Doctor Consultations Per Year",
+      "2 Home Doctor Visits Per Year",
+      "Full Body Health Checkup at Home",
+      "Blood Sugar Test at Home",
+      "Blood Pressure Monitoring at Home",
+      "Oxygen (SpO2) Monitoring at Home",
+      "Priority Appointments Booking",
+      "Dedicated Health Coordinator",
+      "Monthly Vitals Checkup at Home",
+      "Monthly Follow-up Support"
     ],
     theme: {
       badge: "bg-amber-100 text-amber-800 border-amber-200",
@@ -58,6 +78,21 @@ export const plans = {
       { title: "Parents", desc: "Dedicated home doctor checkups with zero stress" },
       { title: "Complete Protection", desc: "Maximum financial and health safety net all year" }
     ],
+    features: [
+      "Everything in Gold Care Plan Included",
+      "12 Online Doctor Consultations Per Year",
+      "12 Home Doctor Visits Per Year",
+      "Full Body Health Checkup at Home",
+      "Blood Sugar Test at Home",
+      "Blood Pressure Monitoring at Home",
+      "ECG Heart Checkup at Home",
+      "Dietician Consultation at Home",
+      "Fitness Consultations Per Year",
+      "Priority Appointments Booking",
+      "Dedicated Health Coordinator",
+      "Monthly Vitals Checkup at Home",
+      "Monthly Follow-up Support"
+    ],
     theme: {
       badge: "bg-blue-100 text-blue-800 border-blue-200",
       button: "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20",
@@ -79,6 +114,19 @@ export const plans = {
       { title: "Weight Management", desc: "Dietician adjustments and metabolic profiling" },
       { title: "Lifestyle Improvement", desc: "Continuous physiological benchmarks structural layout" },
       { title: "Health Tracking", desc: "Advanced performance monitoring metrics" }
+    ],
+    features: [
+      "Everything in Platinum Care Plan Included",
+      "12 Home Doctor Visits Per Year",
+      "12 Online Doctor Consultations Per Year",
+      "4 Dietician Consultations Per Year",
+      "4 Fitness Consultations Per Year",
+      " Personalized Fitness Plan",
+      "Enhanced Dietician Consultations (4/Year)",
+      "Enhanced Fitness Consultations (4/Year)",
+      "Personalized Fitness & Longevity Mapping",
+      "24x7 Emergency Medical Support",
+      "Emergency Ambulance Support Wrapper"
     ],
     theme: {
       badge: "bg-green-100 text-green-800 border-green-200",

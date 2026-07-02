@@ -5,7 +5,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import { plans, comparisonImageUrl } from "../plansData";
+// Change your current import to look like this:
 import {
+  Check, // <-- ADD THIS LINE
   CheckCircle2,
   ShieldCheck,
   Home,
@@ -13,9 +15,9 @@ import {
   PhoneCall,
   ArrowRight,
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Sparkle
 } from "lucide-react";
-
 export default function PlanPage({ params }) {
   // Safe unwrapping of current path parameters
   const resolvedParams = use(params);
@@ -182,28 +184,64 @@ export default function PlanPage({ params }) {
         </div>
       </section>
 
-      {/* --- COMPLETE DEEP DIVE PLAN DETAILS IMAGE --- */}
+{/* --- COMPLETE DEEP DIVE PLAN DETAILS LAYOUT --- */}
       <section className="py-20 bg-white border-y border-slate-200/60">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header Title Block */}
+          <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">Complete Plan Details</h2>
-            <p className="text-slate-500 text-sm sm:text-base mt-2">A complete visual breakdown of itemized inclusions under the {plan.name} structure.</p>
+            <p className="text-slate-500 text-sm sm:text-base mt-2">A comprehensive itemized breakdown of inclusions under the {plan.name} structure.</p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-2 sm:p-4">
-            <div className="w-full">
-              <Image
-                src={plan.image}
-                alt={`Complete ${plan.name} Structural Inclusions`}
-                width={1200}
-                height={1600}
-                className="rounded-2xl w-full h-auto object-contain"
-                priority
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            {/* LEFT SIDE: Core Plan Key Benefits & Features List */}
+            <div className="space-y-6 lg:sticky lg:top-8">
+              <div className="bg-slate-50 border border-slate-200/60 rounded-3xl p-6 sm:p-8">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-6 pb-4 border-b border-slate-200 flex items-center gap-2">
+                  <span className={`w-2.5 h-6 rounded-md bg-gradient-to-b from-indigo-500 to-indigo-600`}></span>
+                  What You Get in {plan.name}
+                </h3>
+                
+                <ul className="space-y-4">
+                  {plan.features?.map((feature, idx) => (
+                    <li key={idx} className="flex items-start bg-white p-4 rounded-xl border border-slate-100 shadow-sm transition-all hover:shadow-md">
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-green-500 text-white text-xs font-black flex-shrink-0 mr-3 mt-0.5">
+                        <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                      </span>
+                      <span className={`text-slate-700 leading-tight text-sm font-semibold ${feature.startsWith('Everything') ? 'italic font-bold text-slate-900' : ''}`}>
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              
             </div>
+
+            {/* RIGHT SIDE: Deep Dive Visual Flyer Preview */}
+            <div className="w-full max-w-md mx-auto lg:max-w-none">
+              <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-2 sm:p-4">
+                <div className="w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src={plan.image}
+                    alt={`Complete ${plan.name} Structural Inclusions Flyer`}
+                    width={1200}
+                    height={1600}
+                    className="w-full h-auto object-contain transition-transform duration-500 hover:scale-[1.02]"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
+
 
       {/* --- VALUE OPTIMIZATION FINANCIAL CARD --- */}
       <section className="py-20 bg-slate-50/50">
