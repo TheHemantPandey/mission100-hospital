@@ -1,25 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { MapPin, Activity, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag } from "lucide-react"; 
+import { MapPin, Activity, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag } from "lucide-react";
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
 
 export default function BookingPage() {
   const [isSending, setIsSending] = useState(false);
-  
+
   const [appliedCode, setAppliedCode] = useState(null);
   const [discountAmount, setDiscountAmount] = useState(0);
   const [isCheckingCode, setIsCheckingCode] = useState(false);
   const [referralInput, setReferralInput] = useState("");
   const [referralError, setReferralError] = useState("");
-  
+
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const basePriceConfig = {
     "Complete Health Checkup : 1999": 1999,
-    "Heart Attack Prevention Test : 499": 499, 
-    "Full Body Checkup : 999": 999              
+    "Heart Attack Prevention Test : 499": 499,
+    "Full Body Checkup : 999": 999
   };
 
   const {
@@ -27,19 +27,19 @@ export default function BookingPage() {
     handleSubmit,
     watch,
     setValue,
-    reset, 
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "", lastName: "", state: "", city: "", age: "", gender: "", 
-      contactNo: "", testName: "", appointmentDate: "", appointmentTime: "", 
+      firstName: "", lastName: "", state: "", city: "", age: "", gender: "",
+      contactNo: "", testName: "", appointmentDate: "", appointmentTime: "",
       houseNo: "", street: "", pinCode: "", landmark: ""
     }
   });
 
   const selectedState = watch("state");
-  const selectedTest = watch("testName"); 
-  
+  const selectedTest = watch("testName");
+
   const currentBasePrice = basePriceConfig[selectedTest] || 0;
   const finalPrice = Math.max(0, currentBasePrice - discountAmount);
 
@@ -60,7 +60,7 @@ export default function BookingPage() {
   const handleApplyReferral = async (e) => {
     e.preventDefault();
     setReferralError("");
-    
+
     // Safety Check: Ensure a test is selected first
     if (!selectedTest) {
       setReferralError("Please select a Preferred Test above before applying a coupon.");
@@ -75,12 +75,12 @@ export default function BookingPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // Sends BOTH the coupon code and the selected test name to your new API
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           referralCode: referralInput,
-          testName: selectedTest 
+          testName: selectedTest
         }),
       });
-      
+
       const data = await res.json();
 
       if (res.ok) {
@@ -88,7 +88,7 @@ export default function BookingPage() {
         setDiscountAmount(data.discountAmount);
         setReferralInput("");
       } else {
-        setReferralError(data.error); 
+        setReferralError(data.error);
       }
     } catch (err) {
       setReferralError("Network error. Please try again.");
@@ -124,7 +124,7 @@ export default function BookingPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          referralCode: appliedCode 
+          referralCode: appliedCode
         }),
       });
 
@@ -133,19 +133,19 @@ export default function BookingPage() {
       if (!orderResponse.ok) {
         alert(orderData.error || "Something went wrong.");
         setIsSending(false);
-        return; 
+        return;
       }
 
       // Free test bypass
       if (orderData.isFree) {
         setShowSuccessPopup(true);
         setIsSending(false);
-        return; 
+        return;
       }
 
       // Razorpay checkout
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, 
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: orderData.order.amount,
         currency: orderData.order.currency,
         name: "Mission 100 Hospital",
@@ -156,10 +156,10 @@ export default function BookingPage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-                referralCode: appliedCode
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              referralCode: appliedCode
             })
           });
 
@@ -170,8 +170,8 @@ export default function BookingPage() {
           }
         },
         prefill: {
-            name: `${data.firstName} ${data.lastName}`,
-            contact: data.contactNo
+          name: `${data.firstName} ${data.lastName}`,
+          contact: data.contactNo
         },
         theme: { color: "#16a34a" }
       };
@@ -213,7 +213,7 @@ export default function BookingPage() {
             <p className="text-slate-600 mb-8 leading-relaxed">
               Thank you for choosing Mission 100 Hospital. Your appointment details have been securely recorded. Our team will contact you shortly.
             </p>
-            <button 
+            <button
               onClick={handleClosePopup}
               className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-colors"
             >
@@ -235,7 +235,7 @@ export default function BookingPage() {
             <h2 className="text-2xl font-bold text-slate-800 text-center uppercase tracking-wider underline decoration-green-500 underline-offset-8">
               Appointment Details
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">First Name *</label>
@@ -247,7 +247,7 @@ export default function BookingPage() {
                 <input {...register("lastName", { required: "Last name is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Last Name" />
                 <ErrorMsg name="lastName" />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Age *</label>
                 <input type="number" {...register("age", { required: "Age is required", min: 1 })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Enter Age" />
@@ -270,7 +270,7 @@ export default function BookingPage() {
                 <input type="tel" {...register("contactNo", { required: "10-digit number required", pattern: { value: /^[0-9]{10}$/ } })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="Mobile Number" />
                 <ErrorMsg name="contactNo" />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Preferred Test *</label>
                 <div className="relative">
@@ -348,59 +348,60 @@ export default function BookingPage() {
             </div>
 
             <div className="border-t border-slate-100 pt-8 mt-6">
-               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
-                 <Tag className="w-5 h-5 text-green-600"/> Discount & Referrals
-               </h3>
-               
-               {!appliedCode ? (
-                 <div className="space-y-2">
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Referral Code (Optional)</label>
-                    <div className="flex gap-3">
-                      <input 
-                        value={referralInput}
-                        onChange={(e) => setReferralInput(e.target.value.toUpperCase())}
-                        className="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-semibold" 
-                        placeholder="ENTER CODE" 
-                      />
-                      <button 
-                        onClick={handleApplyReferral}
-                        disabled={isCheckingCode || !referralInput}
-                        className="px-8 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-700 disabled:opacity-50 transition-colors"
-                      >
-                        {isCheckingCode ? "Checking..." : "Apply"}
-                      </button>
-                    </div>
-                    {referralError && <p className="text-red-500 text-sm font-medium mt-2">{referralError}</p>}
-                 </div>
-               ) : (
-                 <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" />
-                      <div>
-                        <p className="text-green-800 font-bold">Code '{appliedCode}' Applied!</p>
-                        <p className="text-green-600 text-sm font-medium">You saved ₹{discountAmount}</p>
-                      </div>
-                    </div>
-                    <button 
-                      type="button" 
-                      onClick={handleRemoveReferral}
-                      className="text-red-500 hover:text-red-700 font-bold text-sm px-3 py-2 flex items-center gap-1"
+              <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <Tag className="w-5 h-5 text-green-600" /> Discount & Referrals
+              </h3>
+
+              {!appliedCode ? (
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Referral Code (Optional)</label>
+                  {/* Changing to flex-col sm:flex-row keeps them inline on PC/Tablets but stacks cleanly on small mobile devices */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      value={referralInput}
+                      onChange={(e) => setReferralInput(e.target.value.toUpperCase())}
+                      className="w-full sm:flex-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-semibold"
+                      placeholder="ENTER CODE"
+                    />
+                    <button
+                      onClick={handleApplyReferral}
+                      disabled={isCheckingCode || !referralInput}
+                      className="w-full sm:w-auto px-8 py-4 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-700 disabled:opacity-50 transition-colors"
                     >
-                      <XCircle className="w-4 h-4" /> Remove
+                      {isCheckingCode ? "Checking..." : "Apply"}
                     </button>
-                 </div>
-               )}
+                  </div>
+                  {referralError && <p className="text-red-500 text-sm font-medium mt-2">{referralError}</p>}
+                </div>
+              ) : (
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                    <div>
+                      <p className="text-green-800 font-bold">Code '{appliedCode}' Applied!</p>
+                      <p className="text-green-600 text-sm font-medium">You saved ₹{discountAmount}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemoveReferral}
+                    className="text-red-500 hover:text-red-700 font-bold text-sm px-3 py-2 flex items-center gap-1"
+                  >
+                    <XCircle className="w-4 h-4" /> Remove
+                  </button>
+                </div>
+              )}
             </div>
 
-            <button 
-              type="submit" 
-              disabled={isSending || !selectedTest} 
+            <button
+              type="submit"
+              disabled={isSending || !selectedTest}
               className={`w-full mt-10 text-white py-5 rounded-2xl font-black text-xl transition-all shadow-lg active:scale-[0.98] ${isSending || !selectedTest ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
             >
-              {isSending ? "Processing..." : 
-               !selectedTest ? "Select a test to continue" :
-               finalPrice === 0 ? "Book Free Appointment" : 
-               `Continue to Pay - ₹${finalPrice}`}
+              {isSending ? "Processing..." :
+                !selectedTest ? "Select a test to continue" :
+                  finalPrice === 0 ? "Book Free Appointment" :
+                    `Continue to Pay - ₹${finalPrice}`}
             </button>
           </form>
         </div>
