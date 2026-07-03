@@ -37,7 +37,6 @@ async function getSheetTabs() {
   
   const bookingsSheet = doc.sheetsByTitle['Bookings'];
   const referralsSheet = doc.sheetsByTitle['Referrals'];
-  // Added the new tab exactly as spelled in your screenshot layout: 'Memberhsip'
   const membershipSheet = doc.sheetsByTitle['Memberhsip'];
   
   if (!bookingsSheet || !referralsSheet || !membershipSheet) {
@@ -52,14 +51,14 @@ async function sendMembershipEmail(email, firstName, lastName, planName, finalPr
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: `🎉 Membership Activated: Welcome to Mission 100 Hospital!`,
+    subject: `🚑 Membership Activated: Welcome to Mission 100 Hospital!`,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 16px;">
         <h2 style="color: #16a34a; text-align: center;">Mission 100 Hospital</h2>
         <p>Dear <strong>${firstName} ${lastName}</strong>,</p>
         <p>Thank you for subscribing to our <strong>${planName}</strong> package! Your payment has been verified successfully and your premium health benefits are live.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-        <h3>📋 Subscription Summary</h3>
+        <h3>💳 Subscription Summary</h3>
         <p><strong>Plan Package:</strong> ${planName}</p>
         <p><strong>Amount Paid:</strong> ₹${finalPrice}</p>
         <p><strong>Pre-activation Checkup Slot:</strong> ${appDate} (${appTime})</p>
@@ -77,6 +76,10 @@ export async function validateReferral(codeStr, testNameFromUser) {
   const { referralsSheet } = await getSheetTabs();
   const rows = await referralsSheet.getRows();
   
+  if (!codeStr) {
+    return { valid: false, message: "No code provided" };
+  }
+
   const codeRow = rows.find(row => row.get('Code')?.trim().toLowerCase() === codeStr.trim().toLowerCase());
   
   if (!codeRow) {
@@ -85,14 +88,16 @@ export async function validateReferral(codeStr, testNameFromUser) {
 
   const applicableTest = codeRow.get('Applicable Test')?.trim() || 'All';
   
-  if (applicableTest.toLowerCase() !== 'all' && applicableTest.toLowerCase() !== testNameFromUser.trim().toLowerCase()) {
+  // SAFE GUARD: Safe string conversion fallback to prevent undefined or null .trim() exceptions
+  const safeUserTestName = (testNameFromUser || '').toString().trim().toLowerCase();
+  
+  if (applicableTest.toLowerCase() !== 'all' && applicableTest.toLowerCase() !== safeUserTestName) {
     return { 
       valid: false, 
       message: `This coupon is only valid for the "${applicableTest}" test.` 
     };
   }
   
-  const discountAmount = parseFloat(codeRow.get('Discount Amount') || 0);
   const maxUses = parseInt(codeRow.get('Max Uses') || 0);
   const currentUses = parseInt(codeRow.get('Current Uses') || 0);
   
@@ -100,7 +105,16 @@ export async function validateReferral(codeStr, testNameFromUser) {
     return { valid: false, message: "This referral code has expired!" };
   }
   
-  return { valid: true, discountAmount };
+  // --- PERSISTENT CHECK: DYNAMIC % OR FLAT VALUE LOOKUP ---
+  const rawDiscountStr = (codeRow.get('Discount Amount') || '0').toString().trim();
+  
+  if (rawDiscountStr.includes('%')) {
+    const percentageValue = parseFloat(rawDiscountStr.replace('%', '') || 0);
+    return { valid: true, isPercentage: true, percentageValue };
+  } else {
+    const flatDiscountAmount = parseFloat(rawDiscountStr || 0);
+    return { valid: true, isPercentage: false, discountAmount: flatDiscountAmount };
+  }
 }
 
 // 2. Function to save a pending booking row
@@ -151,10 +165,6 @@ export async function markBookingAsPaid(orderId, referralCodeUsed) {
     }
 }
 
-// ==========================================
-// NEW: MEMBERSHIP WORKFLOW OPERATIONS
-// ==========================================
-
 // 4. Function to add a pending row into the "Memberhsip" tab
 export async function addPendingMembership(data) {
   const { membershipSheet } = await getSheetTabs();
@@ -185,7 +195,6 @@ export async function addPendingMembership(data) {
     'Payment Status': data.status
   });
 
-  // If code calculates to free (₹0), fire email right away
   if (data.status.includes('Confirmed') || data.status.includes('Free')) {
     await sendMembershipEmail(
       data.email, data.firstName, data.lastName, data.planName, 
@@ -207,7 +216,6 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed) {
     targetRow.set('Payment Status', 'Paid - Confirmed');
     await targetRow.save();
 
-    // Trigger email dispatcher tracking parameters
     await sendMembershipEmail(
       targetRow.get('Email'),
       targetRow.get('First Name'),
@@ -219,7 +227,6 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed) {
     );
   }
 
-  // Increment referral usage count if it was applied
   if (referralCodeUsed && referralCodeUsed.toLowerCase() !== 'none') {
     const refRows = await referralsSheet.getRows();
     const codeRow = refRows.find(row => row.get('Code')?.trim().toLowerCase() === referralCodeUsed.trim().toLowerCase());

@@ -42,18 +42,23 @@ export async function POST(request) {
         }
 
         let discountAmount = 0;
-        let isCodeValid = false;
 
         // 3. Verify the referral code from Google Sheets if provided
         if (referralCode) {
-            const referralCheck = await validateReferral(referralCode);
+            // FIX: Explicitly passed testName here so validateReferral runs correctly without throwing undefined exceptions
+            const referralCheck = await validateReferral(referralCode, testName);
             if (referralCheck.valid) {
-                discountAmount = referralCheck.discountAmount;
-                isCodeValid = true;
+                if (referralCheck.isPercentage) {
+                    // Calculate percentage reduction securely based on server prices
+                    discountAmount = Math.round((basePrice * referralCheck.percentageValue) / 100);
+                } else {
+                    // Assign standard flat markdown rate
+                    discountAmount = referralCheck.discountAmount;
+                }
             }
         }
 
-        // 4. Calculate the secure final price (never allow negative prices)
+        // 4. Calculate the secure final price (never allow negative values)
         const finalPrice = Math.max(0, basePrice - discountAmount);
 
         // --- SCENARIO A: THE TEST IS FREE (Price is ₹0) ---
