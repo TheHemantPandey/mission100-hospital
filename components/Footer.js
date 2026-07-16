@@ -298,6 +298,15 @@ const Footer = () => {
                     Privacy Policy
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/app-privacy-policy"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <ChevronRight size={14} />
+                    App Privacy Policy
+                  </a>
+                </li>
 
                 <li>
                   <a
