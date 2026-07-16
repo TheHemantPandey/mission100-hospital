@@ -242,7 +242,54 @@
         "Average blood glucose (ABG)",
         "HbA1c"
       ]
-    },{
+    },
+    {
+      "mainParam": "ECG Test",
+      "nestedCount": 1,
+      "nestedParams": [
+        "ECG test at home"
+      ]
+    },
+    {
+      "mainParam": "Cardiac Risk Markers",
+      "nestedCount": 5,
+      "nestedParams": [
+        "Lipoprotein (a)",
+        "Apolipoprotein - A1",
+        "Apolipoprotein - B",
+        "High sensitivity C-reactive Protein",
+        "ApoB/ApoA1 Ratio"
+      ]
+    },
+    {
+      "mainParam": "ECG Test",
+      "nestedCount": 1,
+      "nestedParams": [
+        "Detect heart problems early"
+      ]
+    },
+    {
+      "mainParam": "Blood Pressure Check",
+      "nestedCount": 1,
+      "nestedParams": [
+        "Monitor your blood pressure levels"
+      ]
+    },
+    {
+      "mainParam": "Blood Sugar Test",
+      "nestedCount": 1,
+      "nestedParams": [
+        "Know your sugar levels"
+      ]
+    },
+    {
+      "mainParam": "Pulse Rate Monitoring",
+      "nestedCount": 1,
+      "nestedParams": [
+        "Check your heart rate variability"
+      ]
+    },
+    {
       "mainParam": "CBC",
       "nestedCount": 28,
       "nestedParams": [
