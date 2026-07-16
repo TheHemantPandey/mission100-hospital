@@ -108,6 +108,13 @@
       ]
     },
     {
+      "mainParam": "ECG Test",
+      "nestedCount": 1,
+      "nestedParams": [
+        "Detect heart problems early"
+      ]
+    },
+    {
       "mainParam": "CBC",
       "nestedCount": 28,
       "nestedParams": [
@@ -259,13 +266,6 @@
         "Apolipoprotein - B",
         "High sensitivity C-reactive Protein",
         "ApoB/ApoA1 Ratio"
-      ]
-    },
-    {
-      "mainParam": "ECG Test",
-      "nestedCount": 1,
-      "nestedParams": [
-        "Detect heart problems early"
       ]
     },
     {
