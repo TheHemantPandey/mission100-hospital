@@ -1,195 +1,158 @@
 [
   {
-    "id": 1,
-    "slug": "complete-health-checkup",
-    "title": "Complete Health Checkup",
-    "oldPrice": 3499,
-    "currentPrice": 1999,
-    "alsoKnownAs": [
-      "Total Care",
-      "Full Body Checkup Total Care",
-      "Total Care Tests",
-      "Whole Body Health 1999 Package",
-      "Preventive Health Checkup"
-    ],
-    "shortDescription": "Complete Health Checkup is one of the most popular health checkup packages. It includes Kidney Function Test, Liver Function Test, HbA1C, Vitamin D, Vitamin B12, Thyroid Function Tests and many more to provide a complete overview of your health.",
-    "totalParameters": 87,
-    "image": "/test-images/6.png",
-    "specialFeatures": [
-      "Doctor Consultation Report",
-      "Diet & Lifestyle Advice",
-      "Free Home Sample Collection",
-      "Same Day Reporting",
-      "Doctor Verified Report",
-      "Special Health Package Offer"
-    ],
-    "includes": [
-      {
-        "mainParam": "CBC",
-        "nestedCount": 22,
-        "nestedParams": [
-          "Hemoglobin",
-          "Total RBC",
-          "Platelet Count",
-          "Total Leucocyte Count (WBC)",
-          "Neutrophils",
-          "Lymphocytes",
-          "Monocytes",
-          "Eosinophils",
-          "Basophils",
-          "Absolute Neutrophil Count",
-          "Absolute Lymphocyte Count",
-          "Absolute Monocyte Count",
-          "Absolute Eosinophil Count",
-          "Absolute Basophil Count",
-          "Hematocrit (PCV)",
-          "Mean Corpuscular Volume (MCV)",
-          "Mean Corp. Hemoglobin (MCH)",
-          "MCH Concentration (MCHC)",
-          "Red Cell Dist. Width (RDW-CV)",
-          "Red Cell Dist. Width (RDW-SD)",
-          "Mean Platelet Volume (MPV)",
-          "Mentzer Index"
-        ]
-      },
-      {
-        "mainParam": "Glucose Fasting",
-        "nestedCount": 1,
-        "nestedParams": [
-          "Blood Sugar Fasting"
-        ]
-      },
-      {
-        "mainParam": "Lipid Profile",
-        "nestedCount": 8,
-        "nestedParams": [
-          "Total Cholesterol",
-          "Triglyceride",
-          "HDL Cholesterol",
-          "VLDL Cholesterol",
-          "LDL Cholesterol",
-          "Non-HDL Cholesterol",
-          "LDL / HDL Ratio",
-          "TC / HDL Ratio"
-        ]
-      },
-      {
-        "mainParam": "Liver Function Test",
-        "nestedCount": 12,
-        "nestedParams": [
-          "Total Protein",
-          "Albumin",
-          "Globulin",
-          "A/G Ratio",
-          "Total Bilirubin",
-          "Conjugated Bilirubin",
-          "Unconjugated Bilirubin",
-          "SGOT (AST)",
-          "SGPT (ALT)",
-          "SGOT/SGPT Ratio",
-          "Alkaline Phosphatase",
-          "Gamma Glutamyl Transferase"
-        ]
-      },
-      {
-        "mainParam": "Kidney Function Test",
-        "nestedCount": 11,
-        "nestedParams": [
-          "Blood Urea",
-          "Blood Urea Nitrogen",
-          "Creatinine",
-          "Uric Acid",
-          "Calcium",
-          "Phosphorus",
-          "BUN/Creatinine Ratio",
-          "Urea/Creatinine Ratio",
-          "Sodium",
-          "Potassium",
-          "Chloride"
-        ]
-      },
-      {
-        "mainParam": "Vitamin B12",
-        "nestedCount": 1,
-        "nestedParams": [
-          "Vitamin B-12"
-        ]
-      },
-      {
-        "mainParam": "Vitamin D, 25 - Hydroxy",
-        "nestedCount": 1,
-        "nestedParams": [
-          "25-OH Vitamin D (Total)"
-        ]
-      },
-      {
-        "mainParam": "Iron Profile",
-        "nestedCount": 3,
-        "nestedParams": [
-          "Iron",
-          "Total Iron Binding Capacity",
-          "Transferrin Saturation"
-        ]
-      },
-      {
-        "mainParam": "Hb A1c",
-        "nestedCount": 2,
-        "nestedParams": [
-          "HbA1C",
-          "90 Day Average Blood Glucose"
-        ]
-      },
-      {
-        "mainParam": "Free Thyroid Test [FT3,FT4,TSH]",
-        "nestedCount": 3,
-        "nestedParams": [
-          "Free Triiodothyronine [FT3]",
-          "Free Thyroxine [FT4]",
-          "Thyroid Stimulating Hormone (TSH)"
-        ]
-      },
-      {
-        "mainParam": "ESR",
-        "nestedCount": 1,
-        "nestedParams": [
-          "ESR"
-        ]
-      },
-      {
-        "mainParam": "Urine R/M",
-        "nestedCount": 22,
-        "nestedParams": [
-          "Urine Quantity",
-          "Urine Colour",
-          "Urinary Transparency",
-          "Urinary pH",
-          "Urinary Specific Gravity",
-          "Urinary Protein",
-          "Urinary Glucose",
-          "Urinary Ketones",
-          "Urobilinogen",
-          "Urine Bilirubin",
-          "Urinary Nitrites",
-          "Blood [In Urine]",
-          "Leukocyte Esterase",
-          "Pus Cells [In Urine]",
-          "Epithelial Cells (Squamous)",
-          "Epithelial Cells (Non-Squamous)",
-          "Urinary RBC"
-        ]
-      }
-    ],
-    "bottomDetails": {
-      "preparation": "10-12 hours fasting is recommended before sample collection. Water is allowed.",
-      "reportingTAT": "Same Day / Next Day",
-      "specializations": [
-        "Full Body Checkup",
-        "Diabetes Screening",
-        "Heart Health",
-        "Thyroid Health"
+  "id": 1,
+  "slug": "complete-health-checkup",
+  "title": "Complete Health Checkup",
+  "oldPrice": 3499,
+  "currentPrice": 1999,
+  "alsoKnownAs": [
+    "Total Care",
+    "Full Body Checkup Total Care",
+    "Total Care Tests",
+    "Whole Body Health 1999 Package",
+    "Preventive Health Checkup"
+  ],
+  "shortDescription": "Complete Health Checkup is one of the most popular health checkup packages. It includes Kidney Function Test, Liver Function Test, HbA1C, Vitamin D, Vitamin B12, Thyroid Function Tests and many more to provide a complete overview of your health.",
+  "totalParameters": 69,
+  "image": "/test-images/6.png",
+  "specialFeatures": [
+    "Doctor Consultation Report",
+    "Diet & Lifestyle Advice",
+    "Free Home Sample Collection",
+    "Same Day Reporting",
+    "Doctor Verified Report",
+    "Special Health Package Offer"
+  ],
+  "includes": [
+    {
+      "mainParam": "Lipid Advanced",
+      "nestedCount": 10,
+      "nestedParams": [
+        "Total Cholesterol",
+        "HDL Cholesterol - Direct",
+        "LDL Cholesterol - Direct",
+        "LDL / HDL Ratio",
+        "NON-HDL Cholesterol",
+        "TC/ HDL Cholesterol Ratio",
+        "Triglycerides",
+        "VLDL Cholesterol",
+        "HDL / LDL Ratio",
+        "TRIG / HDL Ratio"
+      ]
+    },
+    {
+      "mainParam": "Liver Extended",
+      "nestedCount": 12,
+      "nestedParams": [
+        "Alkaline Phosphatase",
+        "Bilirubin - Direct",
+        "Bilirubin - Total",
+        "Bilirubin - Indirect",
+        "Gamma Glutamyl Transferase",
+        "Protein - Total",
+        "Serum Albumin",
+        "Serum Globulin",
+        "SGOT [AST]",
+        "SGPT [ALT]",
+        "Serum Albumin / Globulin Ratio",
+        "SGOT / SGPT Ratio"
+      ]
+    },
+    {
+      "mainParam": "Kidney Advanced",
+      "nestedCount": 7,
+      "nestedParams": [
+        "BUN/Creatinine Ratio",
+        "Blood Urea Nitrogen [BUN]",
+        "Calcium",
+        "Serum Creatinine",
+        "Uric Acid",
+        "Urea (Calculated)",
+        "Urea / SR. Creatinine Ratio"
+      ]
+    },
+    {
+      "mainParam": "Thyroid Advanced",
+      "nestedCount": 3,
+      "nestedParams": [
+        "Total Triiodothyronine (T3)",
+        "Total Thyroxine (T4)",
+        "Ultrasensitive TSH [UTSH]"
+      ]
+    },
+    {
+      "mainParam": "Cardiac Risk Markers",
+      "nestedCount": 5,
+      "nestedParams": [
+        "Lipoprotein (a)",
+        "Apolipoprotein - A1",
+        "Apolipoprotein - B",
+        "High sensitivity C-reactive Protein",
+        "ApoB/ApoA1 Ratio"
+      ]
+    },
+    {
+      "mainParam": "Diabetes Profile",
+      "nestedCount": 2,
+      "nestedParams": [
+        "Average blood glucose (ABG)",
+        "HbA1c"
+      ]
+    },
+    {
+      "mainParam": "Vitamin Profile",
+      "nestedCount": 2,
+      "nestedParams": [
+        "Vitamin B-12",
+        "25-OH Vitamin D (Total)"
+      ]
+    },
+    {
+      "mainParam": "CBC",
+      "nestedCount": 28,
+      "nestedParams": [
+        "BASOPHILS - ABSOLUTE COUNT",
+        "EOSINOPHILS - ABSOLUTE COUNT",
+        "LYMPHOCYTES - ABSOLUTE COUNT",
+        "MONOCYTES - ABSOLUTE COUNT",
+        "NEUTROPHILS - ABSOLUTE COUNT",
+        "BASOPHILS",
+        "EOSINOPHILS",
+        "HEMOGLOBIN",
+        "IMMATURE GRANULOCYTE PERCENTAGE(IG%)",
+        "TOTAL LEUCOCYTES COUNT",
+        "LYMPHOCYTE PERCENTAGE",
+        "MEAN CORPUSCULAR HEMOGLOBIN(MCH)",
+        "MEAN CORP.HEMO.CONC(MCHC)",
+        "MEAN CORPUSCULAR VOLUME(MCV)",
+        "MONOCYTES",
+        "NEUTROPHILS",
+        "NUCLEATED RED BLOOD CELLS",
+        "NUCLEATED RED BLOOD CELLS %",
+        "HEMATOCRIT(PCV)",
+        "PLATELET COUNT",
+        "TOTAL RBC",
+        "RED CELL DISTRIBUTION WIDTH (RDW-CV)",
+        "RED CELL DISTRIBUTION WIDTH - SD(RDW-SD)",
+        "IMMATURE GRANULOCYTES(IG)",
+        "MEAN PLATELET VOLUME(MPV)",
+        "PLATELETCRIT(PCT)",
+        "PLATELET DISTRIBUTION WIDTH(PDW)",
+        "PLATELET TO LARGE CELL RATIO(PLCR)"
       ]
     }
-  },
+  ],
+  "bottomDetails": {
+    "preparation": "10-12 hours fasting is recommended before sample collection. Water is allowed.",
+    "reportingTAT": "Same Day / Next Day",
+    "specializations": [
+      "Full Body Checkup",
+      "Diabetes Screening",
+      "Heart Health",
+      "Thyroid Health"
+    ]
+  }
+},
   {
   "id": 2,
   "slug": "full-body-checkup",
