@@ -236,7 +236,7 @@ const AboutUs = () => {
             <ServiceCard
               emoji="❤️"
               title="Heart Attack Prevention"
-              description="Prioritizing cardiac safety through advanced ECG analysis and risk assessment."
+              description="Prioritizing cardiac safety through advanced ECG Analysis and risk assessment."
               href="/services/heart-attack-prevention"
             />
             <ServiceCard
