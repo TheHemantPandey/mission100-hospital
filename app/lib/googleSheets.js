@@ -48,19 +48,20 @@ async function getSheetTabs() {
 
 // Helper email sender function
 async function sendMembershipEmail(email, firstName, lastName, planName, finalPrice, appDate, appTime) {
+  const isFree = Number(finalPrice) === 0;
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: email,
+    to: `${email}, ${process.env.EMAIL_USER}`,
     subject: `🚑 Membership Activated: Welcome to Mission 100 Hospital!`,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 16px;">
         <h2 style="color: #16a34a; text-align: center;">Mission 100 Hospital</h2>
         <p>Dear <strong>${firstName} ${lastName}</strong>,</p>
-        <p>Thank you for subscribing to our <strong>${planName}</strong> package! Your payment has been verified successfully and your premium health benefits are live.</p>
+        <p>Thank you for subscribing to our <strong>${planName}</strong> package! ${isFree ? 'Your membership has been activated successfully' : 'Your payment has been verified successfully'} and your premium health benefits are live.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
         <h3>💳 Subscription Summary</h3>
         <p><strong>Plan Package:</strong> ${planName}</p>
-        <p><strong>Amount Paid:</strong> ₹${finalPrice}</p>
+        <p><strong>Amount Paid:</strong> ${isFree ? 'Completely Free (₹0)' : `₹${finalPrice}`}</p>
         <p><strong>Pre-activation Checkup Slot:</strong> ${appDate} (${appTime})</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
         <p style="font-size: 12px; color: #64748b;">Your health reports, diagnostics tracking, and official invoice records will be shared directly to this email address.</p>
