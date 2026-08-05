@@ -1,4 +1,33 @@
 export const plans = {
+  "free-plan": {
+    id: "free",
+    name: "Free Employee Plan",
+    price: "₹0",
+    originalPrice: "₹0",
+    savings: "Zero Cost, Maximum Impact",
+    costPerDay: "Completely Free",
+    image: "/membership-plans/free-plan.png",
+    bestFor: [
+      { title: "Early Detection", desc: "Early detection of health issues" },
+      { title: "Employee Well-being", desc: "Promotes employee well-being" },
+      { title: "Workplace Productivity", desc: "Improves productivity and reduces absenteeism" },
+      { title: "Zero Cost", desc: "Zero cost. Maximum impact." }
+    ],
+    features: [
+      "Monthly Office Health Checkups (12 Visits)",
+      "Regular basic health monitoring for early detection & a healthier workforce",
+      "Blood Pressure (BP) Monitoring regularly",
+      "Blood Sugar tracking and monitoring",
+      "Weight monitoring for a healthier you",
+      "SpO2 (Oxygen Saturation) level checks"
+    ],
+    theme: {
+      badge: "bg-emerald-100 text-emerald-800 border-emerald-200",
+      button: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-600/20",
+      text: "text-emerald-600",
+      glow: "bg-emerald-500/10"
+    }
+  },
   "silver-plan": {
     id: "silver",
     name: "Silver Care",

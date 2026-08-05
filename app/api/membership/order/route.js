@@ -3,6 +3,7 @@ import Razorpay from 'razorpay';
 import { validateReferral, addPendingMembership } from '../../../lib/googleSheets';
 
 const basePrices = {
+    "free-plan": { name: "Free Employee Plan", price: 0 },
     "silver-plan": { name: "Silver Care", price: 2999 },
     "gold-plan": { name: "Gold Care", price: 4999 },
     "platinum-plan": { name: "Platinum Care", price: 9999 },

@@ -8,6 +8,7 @@ import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
 
 const planPriceConfig = {
+  "free-plan": { name: "Free Employee Plan", price: 0 },
   "silver-plan": { name: "Silver Care", price: 2999 },
   "gold-plan": { name: "Gold Care", price: 4999 },
   "platinum-plan": { name: "Platinum Care", price: 9999 },
@@ -307,6 +308,7 @@ export default function BuyMembershipPage({ params }) {
                 <label className="block text-sm font-bold text-slate-700 mb-1">Membership Plan *</label>
                 <div className="relative">
                   <select {...register("planSlug", { required: "Plan selection is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none appearance-none cursor-pointer border-slate-200">
+                    <option value="free-plan">Free Employee Plan — ₹0</option>
                     <option value="silver-plan">Silver Care Plan — ₹2,999</option>
                     <option value="gold-plan">Gold Care Plan — ₹4,999</option>
                     <option value="platinum-plan">Platinum Care Plan — ₹9,999</option>

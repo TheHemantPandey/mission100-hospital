@@ -22,6 +22,15 @@
   // --- PASTE YOUR IMAGE URLS HERE ---
   const posterImages = [
     { 
+      id: 'free', 
+      name: 'Free Employee Plan', 
+      imgUrl: '/membership-plans/free-plan.png', 
+      pageUrl: '/membership-plans/free-plan',
+      btnColor: 'bg-emerald-600 hover:bg-emerald-700 text-white',
+      costPerDay: 'Completely Free',
+      bestFor: 'Corporate Health'
+    },
+    { 
       id: 'silver', 
       name: 'Silver Care', 
       imgUrl: '/membership-plans/silver-plan.png', 
