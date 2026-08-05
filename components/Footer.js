@@ -291,6 +291,16 @@ const Footer = () => {
 
                 <li>
                   <a
+                    href="/corporate-wellness-partnership"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <Briefcase size={15} />
+                    Corporate Wellness
+                  </a>
+                </li>
+
+                <li>
+                  <a
                     href="/privacy-policy"
                     className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >

@@ -25,6 +25,7 @@ const AntiAgingSection = dynamic(() => import("@/components/Anti-Aging"));
 const SugarSection = dynamic(() => import("@/components/Sugar-Management"));
 const VitaminsSection = dynamic(() => import("@/components/Vitamin-Minerals"));
 const AyurvedaSection = dynamic(() => import("@/components/Yoga-Ayurveda"));
+const CorporateWellnessSection = dynamic(() => import("@/components/CorporateWellnessPreview"), { ssr: true });
 const Brochure = dynamic(() => import("@/components/Brochure"));
 const QueryForm = dynamic(() => import("@/components/QueryForm"));
 const Faq = dynamic(() => import("@/components/Faq"));
@@ -105,9 +106,11 @@ export default function Home() {
       <SugarSection />
       <VitaminsSection />
       <AyurvedaSection />
+      <CorporateWellnessSection />
       <Brochure /> 
       <QueryForm />
       <Faq />
+
     </>
   );
 }
