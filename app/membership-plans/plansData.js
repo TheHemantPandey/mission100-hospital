@@ -6,7 +6,7 @@ export const plans = {
     originalPrice: "₹0",
     savings: "Zero Cost, Maximum Impact",
     costPerDay: "Completely Free",
-    image: "/membership-plans/free-plan.png",
+    image: "/membership-plans/free-plan-1.png",
     bestFor: [
       { title: "Early Detection", desc: "Early detection of health issues" },
       { title: "Employee Well-being", desc: "Promotes employee well-being" },
@@ -53,7 +53,7 @@ export const plans = {
     theme: {
       badge: "bg-slate-100 text-slate-800 border-slate-200",
       button: "bg-slate-900 hover:bg-slate-800 text-white shadow-slate-900/10",
-      text: "text-slate-700", 
+      text: "text-slate-700",
       glow: "bg-slate-500/10"
     }
   },

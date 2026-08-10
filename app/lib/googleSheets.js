@@ -15,7 +15,7 @@ const formattedPrivateKey = rawKey.replace(/"/g, '').replace(/\\n/g, '\n').trim(
 // 3. Connect to Google Sheets using the cleanly decoded key
 const serviceAccountAuth = new JWT({
   email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL.trim(),
-  key: formattedPrivateKey, 
+  key: formattedPrivateKey,
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
@@ -33,16 +33,16 @@ const transporter = nodemailer.createTransport({
 
 // Helper function to connect to the sheet and get access to tabs
 async function getSheetTabs() {
-  await doc.loadInfo(); 
-  
+  await doc.loadInfo();
+
   const bookingsSheet = doc.sheetsByTitle['Bookings'];
   const referralsSheet = doc.sheetsByTitle['Referrals'];
   const membershipSheet = doc.sheetsByTitle['Memberhsip'];
-  
+
   if (!bookingsSheet || !referralsSheet || !membershipSheet) {
     throw new Error("Make sure your sheet tabs are named exactly 'Bookings', 'Referrals', and 'Memberhsip'!");
   }
-  
+
   return { bookingsSheet, referralsSheet, membershipSheet };
 }
 
@@ -71,43 +71,116 @@ async function sendMembershipEmail(email, firstName, lastName, planName, finalPr
   await transporter.sendMail(mailOptions);
 }
 
+// Helper to send membership subscription details to Admin
+async function sendAdminMembershipNotification(data) {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'mission100hospital@gmail.com, hement.pandey2121@gmail.com',
+    subject: `🚨 NEW Membership Registration: ${data.planName} - ${data.firstName} ${data.lastName}`,
+    html: `
+      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <div style="background: linear-gradient(135deg, #16a34a, #0d9488); padding: 30px; text-align: center; color: white;">
+          <h1 style="margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 1px;">Mission 100 Hospital</h1>
+          <p style="margin: 5px 0 0 0; font-size: 16px; opacity: 0.95;">New Membership Registration</p>
+        </div>
+        
+        <div style="padding: 25px;">
+          <div style="margin-top: 10px;">
+            <h3 style="color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Subscription Details</h3>
+            <p><strong>Membership Plan:</strong> ${data.planName}</p>
+            <p><strong>Amount Paid:</strong> ₹${data.finalPrice}</p>
+            <p><strong>Order ID:</strong> ${data.orderId || 'N/A'}</p>
+            <p><strong>Status:</strong> ${data.status}</p>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <h3 style="color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Subscriber Personal Info</h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr><td style="padding: 6px 0; color: #64748b; width: 150px;">Full Name:</td><td style="padding: 6px 0; font-weight: bold;">${data.firstName} ${data.lastName}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Email Address:</td><td style="padding: 6px 0; font-weight: bold;">${data.email}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Contact Number:</td><td style="padding: 6px 0; font-weight: bold;">${data.contactNo}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Date of Birth:</td><td style="padding: 6px 0; font-weight: bold;">${data.dob}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Gender:</td><td style="padding: 6px 0; font-weight: bold;">${data.gender}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Blood Group:</td><td style="padding: 6px 0; font-weight: bold;">${data.bloodGroup || 'Not Specified'}</td></tr>
+            </table>
+          </div>
+
+          <div style="margin-top: 20px; background-color: #f0fdf4; padding: 15px; border-radius: 8px;">
+            <h3 style="color: #16a34a; margin-top: 0;">Pre-activation Checkup Slot</h3>
+            <p><strong>Preferred Date:</strong> ${data.appointmentDate}</p>
+            <p><strong>Preferred Time Slot:</strong> ${data.appointmentTime}</p>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <h3 style="color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Emergency Contact Information</h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr><td style="padding: 6px 0; color: #64748b; width: 150px;">Contact Name:</td><td style="padding: 6px 0; font-weight: bold;">${data.emergencyName}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Contact Number:</td><td style="padding: 6px 0; font-weight: bold;">${data.emergencyContactNo}</td></tr>
+              <tr><td style="padding: 6px 0; color: #64748b;">Relationship:</td><td style="padding: 6px 0; font-weight: bold;">${data.emergencyRelationship}</td></tr>
+            </table>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <h3 style="color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Medical Conditions</h3>
+            <p style="padding: 10px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; margin: 5px 0 0 0;">
+              ${data.medicalConditions || 'None'}
+            </p>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <h3 style="color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px;">Physical Address</h3>
+            ${data.address ? `<p><strong>Address:</strong> ${data.address}</p>` : `<p><strong>Address:</strong> ${data.houseNo}, ${data.street}</p>`}
+            ${data.landmark ? `<p><strong>Landmark:</strong> ${data.landmark}</p>` : ''}
+            <p><strong>Pincode:</strong> ${data.pinCode || data.pincode}</p>
+          </div>
+        </div>
+
+        <footer style="margin-top: 30px; font-size: 11px; color: #94a3b8; text-align: center; border-top: 1px solid #f1f5f9; padding: 15px; background-color: #f8fafc;">
+          This enquiry was sent from the Mission 100 Hospital Membership registration system.
+        </footer>
+      </div>
+    `
+  };
+  await transporter.sendMail(mailOptions);
+}
+
 // 1. Function to check if a referral code is valid FOR A SPECIFIC TEST
 export async function validateReferral(codeStr, testNameFromUser) {
   const { referralsSheet } = await getSheetTabs();
   const rows = await referralsSheet.getRows();
-  
+
   if (!codeStr) {
     return { valid: false, message: "No code provided" };
   }
 
   const codeRow = rows.find(row => row.get('Code')?.trim().toLowerCase() === codeStr.trim().toLowerCase());
-  
+
   if (!codeRow) {
     return { valid: false, message: "Invalid code" };
   }
 
   const applicableTest = codeRow.get('Applicable Test')?.trim() || 'All';
-  
+
   // SAFE GUARD: Safe string conversion fallback to prevent undefined or null .trim() exceptions
   const safeUserTestName = (testNameFromUser || '').toString().trim().toLowerCase();
-  
+
   if (applicableTest.toLowerCase() !== 'all' && applicableTest.toLowerCase() !== safeUserTestName) {
-    return { 
-      valid: false, 
-      message: `This coupon is only valid for the "${applicableTest}" test.` 
+    return {
+      valid: false,
+      message: `This coupon is only valid for the "${applicableTest}" test.`
     };
   }
-  
+
   const maxUses = parseInt(codeRow.get('Max Uses') || 0);
   const currentUses = parseInt(codeRow.get('Current Uses') || 0);
-  
+
   if (currentUses >= maxUses) {
     return { valid: false, message: "This referral code has expired!" };
   }
-  
+
   // --- PERSISTENT CHECK: DYNAMIC % OR FLAT VALUE LOOKUP ---
   const rawDiscountStr = (codeRow.get('Discount Amount') || '0').toString().trim();
-  
+
   if (rawDiscountStr.includes('%')) {
     const percentageValue = parseFloat(rawDiscountStr.replace('%', '') || 0);
     return { valid: true, isPercentage: true, percentageValue };
@@ -120,7 +193,7 @@ export async function validateReferral(codeStr, testNameFromUser) {
 // 2. Function to save a pending booking row
 export async function addPendingBooking(bookingData) {
   const { bookingsSheet } = await getSheetTabs();
-  
+
   const newRow = await bookingsSheet.addRow({
     Date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
     'First Name': bookingData.firstName,
@@ -135,34 +208,34 @@ export async function addPendingBooking(bookingData) {
     Price: bookingData.price,
     'Payment Status': bookingData.status,
     'Order ID': bookingData.orderId || 'N/A',
-    'Referral Code Used': bookingData.referralCode || 'None' 
+    'Referral Code Used': bookingData.referralCode || 'None'
   });
-  
+
   return newRow;
 }
 
 // 3. Function to mark booking as paid
 export async function markBookingAsPaid(orderId, referralCodeUsed) {
-    const { bookingsSheet, referralsSheet } = await getSheetTabs();
-    
-    const bookingRows = await bookingsSheet.getRows();
-    const targetRow = bookingRows.find(row => row.get('Order ID') === orderId);
-    
-    if (targetRow) {
-        targetRow.set('Payment Status', 'Paid - Success');
-        await targetRow.save();
-    }
+  const { bookingsSheet, referralsSheet } = await getSheetTabs();
 
-    if (referralCodeUsed) {
-        const refRows = await referralsSheet.getRows();
-        const codeRow = refRows.find(row => row.get('Code')?.trim().toLowerCase() === referralCodeUsed.trim().toLowerCase());
-        
-        if (codeRow) {
-            const currentUses = parseInt(codeRow.get('Current Uses') || 0);
-            codeRow.set('Current Uses', currentUses + 1);
-            await codeRow.save();
-        }
+  const bookingRows = await bookingsSheet.getRows();
+  const targetRow = bookingRows.find(row => row.get('Order ID') === orderId);
+
+  if (targetRow) {
+    targetRow.set('Payment Status', 'Paid - Success');
+    await targetRow.save();
+  }
+
+  if (referralCodeUsed) {
+    const refRows = await referralsSheet.getRows();
+    const codeRow = refRows.find(row => row.get('Code')?.trim().toLowerCase() === referralCodeUsed.trim().toLowerCase());
+
+    if (codeRow) {
+      const currentUses = parseInt(codeRow.get('Current Uses') || 0);
+      codeRow.set('Current Uses', currentUses + 1);
+      await codeRow.save();
     }
+  }
 }
 
 // 4. Function to add a pending row into the "Memberhsip" tab
@@ -186,7 +259,7 @@ export async function addPendingMembership(data) {
     'Medical Conditions': data.medicalConditions || 'None',
     'Check Date': data.appointmentDate,
     'Check Time Slot': data.appointmentTime,
-    Address: `${data.houseNo}, ${data.street}, ${data.city}, ${data.state}`,
+    Address: `${data.houseNo}, ${data.street}${data.landmark ? ', ' + data.landmark : ''}, ${data.city}, ${data.state}`,
     Pincode: data.pinCode,
     'Original Price': data.originalPrice,
     'Referral Applied': data.referralCode !== 'None' ? 'Yes' : 'No',
@@ -202,13 +275,21 @@ export async function addPendingMembership(data) {
     );
   }
 
+  if (data.planSlug === 'free-plan' || data.planName === 'Free Employee Plan') {
+    try {
+      await sendAdminMembershipNotification(data);
+    } catch (err) {
+      console.error("Failed to send admin membership notification email: ", err);
+    }
+  }
+
   return newRow;
 }
 
 // 5. Function to mark specific membership layout as paid and send out email
 export async function confirmMembershipPayment(orderId, referralCodeUsed) {
   const { membershipSheet, referralsSheet } = await getSheetTabs();
-  
+
   const rows = await membershipSheet.getRows();
   const targetRow = rows.find(row => row.get('Order ID') === orderId);
 
@@ -225,12 +306,41 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed) {
       targetRow.get('Check Date'),
       targetRow.get('Check Time Slot')
     );
+
+    try {
+      await sendAdminMembershipNotification({
+        firstName: targetRow.get('First Name'),
+        lastName: targetRow.get('Last Name'),
+        email: targetRow.get('Email'),
+        dob: targetRow.get('DOB'),
+        gender: targetRow.get('Gender'),
+        contactNo: targetRow.get('Contact'),
+        bloodGroup: targetRow.get('Blood Group'),
+        planName: targetRow.get('Plan Name'),
+        emergencyName: targetRow.get('Emergency Name'),
+        emergencyContactNo: targetRow.get('Emergency Contact'),
+        emergencyRelationship: targetRow.get('Emergency Relationship'),
+        medicalConditions: targetRow.get('Medical Conditions'),
+        appointmentDate: targetRow.get('Check Date'),
+        appointmentTime: targetRow.get('Check Time Slot'),
+        address: targetRow.get('Address'),
+        pinCode: targetRow.get('Pincode'),
+        finalPrice: targetRow.get('Final Price'),
+        originalPrice: targetRow.get('Original Price'),
+        referralCode: targetRow.get('Referral Applied') === 'Yes' ? 'Applied' : 'None',
+        discountAmount: targetRow.get('Discount Amount'),
+        orderId: targetRow.get('Order ID'),
+        status: 'Paid - Confirmed'
+      });
+    } catch (err) {
+      console.error("Failed to send admin paid membership email:", err);
+    }
   }
 
   if (referralCodeUsed && referralCodeUsed.toLowerCase() !== 'none') {
     const refRows = await referralsSheet.getRows();
     const codeRow = refRows.find(row => row.get('Code')?.trim().toLowerCase() === referralCodeUsed.trim().toLowerCase());
-    
+
     if (codeRow) {
       const currentUses = parseInt(codeRow.get('Current Uses') || 0);
       codeRow.set('Current Uses', currentUses + 1);

@@ -18,10 +18,10 @@ const razorpay = new Razorpay({
 export async function POST(request) {
     try {
         const body = await request.json();
-        const { 
-            planSlug, referralCode, firstName, lastName, email, dob, gender, 
+        const {
+            planSlug, referralCode, firstName, lastName, email, dob, gender,
             contactNo, bloodGroup, emergencyName, emergencyContactNo, emergencyRelationship,
-            medicalConditions, appointmentDate, appointmentTime, houseNo, street, city, state, pinCode 
+            medicalConditions, appointmentDate, appointmentTime, houseNo, street, city, state, pinCode, landmark
         } = body;
 
         const planConfig = basePrices[planSlug];
@@ -40,9 +40,10 @@ export async function POST(request) {
         const finalPrice = Math.max(0, planConfig.price - discountAmount);
 
         const membershipData = {
+            planSlug,
             firstName, lastName, email, dob, gender, contactNo, bloodGroup,
             planName: planConfig.name, emergencyName, emergencyContactNo, emergencyRelationship,
-            medicalConditions, appointmentDate, appointmentTime, houseNo, street, city, state, pinCode,
+            medicalConditions, appointmentDate, appointmentTime, houseNo, street, city, state, pinCode, landmark,
             originalPrice: planConfig.price, referralCode: referralCode || 'None', discountAmount, finalPrice
         };
 
@@ -58,7 +59,7 @@ export async function POST(request) {
 
         // SCENARIO B: PAID MEMBERSHIP
         const options = {
-            amount: finalPrice * 100, 
+            amount: finalPrice * 100,
             currency: "INR",
             receipt: `membership_receipt_${Date.now()}`,
         };

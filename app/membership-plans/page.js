@@ -24,7 +24,7 @@
     { 
       id: 'free', 
       name: 'Free Employee Plan', 
-      imgUrl: '/membership-plans/free-plan.png', 
+      imgUrl: '/membership-plans/free-plan-1.png', 
       pageUrl: '/membership-plans/free-plan',
       btnColor: 'bg-emerald-600 hover:bg-emerald-700 text-white',
       costPerDay: 'Completely Free',

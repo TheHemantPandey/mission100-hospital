@@ -197,7 +197,7 @@ export default function CorporateWellnessLandingPage() {
           <div className="lg:col-span-5 w-full max-w-md md:max-w-lg mx-auto relative">
             <div className="relative rounded-3xl shadow-2xl overflow-hidden border border-slate-200/80 p-2 bg-white/60 backdrop-blur-md">
               <Image
-                src="/corporate-wellness/gold-plan.jpeg"
+                src="/corporate-wellness/comparison-corporate-plan.jpeg"
                 alt="Corporate Healthcare Coverage Brochure"
                 width={600}
                 height={800}

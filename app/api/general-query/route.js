@@ -22,15 +22,20 @@ export async function POST(req) {
       to: "mission100hospital@gmail.com, hement.pandey2121@gmail.com",
       subject: `Mission 100 - General Query: ${subject}`,
       html: `
-        <div style="font-family: sans-serif; padding: 20px; border: 2px solid #0056b3; border-radius: 15px;">
-          <h2 style="color: #0056b3;">New Website Query</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <div style="margin-top: 15px; padding: 15px; background-color: #f3f4f6; border-radius: 10px;">
-            <strong>Message:</strong><br/>
-            ${message}
+        <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+          <div style="background: linear-gradient(135deg, #16a34a, #0d9488); padding: 30px; text-align: center; color: white;">
+            <h1 style="margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 1px;">Mission 100 Hospital</h1>
+            <p style="margin: 5px 0 0 0; font-size: 16px; opacity: 0.95;">New Website Query</p>
+          </div>
+          <div style="padding: 25px;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            <div style="margin-top: 15px; padding: 15px; background-color: #f3f4f6; border-radius: 10px;">
+              <strong>Message:</strong><br/>
+              ${message}
+            </div>
           </div>
         </div>
       `,

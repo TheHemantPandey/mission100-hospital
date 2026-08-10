@@ -184,14 +184,9 @@ export async function POST(req) {
         <div style="font-family: Arial, sans-serif; background:#f9fafb; padding:30px;">
           <div style="max-width:700px; margin:auto; background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
             
-            <div style="background: linear-gradient(90deg,#22c55e,#10b981); padding:30px; color:white;">
-              <h1 style="margin:0; font-size:28px;">
-                New Nutrition Expert Application
-              </h1>
-
-              <p style="margin-top:10px; opacity:0.9;">
-                Mission100 Hospital Nutrition Platform
-              </p>
+            <div style="background: linear-gradient(135deg, #16a34a, #0d9488); padding: 30px; text-align: center; color: white;">
+              <h1 style="margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 1px;">Mission 100 Hospital</h1>
+              <p style="margin: 5px 0 0 0; font-size: 16px; opacity: 0.95;">New Nutrition Expert Application</p>
             </div>
 
             <div style="padding:30px;">

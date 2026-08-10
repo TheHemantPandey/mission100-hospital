@@ -66,13 +66,9 @@ export async function POST(req) {
       <div style="font-family:Arial,sans-serif;background:#f1f5f9;padding:30px;">
         <div style="max-width:750px;margin:auto;background:white;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.08);">
 
-          <div style="background:linear-gradient(135deg,#059669,#06b6d4);padding:35px;color:white;">
-            <h1 style="margin:0;font-size:30px;font-weight:800;">
-              New Franchise Application
-            </h1>
-            <p style="margin-top:10px;font-size:15px;opacity:0.95;">
-              Mission100 Healthcare Franchise Program
-            </p>
+          <div style="background: linear-gradient(135deg, #16a34a, #0d9488); padding: 30px; text-align: center; color: white;">
+            <h1 style="margin: 0; font-size: 32px; font-weight: 800; letter-spacing: 1px;">Mission 100 Hospital</h1>
+            <p style="margin: 5px 0 0 0; font-size: 16px; opacity: 0.95;">New Franchise Application</p>
           </div>
 
           <div style="padding:35px;">
