@@ -1,7 +1,7 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 import nodemailer from 'nodemailer';
-import { generateIndividualReceiptPdf } from './pdfHelper';
+import { generateIndividualReceiptPdf, generateMembershipCardPdf } from './pdfHelper';
 import { plans } from '../membership-plans/plansData';
 
 // 1. Grab the Base64 key string from Hostinger's environment variables
@@ -51,7 +51,7 @@ async function getSheetTabs() {
 // Helper email sender function
 async function sendMembershipEmail(
   email, firstName, lastName, planName, finalPrice, appDate, appTime,
-  paymentId = null, contactNo = '', address = '', orderId = ''
+  paymentId = null, contactNo = '', address = '', orderId = '', cardId = 'IND-01'
 ) {
   let attachments = [];
   
@@ -89,6 +89,161 @@ async function sendMembershipEmail(
     console.error("Individual membership PDF receipt generation error: ", pdfErr);
   }
 
+  // Determine card theme and badge based on planName
+  let cardTheme = 'slate';
+  let cardBadge = 'FREE MEMBER';
+
+  if (cleanPlanName.includes('silver')) {
+    cardTheme = 'silver';
+    cardBadge = 'SILVER MEMBER';
+  } else if (cleanPlanName.includes('gold')) {
+    cardTheme = 'gold';
+    cardBadge = 'GOLD MEMBER';
+  } else if (cleanPlanName.includes('platinum')) {
+    cardTheme = 'platinum';
+    cardBadge = 'PLATINUM MEMBER';
+  } else if (cleanPlanName.includes('pro') || cleanPlanName.includes('fitness')) {
+    cardTheme = 'emerald';
+    cardBadge = 'PRO FITNESS';
+  }
+
+  // Generate dynamic Premium Membership Card PDF Front Side
+  try {
+    const cardBuffer = await generateMembershipCardPdf({
+      type: 'Individual',
+      badge: cardBadge,
+      theme: cardTheme,
+      cardId: cardId,
+      memberName: `${firstName} ${lastName}`
+    });
+
+    attachments.push({
+      filename: `Membership_Card_${firstName}_${lastName}.pdf`,
+      content: cardBuffer
+    });
+  } catch (cardErr) {
+    console.error("Individual membership card PDF generation error: ", cardErr);
+  }
+
+  // Inline HTML Card representation
+  const getHtmlCardStyle = (theme) => {
+    if (theme === 'gold') {
+      return {
+        bg: 'linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c)',
+        border: '1px solid rgba(120,53,15,0.25)',
+        textColor: '#0f172a',
+        labelColor: '#78350f',
+        badgeBg: '#0f172a',
+        badgeText: '#fcf6ba',
+        chipGold: false
+      };
+    }
+    if (theme === 'silver') {
+      return {
+        bg: 'linear-gradient(135deg, #cbd5e1, #f1f5f9, #94a3b8, #e2e8f0)',
+        border: '1px solid rgba(71,85,105,0.2)',
+        textColor: '#0f172a',
+        labelColor: '#475569',
+        badgeBg: '#0f172a',
+        badgeText: '#f1f5f9',
+        chipGold: true
+      };
+    }
+    if (theme === 'platinum') {
+      return {
+        bg: 'linear-gradient(135deg, #1e293b, #0f172a, #020617)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        textColor: '#f8fafc',
+        labelColor: '#94a3b8',
+        badgeBg: '#e2e8f0',
+        badgeText: '#0f172a',
+        chipGold: true
+      };
+    }
+    if (theme === 'emerald') {
+      return {
+        bg: 'linear-gradient(135deg, #0d9488, #10b981, #064e3b)',
+        border: '1px solid rgba(255,255,255,0.15)',
+        textColor: '#ffffff',
+        labelColor: '#a7f3d0',
+        badgeBg: '#ffffff',
+        badgeText: '#064e3b',
+        chipGold: false
+      };
+    }
+    return {
+      bg: 'linear-gradient(135deg, #475569, #1e293b)',
+      border: '1px solid rgba(255,255,255,0.1)',
+      textColor: '#ffffff',
+      labelColor: '#cbd5e1',
+      badgeBg: '#f1f5f9',
+      badgeText: '#1e293b',
+      chipGold: true
+    };
+  };
+
+  const today = new Date();
+  const expMonth = String(today.getMonth() + 1).padStart(2, '0');
+  const expYear = today.getFullYear() + 1;
+  const validThru = `${expMonth}/${expYear}`;
+
+  const cardStyle = getHtmlCardStyle(cardTheme);
+  const emvChipSvg = `
+    <svg width="32" height="24" viewBox="0 0 32 24" style="border-radius: 3px; border: 0.5px solid ${cardStyle.chipGold ? '#aa7c11' : '#475569'}; background: ${cardStyle.chipGold ? 'linear-gradient(135deg, #fff3c4, #d4af37, #f3e5ab, #aa7c11)' : 'linear-gradient(135deg, #f8fafc, #cbd5e1, #e2e8f0, #64748b)'};">
+      <line x1="0" y1="12" x2="32" y2="12" stroke="${cardStyle.chipGold ? 'rgba(120,53,15,0.3)' : 'rgba(51,65,85,0.3)'}" stroke-width="0.75" />
+      <line x1="16" y1="0" x2="16" y2="24" stroke="${cardStyle.chipGold ? 'rgba(120,53,15,0.3)' : 'rgba(51,65,85,0.3)'}" stroke-width="0.75" />
+      <rect x="3" y="3" width="26" height="18" fill="none" stroke="${cardStyle.chipGold ? 'rgba(120,53,15,0.3)' : 'rgba(51,65,85,0.3)'}" stroke-width="0.75" rx="1" />
+    </svg>
+  `;
+
+  const htmlCardMarkup = `
+    <div style="margin: 20px auto; text-align: center; max-width: 340px;">
+      <div style="width: 340px; height: 215px; border-radius: 16px; background: ${cardStyle.bg}; color: ${cardStyle.textColor}; padding: 20px; box-sizing: border-box; border: ${cardStyle.border}; margin: 0 auto; position: relative; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <!-- Card Header -->
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="font-size: 14px; font-weight: bold; letter-spacing: 0.5px; color: ${cardStyle.textColor}; line-height: 1.15;">
+              MISSION 100 <span style="color: #10b981;">HOSPITAL</span>
+              <div style="font-size: 7.5px; font-style: italic; color: ${cardStyle.labelColor}; font-weight: normal; margin-top: 2px;">"Live Longer, Live Better"</div>
+            </td>
+            <td style="text-align: right; vertical-align: top;">
+              <span style="background-color: ${cardStyle.badgeBg}; color: ${cardStyle.badgeText}; font-size: 7px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase;">${cardBadge}</span>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Chip -->
+        <div style="margin-top: 15px;">
+          ${emvChipSvg}
+        </div>
+        
+        <!-- Member Details -->
+        <div style="margin-top: 15px;">
+          <span style="font-size: 7px; color: ${cardStyle.labelColor}; display: block; letter-spacing: 0.5px; text-transform: uppercase; font-weight: bold;">Membership ID</span>
+          <span style="font-size: 16px; font-weight: bold; color: ${cardStyle.textColor}; letter-spacing: 1px;">${cardId}</span>
+        </div>
+        
+        <!-- Bottom section -->
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+          <tr>
+            <td>
+              <span style="font-size: 7px; color: ${cardStyle.labelColor}; display: block; letter-spacing: 0.5px; text-transform: uppercase; font-weight: bold;">Card Holder</span>
+              <span style="font-size: 12px; font-weight: bold; letter-spacing: 0.5px; color: ${cardStyle.textColor};">${(firstName + ' ' + lastName).toUpperCase()}</span>
+            </td>
+            <td style="text-align: right; width: 80px; vertical-align: top;">
+              <span style="font-size: 7px; color: ${cardStyle.labelColor}; display: block; letter-spacing: 0.5px; text-transform: uppercase; font-weight: bold;">Valid Thru</span>
+              <span style="font-size: 11px; font-weight: bold;">${validThru}</span>
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Subtle overlay indicators -->
+        <div style="position: absolute; left: 20px; bottom: 8px; font-size: 8px; font-weight: bold; opacity: 0.4; color: ${cardStyle.labelColor};">INDIVIDUAL CARE</div>
+        <div style="position: absolute; right: 20px; bottom: 8px; font-size: 8.5px; font-weight: bold; opacity: 0.6; color: ${cardStyle.labelColor}; font-family: sans-serif;">www.mission100hospital.com</div>
+      </div>
+    </div>
+  `;
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
@@ -99,13 +254,19 @@ async function sendMembershipEmail(
         <h2 style="color: #16a34a; text-align: center;">Mission 100 Hospital</h2>
         <p>Dear <strong>${firstName} ${lastName}</strong>,</p>
         <p>Thank you for subscribing to our <strong>${planName}</strong> package! Your membership has been activated successfully and your health benefits are live.</p>
+        
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+        <h3 style="color: #334155; text-align: center;">💳 Membership Card</h3>
+        
+        ${htmlCardMarkup}
+        
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
         <h3>💳 Subscription Summary</h3>
         <p><strong>Plan Package:</strong> ${planName}</p>
         <p><strong>Amount Paid:</strong> ₹${finalPrice}</p>
         <p><strong>Pre-activation Checkup Slot:</strong> ${appDate} (${appTime})</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-        <p style="font-size: 12px; color: #64748b;">Your health reports, diagnostics tracking, and your PDF receipt are attached to this email.</p>
+        <p style="font-size: 12px; color: #64748b;">Your health reports, diagnostics tracking, your invoice, and your premium membership card are attached to this email.</p>
         <p style="text-align: center; margin-top: 30px; font-weight: bold; color: #16a34a;">Stay Healthy, Stay Mission 100 Safe!</p>
       </div>
     `
@@ -312,13 +473,18 @@ export async function addPendingMembership(data) {
 
   if (data.status.includes('Confirmed') || data.status.includes('Free')) {
     const fullAddress = `${data.houseNo}, ${data.street}${data.landmark ? ', ' + data.landmark : ''}, ${data.city}, ${data.state} - ${data.pinCode}`;
+    const rows = await membershipSheet.getRows();
+    const sequenceNum = rows.length; // because the new row was already added
+    const cardId = `IND-${String(sequenceNum).padStart(2, '0')}`;
+
     await sendMembershipEmail(
       data.email, data.firstName, data.lastName, data.planName, 
       data.finalPrice, data.appointmentDate, data.appointmentTime,
       data.paymentId || 'FREE_TIER',
       data.contactNo,
       fullAddress,
-      data.orderId
+      data.orderId,
+      cardId
     );
   }
 
@@ -338,11 +504,15 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed, paymen
   const { membershipSheet, referralsSheet } = await getSheetTabs();
 
   const rows = await membershipSheet.getRows();
-  const targetRow = rows.find(row => row.get('Order ID') === orderId);
+  const targetRowIndex = rows.findIndex(row => row.get('Order ID') === orderId);
+  const targetRow = rows[targetRowIndex];
 
   if (targetRow) {
     targetRow.set('Payment Status', 'Paid - Confirmed');
     await targetRow.save();
+
+    const sequenceNum = targetRowIndex !== -1 ? (targetRowIndex + 1) : (rows.length + 1);
+    const cardId = `IND-${String(sequenceNum).padStart(2, '0')}`;
 
     await sendMembershipEmail(
       targetRow.get('Email'),
@@ -355,7 +525,8 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed, paymen
       paymentId,
       targetRow.get('Contact'),
       targetRow.get('Address') + (targetRow.get('Pincode') ? `, ${targetRow.get('Pincode')}` : ''),
-      orderId
+      orderId,
+      cardId
     );
 
     try {

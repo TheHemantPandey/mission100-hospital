@@ -299,3 +299,128 @@ export async function generateIndividualReceiptPdf(data) {
     }
   });
 }
+
+/**
+ * Generates a dynamic PDF membership card buffer (front side only).
+ * @param {Object} data Card configurations and owner details
+ * @returns {Promise<Buffer>} The PDF file buffer
+ */
+export async function generateMembershipCardPdf(data) {
+  await loadFonts();
+
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument({ size: [243, 153], margin: 12 });
+      const chunks = [];
+      doc.on('data', (chunk) => chunks.push(chunk));
+      doc.on('end', () => resolve(Buffer.concat(chunks)));
+      doc.on('error', (err) => reject(err));
+
+      if (robotoRegularBuffer && robotoBoldBuffer) {
+        doc.registerFont('Roboto-Regular', robotoRegularBuffer);
+        doc.registerFont('Roboto-Bold', robotoBoldBuffer);
+        doc.font('Roboto-Regular');
+      }
+
+      const getFont = (isBold) => {
+        if (robotoRegularBuffer && robotoBoldBuffer) {
+          return isBold ? 'Roboto-Bold' : 'Roboto-Regular';
+        }
+        return isBold ? 'Helvetica-Bold' : 'Helvetica';
+      };
+
+      const today = new Date();
+      const expMonth = String(today.getMonth() + 1).padStart(2, '0');
+      const expYear = today.getFullYear() + 1;
+      const validThru = `${expMonth}/${expYear}`;
+
+      let bgGrad = doc.linearGradient(0, 0, 243, 153);
+      let borderColor = 'rgba(255, 255, 255, 0.1)';
+      let textColor = '#ffffff';
+      let labelColor = '#cbd5e1';
+      let badgeBg = '#f1f5f9';
+      let badgeText = '#1e293b';
+      let chipGold = true;
+
+      const theme = data.theme || 'slate';
+      if (theme === 'gold') {
+        bgGrad.stop(0, '#bf953f').stop(0.25, '#fcf6ba').stop(0.5, '#b38728').stop(0.75, '#fbf5b7').stop(1, '#aa771c');
+        borderColor = 'rgba(120, 53, 15, 0.25)';
+        textColor = '#0f172a';
+        labelColor = '#78350f';
+        badgeBg = '#0f172a';
+        badgeText = '#fcf6ba';
+        chipGold = false;
+      } else if (theme === 'silver') {
+        bgGrad.stop(0, '#cbd5e1').stop(0.3, '#f1f5f9').stop(0.6, '#94a3b8').stop(1, '#e2e8f0');
+        borderColor = 'rgba(71, 85, 105, 0.2)';
+        textColor = '#0f172a';
+        labelColor = '#475569';
+        badgeBg = '#0f172a';
+        badgeText = '#f1f5f9';
+        chipGold = true;
+      } else if (theme === 'platinum') {
+        bgGrad.stop(0, '#1e293b').stop(0.5, '#0f172a').stop(1, '#020617');
+        borderColor = 'rgba(255, 255, 255, 0.1)';
+        textColor = '#f8fafc';
+        labelColor = '#94a3b8';
+        badgeBg = '#e2e8f0';
+        badgeText = '#0f172a';
+        chipGold = true;
+      } else if (theme === 'emerald') {
+        bgGrad.stop(0, '#0d9488').stop(0.5, '#10b981').stop(1, '#064e3b');
+        borderColor = 'rgba(255, 255, 255, 0.15)';
+        textColor = '#ffffff';
+        labelColor = '#a7f3d0';
+        badgeBg = '#ffffff';
+        badgeText = '#064e3b';
+        chipGold = false;
+      } else {
+        bgGrad.stop(0, '#475569').stop(1, '#1e293b');
+      }
+
+      doc.rect(0, 0, 243, 153).fill(bgGrad);
+      doc.strokeColor(borderColor).lineWidth(1).rect(6, 6, 231, 141).stroke();
+
+      doc.fillColor(textColor).font(getFont(true)).fontSize(11).text('MISSION 100', 14, 15);
+      doc.fillColor('#10b981').font(getFont(true)).fontSize(11).text('HOSPITAL', 92, 15);
+      doc.fillColor(labelColor).font(getFont(false)).fontSize(5.5).text('"Live Longer, Live Better"', 14, 28);
+
+      doc.fillColor(badgeBg).rect(160, 14, 70, 13).fill();
+      doc.fillColor(badgeText).font(getFont(true)).fontSize(6).text(data.badge, 160, 18, { width: 70, align: 'center' });
+
+      const chipX = 14, chipY = 38, chipW = 23, chipH = 17;
+      const chipGrad = doc.linearGradient(chipX, chipY, chipX + chipW, chipY + chipH);
+      if (chipGold) {
+        chipGrad.stop(0, '#fff3c4').stop(0.3, '#d4af37').stop(0.7, '#f3e5ab').stop(1, '#aa7c11');
+      } else {
+        chipGrad.stop(0, '#f8fafc').stop(0.3, '#cbd5e1').stop(0.7, '#e2e8f0').stop(1, '#64748b');
+      }
+      doc.rect(chipX, chipY, chipW, chipH).fill(chipGrad);
+      
+      doc.save();
+      doc.strokeColor(chipGold ? '#78350f' : '#334155').lineWidth(0.5).opacity(0.35);
+      doc.rect(chipX + 2, chipY + 2, chipW - 4, chipH - 4).stroke();
+      doc.moveTo(chipX + chipW/2, chipY).lineTo(chipX + chipW/2, chipY + chipH).stroke();
+      doc.moveTo(chipX, chipY + chipH/2).lineTo(chipX + chipW, chipY + chipH/2).stroke();
+      doc.restore();
+
+      doc.fillColor(labelColor).font(getFont(false)).fontSize(6).text('MEMBERSHIP ID', 14, 68);
+      doc.fillColor(textColor).font(getFont(true)).fontSize(11).text(data.cardId, 14, 76);
+
+      doc.fillColor(labelColor).font(getFont(false)).fontSize(6).text('CARD HOLDER', 14, 98);
+      doc.fillColor(textColor).font(getFont(true)).fontSize(10).text(data.memberName.toUpperCase(), 14, 106);
+
+      doc.fillColor(labelColor).font(getFont(false)).fontSize(6).text('VALID THRU', 160, 98);
+      doc.fillColor(textColor).font(getFont(true)).fontSize(9).text(validThru, 160, 106);
+
+      const cardTypeLabel = `${data.type.toUpperCase()} CARE`;
+      doc.fillColor(labelColor).font(getFont(true)).fontSize(8).text(cardTypeLabel, 14, 128);
+      doc.fillColor(labelColor).font(getFont(false)).fontSize(6.5).text('www.mission100hospital.com', 120, 128, { align: 'right', width: 110 });
+
+      doc.end();
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
