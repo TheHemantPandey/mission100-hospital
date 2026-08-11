@@ -1,36 +1,149 @@
-import React from 'react';
-import { Phone } from 'lucide-react';
+"use client";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const WhatsAppButton = () => {
+  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isLargeDevice, setIsLargeDevice] = useState(false);
+
   const phoneNumber = "919220620209";
-  const displayPhone = "+91 9220 620 209";
   const message = "Hello! I'm interested in Mission100 services.";
   
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
 
-  return (
-    // Added "hidden lg:flex" here to hide on mobile/tablet and show on PC
-    <div className="fixed bottom-8 right-8 z-50 hidden lg:flex flex-col items-center gap-4">
-      
-      {/* 1. CALL BUTTON (Placed Above) */}
-      <a
-        href={`tel:${phoneNumber}`}
-        className="flex items-center justify-center w-16 h-16 bg-[#003d7a] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
-        aria-label="Call Hospital"
-      >
-        {/* Tooltip */}
-        <span className="absolute right-20 bg-white text-gray-800 text-xs font-bold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
-          Call us now!
-        </span>
-        <Phone className="w-7 h-7 fill-white" />
-      </a>
+  // Determine if on a membership page
+  const isMembershipPage = pathname ? (
+    pathname.startsWith('/membership-plans') || 
+    pathname.startsWith('/buy-membership') || 
+    pathname.startsWith('/buy-corporate-membership')
+  ) : false;
 
-      {/* 2. WHATSAPP BUTTON (Bottom) */}
+  // Hydrate on client mount and check initial window dimensions
+  useEffect(() => {
+    setMounted(true);
+    
+    // Check initial device width (lg breakpoint is 1024px)
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    setIsLargeDevice(mediaQuery.matches);
+
+    const handleResize = (e) => {
+      setIsLargeDevice(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleResize);
+    return () => {
+      mediaQuery.removeEventListener('change', handleResize);
+    };
+  }, []);
+
+  // Handle page transitions & initial load logic
+  useEffect(() => {
+    if (!mounted) return;
+
+    // Do not show on membership pages
+    if (isMembershipPage) {
+      setIsVisible(false);
+      return;
+    }
+
+    // Check if the plan popup (HospitalPopup) has been closed in this session
+    const hasSeenPopup = window.hasSeenPopupInThisTab;
+    if (!hasSeenPopup) {
+      // Hide the membership button while the main popup is active
+      setIsVisible(false);
+      return;
+    }
+
+    if (isLargeDevice) {
+      // On large devices, always show the membership button
+      setIsVisible(true);
+      return;
+    }
+
+    // On mobile/tablet, show button for 5 seconds on page change/load
+    setIsVisible(true);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [pathname, mounted, isMembershipPage, isLargeDevice]);
+
+  // Handle custom event from HospitalPopup closure
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handlePopupClose = () => {
+      if (isMembershipPage) return;
+
+      if (isLargeDevice) {
+        // On large devices, show permanently when closed
+        setIsVisible(true);
+        return;
+      }
+
+      // On mobile/tablet, show membership button for 5 seconds after plan popup is closed
+      setIsVisible(true);
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 5000);
+    };
+
+    window.addEventListener('hospital_popup_closed', handlePopupClose);
+    return () => {
+      window.removeEventListener('hospital_popup_closed', handlePopupClose);
+    };
+  }, [mounted, isMembershipPage, isLargeDevice]);
+
+  return (
+    <div className="fixed bottom-20 right-6 md:bottom-8 md:right-8 z-50 flex flex-col items-end gap-4">
+      
+      {/* 1. MEMBERSHIP BUTTON (Placed Above with smooth fade-in/fade-out transitions) */}
+      <Link
+        href="/membership-plans"
+        className={`flex items-center pl-1.5 py-1.5 bg-green-600 text-white rounded-full shadow-2xl hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-500 ease-out group relative ${
+          mounted && isVisible 
+            ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto delay-0 pr-5 gap-3' 
+            : 'opacity-0 translate-x-full scale-95 pointer-events-none delay-300 pr-1.5 gap-0'
+        }`}
+        aria-label="View Membership Plans"
+      >
+        <img
+          src="/main-logo1.png"
+          alt="Mission100 Logo"
+          className="w-12 h-12 object-contain bg-white rounded-full p-0.4 shrink-0"
+        />
+        <span className={`inline-block overflow-hidden transition-all duration-300 ease-out ${
+          mounted && isVisible 
+            ? 'opacity-100 max-w-[200px] delay-300' 
+            : 'opacity-0 max-w-0 delay-0'
+        }`}>
+          {isLargeDevice ? (
+            <span className="flex flex-col items-start leading-[1.1] text-left select-none">
+              <span className="text-[10px] tracking-wider uppercase font-semibold text-green-100/90 whitespace-nowrap">
+                Checkout Our
+              </span>
+              <span className="text-sm font-extrabold tracking-wide whitespace-nowrap">
+                Membership
+              </span>
+            </span>
+          ) : (
+            <span className="text-base font-extrabold tracking-wide whitespace-nowrap select-none">
+              Membership
+            </span>
+          )}
+        </span>
+      </Link>
+
+      {/* 2. WHATSAPP BUTTON (Bottom - always visible on desktop) */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
+        className="hidden lg:flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
         aria-label="Contact on WhatsApp"
       >
         {/* Tooltip */}

@@ -7,8 +7,8 @@ export default function HospitalPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Check sessionStorage so it only shows once per browser session
-    const hasSeenPopup = sessionStorage.getItem('mission100_popup_seen');
+    // Check window property so it only shows once per client session, resetting on reload
+    const hasSeenPopup = window.hasSeenPopupInThisTab;
     
     if (!hasSeenPopup) {
       setIsOpen(true);
@@ -17,7 +17,8 @@ export default function HospitalPopup() {
 
   const closePopup = () => {
     setIsOpen(false);
-    sessionStorage.setItem('mission100_popup_seen', 'true');
+    window.hasSeenPopupInThisTab = true;
+    window.dispatchEvent(new Event('hospital_popup_closed'));
   };
 
   if (!isOpen) return null;
@@ -75,7 +76,7 @@ export default function HospitalPopup() {
             onClick={closePopup}
             className="flex w-full md:w-3/4 items-center justify-center rounded-lg bg-green-600 py-2.5 px-4 text-center text-base sm:text-lg font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-200 hover:bg-green-700 hover:scale-[1.02] active:scale-95 uppercase tracking-wide border-2 border-green-700"
           >
-            Click here for free test
+            Book Heart Prevention Test
           </Link>
         </div>
         

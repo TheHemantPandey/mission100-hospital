@@ -71,10 +71,10 @@ const Navbar = () => {
               alt="Mission100 Hospital Logo"
               width={54}
               height={54}
-              className="shrink-0 object-contain"
+              className="shrink-0 object-contain w-10 h-10 sm:w-12 sm:h-12"
             />
-            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-900">
-              Mission100 <span className="text-green-600">Hospital</span>
+            <span className="text-base sm:text-xl lg:text-2xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap">
+              Mission100 <span className="hidden sm:inline text-green-600">Hospital</span>
             </span>
           </Link>
 
@@ -89,13 +89,13 @@ const Navbar = () => {
 
           {/* Desktop Only: Navigation Links */}
           <div className="hidden md:block w-auto">
-            <ul className="flex flex-row items-center font-medium space-x-6 lg:space-x-8">
-              <li>
+            <ul className="flex flex-row items-center font-medium space-x-4 lg:space-x-6 xl:space-x-8">
+              <li className="hidden xl:block">
                 <Link href="/" className="text-gray-700 hover:text-green-600">
                   Home
                 </Link>
               </li>
-              <li>
+              <li className="hidden xl:block">
                 <Link
                   href="/about"
                   className="text-gray-700 hover:text-green-600"
@@ -159,7 +159,7 @@ const Navbar = () => {
                   Find a Test
                 </Link>
               </li>
-              <li>
+              <li className="hidden lg:block">
                 <Link
                   href="/contact"
                   className="text-gray-700 hover:text-green-600"
@@ -167,10 +167,10 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li>
+              <li className="hidden xl:block">
                 <Link
                   href="/join-us"
-                  className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95"
+                  className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95 text-sm"
                 >
                   Join Us
                 </Link>
@@ -180,9 +180,11 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/book-test"
-                  className="inline-block text-center px-6 py-2.5 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95 text-sm lg:text-base"
+                  className="inline-block text-center px-4 py-2 lg:px-5 lg:py-2.5 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95 text-xs lg:text-sm xl:text-base whitespace-nowrap"
                 >
-                  Book consultation Now
+                  <span className="md:inline lg:hidden xl:hidden">Book Appt</span>
+                  <span className="hidden lg:inline xl:hidden">Book Consultation</span>
+                  <span className="hidden xl:inline">Book consultation Now</span>
                 </Link>
               </li>
             </ul>
@@ -264,10 +266,11 @@ const Navbar = () => {
           <span className="text-[10px] mt-1 font-medium">Home</span>
         </Link>
 
-        {/* 4. Contact Us */}
-        <a
-          href="/contact"
-          className="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-green-600 w-full transition-colors"
+        {/* 4. Membership */}
+        <Link
+          href="/membership-plans"
+          onClick={closeMenu}
+          className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full transition-colors"
         >
           <svg
             width="22"
@@ -279,10 +282,12 @@ const Navbar = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <rect width="20" height="14" x="2" y="5" rx="2" />
+            <line x1="2" x2="22" y1="10" y2="10" />
+            <line x1="6" x2="10" y1="15" y2="15" />
           </svg>
-          <span className="text-[10px] mt-1 font-medium">Contact Us</span>
-        </a>
+          <span className="text-[10px] mt-1 font-medium">Membership</span>
+        </Link>
 
         {/* 5. Compact Services Drop-up */}
         <div className="relative flex flex-col items-center justify-center w-full">

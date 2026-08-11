@@ -63,10 +63,6 @@ const FAQ = () => {
       answer: "We prioritize heart health through advanced ECG screenings to identify risks before they become emergencies."
     },
     {
-      question: "Which hospitals are part of the Mission 100 network?",
-      answer: "We coordinate care with top-tier institutions including Max Hospital, Apollo, Fortis, Medanta, Antara, and Sir Ganga Ram Hospital."
-    },
-    {
       question: "Is Mission 100 suitable for senior citizens?",
       answer: "Yes, our main focus is on Adults and the Elderly, specializing in age-related care and mobility support."
     },
