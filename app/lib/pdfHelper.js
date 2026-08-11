@@ -119,19 +119,6 @@ export async function generateReceiptPdf(data) {
       doc.text(data.finalPrice > 0 ? `INR ${data.finalPrice}.00` : "FREE", 400, currentY, { align: "right" });
       doc.moveDown(2);
 
-      // --- PLAN DETAILS (FEATURES) ---
-      const plan = corporatePlans[data.planSlug];
-      const features = plan ? plan.features : [];
-      if (features && features.length > 0) {
-        doc.strokeColor("#e2e8f0").lineWidth(1).moveTo(50, doc.y).lineTo(550, doc.y).stroke().moveDown(1);
-        doc.fontSize(10).fillColor("#475569").font(getFont(true)).text("Plan Inclusions & Benefits:", { underline: true }).moveDown(0.5);
-        doc.fontSize(8).fillColor("#334155").font(getFont(false));
-        features.forEach((feature) => {
-          doc.text(`• ${feature}`);
-        });
-        doc.moveDown(1.5);
-      }
-
       // Horizontal Line Divider
       doc.strokeColor("#e2e8f0").lineWidth(1).moveTo(50, doc.y).lineTo(550, doc.y).stroke().moveDown(1.5);
 
@@ -143,6 +130,36 @@ export async function generateReceiptPdf(data) {
       // 6. FOOTER REMARKS
       doc.fontSize(8).fillColor("#94a3b8").font(getFont(false)).text("This is an electronically generated tax invoice and requires no physical signature.", { align: "center" });
       doc.text("Thank you for partnering with Mission 100 Hospital to protect your team.", { align: "center" });
+
+      // --- PAGE 2: PLAN DETAILS ---
+      const plan = corporatePlans[data.planSlug];
+      const rawFeatures = plan ? plan.features : [];
+      const features = rawFeatures.filter(f => {
+        const lf = f.toLowerCase().trim();
+        return !(lf.startsWith("everything in") || lf.includes("plan coverage"));
+      });
+      if (features && features.length > 0) {
+        doc.addPage();
+
+        // Page 2 Header
+        doc.fillColor("#16a34a").fontSize(16).font(getFont(true)).text("Plan Inclusions & Benefits", { align: "center" });
+        doc.fillColor("#64748b").fontSize(9).font(getFont(false)).text(`Mission 100 Hospital | ${data.planName} Details`, { align: "center" }).moveDown(1.5);
+
+        // Dynamic light box
+        const startY = doc.y;
+        const boxHeight = (features.length * 18) + 20;
+        doc.rect(81, startY, 450, boxHeight).fillColor("#f8fafc").fill();
+        doc.strokeColor("#e2e8f0").lineWidth(1).rect(81, startY, 450, boxHeight).stroke();
+
+        // Print features list inside the container
+        doc.fillColor("#334155").fontSize(9);
+        let featureY = startY + 15;
+        features.forEach((feature) => {
+          doc.font(getFont(true)).text("•", 100, featureY);
+          doc.font(getFont(false)).text(feature, 115, featureY, { width: 380 });
+          featureY = doc.y + 6;
+        });
+      }
 
       doc.end();
     } catch (err) {
@@ -235,17 +252,6 @@ export async function generateIndividualReceiptPdf(data) {
       doc.text(data.finalPrice > 0 ? `INR ${data.finalPrice}.00` : "FREE", 400, currentY, { align: "right" });
       doc.moveDown(2);
 
-      // --- PLAN DETAILS (FEATURES) ---
-      if (data.features && data.features.length > 0) {
-        doc.strokeColor("#e2e8f0").lineWidth(1).moveTo(50, doc.y).lineTo(550, doc.y).stroke().moveDown(1);
-        doc.fontSize(10).fillColor("#475569").font(getFont(true)).text("Plan Inclusions & Benefits:", { underline: true }).moveDown(0.5);
-        doc.fontSize(8).fillColor("#334155").font(getFont(false));
-        data.features.forEach((feature) => {
-          doc.text(`• ${feature}`);
-        });
-        doc.moveDown(1.5);
-      }
-
       // Horizontal Line Divider
       doc.strokeColor("#e2e8f0").lineWidth(1).moveTo(50, doc.y).lineTo(550, doc.y).stroke().moveDown(1.5);
 
@@ -257,6 +263,35 @@ export async function generateIndividualReceiptPdf(data) {
       // 6. FOOTER REMARKS
       doc.fontSize(8).fillColor("#94a3b8").font(getFont(false)).text("This is an electronically generated tax invoice and requires no physical signature.", { align: "center" });
       doc.text("Thank you for subscribing to Mission 100 Hospital.", { align: "center" });
+
+      // --- PAGE 2: PLAN DETAILS ---
+      const features = (data.features || []).filter(f => {
+        const lf = f.toLowerCase().trim();
+        return !(lf.startsWith("everything in") || lf.includes("plan coverage"));
+      });
+
+      if (features.length > 0) {
+        doc.addPage();
+
+        // Page 2 Header
+        doc.fillColor("#16a34a").fontSize(16).font(getFont(true)).text("Plan Inclusions & Benefits", { align: "center" });
+        doc.fillColor("#64748b").fontSize(9).font(getFont(false)).text(`Mission 100 Hospital | ${data.planName} Details`, { align: "center" }).moveDown(1.5);
+
+        // Dynamic light box
+        const startY = doc.y;
+        const boxHeight = (features.length * 18) + 20;
+        doc.rect(81, startY, 450, boxHeight).fillColor("#f8fafc").fill();
+        doc.strokeColor("#e2e8f0").lineWidth(1).rect(81, startY, 450, boxHeight).stroke();
+
+        // Print features list inside the container
+        doc.fillColor("#334155").fontSize(9);
+        let featureY = startY + 15;
+        features.forEach((feature) => {
+          doc.font(getFont(true)).text("•", 100, featureY);
+          doc.font(getFont(false)).text(feature, 115, featureY, { width: 380 });
+          featureY = doc.y + 6;
+        });
+      }
 
       doc.end();
     } catch (err) {
