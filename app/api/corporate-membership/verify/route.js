@@ -75,6 +75,11 @@ export async function POST(request) {
       cardBadge = 'GOLD PARTNER';
     }
 
+    const today = new Date();
+    const expMonth = String(today.getMonth() + 1).padStart(2, '0');
+    const expYear = today.getFullYear() + 1;
+    const validThru = `${expMonth}/${expYear}`;
+
     // 2. CONFIGURE EMAIL ATTACHMENT DETAILS
     let attachments = [];
 
