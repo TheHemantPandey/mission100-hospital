@@ -291,7 +291,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="/corporate-wellness-partnership"
+                    href="/buy-corporate-membership"
                     className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
                     <Briefcase size={15} />

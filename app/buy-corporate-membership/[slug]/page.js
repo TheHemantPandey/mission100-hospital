@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
-import { corporatePlans } from "../../corporate-wellness-partnership/plansData";
+import { corporatePlans } from "@/data/corporatePlans";
 
 const indianStates = [
   "Delhi",

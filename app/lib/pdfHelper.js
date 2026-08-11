@@ -1,5 +1,5 @@
 import PDFDocument from 'pdfkit';
-import { corporatePlans } from '../corporate-wellness-partnership/plansData';
+import { corporatePlans } from '@/data/corporatePlans';
 
 // In-memory cache for fonts to avoid duplicate downloads
 let robotoRegularBuffer = null;

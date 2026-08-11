@@ -28,7 +28,7 @@ import {
   PhoneCall,
   CalendarCheck
 } from "lucide-react";
-import { corporatePlans } from "./plansData";
+import { corporatePlans } from "@/data/corporatePlans";
 
 // Counter Hook to align with Reference page metrics
 const useAnimatedCounter = (end, duration = 2000) => {
@@ -63,8 +63,6 @@ export default function CorporateWellnessLandingPage() {
   const employeesCovered = useAnimatedCounter(5500);
   const diagnosticsDone = useAnimatedCounter(12000);
   const satisfiesRate = 99; // 99% satisfaction rate
-
-  const plansList = Object.values(corporatePlans);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -186,7 +184,7 @@ export default function CorporateWellnessLandingPage() {
                 View Plans <ArrowRight size={18} />
               </button>
               <button
-                onClick={scrollToPlans}
+                onClick={() => router.push('/contact')}
                 className="border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-750 px-8 py-4 rounded-xl font-bold active:scale-95 transition-all"
               >
                 Contact Our Team
@@ -341,12 +339,6 @@ export default function CorporateWellnessLandingPage() {
                   >
                     Buy Free Plan
                   </button>
-                  <button
-                    onClick={() => router.push(`/corporate-wellness-partnership/free-plan`)}
-                    className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
-                  >
-                    View Details
-                  </button>
                 </div>
               </div>
             </div>
@@ -407,12 +399,6 @@ export default function CorporateWellnessLandingPage() {
                     className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 shadow-md text-xs"
                   >
                     Buy Silver Plan
-                  </button>
-                  <button
-                    onClick={() => router.push(`/corporate-wellness-partnership/silver-plan`)}
-                    className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
-                  >
-                    View Details
                   </button>
                 </div>
               </div>
@@ -498,12 +484,6 @@ export default function CorporateWellnessLandingPage() {
                   >
                     Buy Gold Plan
                   </button>
-                  <button
-                    onClick={() => router.push(`/corporate-wellness-partnership/gold-plan`)}
-                    className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
-                  >
-                    View Details
-                  </button>
                 </div>
               </div>
             </div>
@@ -526,7 +506,7 @@ export default function CorporateWellnessLandingPage() {
             {whyChooseMission100.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-2xl shadow-sm border border-slate-250 border-slate-200 hover:shadow-md transition-shadow duration-300"
+                className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-4">
                   <CheckCircle size={18} />
@@ -614,7 +594,7 @@ export default function CorporateWellnessLandingPage() {
                   <div className="flex items-center gap-1 text-amber-400 mb-4">
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                   </div>
-                  <p className="text-slate-655 text-slate-600 italic font-semibold text-xs leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="text-slate-600 italic font-semibold text-xs leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-50">
                   <h4 className="font-extrabold text-slate-950 text-xs sm:text-sm">{t.author}</h4>
@@ -717,7 +697,7 @@ export default function CorporateWellnessLandingPage() {
       {lightboxImage && (
         <div
           onClick={() => setLightboxImage(null)}
-          className="fixed inset-0 z-55 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md cursor-zoom-out p-4 md:p-10"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md cursor-zoom-out p-4 md:p-10"
         >
           <div className="relative max-w-4xl max-h-screen w-full h-full flex items-center justify-center">
             <button

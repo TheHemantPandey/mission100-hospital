@@ -15,7 +15,7 @@ import {
   Building,
   HeartPulse
 } from "lucide-react";
-import { corporatePlans } from "../app/corporate-wellness-partnership/plansData";
+import { corporatePlans } from "@/data/corporatePlans";
 
 export default function CorporateWellnessPreview() {
   const plansList = Object.values(corporatePlans);
@@ -96,13 +96,13 @@ export default function CorporateWellnessPreview() {
 
             {/* Action Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link href="/corporate-wellness-partnership" className="grow sm:grow-0">
+              <Link href="/buy-corporate-membership" className="grow sm:grow-0">
                 <button className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white shadow-lg shadow-emerald-600/10 hover:shadow-emerald-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                   View Corporate Plans <ArrowRight size={18} />
                 </button>
               </Link>
               
-              <Link href="/corporate-wellness-partnership" className="grow sm:grow-0">
+              <Link href="/contact" className="grow sm:grow-0">
                 <button className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
                   <MessageSquare size={18} /> Talk to Our Team
                 </button>
@@ -124,7 +124,7 @@ export default function CorporateWellnessPreview() {
 
               return (
                 <Link 
-                  href={`/corporate-wellness-partnership/${plan.slug}`} 
+                  href={`/buy-corporate-membership/${plan.slug}`} 
                   key={plan.slug}
                   className="block cursor-pointer"
                 >
