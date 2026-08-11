@@ -15,7 +15,7 @@ export async function POST(request) {
 
         if (razorpay_signature === expectedSign) {
             // Transitions Google Sheet status to Confirmed and sends custom confirmation Email
-            await confirmMembershipPayment(razorpay_order_id, referralCode);
+            await confirmMembershipPayment(razorpay_order_id, referralCode, razorpay_payment_id);
 
             return NextResponse.json({ message: "Membership activated and logged successfully!" }, { status: 200 });
         } else {

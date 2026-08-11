@@ -53,8 +53,26 @@ export async function POST(request) {
 
     // 2. CONFIGURE EMAIL ATTACHMENT DETAILS
     let attachments = [];
+
+    // Generate dynamic Tax Invoice/Receipt PDF for both Paid & Free plans
+    try {
+      const pdfBuffer = await generateReceiptPdf({
+        representativeName, companyName, designation, businessEmail, mobileNumber,
+        gstNumber: gstNumber || '', companyAddress, city, state, pinCode,
+        employeeCount, planName, finalPrice, razorpay_payment_id: razorpay_payment_id || 'FREE_TIER',
+        planSlug
+      });
+
+      attachments.push({
+        filename: `Receipt_${companyName.replace(/\s+/g, '_')}.pdf`,
+        content: pdfBuffer
+      });
+    } catch (pdfErr) {
+      console.error("Corporate PDF receipt generation error: ", pdfErr);
+    }
+
     if (isFree) {
-      // Free Plan: Attach existing brochure PDF from /public directory
+      // Free Plan: Also attach existing brochure PDF from /public directory
       const brochurePath = path.join(process.cwd(), 'public', 'mission100-brochure.pdf');
       if (fs.existsSync(brochurePath)) {
         attachments.push({
@@ -62,18 +80,6 @@ export async function POST(request) {
           path: brochurePath
         });
       }
-    } else {
-      // Paid Plan: Generate dynamic Tax Invoice PDF Receipt buffer
-      const pdfBuffer = await generateReceiptPdf({
-        representativeName, companyName, designation, businessEmail, mobileNumber,
-        gstNumber: gstNumber || '', companyAddress, city, state, pinCode,
-        employeeCount, planName, finalPrice, razorpay_payment_id
-      });
-
-      attachments.push({
-        filename: `Invoice_${companyName.replace(/\s+/g, '_')}.pdf`,
-        content: pdfBuffer
-      });
     }
 
     // 3. COMPILE CUSTOMER EMAIL TEMPLATE

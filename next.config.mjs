@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
+  serverExternalPackages: ["pdfkit"],
 
   images: {
     // This resolves the quality errors we fixed earlier

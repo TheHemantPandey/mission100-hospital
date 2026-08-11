@@ -1,6 +1,8 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 import nodemailer from 'nodemailer';
+import { generateIndividualReceiptPdf } from './pdfHelper';
+import { plans } from '../membership-plans/plansData';
 
 // 1. Grab the Base64 key string from Hostinger's environment variables
 const base64Key = process.env.GOOGLE_PRIVATE_KEY?.trim() || '';
@@ -47,23 +49,63 @@ async function getSheetTabs() {
 }
 
 // Helper email sender function
-async function sendMembershipEmail(email, firstName, lastName, planName, finalPrice, appDate, appTime) {
+async function sendMembershipEmail(
+  email, firstName, lastName, planName, finalPrice, appDate, appTime,
+  paymentId = null, contactNo = '', address = '', orderId = ''
+) {
+  let attachments = [];
+  
+  // Find plan details to list its features in the PDF receipt
+  const cleanPlanName = planName.trim().toLowerCase();
+  const planEntry = Object.values(plans).find(p => 
+    p.name.toLowerCase() === cleanPlanName || 
+    p.id.toLowerCase() === cleanPlanName ||
+    cleanPlanName.includes(p.name.toLowerCase()) ||
+    cleanPlanName.includes(p.id.toLowerCase())
+  );
+  const features = planEntry ? planEntry.features : [];
+
+  try {
+    const pdfBuffer = await generateIndividualReceiptPdf({
+      firstName,
+      lastName,
+      email,
+      planName,
+      finalPrice,
+      appointmentDate: appDate,
+      appointmentTime: appTime,
+      paymentId: paymentId || 'FREE_TIER',
+      contactNo: contactNo || 'N/A',
+      address: address || 'N/A',
+      orderId: orderId || 'N/A',
+      features
+    });
+
+    attachments.push({
+      filename: `Receipt_${firstName}_${lastName}.pdf`,
+      content: pdfBuffer
+    });
+  } catch (pdfErr) {
+    console.error("Individual membership PDF receipt generation error: ", pdfErr);
+  }
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
     subject: `🚑 Membership Activated: Welcome to Mission 100 Hospital!`,
+    attachments: attachments,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 16px;">
         <h2 style="color: #16a34a; text-align: center;">Mission 100 Hospital</h2>
         <p>Dear <strong>${firstName} ${lastName}</strong>,</p>
-        <p>Thank you for subscribing to our <strong>${planName}</strong> package! Your payment has been verified successfully and your premium health benefits are live.</p>
+        <p>Thank you for subscribing to our <strong>${planName}</strong> package! Your membership has been activated successfully and your health benefits are live.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
         <h3>💳 Subscription Summary</h3>
         <p><strong>Plan Package:</strong> ${planName}</p>
         <p><strong>Amount Paid:</strong> ₹${finalPrice}</p>
         <p><strong>Pre-activation Checkup Slot:</strong> ${appDate} (${appTime})</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-        <p style="font-size: 12px; color: #64748b;">Your health reports, diagnostics tracking, and official invoice records will be shared directly to this email address.</p>
+        <p style="font-size: 12px; color: #64748b;">Your health reports, diagnostics tracking, and your PDF receipt are attached to this email.</p>
         <p style="text-align: center; margin-top: 30px; font-weight: bold; color: #16a34a;">Stay Healthy, Stay Mission 100 Safe!</p>
       </div>
     `
@@ -269,9 +311,14 @@ export async function addPendingMembership(data) {
   });
 
   if (data.status.includes('Confirmed') || data.status.includes('Free')) {
+    const fullAddress = `${data.houseNo}, ${data.street}${data.landmark ? ', ' + data.landmark : ''}, ${data.city}, ${data.state} - ${data.pinCode}`;
     await sendMembershipEmail(
       data.email, data.firstName, data.lastName, data.planName, 
-      data.finalPrice, data.appointmentDate, data.appointmentTime
+      data.finalPrice, data.appointmentDate, data.appointmentTime,
+      data.paymentId || 'FREE_TIER',
+      data.contactNo,
+      fullAddress,
+      data.orderId
     );
   }
 
@@ -287,7 +334,7 @@ export async function addPendingMembership(data) {
 }
 
 // 5. Function to mark specific membership layout as paid and send out email
-export async function confirmMembershipPayment(orderId, referralCodeUsed) {
+export async function confirmMembershipPayment(orderId, referralCodeUsed, paymentId) {
   const { membershipSheet, referralsSheet } = await getSheetTabs();
 
   const rows = await membershipSheet.getRows();
@@ -304,7 +351,11 @@ export async function confirmMembershipPayment(orderId, referralCodeUsed) {
       targetRow.get('Plan Name'),
       targetRow.get('Final Price'),
       targetRow.get('Check Date'),
-      targetRow.get('Check Time Slot')
+      targetRow.get('Check Time Slot'),
+      paymentId,
+      targetRow.get('Contact'),
+      targetRow.get('Address') + (targetRow.get('Pincode') ? `, ${targetRow.get('Pincode')}` : ''),
+      orderId
     );
 
     try {

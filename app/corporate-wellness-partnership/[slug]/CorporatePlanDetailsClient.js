@@ -81,9 +81,9 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white py-16 md:py-20 border-b border-slate-800">
         <div className="absolute inset-0 bg-grid-white opacity-5 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-            
+
             {/* Left Column: Plan Poster Image */}
             <div className="lg:col-span-6 h-full">
               <div className="bg-slate-900/60 border border-slate-800 p-6 rounded-3xl shadow-xl backdrop-blur-md h-full flex flex-col justify-between text-left">
@@ -92,7 +92,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                   {/* Framed Image Container */}
                   <div className="relative w-full rounded-2xl border border-slate-800 overflow-hidden bg-slate-950 shadow-inner flex items-center justify-center p-2">
                     <div className="relative w-full aspect-[5/7] rounded-xl overflow-hidden border border-slate-800 bg-slate-900">
-                      <Image 
+                      <Image
                         src={plan.image}
                         alt={plan.name}
                         fill
@@ -102,7 +102,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Details of the plan to fill space below */}
                 <div className="mt-6 pt-6 border-t border-slate-800 space-y-4 text-left">
                   <div className="flex items-center justify-between">
@@ -111,12 +111,12 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                     </span>
                     <span className="text-xs text-slate-400 font-bold">12 Months Partnership</span>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-extrabold text-white">{plan.name}</h3>
                     <p className="text-xs text-slate-400 font-semibold mt-1">{plan.subtitle}</p>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4 bg-slate-900/40 p-4 rounded-2xl border border-slate-800 text-xs font-semibold text-slate-350">
                     <div>
                       <span className="text-[10px] text-slate-550 uppercase font-bold block mb-0.5">Price Tier</span>
@@ -133,7 +133,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
 
             {/* Right Column: Complete Plan Overview */}
             <div className="lg:col-span-6 space-y-8 bg-slate-900/60 border border-slate-800 p-6 md:p-8 rounded-3xl shadow-lg backdrop-blur-md text-left h-full flex flex-col justify-between">
-              
+
               {/* Plan Overview */}
               <div className="space-y-3 text-left">
                 <span className="text-[10px] font-black text-emerald-400 uppercase tracking-widest block">Plan Overview</span>
@@ -170,7 +170,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                       <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">Routine checks to catch complications early.</p>
                     </div>
                   </div>
-                  
+
                   <div className="bg-slate-850 p-4.5 rounded-2xl border border-slate-800 flex items-start gap-3">
                     <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">
                       <ShieldCheck className="w-5 h-5" />
@@ -235,7 +235,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                   <p className="text-xs font-black text-slate-400 uppercase tracking-wider">Ready to protect your employees' health?</p>
                   <p className="text-[10px] text-slate-500 font-semibold">Start your team partnership process instantly.</p>
                 </div>
-                <button 
+                <button
                   onClick={() => router.push(`/buy-corporate-membership/${plan.slug}`)}
                   className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all transform active:scale-95 shadow-lg flex items-center justify-center gap-2 text-xs"
                 >
@@ -291,7 +291,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
+
             {/* Organization Benefits */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-6">
               <h3 className="text-lg font-black text-slate-950 flex items-center gap-2 border-b border-slate-200 pb-3">
@@ -362,13 +362,12 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
             {planFaqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
-                <div 
+                <div
                   key={index}
-                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                    isOpen 
-                      ? 'bg-gradient-to-r from-emerald-50 to-indigo-50 border-emerald-300 shadow-sm' 
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
+                      ? 'bg-gradient-to-r from-emerald-50 to-indigo-50 border-emerald-300 shadow-sm'
                       : 'bg-white border-slate-200 hover:border-slate-300'
-                  }`}
+                    }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
@@ -377,10 +376,9 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
                     <span>{faq.q}</span>
                     <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180 text-emerald-600' : ''}`} />
                   </button>
-                  <div 
-                    className={`transition-all duration-300 ease-in-out ${
-                      isOpen ? 'max-h-40 border-t border-emerald-100/55 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-                    }`}
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40 border-t border-emerald-100/55 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+                      }`}
                   >
                     <p className="px-6 py-4 text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
                       {faq.a}
@@ -403,8 +401,8 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {relatedPlans.map((item) => (
-              <div 
-                key={item.slug} 
+              <div
+                key={item.slug}
                 className="bg-white border border-slate-200 p-6 rounded-3xl flex flex-col justify-between hover:shadow-md transition-shadow shadow-sm"
               >
                 <div>
@@ -429,7 +427,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-12 text-center shadow-xl relative overflow-hidden animate-fade-in">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-600/10 rounded-full filter blur-2xl pointer-events-none"></div>
-            
+
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight relative z-10 leading-tight">
               Ready to Protect Your Team with the {plan.name}?
             </h2>
@@ -439,7 +437,7 @@ export default function CorporatePlanDetailsClient({ plan, relatedPlans }) {
             </p>
 
             <div className="mt-8 relative z-10">
-              <button 
+              <button
                 onClick={() => router.push(`/buy-corporate-membership/${plan.slug}`)}
                 className="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-900 font-black px-8 py-4 rounded-xl transition-all transform active:scale-95 shadow-md flex items-center justify-center gap-2 mx-auto"
               >

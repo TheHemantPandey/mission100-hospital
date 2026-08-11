@@ -274,12 +274,12 @@ export default function CorporateWellnessLandingPage() {
           </div>
 
           <div className="space-y-20 max-w-6xl mx-auto">
-            
+
             {/* 1. FREE PLAN ROW: Left Image (Visible in Full), Right Details */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm">
               <div className="lg:col-span-7 w-full">
                 <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-white">
-                  <Image 
+                  <Image
                     src={corporatePlans["free-plan"].image}
                     alt="Free Wellness Starter Flyer"
                     width={800}
@@ -289,7 +289,7 @@ export default function CorporateWellnessLandingPage() {
                   />
                 </div>
               </div>
-              
+
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6 py-2">
                 <div className="space-y-6">
                   <div className="space-y-2">
@@ -303,7 +303,7 @@ export default function CorporateWellnessLandingPage() {
                       {corporatePlans["free-plan"].price} <span className="text-xs text-slate-400 font-semibold">/year per employee</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                     The perfect start to employee wellness at no cost! Set up a basic preventative healthcare system for early startup teams.
                   </p>
@@ -335,13 +335,13 @@ export default function CorporateWellnessLandingPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 border-t border-slate-100 pt-6">
-                  <button 
+                  <button
                     onClick={() => router.push(`/buy-corporate-membership/free-plan`)}
                     className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 shadow-md text-xs"
                   >
                     Buy Free Plan
                   </button>
-                  <button 
+                  <button
                     onClick={() => router.push(`/corporate-wellness-partnership/free-plan`)}
                     className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
                   >
@@ -366,7 +366,7 @@ export default function CorporateWellnessLandingPage() {
                       {corporatePlans["silver-plan"].price} <span className="text-xs text-slate-400 font-semibold">/year per employee</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                     Prevent today, protect tomorrow. Advanced diagnostics coordinates that bring clinical checking directly to your team.
                   </p>
@@ -402,13 +402,13 @@ export default function CorporateWellnessLandingPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 border-t border-slate-100 pt-6">
-                  <button 
+                  <button
                     onClick={() => router.push(`/buy-corporate-membership/silver-plan`)}
                     className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 shadow-md text-xs"
                   >
                     Buy Silver Plan
                   </button>
-                  <button 
+                  <button
                     onClick={() => router.push(`/corporate-wellness-partnership/silver-plan`)}
                     className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
                   >
@@ -419,7 +419,7 @@ export default function CorporateWellnessLandingPage() {
 
               <div className="lg:col-span-7 lg:order-2 w-full">
                 <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-white">
-                  <Image 
+                  <Image
                     src={corporatePlans["silver-plan"].image}
                     alt="Silver Corporate Care Flyer"
                     width={800}
@@ -435,7 +435,7 @@ export default function CorporateWellnessLandingPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm">
               <div className="lg:col-span-7 w-full">
                 <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-white">
-                  <Image 
+                  <Image
                     src={corporatePlans["gold-plan"].image}
                     alt="Gold Corporate Care Flyer"
                     width={800}
@@ -445,7 +445,7 @@ export default function CorporateWellnessLandingPage() {
                   />
                 </div>
               </div>
-              
+
               <div className="lg:col-span-5 flex flex-col justify-between space-y-6 py-2">
                 <div className="space-y-6">
                   <div className="space-y-2">
@@ -459,7 +459,7 @@ export default function CorporateWellnessLandingPage() {
                       {corporatePlans["gold-plan"].price} <span className="text-xs text-slate-400 font-semibold">/year per employee</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                     Invest in health, empower your team. Premium cardiac diagnostic profiling and full home clinical support.
                   </p>
@@ -492,13 +492,13 @@ export default function CorporateWellnessLandingPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 border-t border-slate-100 pt-6">
-                  <button 
+                  <button
                     onClick={() => router.push(`/buy-corporate-membership/gold-plan`)}
                     className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 shadow-md text-xs"
                   >
                     Buy Gold Plan
                   </button>
-                  <button 
+                  <button
                     onClick={() => router.push(`/corporate-wellness-partnership/gold-plan`)}
                     className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-750 font-bold py-3.5 px-8 rounded-xl transition-all transform active:scale-95 text-xs"
                   >
@@ -638,8 +638,8 @@ export default function CorporateWellnessLandingPage() {
                 <div
                   key={index}
                   className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                      ? 'bg-gradient-to-r from-emerald-50 to-indigo-50 border-emerald-300 shadow-sm'
-                      : 'bg-white border-slate-200 hover:border-slate-300'
+                    ? 'bg-gradient-to-r from-emerald-50 to-indigo-50 border-emerald-300 shadow-sm'
+                    : 'bg-white border-slate-200 hover:border-slate-300'
                     }`}
                 >
                   <button

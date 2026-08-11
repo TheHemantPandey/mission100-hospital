@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @utility no-scrollbar {
+
   /* Safari and Chrome */
   &::-webkit-scrollbar {
     display: none;
@@ -8,10 +9,10 @@
 
   /* Firefox, IE, and Edge */
   & {
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}   
+}
 
 img {
   -webkit-user-drag: none;

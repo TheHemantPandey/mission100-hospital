@@ -123,53 +123,58 @@ export default function CorporateWellnessPreview() {
                 plan.slug === "silver-plan" ? "text-indigo-600" : "text-amber-500";
 
               return (
-                <motion.div 
+                <Link 
+                  href={`/corporate-wellness-partnership/${plan.slug}`} 
                   key={plan.slug}
-                  variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  className="group relative overflow-hidden bg-white hover:bg-slate-50/50 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+                  className="block cursor-pointer"
                 >
-                  
-                  {/* Visual Accent Border */}
-                  <div className={`absolute top-0 left-0 w-2 h-full ${accentBorderColor}`} />
+                  <motion.div 
+                    variants={itemVariants}
+                    whileHover={{ y: -4, scale: 1.01 }}
+                    className="group relative overflow-hidden bg-white hover:bg-slate-50/50 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+                  >
+                    
+                    {/* Visual Accent Border */}
+                    <div className={`absolute top-0 left-0 w-2 h-full ${accentBorderColor}`} />
 
-                  {/* Plan Image/Thumbnail */}
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner">
-                    <Image
-                      src={plan.image}
-                      alt={plan.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Plan Text Detail */}
-                  <div className="grow space-y-1.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-lg font-extrabold text-slate-950 group-hover:text-emerald-700 transition-colors">
-                        {plan.name}
-                      </h3>
-                      <span className={`inline-block border text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${plan.theme.badge}`}>
-                        {plan.badge}
-                      </span>
+                    {/* Plan Image/Thumbnail */}
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner">
+                      <Image
+                        src={plan.image}
+                        alt={plan.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <p className="text-xs text-slate-500 font-medium leading-relaxed max-w-sm">
-                      {plan.subtitle}
-                    </p>
-                    <div className="flex items-baseline gap-1 pt-1">
-                      <span className="text-lg font-black text-slate-950">{plan.price}</span>
-                      <span className="text-[10px] text-slate-400 font-semibold">/{plan.duration.toLowerCase()}</span>
-                    </div>
-                  </div>
 
-                  {/* Micro Action Indicator */}
-                  <div className="self-stretch flex items-center justify-end sm:justify-center pr-2 shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-slate-50 group-hover:bg-emerald-600 group-hover:text-white flex items-center justify-center transition-colors">
-                      <ArrowRight size={14} className="transform group-hover:translate-x-0.5 transition-transform" />
+                    {/* Plan Text Detail */}
+                    <div className="grow space-y-1.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-lg font-extrabold text-slate-950 group-hover:text-emerald-700 transition-colors">
+                          {plan.name}
+                        </h3>
+                        <span className={`inline-block border text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${plan.theme.badge}`}>
+                          {plan.badge}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500 font-medium leading-relaxed max-w-sm">
+                        {plan.subtitle}
+                      </p>
+                      <div className="flex items-baseline gap-1 pt-1">
+                        <span className="text-lg font-black text-slate-950">{plan.price}</span>
+                        <span className="text-[10px] text-slate-400 font-semibold">/{plan.duration.toLowerCase()}</span>
+                      </div>
                     </div>
-                  </div>
 
-                </motion.div>
+                    {/* Micro Action Indicator */}
+                    <div className="self-stretch flex items-center justify-end sm:justify-center pr-2 shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-slate-50 group-hover:bg-emerald-600 group-hover:text-white flex items-center justify-center transition-colors">
+                        <ArrowRight size={14} className="transform group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+
+                  </motion.div>
+                </Link>
               );
             })}
           </div>
