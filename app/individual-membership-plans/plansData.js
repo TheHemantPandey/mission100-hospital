@@ -6,7 +6,7 @@ export const plans = {
     originalPrice: "₹0",
     savings: "Zero Cost, Maximum Impact",
     costPerDay: "Completely Free",
-    image: "/membership-plans/free-plan-1.png",
+    image: "/individual-membership-plans/free-plan-1.png",
     bestFor: [
       { title: "Early Detection", desc: "Early detection of health issues" },
       { title: "Employee Well-being", desc: "Promotes employee well-being" },
@@ -35,7 +35,7 @@ export const plans = {
     originalPrice: "₹8,000",
     savings: "Save ₹5,001 Every Year",
     costPerDay: "Only ₹8 Per Day",
-    image: "/membership-plans/silver-plan.png",
+    image: "/individual-membership-plans/silver-plan.png",
     bestFor: [
       { title: "Individuals", desc: "Perfect for single user health coverage" },
       { title: "Students", desc: "Budget-friendly healthcare setup" },
@@ -65,7 +65,7 @@ export const plans = {
     originalPrice: "₹12,000",
     savings: "Save ₹7,001 Every Year",
     costPerDay: "Only ₹14 Per Day",
-    image: "/membership-plans/gold-plan.png",
+    image: "/individual-membership-plans/gold-plan.png",
     bestFor: [
       { title: "Small Families", desc: "Perfect coverage balance for up to 3 members" },
       { title: "Parents", desc: "Comprehensive care tailored for elder dependencies" },
@@ -99,7 +99,7 @@ export const plans = {
     originalPrice: "₹27,000",
     savings: "Save ₹17,001 Every Year",
     costPerDay: "Only ₹27 Per Day",
-    image: "/membership-plans/platinum-plan.png",
+    image: "/individual-membership-plans/platinum-plan.png",
     isPopular: true,
     bestFor: [
       { title: "Complete Families", desc: "Complete master coverage for your entire home" },
@@ -137,7 +137,7 @@ export const plans = {
     originalPrice: "₹35,000",
     savings: "Save ₹15,001 Every Year",
     costPerDay: "Only ₹55 Per Day",
-    image: "/membership-plans/pro-fitness-plan.png",
+    image: "/individual-membership-plans/pro-fitness-plan.png",
     bestFor: [
       { title: "Fitness Enthusiasts", desc: "Tailored checkups for active gym and athletic tracking" },
       { title: "Weight Management", desc: "Dietician adjustments and metabolic profiling" },
@@ -166,4 +166,4 @@ export const plans = {
   }
 };
 
-export const comparisonImageUrl = "/membership-plans/comparison-plan.jpg";
+export const comparisonImageUrl = "/individual-membership-plans/comparison-plan.jpg";

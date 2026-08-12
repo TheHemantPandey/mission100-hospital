@@ -268,7 +268,7 @@ const Navbar = () => {
 
         {/* 4. Membership */}
         <Link
-          href="/membership-plans"
+          href="/individual-membership-plans"
           onClick={closeMenu}
           className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full transition-colors"
         >

@@ -2,7 +2,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 import nodemailer from 'nodemailer';
 import { generateIndividualReceiptPdf, generateMembershipCardPdf } from './pdfHelper';
-import { plans } from '../membership-plans/plansData';
+import { plans } from '../individual-membership-plans/plansData';
 
 // 1. Grab the Base64 key string from Hostinger's environment variables
 const base64Key = process.env.GOOGLE_PRIVATE_KEY?.trim() || '';

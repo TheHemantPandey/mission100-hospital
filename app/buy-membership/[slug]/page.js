@@ -3,7 +3,7 @@
 import React, { useState, useEffect, use } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { MapPin, ShieldCheck, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag, Mail, HeartPulse, ShieldAlert } from "lucide-react"; 
+import { MapPin, ShieldCheck, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag, Mail, HeartPulse, ShieldAlert } from "lucide-react";
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
 
@@ -34,20 +34,20 @@ export default function BuyMembershipPage({ params }) {
     handleSubmit,
     watch,
     setValue,
-    reset, 
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      firstName: "", lastName: "", email: "", state: "", city: "", dob: "", gender: "", 
+      firstName: "", lastName: "", email: "", state: "", city: "", dob: "", gender: "",
       bloodGroup: "", contactNo: "", emergencyName: "", emergencyContactNo: "", emergencyRelationship: "",
-      medicalConditions: "", planSlug: initialPlanSlug, appointmentDate: "", appointmentTime: "", 
+      medicalConditions: "", planSlug: initialPlanSlug, appointmentDate: "", appointmentTime: "",
       houseNo: "", street: "", pinCode: "", landmark: "", termsAccepted: false, infoAccurate: false, marketingConsent: false
     }
   });
 
   const selectedState = watch("state");
-  const selectedPlanSlug = watch("planSlug"); 
-  
+  const selectedPlanSlug = watch("planSlug");
+
   const currentPlanDetails = planPriceConfig[selectedPlanSlug] || { name: "", price: 0 };
   const finalPrice = Math.max(0, currentPlanDetails.price - discountAmount);
 
@@ -67,7 +67,7 @@ export default function BuyMembershipPage({ params }) {
   const handleApplyReferral = async (e) => {
     e.preventDefault();
     setReferralError("");
-    
+
     if (!selectedPlanSlug) {
       setReferralError("Please select a Membership Plan before applying a coupon.");
       return;
@@ -80,12 +80,12 @@ export default function BuyMembershipPage({ params }) {
       const res = await fetch("/api/payment/check-referral", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           referralCode: referralInput,
-          testName: currentPlanDetails.name 
+          testName: currentPlanDetails.name
         }),
       });
-      
+
       const data = await res.json();
 
       if (res.ok) {
@@ -93,7 +93,7 @@ export default function BuyMembershipPage({ params }) {
         setDiscountAmount(data.discountAmount);
         setReferralInput("");
       } else {
-        setReferralError(data.error); 
+        setReferralError(data.error);
       }
     } catch (err) {
       setReferralError("Network error. Please try again.");
@@ -199,7 +199,7 @@ export default function BuyMembershipPage({ params }) {
     setShowSuccessPopup(false);
     reset();
     handleRemoveReferral();
-    router.push("/membership-plans");
+    router.push("/individual-membership-plans");
   };
 
   const ErrorMsg = ({ name }) => (
@@ -220,7 +220,7 @@ export default function BuyMembershipPage({ params }) {
             <p className="text-slate-600 mb-8 leading-relaxed">
               Thank you for choosing Mission 100 Hospital. Your membership request for <strong>{currentPlanDetails.name}</strong> has been securely logged.
             </p>
-            <button 
+            <button
               onClick={handleClosePopup}
               className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-colors"
             >
@@ -242,7 +242,7 @@ export default function BuyMembershipPage({ params }) {
             <h2 className="text-2xl font-bold text-slate-800 text-center uppercase tracking-wider underline decoration-green-500 underline-offset-8">
               Subscriber Details
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">First Name *</label>
@@ -257,14 +257,14 @@ export default function BuyMembershipPage({ params }) {
 
               <div className="md:col-span-2">
                 <label className="block text-sm font-bold text-slate-700 mb-1">Email Address *</label>
-                <input type="email" {...register("email", { 
-                  required: "Email address is required", 
-                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address format" } 
+                <input type="email" {...register("email", {
+                  required: "Email address is required",
+                  pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address format" }
                 })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none border-slate-200" placeholder="example@domain.com" />
                 <p className="text-xs text-slate-400 mt-1 flex items-center gap-1"><Mail className="w-3 h-3" /> Used for confirmations, invoices, reports, and portal access.</p>
                 <ErrorMsg name="email" />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Date of Birth *</label>
                 <input type="date" max={today} {...register("dob", { required: "Date of Birth is required" })} className="w-full p-4 bg-slate-50 border rounded-2xl outline-none cursor-pointer border-slate-200" />
@@ -303,7 +303,7 @@ export default function BuyMembershipPage({ params }) {
                   <option value="Unknown">Unknown</option>
                 </select>
               </div>
-              
+
               <div className="md:col-span-2">
                 <label className="block text-sm font-bold text-slate-700 mb-1">Membership Plan *</label>
                 <div className="relative">
@@ -422,55 +422,55 @@ export default function BuyMembershipPage({ params }) {
             </div>
 
             <div className="border-t border-slate-100 pt-8 mt-6">
-               <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
-                 <Tag className="w-5 h-5 text-green-600"/> Discount & Referrals
-               </h3>
-               
-               {!appliedCode ? (
-                 <div className="space-y-2">
-                    <label className="block text-sm font-bold text-slate-700 mb-1">Referral Code (Optional)</label>
-                    <div className="flex gap-3">
-                      <input 
-                        value={referralInput}
-                        onChange={(e) => setReferralInput(e.target.value.toUpperCase())}
-                        className="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-semibold" 
-                        placeholder="ENTER CODE" 
-                      />
-                      <button 
-                        onClick={handleApplyReferral}
-                        disabled={isCheckingCode || !referralInput}
-                        className="px-8 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-700 disabled:opacity-50 transition-colors"
-                      >
-                        {isCheckingCode ? "Checking..." : "Apply"}
-                      </button>
-                    </div>
-                    {referralError && <p className="text-red-500 text-sm font-medium mt-2">{referralError}</p>}
-                 </div>
-               ) : (
-                 <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" />
-                      <div>
-                        <p className="text-green-800 font-bold">Code '{appliedCode}' Applied!</p>
-                        <p className="text-green-600 text-sm font-medium">You saved ₹{discountAmount}</p>
-                      </div>
-                    </div>
-                    <button 
-                      type="button" 
-                      onClick={handleRemoveReferral}
-                      className="text-red-500 hover:text-red-700 font-bold text-sm px-3 py-2 flex items-center gap-1"
+              <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <Tag className="w-5 h-5 text-green-600" /> Discount & Referrals
+              </h3>
+
+              {!appliedCode ? (
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Referral Code (Optional)</label>
+                  <div className="flex gap-3">
+                    <input
+                      value={referralInput}
+                      onChange={(e) => setReferralInput(e.target.value.toUpperCase())}
+                      className="flex-1 p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-semibold"
+                      placeholder="ENTER CODE"
+                    />
+                    <button
+                      onClick={handleApplyReferral}
+                      disabled={isCheckingCode || !referralInput}
+                      className="px-8 bg-slate-800 text-white font-bold rounded-2xl hover:bg-slate-700 disabled:opacity-50 transition-colors"
                     >
-                      <XCircle className="w-4 h-4" /> Remove
+                      {isCheckingCode ? "Checking..." : "Apply"}
                     </button>
-                 </div>
-               )}
+                  </div>
+                  {referralError && <p className="text-red-500 text-sm font-medium mt-2">{referralError}</p>}
+                </div>
+              ) : (
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-600" />
+                    <div>
+                      <p className="text-green-800 font-bold">Code '{appliedCode}' Applied!</p>
+                      <p className="text-green-600 text-sm font-medium">You saved ₹{discountAmount}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemoveReferral}
+                    className="text-red-500 hover:text-red-700 font-bold text-sm px-3 py-2 flex items-center gap-1"
+                  >
+                    <XCircle className="w-4 h-4" /> Remove
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="border-t border-slate-100 pt-8 space-y-4">
               <div className="flex items-start gap-3">
-                <input 
-                  type="checkbox" 
-                  id="infoAccurate" 
+                <input
+                  type="checkbox"
+                  id="infoAccurate"
                   {...register("infoAccurate", { required: "You must confirm the accuracy of information provided." })}
                   className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
                 />
@@ -481,9 +481,9 @@ export default function BuyMembershipPage({ params }) {
               <ErrorMsg name="infoAccurate" />
 
               <div className="flex items-start gap-3">
-                <input 
-                  type="checkbox" 
-                  id="termsAccepted" 
+                <input
+                  type="checkbox"
+                  id="termsAccepted"
                   {...register("termsAccepted", { required: "You must accept the terms and conditions." })}
                   className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
                 />
@@ -494,9 +494,9 @@ export default function BuyMembershipPage({ params }) {
               <ErrorMsg name="termsAccepted" />
 
               <div className="flex items-start gap-3">
-                <input 
-                  type="checkbox" 
-                  id="marketingConsent" 
+                <input
+                  type="checkbox"
+                  id="marketingConsent"
                   {...register("marketingConsent")}
                   className="mt-1 w-4 h-4 accent-green-600 rounded cursor-pointer"
                 />
@@ -506,15 +506,15 @@ export default function BuyMembershipPage({ params }) {
               </div>
             </div>
 
-            <button 
-              type="submit" 
-              disabled={isSending || !selectedPlanSlug} 
+            <button
+              type="submit"
+              disabled={isSending || !selectedPlanSlug}
               className={`w-full mt-10 text-white py-5 rounded-2xl font-black text-xl transition-all shadow-lg active:scale-[0.98] ${isSending || !selectedPlanSlug ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
             >
-              {isSending ? "Processing..." : 
-               !selectedPlanSlug ? "Select a plan to continue" :
-               finalPrice === 0 ? "Activate Free Plan" : 
-               `Continue to Pay - ₹${finalPrice}`}
+              {isSending ? "Processing..." :
+                !selectedPlanSlug ? "Select a plan to continue" :
+                  finalPrice === 0 ? "Activate Free Plan" :
+                    `Continue to Pay - ₹${finalPrice}`}
             </button>
           </form>
         </div>
