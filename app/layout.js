@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import HospitalPopup from "@/components/HospitalPopup"; // 1. IMPORTED POPUP COMPONENT
 import Script from 'next/script';
 import ImageProtection from "@/components/ImageProtection";
+import ScrollRestoration from "@/components/ScrollRestoration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,6 +79,7 @@ export default function RootLayout({ children }) {
 
       <body className="min-h-full bg-[#f7f9fc] flex flex-col overflow-x-hidden selection:bg-green-100">
 
+        <ScrollRestoration />
         <ImageProtection />
 
         <HospitalPopup />
