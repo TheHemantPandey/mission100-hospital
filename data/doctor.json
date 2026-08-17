@@ -23,6 +23,34 @@
     "certifications": []
   },
   {
+  "id": 8,
+  "slug": "dr-ritwika-saha",
+  "name": "Dr. Ritwika Saha",
+  "specialty": "General Physician ",
+  "qualification": "MBBS, MD (Pharmacology)",
+  "expertise": "Emergency Medicine, ICU Management & Clinical Pharmacology",
+  "consultationType": "Online",
+  "languages": [
+    "Bengali",
+    "Hindi",
+    "English"
+  ],
+  "nextSlot": "Available For Today",
+  "img": "/mission100-experts/ritwika.png",
+  "pic": "/mission100-experts/ritwika.png",
+  "about": "Dr. Ritwika Saha is a skilled medical practitioner with extensive experience across Emergency, Respiratory ICU, and HDU setups. She specializes in preliminary diagnostic evaluations, patient stabilization, clinical pharmacology, and comprehensive vital monitoring.",
+  "areasOfFocus": [
+    "Emergency & Critical Care",
+    "ICU & HDU Patient Management",
+    "Clinical Pharmacology & Therapeutics",
+    "Gastroenterology Support",
+    "Vital Statistics & Clinical Monitoring"
+  ],
+  "certifications": [
+    "West Bengal Medical Council (WBMC) Reg. No. 83963"
+  ]
+},
+  {
     "id": 2,
     "slug": "ayushi-gangwar",
     "name": "Ayushi Gangwar",
