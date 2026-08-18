@@ -78,14 +78,7 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Mobile Only: Top "Home" Button */}
-          <Link
-            href="/join-us"
-            className="md:hidden bg-green-600 text-white px-5 py-2 rounded-full font-bold text-sm shadow-sm active:scale-95 transition-all"
-            onClick={closeMenu}
-          >
-            Join Us
-          </Link>
+
 
           {/* Desktop Only: Navigation Links */}
           <div className="hidden md:block w-auto">
@@ -101,6 +94,14 @@ const Navbar = () => {
                   className="text-gray-700 hover:text-green-600"
                 >
                   About
+                </Link>
+              </li>
+              <li className="hidden xl:block">
+                <Link
+                  href="/memberships"
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Membership
                 </Link>
               </li>
 
@@ -167,14 +168,7 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="hidden xl:block">
-                <Link
-                  href="/join-us"
-                  className="text-center px-4 py-2 bg-green-600 text-white rounded-full font-bold hover:bg-green-700 transition-all active:scale-95 text-sm"
-                >
-                  Join Us
-                </Link>
-              </li>
+
 
               {/* Desktop Call to Action Button */}
               <li>
@@ -268,7 +262,7 @@ const Navbar = () => {
 
         {/* 4. Membership */}
         <Link
-          href="/individual-membership-plans"
+          href="/memberships"
           onClick={closeMenu}
           className="flex flex-col items-center justify-center p-2 text-gray-600 hover:text-green-600 w-full transition-colors"
         >

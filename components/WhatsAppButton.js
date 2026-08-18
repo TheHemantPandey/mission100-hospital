@@ -14,11 +14,11 @@ const WhatsAppButton = () => {
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
 
-  // Determine if on a membership page
   const isMembershipPage = pathname ? (
     pathname.startsWith('/individual-membership-plans') ||
     pathname.startsWith('/buy-membership') ||
-    pathname.startsWith('/buy-corporate-membership')
+    pathname.startsWith('/buy-corporate-membership') ||
+    pathname.startsWith('/memberships')
   ) : false;
 
   // Hydrate on client mount and check initial window dimensions
@@ -103,7 +103,7 @@ const WhatsAppButton = () => {
 
       {/* 1. MEMBERSHIP BUTTON (Placed Above with smooth fade-in/fade-out transitions) */}
       <Link
-        href="/individual-membership-plans"
+        href="/memberships"
         className={`flex items-center pl-1.5 py-1.5 bg-green-600 text-white rounded-full shadow-2xl hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-500 ease-out group relative ${mounted && isVisible
           ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto delay-0 pr-5 gap-3'
           : 'opacity-0 translate-x-full scale-95 pointer-events-none delay-300 pr-1.5 gap-0'
