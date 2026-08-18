@@ -1,8 +1,8 @@
-# Create responsive `/memberships` page (Updated)
+# Create responsive `/memberships` page (Updated with Hamburger Menu)
 
 We will create a very clean, simple, and high-quality gateway page at `/memberships` that displays exactly two options: Individual Membership and Corporate Membership. The layout will display them side-by-side on desktop and stacked on mobile/tablet.
 
-We will also update the Mobile bottom navigation, the floating popup, and the Browse Top Quick Actions link to redirect to this new `/memberships` page.
+We will also update the Mobile bottom navigation, the floating popup, the Browse Top Quick Actions link, and add a standard 3-line hamburger menu to the Navbar for mobile & tablet screens.
 
 ## User Review Required
 
@@ -11,6 +11,7 @@ We will also update the Mobile bottom navigation, the floating popup, and the Br
 > * The Individual Membership container, image, title, and button will link to `/individual-membership-plans`.
 > * The Corporate Membership container, image, title, and button will link to `/buy-corporate-membership`.
 > * The existing bottom navigation of `Navbar.js` will have its fourth option (Membership) updated to point to `/memberships`.
+> * A standard 3-line hamburger menu will be added to the top mobile & tablet navbar to open the full navigation menu when clicked.
 
 ## Open Questions
 
@@ -32,6 +33,11 @@ None. All constraints are clear.
 
 #### [MODIFY] [Navbar.js](file:///d:/Code/Misiion-100-/components/Navbar.js)
 * Update the Mobile Bottom Navigation's fourth option (Membership) `href` from `/individual-membership-plans` to `/memberships`.
+* Remove "Join Us" buttons from desktop and mobile layouts.
+* Add "Membership" link to the desktop layout immediately after "About".
+* Add a state `mobileMenuOpen` to toggle the hamburger menu on mobile/tablet screens.
+* Add a 3-line hamburger button on the right side of the top navbar (visible on screens `< xl`).
+* Display the collapsible dropdown menu panel containing the website's navigation options (Home, About, Membership, Services, Find a Test, Contact, Book Consultation) when `mobileMenuOpen` is active.
 
 #### [MODIFY] [WhatsAppButton.js](file:///d:/Code/Misiion-100-/components/WhatsAppButton.js)
 * Point the floating slide-in "Membership Plans" popup link to `/memberships` instead of `/individual-membership-plans`.
@@ -54,3 +60,4 @@ None. All constraints are clear.
 * Verify the mobile bottom navigation Membership link navigates to `/memberships`.
 * Verify the floating popup links navigate to `/memberships`.
 * Verify the "Browse Top Quick Actions" → "Membership Plans" link navigates to `/memberships`.
+* Verify the top hamburger button is visible on mobile and tablet, opens the full menu, and closes correctly.

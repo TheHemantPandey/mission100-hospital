@@ -30,12 +30,14 @@ const demoServices = [
 const Navbar = () => {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navRef = useRef(null);
 
   const closeMenu = () => {
     setMobileServicesOpen(false);
     setDesktopServicesOpen(false);
+    setMobileMenuOpen(false);
   };
 
   useEffect(() => {
@@ -43,6 +45,7 @@ const Navbar = () => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setMobileServicesOpen(false);
         setDesktopServicesOpen(false);
+        setMobileMenuOpen(false);
       }
     };
 
@@ -78,10 +81,36 @@ const Navbar = () => {
             </span>
           </Link>
 
-
+          {/* Hamburger Menu Button for Mobile & Tablet (visible on screens < xl) */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="xl:hidden flex items-center justify-center p-2 text-gray-600 hover:text-green-600 focus:outline-none transition-colors rounded-lg hover:bg-gray-100"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {mobileMenuOpen ? (
+                <path d="M18 6L6 18M6 6l12 12" />
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </>
+              )}
+            </svg>
+          </button>
 
           {/* Desktop Only: Navigation Links */}
-          <div className="hidden md:block w-auto">
+          <div className="hidden xl:block w-auto">
             <ul className="flex flex-row items-center font-medium space-x-4 lg:space-x-6 xl:space-x-8">
               <li className="hidden xl:block">
                 <Link href="/" className="text-gray-700 hover:text-green-600">
@@ -184,6 +213,68 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+
+        {/* Mobile & Tablet Dropdown Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="xl:hidden bg-white border-t border-gray-100 shadow-inner px-4 py-3">
+            <ul className="flex flex-col space-y-2 font-bold text-gray-700">
+              <li>
+                <Link
+                  href="/"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/memberships"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  Membership
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/find-a-test"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  Find a Test
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li className="pt-2">
+                <Link
+                  href="/book-test"
+                  onClick={closeMenu}
+                  className="block text-center py-2.5 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 active:scale-95 transition-all"
+                >
+                  Book Consultation Now
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
 
       {/* ========================================= */}
