@@ -1,0 +1,126 @@
+[
+  {
+    "id": "job-1",
+    "slug": "full-stack-developer",
+    "title": "Full Stack Developer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "2-5 Years",
+    "description": "We are seeking a skilled Full Stack Developer to design, develop, and maintain responsive web applications. You will work on both frontend interfaces and backend APIs, ensuring high performance, scalability, and integration with third-party systems.",
+    "responsibilities": [
+      "Develop user-facing features using React.js and Next.js.",
+      "Build robust, secure APIs and backend workflows using Node.js.",
+      "Optimize applications for maximum speed, accessibility, and scalability.",
+      "Collaborate with product designers and healthcare experts to deliver premium web services.",
+      "Write clean, maintainable, and well-documented code."
+    ],
+    "requirements": [
+      "B.Tech/B.E. in Computer Science, Information Technology, or equivalent experience.",
+      "2+ years of professional full stack web development experience.",
+      "Strong proficiency in JavaScript/ES6, React.js, and Next.js (App Router).",
+      "Hands-on experience with Node.js, Express, and RESTful API integrations.",
+      "Familiarity with CSS frameworks (TailwindCSS) and modern UI layout concepts."
+    ],
+    "niceToHave": [
+      "Experience with database design (MongoDB, SQL) and caching systems.",
+      "Familiarity with payment gateways (Razorpay, Stripe) and third-party API configurations.",
+      "Knowledge of search engine optimization (SEO) and web performance monitoring tools."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T14:26:25.000Z"
+  },
+  {
+    "id": "job-2",
+    "slug": "frontend-developer",
+    "title": "Frontend Developer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "We are looking for a Frontend Developer who is passionate about building premium, highly responsive user experiences. You will translate designs into clean HTML/CSS/React code and optimize web applications for absolute visual and functional excellence.",
+    "responsibilities": [
+      "Build modular, responsive web pages and components using React and Next.js.",
+      "Ensure web designs look premium across mobile, tablet, and desktop devices.",
+      "Optimize web assets for maximum speed, SEO compliance, and smooth animations.",
+      "Review UI/UX designs and collaborate on technical feasibility.",
+      "Coordinate with backend developers to integrate APIs seamlessly."
+    ],
+    "requirements": [
+      "Bachelor's degree in Computer Science or related field (or equivalent practical experience).",
+      "1-3 years of professional frontend web development experience.",
+      "Proficient understanding of HTML5, CSS3, ES6+, and responsive design frameworks.",
+      "Strong React.js and Next.js development experience.",
+      "Experience with version control systems (Git) and building tools."
+    ],
+    "niceToHave": [
+      "Familiarity with framer-motion or modern CSS micro-animations.",
+      "Knowledge of accessible web design (W3C WCAG) principles.",
+      "Familiarity with Figma designs and layouts."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T14:26:25.000Z"
+  },
+  {
+    "id": "job-3",
+    "slug": "digital-marketing-executive",
+    "title": "Digital Marketing Executive",
+    "department": "Marketing",
+    "location": "New Delhi",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "We are looking for an analytical and creative Digital Marketing Executive to plan and execute online marketing campaigns. You will handle social media, email campaigns, search engine optimization (SEO), and paid advertising campaigns to drive visibility and registrations.",
+    "responsibilities": [
+      "Manage social media presence (Instagram, LinkedIn, Facebook) and engage with the community.",
+      "Execute SEO strategies to increase organic search traffic to the hospital website.",
+      "Set up, monitor, and optimize paid campaigns (Google Ads, Meta Ads).",
+      "Write engaging copywriting content for newsletters, blogs, and marketing assets.",
+      "Analyze website traffic and campaign conversions using analytic tools."
+    ],
+    "requirements": [
+      "Degree in Marketing, Communications, or a related business field.",
+      "1-3 years of experience in digital marketing or content writing.",
+      "Good understanding of search engine optimization (SEO) techniques.",
+      "Hands-on experience managing Google Ads and Meta Ads Manager.",
+      "Excellent communication and copywriting skills."
+    ],
+    "niceToHave": [
+      "Basic experience with graphic design tools (Canva, Photoshop).",
+      "Familiarity with email marketing tools (Mailchimp, Brevo).",
+      "Interest or experience in the healthcare/wellness industry."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T14:26:25.000Z"
+  },
+  {
+    "id": "job-4",
+    "slug": "operations-executive",
+    "title": "Operations Executive",
+    "department": "Operations",
+    "location": "New Delhi",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "We are hiring an Operations Executive to oversee daily hospital administration, franchise support, and member onboarding. You will act as the key coordinator to ensure patient appointments, booking requests, and diagnostic scheduling run seamlessly.",
+    "responsibilities": [
+      "Manage booking confirmations and coordinate diagnostic checkups for members.",
+      "Handle communication with medical partners and fitness expert affiliates.",
+      "Provide customer support for membership inquiries, franchise proposals, and booking requests.",
+      "Maintain onboarding data logs and coordinate with the administrative department.",
+      "Resolve patient/expert scheduling conflicts in a prompt and professional manner."
+    ],
+    "requirements": [
+      "Any Bachelor's degree with strong organizational capability.",
+      "1-3 years of operations, administration, or customer support experience.",
+      "Proficient in Microsoft Excel, Google Sheets, and administrative software.",
+      "Strong verbal and written communication skills.",
+      "Highly organized with multi-tasking capabilities."
+    ],
+    "niceToHave": [
+      "Prior operations experience within a hospital or diagnostic clinic setup.",
+      "Knowledge of healthcare administration protocols.",
+      "Familiarity with franchise partner onboarding support."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T14:26:25.000Z"
+  }
+]

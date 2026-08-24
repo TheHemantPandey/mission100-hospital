@@ -148,6 +148,7 @@ const Footer = () => {
                   ["Contact", "/contact"],
                   ["Blogs", "/blogs"],
                   ["FAQ", "/faq"],
+                  ["Careers", "/careers"],
                 ].map(([label, href]) => (
                   <li key={label}>
                     <a
