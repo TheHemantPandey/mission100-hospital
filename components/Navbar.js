@@ -273,6 +273,15 @@ const Navbar = () => {
                   Careers
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/blog"
+                  onClick={closeMenu}
+                  className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
+                >
+                  Insights
+                </Link>
+              </li>
               <li className="pt-2">
                 <Link
                   href="/book-test"

@@ -146,7 +146,7 @@ const Footer = () => {
                   ["About Us", "/about"],
                   ["Find a Test", "/find-a-test"],
                   ["Contact", "/contact"],
-                  ["Blogs", "/blogs"],
+                  ["Blogs", "/blog"],
                   ["FAQ", "/faq"],
                   ["Careers", "/careers"],
                 ].map(([label, href]) => (
