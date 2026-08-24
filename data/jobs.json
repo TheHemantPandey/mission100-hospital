@@ -1,130 +1,1997 @@
 [
   {
     "id": "job-1",
+    "slug": "medical-officer-general-physician",
+    "title": "Medical Officer / General Physician",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Provide comprehensive medical evaluations, clinical advice, and general physician care to hospital members and outpatients.",
+    "skills": [
+      "General Medicine",
+      "Patient Diagnostics",
+      "Clinical Advisory",
+      "EHR Systems"
+    ],
+    "responsibilities": [
+      "Conduct medical examinations and diagnose patient conditions.",
+      "Prescribe medications, treatments, and refer patients to specialists as needed.",
+      "Collaborate with clinical teams to optimize patient health programs.",
+      "Maintain detailed, accurate medical histories in Electronic Health Records."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.685Z"
+  },
+  {
+    "id": "job-2",
+    "slug": "staff-nurse",
+    "title": "Staff Nurse",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Deliver high-quality nursing care, monitor patient vitals, and assist physicians in diagnostic and therapeutic procedures.",
+    "skills": [
+      "Patient Care",
+      "Vitals Monitoring",
+      "ICU / General Ward Nursing",
+      "First Aid"
+    ],
+    "responsibilities": [
+      "Administer prescribed medications and treatments to patients.",
+      "Monitor, record, and report changes in patient conditions.",
+      "Assist doctors during medical examinations and diagnostic tests.",
+      "Educate patients and families on post-treatment care plans."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-3",
+    "slug": "physiotherapist",
+    "title": "Physiotherapist",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Design and implement customized physical therapy plans to help patients recover mobility and manage pain.",
+    "skills": [
+      "Physical Therapy",
+      "Rehabilitation",
+      "Kinesiology",
+      "Patient Assessment"
+    ],
+    "responsibilities": [
+      "Assess patients' physical strength, mobility, and recovery requirements.",
+      "Design personalized physiotherapy plans using therapeutic exercises.",
+      "Monitor patient recovery progress and adjust therapy programs accordingly.",
+      "Educate patients on joint protection and correct posture techniques."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-4",
+    "slug": "clinical-coordinator",
+    "title": "Clinical Coordinator",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Coordinate clinical trials, manage patient scheduling, and ensure compliance with healthcare protocols.",
+    "skills": [
+      "Clinical Protocols",
+      "Patient Scheduling",
+      "Regulatory Compliance",
+      "Data Management"
+    ],
+    "responsibilities": [
+      "Liaise between patients, physicians, and administrative departments.",
+      "Ensure all clinical activities align with hospital quality and compliance guidelines.",
+      "Maintain accurate clinical files, study logs, and regulatory paperwork.",
+      "Assist in patient enrollment, check-ins, and study follow-ups."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-5",
+    "slug": "medical-operations-executive",
+    "title": "Medical Operations Executive",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage day-to-day operations of hospital units, diagnostic services, and medical equipment maintenance.",
+    "skills": [
+      "Hospital Administration",
+      "Inventory Management",
+      "Vendor Coordination",
+      "Scheduling"
+    ],
+    "responsibilities": [
+      "Supervise daily operations across outpatient clinics and diagnostics centers.",
+      "Manage inventories of medical consumables and schedule equipment servicing.",
+      "Coordinate scheduling for duty doctors, nursing shifts, and consultants.",
+      "Address operational issues to ensure seamless patient flow and experience."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-6",
+    "slug": "healthcare-quality-executive",
+    "title": "Healthcare Quality Executive",
+    "department": "Healthcare / Clinical",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Monitor hospital compliance, review clinical safety protocols, and execute quality assurance programs.",
+    "skills": [
+      "Quality Assurance",
+      "NABH Guidelines",
+      "Clinical Audits",
+      "Patient Safety"
+    ],
+    "responsibilities": [
+      "Perform internal clinical and operational audits to ensure safety standards.",
+      "Ensure compliance with regional healthcare standards and NABH accreditation guidelines.",
+      "Analyze patient feedback data to identify quality improvement opportunities.",
+      "Conduct staff training on hygiene protocols and waste management."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-7",
     "slug": "full-stack-developer",
     "title": "Full Stack Developer",
     "department": "Technology",
     "location": "New Delhi / Remote",
     "employmentType": "Full-Time",
-    "experience": "2-5 Years",
-    "description": "We are seeking a skilled Full Stack Developer to design, develop, and maintain responsive web applications. You will work on both frontend interfaces and backend APIs, ensuring high performance, scalability, and integration with third-party systems.",
-    "skills": ["React.js", "Next.js", "Node.js", "Express", "Tailwind CSS", "JavaScript"],
+    "experience": "1-3 Years",
+    "description": "Design, build, and maintain robust web applications, responsive frontend interfaces, and scalable backend APIs.",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "Tailwind CSS",
+      "JavaScript"
+    ],
     "responsibilities": [
       "Develop user-facing features using React.js and Next.js.",
       "Build robust, secure APIs and backend workflows using Node.js.",
       "Optimize applications for maximum speed, accessibility, and scalability.",
-      "Collaborate with product designers and healthcare experts to deliver premium web services.",
-      "Write clean, maintainable, and well-documented code."
+      "Collaborate with product designers and healthcare experts to deliver premium web services."
     ],
     "requirements": [
-      "B.Tech/B.E. in Computer Science, Information Technology, or equivalent experience.",
-      "2+ years of professional full stack web development experience.",
-      "Strong proficiency in JavaScript/ES6, React.js, and Next.js (App Router).",
-      "Hands-on experience with Node.js, Express, and RESTful API integrations.",
-      "Familiarity with CSS frameworks (TailwindCSS) and modern UI layout concepts."
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
     ],
     "niceToHave": [
-      "Experience with database design (MongoDB, SQL) and caching systems.",
-      "Familiarity with payment gateways (Razorpay, Stripe) and third-party API configurations.",
-      "Knowledge of search engine optimization (SEO) and web performance monitoring tools."
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
     ],
     "active": true,
-    "createdAt": "2026-08-24T14:26:25.000Z"
+    "createdAt": "2026-08-24T11:04:46.686Z"
   },
   {
-    "id": "job-2",
+    "id": "job-8",
     "slug": "frontend-developer",
     "title": "Frontend Developer",
     "department": "Technology",
     "location": "New Delhi / Remote",
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
-    "description": "We are looking for a Frontend Developer who is passionate about building premium, highly responsive user experiences. You will translate designs into clean HTML/CSS/React code and optimize web applications for absolute visual and functional excellence.",
-    "skills": ["React.js", "Next.js", "HTML5", "CSS3", "Git", "ES6+"],
+    "description": "Build visually stunning, high-performance, and responsive user interfaces using React and Next.js.",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "HTML5",
+      "CSS3",
+      "Git",
+      "ES6+"
+    ],
     "responsibilities": [
-      "Build modular, responsive web pages and components using React and Next.js.",
-      "Ensure web designs look premium across mobile, tablet, and desktop devices.",
-      "Optimize web assets for maximum speed, SEO compliance, and smooth animations.",
-      "Review UI/UX designs and collaborate on technical feasibility.",
-      "Coordinate with backend developers to integrate APIs seamlessly."
+      "Build modular, responsive web pages and components.",
+      "Ensure web designs work across mobile, tablet and desktop.",
+      "Optimize web assets for speed, SEO and performance.",
+      "Collaborate with designers and backend developers to integrate APIs."
     ],
     "requirements": [
-      "Bachelor's degree in Computer Science or related field (or equivalent practical experience).",
-      "1-3 years of professional frontend web development experience.",
-      "Proficient understanding of HTML5, CSS3, ES6+, and responsive design frameworks.",
-      "Strong React.js and Next.js development experience.",
-      "Experience with version control systems (Git) and building tools."
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
     ],
     "niceToHave": [
-      "Familiarity with framer-motion or modern CSS micro-animations.",
-      "Knowledge of accessible web design (W3C WCAG) principles.",
-      "Familiarity with Figma designs and layouts."
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
     ],
     "active": true,
-    "createdAt": "2026-08-24T14:26:25.000Z"
+    "createdAt": "2026-08-24T11:04:46.686Z"
   },
   {
-    "id": "job-3",
-    "slug": "digital-marketing-executive",
-    "title": "Digital Marketing Executive",
-    "department": "Marketing",
-    "location": "New Delhi",
+    "id": "job-9",
+    "slug": "backend-developer",
+    "title": "Backend Developer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
-    "description": "We are looking for an analytical and creative Digital Marketing Executive to plan and execute online marketing campaigns. You will handle social media, email campaigns, search engine optimization (SEO), and paid advertising campaigns to drive visibility and registrations.",
-    "skills": ["SEO", "Google Ads", "Meta Ads", "Content Writing", "Social Media"],
+    "description": "Build scalable backend systems, manage server environments, configure databases, and secure core application APIs.",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "SQL",
+      "RESTful APIs",
+      "System Architecture"
+    ],
     "responsibilities": [
-      "Manage social media presence (Instagram, LinkedIn, Facebook) and engage with the community.",
+      "Design and maintain scalable database schemas and server logic.",
+      "Build secure RESTful APIs to integrate with frontend applications and third-party systems.",
+      "Optimize database queries and cache layers for high-performance response times.",
+      "Implement data protection regulations and API authentication keys."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-10",
+    "slug": "mobile-app-developer",
+    "title": "Mobile App Developer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Develop high-performance, cross-platform mobile applications for patients and consultants using React Native.",
+    "skills": [
+      "React Native",
+      "iOS / Android Deployments",
+      "Mobile UI",
+      "REST APIs"
+    ],
+    "responsibilities": [
+      "Develop and deploy mobile applications for iOS and Android platforms.",
+      "Integrate mobile interfaces with secure backend medical APIs.",
+      "Ensure smooth transitions, animations, and high performance on devices.",
+      "Monitor crash logs and release regular updates to application stores."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-11",
+    "slug": "ui-ux-designer",
+    "title": "UI/UX Designer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Create intuitive, modern, and high-fidelity wireframes, user journeys, and interfaces for web and mobile platforms.",
+    "skills": [
+      "Figma",
+      "User Research",
+      "Wireframing",
+      "UI Design Systems",
+      "Prototyping"
+    ],
+    "responsibilities": [
+      "Design user flows, wireframes, and high-fidelity mockups for digital products.",
+      "Conduct user testing and collect feedback to improve usability.",
+      "Maintain a unified visual design system across all product lines.",
+      "Collaborate with developers to ensure correct design implementations."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-12",
+    "slug": "qa-software-testing-engineer",
+    "title": "QA / Software Testing Engineer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Perform comprehensive manual and automated testing of web and mobile software products to ensure bug-free releases.",
+    "skills": [
+      "Manual Testing",
+      "Selenium",
+      "Postman",
+      "API Testing",
+      "Bug Tracking"
+    ],
+    "responsibilities": [
+      "Create detailed, comprehensive test cases and plans for new features.",
+      "Execute functional, regression, API, and performance test suites.",
+      "Log bugs clearly in tracking systems and follow up on developer fixes.",
+      "Perform automated testing of user flows using modern testing frameworks."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-13",
+    "slug": "devops-cloud-engineer",
+    "title": "DevOps / Cloud Engineer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Deploy and manage cloud infrastructure, optimize CI/CD pipelines, and maintain server availability.",
+    "skills": [
+      "AWS",
+      "Docker",
+      "CI/CD",
+      "Linux Administration",
+      "Nginx",
+      "Cloud Security"
+    ],
+    "responsibilities": [
+      "Maintain cloud server infrastructure and deploy services securely.",
+      "Setup automated CI/CD deployment pipelines for engineering teams.",
+      "Monitor server health, load balancers, and implement scaling policies.",
+      "Ensure system backups, disaster recovery steps, and SSL certificates are active."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-14",
+    "slug": "data-analyst",
+    "title": "Data Analyst",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Analyze clinical, financial, and product data to extract actionable insights and generate business intelligence reports.",
+    "skills": [
+      "SQL",
+      "Python / R",
+      "Tableau / PowerBI",
+      "Data Modeling",
+      "Excel"
+    ],
+    "responsibilities": [
+      "Extract and clean data from production databases using SQL queries.",
+      "Build interactive dashboard reports for operational monitoring.",
+      "Perform cohort analyses to identify user retention and booking trends.",
+      "Assist management with data-driven decision-making and forecasting."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-15",
+    "slug": "ai-ml-engineer",
+    "title": "AI/ML Engineer",
+    "department": "Technology",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Design and implement machine learning models, predictive models for diagnostic screening, and automate workflows.",
+    "skills": [
+      "Python",
+      "TensorFlow / PyTorch",
+      "Data Science",
+      "Machine Learning",
+      "NLP"
+    ],
+    "responsibilities": [
+      "Develop predictive AI algorithms for patient diagnosis assistance.",
+      "Deploy natural language processing models for automated medical transcription.",
+      "Train, validate, and optimize neural networks for medical imaging analysis.",
+      "Collaborate with clinical teams to ensure model safety and reliability."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-16",
+    "slug": "digital-marketing-executive",
+    "title": "Digital Marketing Executive",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Plan and execute online campaigns, handle social media, email newsletters, and search engine optimization.",
+    "skills": [
+      "SEO",
+      "Google Ads",
+      "Meta Ads",
+      "Content Writing",
+      "Social Media"
+    ],
+    "responsibilities": [
+      "Manage social media presence and engage with our online community.",
       "Execute SEO strategies to increase organic search traffic to the hospital website.",
-      "Set up, monitor, and optimize paid campaigns (Google Ads, Meta Ads).",
-      "Write engaging copywriting content for newsletters, blogs, and marketing assets.",
+      "Set up, monitor, and optimize paid Google Ads and Meta Ads campaigns.",
       "Analyze website traffic and campaign conversions using analytic tools."
     ],
     "requirements": [
-      "Degree in Marketing, Communications, or a related business field.",
-      "1-3 years of experience in digital marketing or content writing.",
-      "Good understanding of search engine optimization (SEO) techniques.",
-      "Hands-on experience managing Google Ads and Meta Ads Manager.",
-      "Excellent communication and copywriting skills."
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
     ],
     "niceToHave": [
-      "Basic experience with graphic design tools (Canva, Photoshop).",
-      "Familiarity with email marketing tools (Mailchimp, Brevo).",
-      "Interest or experience in the healthcare/wellness industry."
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
     ],
     "active": true,
-    "createdAt": "2026-08-24T14:26:25.000Z"
+    "createdAt": "2026-08-24T11:04:46.686Z"
   },
   {
-    "id": "job-4",
+    "id": "job-17",
+    "slug": "seo-executive",
+    "title": "SEO Executive",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Optimize hospital website performance, run keyword research, build quality links, and improve search rankings.",
+    "skills": [
+      "Keyword Research",
+      "On-Page / Off-Page SEO",
+      "Google Analytics",
+      "Search Console"
+    ],
+    "responsibilities": [
+      "Conduct in-depth keyword research to drive content strategies.",
+      "Optimize website pages, metadata, speed, and mobile responsiveness.",
+      "Create backlink outreach programs and guest posting partnerships.",
+      "Monitor keyword rankings, impressions, and click-through rates."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-18",
+    "slug": "social-media-executive",
+    "title": "Social Media Executive",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage social media calendars, create engaging micro-content, and interact with health communities online.",
+    "skills": [
+      "Social Media Management",
+      "Content Planning",
+      "Community Engagement",
+      "Canva"
+    ],
+    "responsibilities": [
+      "Develop social media calendars for LinkedIn, Instagram, and YouTube.",
+      "Write engaging captions, design graphics, and film short health reels.",
+      "Interact with followers, reply to comments, and manage direct messages.",
+      "Track and report engagement metrics, click rates, and viral trends."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-19",
+    "slug": "content-writer",
+    "title": "Content Writer",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Write high-quality, medically-reviewed blog posts, newsletters, copy for landing pages, and marketing campaigns.",
+    "skills": [
+      "Medical Copywriting",
+      "SEO Writing",
+      "Proofreading",
+      "Blog Editing"
+    ],
+    "responsibilities": [
+      "Write scientifically accurate and engaging health articles for hospital readers.",
+      "Draft promotional copy for newsletters and digital search campaigns.",
+      "Proofread content draft sheets to ensure high quality and correct grammar.",
+      "Collaborate with clinicians to review medical claims in content assets."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-20",
+    "slug": "graphic-designer",
+    "title": "Graphic Designer",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Design marketing banners, campaign visuals, social media posts, and hospital branding assets.",
+    "skills": [
+      "Photoshop",
+      "Illustrator",
+      "Branding",
+      "Creative Design",
+      "Canva"
+    ],
+    "responsibilities": [
+      "Create high-quality visual designs for digital campaigns.",
+      "Develop printable flyers, brochures, and hospital signages.",
+      "Align brand guidelines across websites, emails, and PDFs.",
+      "Revise design drafts based on product manager feedback."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-21",
+    "slug": "performance-marketing-executive",
+    "title": "Performance Marketing Executive",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Plan and optimize paid advertising campaigns on Meta, Google, and LinkedIn to maximize lead generations.",
+    "skills": [
+      "Paid Search Ads",
+      "Meta Ads Manager",
+      "A/B Testing",
+      "ROAS Optimization"
+    ],
+    "responsibilities": [
+      "Manage ad spend and run performance marketing campaigns.",
+      "Perform A/B testing on ad copies, creatives, and landing pages.",
+      "Analyze cost-per-lead and optimize Return on Ad Spend (ROAS).",
+      "Coordinate with design teams to produce high-performing ad creatives."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-22",
+    "slug": "marketing-manager",
+    "title": "Marketing Manager",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Oversee marketing budgets, coordinate content campaigns, manage events, and direct brand growth strategies.",
+    "skills": [
+      "Marketing Strategy",
+      "Campaign Management",
+      "Budget Planning",
+      "Team Leadership"
+    ],
+    "responsibilities": [
+      "Develop annual marketing strategies and manage advertising budgets.",
+      "Supervise content writers, graphic designers, and performance marketers.",
+      "Coordinate offline health checkup camps and wellness events.",
+      "Report marketing progress, lead costs, and conversions to stakeholders."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-23",
+    "slug": "growth-partnerships-executive",
+    "title": "Growth & Partnerships Executive",
+    "department": "Marketing & Growth",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Identify and execute strategic alliances with corporate entities, health clubs, and wellness partners.",
+    "skills": [
+      "Strategic Partnerships",
+      "Sales Pitching",
+      "Lead Generation",
+      "Client Management"
+    ],
+    "responsibilities": [
+      "Identify corporate partners for employee wellness subscription plans.",
+      "Pitch health checkup packages to gyms, schools, and corporate HRs.",
+      "Negotiate contract terms and finalize partnership contracts.",
+      "Maintain active, long-term relationships with key affiliate partners."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-24",
+    "slug": "business-development-executive",
+    "title": "Business Development Executive",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Identify new sales leads, pitch health subscriptions, and onboard hospital franchise partners.",
+    "skills": [
+      "B2B Sales",
+      "Client Pitching",
+      "Lead Conversion",
+      "CRM Tools"
+    ],
+    "responsibilities": [
+      "Search for and qualify new business leads for hospital plans.",
+      "Deliver sales pitches and product demonstrations to prospective clients.",
+      "Follow up with leads via phone, email, and in-person meetings.",
+      "Achieve monthly and quarterly onboarding targets."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-25",
+    "slug": "sales-executive",
+    "title": "Sales Executive",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Pitch membership subscriptions directly to walk-in patients and diagnostic clinic visitors.",
+    "skills": [
+      "Direct Sales",
+      "Negotiation",
+      "Customer Onboarding",
+      "Communication"
+    ],
+    "responsibilities": [
+      "Greet walk-in visitors and explain the value of preventive health memberships.",
+      "Address customer doubts regarding plans, checkups, and doctor bookings.",
+      "Process subscription registrations and guide payments.",
+      "Follow up with past members to secure plan renewals."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-26",
+    "slug": "corporate-sales-executive",
+    "title": "Corporate Sales Executive",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Focus on corporate employee wellness plan sales, pitching healthcare subscriptions to corporate HR teams.",
+    "skills": [
+      "Enterprise Sales",
+      "HR Pitching",
+      "Presentation Skills",
+      "Relationship Building"
+    ],
+    "responsibilities": [
+      "Generate leads by calling and meeting corporate HR managers.",
+      "Present custom employee health packages and executive diagnostic offers.",
+      "Draft business proposals, pricing sheets, and coordinate group bookings.",
+      "Manage post-sale corporate account relationships."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-27",
+    "slug": "business-development-manager",
+    "title": "Business Development Manager",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Develop strategic sales plans, manage sales executive teams, and lead high-value corporate negotiations.",
+    "skills": [
+      "Sales Leadership",
+      "Negotiation",
+      "B2B Deals",
+      "Sales Forecasting"
+    ],
+    "responsibilities": [
+      "Define sales strategies and monitor individual sales executive performance.",
+      "Lead high-value corporate pitches and handle commercial contract negotiations.",
+      "Analyze industry trends to find new avenues of growth.",
+      "Provide sales pipeline forecasts and monthly conversion reports."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-28",
+    "slug": "partnerships-manager",
+    "title": "Partnerships Manager",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Oversee partnerships with diagnostic networks, independent clinics, and wellness coaches.",
+    "skills": [
+      "Partnership Strategy",
+      "Vendor Management",
+      "Contract Negotiation",
+      "Account Management"
+    ],
+    "responsibilities": [
+      "Onboard partner hospitals, diagnostic centers, and clinics.",
+      "Negotiate referral fees, package discounts, and service standards.",
+      "Maintain active relations to ensure patients receive quality services.",
+      "Conduct quarterly performance reviews with partner organizations."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-29",
+    "slug": "franchise-development-executive",
+    "title": "Franchise Development Executive",
+    "department": "Sales & Business Development",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Pitch and negotiate franchise hospital models with doctor-owners and local business investors.",
+    "skills": [
+      "Franchise Pitching",
+      "Hospital Models",
+      "Investor Relations",
+      "Contract Signings"
+    ],
+    "responsibilities": [
+      "Identify prospective doctor-investors interested in hospital franchises.",
+      "Deliver technical pitches explaining equipment plans and billing integrations.",
+      "Coordinate center audits and verify location viability details.",
+      "Handle contract drafts, deposits, and initial setup scheduling."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-30",
     "slug": "operations-executive",
     "title": "Operations Executive",
     "department": "Operations",
-    "location": "New Delhi",
+    "location": "New Delhi / Remote",
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
-    "description": "We are hiring an Operations Executive to oversee daily hospital administration, franchise support, and member onboarding. You will act as the key coordinator to ensure patient appointments, booking requests, and diagnostic scheduling run seamlessly.",
-    "skills": ["Operations", "Excel", "Google Sheets", "Support", "Scheduling"],
+    "description": "Coordinate appointments, manage onboarding, support diagnostics, and handle daily hospital partner operations.",
+    "skills": [
+      "Operations Support",
+      "Data Entries",
+      "Excel",
+      "Partner Coordination"
+    ],
     "responsibilities": [
       "Manage booking confirmations and coordinate diagnostic checkups for members.",
-      "Handle communication with medical partners and fitness expert affiliates.",
-      "Provide customer support for membership inquiries, franchise proposals, and booking requests.",
-      "Maintain onboarding data logs and coordinate with the administrative department.",
+      "Handle communications with medical partners and fitness expert affiliates.",
+      "Provide customer support for franchise proposals and booking requests.",
       "Resolve patient/expert scheduling conflicts in a prompt and professional manner."
     ],
     "requirements": [
-      "Any Bachelor's degree with strong organizational capability.",
-      "1-3 years of operations, administration, or customer support experience.",
-      "Proficient in Microsoft Excel, Google Sheets, and administrative software.",
-      "Strong verbal and written communication skills.",
-      "Highly organized with multi-tasking capabilities."
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
     ],
     "niceToHave": [
-      "Prior operations experience within a hospital or diagnostic clinic setup.",
-      "Knowledge of healthcare administration protocols.",
-      "Familiarity with franchise partner onboarding support."
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
     ],
     "active": true,
-    "createdAt": "2026-08-24T14:26:25.000Z"
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-31",
+    "slug": "hospital-operations-manager",
+    "title": "Hospital Operations Manager",
+    "department": "Operations",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage overall hospital administrative workflows, patient flows, clinical staffing, and facilities security.",
+    "skills": [
+      "Operations Management",
+      "Hospital Administration",
+      "Resource Planning",
+      "Staffing"
+    ],
+    "responsibilities": [
+      "Manage operational activities across clinical and non-clinical departments.",
+      "Optimize patient flow to reduce wait times and improve service scores.",
+      "Manage vendor contracts, facilities maintenance, and hospital sanitation.",
+      "Oversee administrative budgets and track operational costs."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-32",
+    "slug": "patient-care-coordinator",
+    "title": "Patient Care Coordinator",
+    "department": "Operations",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Guide hospital patients through diagnostic checkups, doctor consultations, billing, and report collections.",
+    "skills": [
+      "Patient Assistance",
+      "Hospital Navigation",
+      "Billing Coordination",
+      "Empathy"
+    ],
+    "responsibilities": [
+      "Assist senior citizens and premium members during their hospital checkups.",
+      "Coordinate with billing desks and diagnostic labs for swift procedures.",
+      "Collect and deliver medical report bundles to patients.",
+      "Ensure patient concerns are addressed immediately at the help desk."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-33",
+    "slug": "appointment-coordinator",
+    "title": "Appointment Coordinator",
+    "department": "Operations",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Handle incoming doctor consultation bookings, diagnostic schedules, and manage medical calendars.",
+    "skills": [
+      "Appointment Scheduling",
+      "Calendar Management",
+      "Customer Service",
+      "Phone Support"
+    ],
+    "responsibilities": [
+      "Schedule patient appointments with hospital consultants.",
+      "Re-schedule and cancel bookings based on patient or doctor availability.",
+      "Send booking reminders, instructions, and test guidelines to patients.",
+      "Keep doctor calendar entries updated to avoid booking conflicts."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-34",
+    "slug": "customer-support-executive",
+    "title": "Customer Support Executive",
+    "department": "Operations",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Resolve patient general queries, booking issues, and membership concerns via phone and email.",
+    "skills": [
+      "Customer Support",
+      "Query Resolution",
+      "Communication",
+      "CRM Tools"
+    ],
+    "responsibilities": [
+      "Answer customer queries on doctor availability and test costs.",
+      "Log complaints, resolve billing errors, and track payment issues.",
+      "Maintain high customer satisfaction scores by resolving tickets.",
+      "Escalate unresolved medical queries to clinical teams."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-35",
+    "slug": "franchise-operations-executive",
+    "title": "Franchise Operations Executive",
+    "department": "Operations",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Support franchise partners with supply chains, IT billing systems, doctor listings, and marketing coordination.",
+    "skills": [
+      "Franchise Support",
+      "Billing Systems",
+      "Supply Chain",
+      "Vendor Relations"
+    ],
+    "responsibilities": [
+      "Assist franchise hospitals during center billing and IT onboarding.",
+      "Coordinate shipment of hospital marketing brochures and consumables.",
+      "Update doctor details, schedules, and active plans on the central database.",
+      "Conduct quality checks at franchise centers to ensure compliance."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-36",
+    "slug": "hr-executive",
+    "title": "HR Executive",
+    "department": "HR & Administration",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Handle employee onboarding, attendance trackers, payroll processing coordination, and employee engagement events.",
+    "skills": [
+      "HR Administration",
+      "Employee Relations",
+      "Payroll Setup",
+      "Onboarding"
+    ],
+    "responsibilities": [
+      "Manage onboarding document checks and employee orientation files.",
+      "Maintain attendance, leave registries, and holiday calendars.",
+      "Coordinate monthly salary calculations with finance departments.",
+      "Organize employee engagement activities and team events."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-37",
+    "slug": "talent-acquisition-recruiter",
+    "title": "Talent Acquisition / Recruiter",
+    "department": "HR & Administration",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage end-to-end recruitment, search for applicants, schedule interviews, and finalize job offers.",
+    "skills": [
+      "Candidate Sourcing",
+      "Interviewing",
+      "Offer Negotiation",
+      "Portal Hiring"
+    ],
+    "responsibilities": [
+      "Publish jobs, search profiles, and screen candidate resumes.",
+      "Conduct initial HR interviews to check cultural fit and background.",
+      "Coordinate technical interviews with department managers.",
+      "Draft offer letters, negotiate salaries, and complete reference checks."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-38",
+    "slug": "hr-admin-executive",
+    "title": "HR & Admin Executive",
+    "department": "HR & Administration",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Assist with office administration, purchase office inventory, manage security teams, and support HR tasks.",
+    "skills": [
+      "Administration",
+      "Inventory Control",
+      "HR Assistance",
+      "Vendor Management"
+    ],
+    "responsibilities": [
+      "Manage office onboarding document checks and employee orientation files.",
+      "Coordinate facility maintenance, repair works, and verify admin invoices.",
+      "Support HR teams with employee record updates and files.",
+      "Manage courier logs, visitor registries, and call routings."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-39",
+    "slug": "office-administrator",
+    "title": "Office Administrator",
+    "department": "HR & Administration",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Direct daily office workflows, allocate company assets, manage housekeeping staff, and coordinate meetings.",
+    "skills": [
+      "Facility Management",
+      "Asset Allocation",
+      "Office Operations",
+      "Staff Supervision"
+    ],
+    "responsibilities": [
+      "Supervise administrative assistants, housekeeping, and security teams.",
+      "Allocate assets (laptops, badges) to new employees.",
+      "Manage conference room bookings and plan executive meetings.",
+      "Maintain records of office maintenance and administrative costs."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-40",
+    "slug": "training-development-executive",
+    "title": "Training & Development Executive",
+    "department": "HR & Administration",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Develop and execute employee training modules, healthcare hygiene classes, and customer service reviews.",
+    "skills": [
+      "Employee Training",
+      "Curriculum Design",
+      "Skill Assessment",
+      "Presentations"
+    ],
+    "responsibilities": [
+      "Design training programs for client-facing and operations teams.",
+      "Conduct customer service training and review response qualities.",
+      "Organize hygiene and patient safety workshops with clinical leads.",
+      "Evaluate training outcomes and track employee skill scores."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-41",
+    "slug": "accountant",
+    "title": "Accountant",
+    "department": "Finance & Accounts",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage general ledger entries, calculate taxes, complete bank reconciliations, and draft balance sheets.",
+    "skills": [
+      "Accounting Standards",
+      "Tally / QuickBooks",
+      "GST filing",
+      "Excel"
+    ],
+    "responsibilities": [
+      "Record general entries, calculate GST, and compile tax data.",
+      "Perform monthly bank reconciliations and verify transaction logs.",
+      "Audit accounts payable and process vendor payments.",
+      "Assist external auditors during annual hospital financial audits."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-42",
+    "slug": "finance-executive",
+    "title": "Finance Executive",
+    "department": "Finance & Accounts",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Assist with budgets, analyze expense files, track clinic revenues, and manage cash flows.",
+    "skills": [
+      "Financial Analysis",
+      "Budget Analysis",
+      "Cash Flow Management",
+      "Excel Modeling"
+    ],
+    "responsibilities": [
+      "Compile monthly clinic expenditures and analyze budget variances.",
+      "Track daily hospital collection reports and daily cash records.",
+      "Verify employee travel expense vouchers against guidelines.",
+      "Assist in preparing cash flow forecasts and funding summaries."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-43",
+    "slug": "billing-executive",
+    "title": "Billing Executive",
+    "department": "Finance & Accounts",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Generate patient bills at hospital desks, explain diagnostic pricing, and process cash/insurance payments.",
+    "skills": [
+      "Hospital Billing Systems",
+      "Insurance Pre-Auths",
+      "POS Machines",
+      "Customer Interface"
+    ],
+    "responsibilities": [
+      "Generate bills for doctor checkups, medicines, and diagnostics.",
+      "Coordinate with insurance agencies to secure pre-auth approvals.",
+      "Process credit card, cash, and digital payments at checkout.",
+      "Explain diagnostic packages and details of billed items to patients."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-44",
+    "slug": "accounts-executive",
+    "title": "Accounts Executive",
+    "department": "Finance & Accounts",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Track vendor accounts payable, generate customer invoices, follow up on pending payments, and document receipts.",
+    "skills": [
+      "Invoicing",
+      "Accounts Receivable",
+      "Follow-ups",
+      "Record Keeping"
+    ],
+    "responsibilities": [
+      "Generate monthly billing invoices for corporate partnership clients.",
+      "Follow up with B2B corporate groups to collect overdue payments.",
+      "Log receipts, verify client bank transfers, and file receipts.",
+      "Update vendor accounts payable databases regularly."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-45",
+    "slug": "ui-ux-designer",
+    "title": "UI/UX Designer",
+    "department": "Design & Creative",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Design UI/UX screens, wireframe user flows, prototype product interfaces, and maintain clean aesthetics.",
+    "skills": [
+      "Figma",
+      "Visual Design",
+      "Prototyping",
+      "User Research"
+    ],
+    "responsibilities": [
+      "Create high-fidelity screens for hospital websites and mobile apps.",
+      "Wireframe patient user journeys for booking diagnostics and plans.",
+      "Develop visual components matching the premium clean aesthetic.",
+      "Work with developers to ensure correct style implementations."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-46",
+    "slug": "graphic-designer",
+    "title": "Graphic Designer",
+    "department": "Design & Creative",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Develop hospital visual layouts, social media posts, advertising banners, and print assets.",
+    "skills": [
+      "Photoshop",
+      "Illustrator",
+      "Indesign",
+      "Visual Layouts"
+    ],
+    "responsibilities": [
+      "Create premium visual banners for hospital product campaigns.",
+      "Design printed marketing materials (health cards, leaflets).",
+      "Format visual slides for corporate health presentations.",
+      "Collaborate with marketing teams to maintain visual styles."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-47",
+    "slug": "video-editor",
+    "title": "Video Editor",
+    "department": "Design & Creative",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Edit educational medical videos, health tips, and wellness promotional content for digital platforms.",
+    "skills": [
+      "Premiere Pro",
+      "After Effects",
+      "Sound Editing",
+      "Color Grading"
+    ],
+    "responsibilities": [
+      "Edit raw medical videos into short health tips and reels.",
+      "Add clean subtitles, color corrections, and sound effects to videos.",
+      "Animate promo videos for diagnostic test package options.",
+      "Optimize video files for fast loading on social media."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-48",
+    "slug": "motion-graphics-designer",
+    "title": "Motion Graphics Designer",
+    "department": "Design & Creative",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Animate interface concepts, build medical system animations, and edit promo video graphics.",
+    "skills": [
+      "After Effects",
+      "Illustrator Animations",
+      "2D Motion",
+      "Storyboarding"
+    ],
+    "responsibilities": [
+      "Animate explanatory videos on human longevity science.",
+      "Create moving graphics for website landing headers.",
+      "Storyboard and animate interactive diagnostic test guidelines.",
+      "Animate loading transitions for our mobile application profiles."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-49",
+    "slug": "creative-content-executive",
+    "title": "Creative Content Executive",
+    "department": "Design & Creative",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Storyboard health campaigns, write creative scripts, and guide visual teams on branding directions.",
+    "skills": [
+      "Script Writing",
+      "Creative Direction",
+      "Storyboarding",
+      "Content Ideas"
+    ],
+    "responsibilities": [
+      "Write scripts and storyboard ideas for clinic promotional campaigns.",
+      "Lead creative brainstorming sessions with designers and writers.",
+      "Direct photo and video shoots at hospital locations.",
+      "Review creative drafts to ensure alignment with brand identity."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-50",
+    "slug": "customer-support-executive",
+    "title": "Customer Support Executive",
+    "department": "Customer / Patient Experience",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Support hospital patients with queries, booking help, and resolve complaints via call center tools.",
+    "skills": [
+      "Phone Support",
+      "Ticket Resolution",
+      "CRM Tools",
+      "Active Listening"
+    ],
+    "responsibilities": [
+      "Resolve ticket issues regarding patient bookings and cancellations.",
+      "Explain diagnostic checkup preparation rules to patients.",
+      "Log details of patient queries in the central customer database.",
+      "Work with medical coordinators to resolve query escalations."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-51",
+    "slug": "patient-relationship-executive",
+    "title": "Patient Relationship Executive",
+    "department": "Customer / Patient Experience",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Interact with admitted patients, collect feedback, handle complaints, and manage VIP customer care.",
+    "skills": [
+      "Relationship Management",
+      "Conflict Resolution",
+      "Empathy",
+      "Hospitality"
+    ],
+    "responsibilities": [
+      "Visit patient wards to check on comforts and collect food/care ratings.",
+      "Investigate and resolve issues regarding ward service delays.",
+      "Coordinate room allocations and billing updates for VIP patients.",
+      "Prepare monthly patient satisfaction and feedback reports."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-52",
+    "slug": "customer-success-executive",
+    "title": "Customer Success Executive",
+    "department": "Customer / Patient Experience",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Engage wellness members, help them utilize checkups, and drive renewals for hospital memberships.",
+    "skills": [
+      "Account Management",
+      "Member Engagement",
+      "Renewal Sales",
+      "Email support"
+    ],
+    "responsibilities": [
+      "Call health members to ensure they book their quarterly diagnostics.",
+      "Advise members on available fitness coach and doctor consultations.",
+      "Conduct surveys to measure customer health progress scores.",
+      "Pitch and secure subscription renewals before membership expiries."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-53",
+    "slug": "patient-care-coordinator",
+    "title": "Patient Care Coordinator",
+    "department": "Customer / Patient Experience",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Assist and coordinate patient clinical procedures, doctor appointments, and checkup tracks.",
+    "skills": [
+      "Clinical Coordination",
+      "Appointment Scheduling",
+      "Client Interface",
+      "Empathy"
+    ],
+    "responsibilities": [
+      "Onboard new members and guide them to diagnostic centers.",
+      "Help patients navigate checkup rooms and billing processes.",
+      "Review diagnostic report collections and arrange physician appointments.",
+      "Provide compassionate guidance to patient relatives in waiting zones."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-54",
+    "slug": "telecalling-executive",
+    "title": "Telecalling Executive",
+    "department": "Customer / Patient Experience",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Call diagnostic leads, book doctor consultations, and update patients on health package offers.",
+    "skills": [
+      "Telesales",
+      "Lead Follow-ups",
+      "Customer Communication",
+      "Target Focus"
+    ],
+    "responsibilities": [
+      "Contact registered website leads to explain diagnostic checkups.",
+      "Book diagnostic checkups and doctor consultations over the phone.",
+      "Promote preventative health packages and hospital checkup camps.",
+      "Update lead statuses and call results in the tracking system."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-55",
+    "slug": "product-manager",
+    "title": "Product Manager",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Direct product roadmaps for patient portals, coordinate developer teams, and design health features.",
+    "skills": [
+      "Product Roadmap",
+      "Agile / Scrum",
+      "Jira",
+      "User Analytics",
+      "Spec Writing"
+    ],
+    "responsibilities": [
+      "Define product requirements for web and mobile patient applications.",
+      "Run sprint planning sessions and manage developer task workflows.",
+      "Analyze user click-through patterns to optimize booking steps.",
+      "Coordinate with medical leads to build digital diagnostics metrics."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-56",
+    "slug": "project-manager",
+    "title": "Project Manager",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Manage hospital launch timelines, franchise setup tasks, and coordinate cross-department budgets.",
+    "skills": [
+      "Project Management",
+      "MS Project / Asana",
+      "Budgeting",
+      "Operations Control"
+    ],
+    "responsibilities": [
+      "Track hospital franchise build milestones and schedule installations.",
+      "Coordinate between interior designers, IT installers, and clinic leads.",
+      "Manage project cost spreadsheets and report variance anomalies.",
+      "Ensure center builds complete within pre-agreed timelines."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-57",
+    "slug": "operations-manager",
+    "title": "Operations Manager",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Direct diagnostic centers, hospital networks operations, and lead administrative teams.",
+    "skills": [
+      "Operations Leadership",
+      "Supply Chain",
+      "Quality Compliance",
+      "Audits"
+    ],
+    "responsibilities": [
+      "Supervise daily operations across central and franchise diagnostic labs.",
+      "Renegotiate wholesale logistics rates with medical suppliers.",
+      "Ensure active compliance with healthcare safety and clinical directives.",
+      "Lead performance evaluation and service training for admins."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-58",
+    "slug": "marketing-manager",
+    "title": "Marketing Manager",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Direct digital marketing strategies, manage campaign spends, and supervise creative teams.",
+    "skills": [
+      "Growth Strategy",
+      "Creative Management",
+      "Budget Control",
+      "Ads Analytics"
+    ],
+    "responsibilities": [
+      "Define digital marketing goals and allocate budget budgets.",
+      "Manage social media managers, SEO writers, and graphic designers.",
+      "Audit search ads campaigns to maximize conversion efficiencies.",
+      "Design offline healthcare promotion events and clinic campaigns."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-59",
+    "slug": "hr-manager",
+    "title": "HR Manager",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Direct hospital human resources policies, manage salary budgets, and lead employee relations.",
+    "skills": [
+      "HR Policy",
+      "Labor Law Compliance",
+      "Team Leadership",
+      "Employee Relations"
+    ],
+    "responsibilities": [
+      "Manage payroll budgets, benefit plans, and HR policies.",
+      "Resolve escalated employee grievances and coordinate reviews.",
+      "Ensure compliance with hospital workplace safety regulations.",
+      "Design company culture, employee wellness, and retention initiatives."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
+  },
+  {
+    "id": "job-60",
+    "slug": "technology-lead",
+    "title": "Technology Lead",
+    "department": "Management",
+    "location": "New Delhi / Remote",
+    "employmentType": "Full-Time",
+    "experience": "1-3 Years",
+    "description": "Guide hospital software architecture, review developer code, and manage server infrastructure.",
+    "skills": [
+      "Software Architecture",
+      "Node.js / React",
+      "AWS / Docker",
+      "Code Reviews"
+    ],
+    "responsibilities": [
+      "Lead technical design for patient diagnostic database pipelines.",
+      "Perform code reviews and guide software developers on standards.",
+      "Oversee cloud scaling, system security, and backup infrastructure.",
+      "Direct technology evaluations for third-party payment systems."
+    ],
+    "requirements": [
+      "Bachelor's degree in the relevant field or equivalent experience.",
+      "Strong communications and positive teamwork capabilities.",
+      "Ability to handle projects in a fast-paced environment."
+    ],
+    "niceToHave": [
+      "Prior experience in healthcare or tech setups.",
+      "Familiarity with online digital interfaces."
+    ],
+    "active": true,
+    "createdAt": "2026-08-24T11:04:46.686Z"
   }
 ]
