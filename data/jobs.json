@@ -8,6 +8,7 @@
     "employmentType": "Full-Time",
     "experience": "2-5 Years",
     "description": "We are seeking a skilled Full Stack Developer to design, develop, and maintain responsive web applications. You will work on both frontend interfaces and backend APIs, ensuring high performance, scalability, and integration with third-party systems.",
+    "skills": ["React.js", "Next.js", "Node.js", "Express", "Tailwind CSS", "JavaScript"],
     "responsibilities": [
       "Develop user-facing features using React.js and Next.js.",
       "Build robust, secure APIs and backend workflows using Node.js.",
@@ -39,6 +40,7 @@
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
     "description": "We are looking for a Frontend Developer who is passionate about building premium, highly responsive user experiences. You will translate designs into clean HTML/CSS/React code and optimize web applications for absolute visual and functional excellence.",
+    "skills": ["React.js", "Next.js", "HTML5", "CSS3", "Git", "ES6+"],
     "responsibilities": [
       "Build modular, responsive web pages and components using React and Next.js.",
       "Ensure web designs look premium across mobile, tablet, and desktop devices.",
@@ -70,6 +72,7 @@
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
     "description": "We are looking for an analytical and creative Digital Marketing Executive to plan and execute online marketing campaigns. You will handle social media, email campaigns, search engine optimization (SEO), and paid advertising campaigns to drive visibility and registrations.",
+    "skills": ["SEO", "Google Ads", "Meta Ads", "Content Writing", "Social Media"],
     "responsibilities": [
       "Manage social media presence (Instagram, LinkedIn, Facebook) and engage with the community.",
       "Execute SEO strategies to increase organic search traffic to the hospital website.",
@@ -101,6 +104,7 @@
     "employmentType": "Full-Time",
     "experience": "1-3 Years",
     "description": "We are hiring an Operations Executive to oversee daily hospital administration, franchise support, and member onboarding. You will act as the key coordinator to ensure patient appointments, booking requests, and diagnostic scheduling run seamlessly.",
+    "skills": ["Operations", "Excel", "Google Sheets", "Support", "Scheduling"],
     "responsibilities": [
       "Manage booking confirmations and coordinate diagnostic checkups for members.",
       "Handle communication with medical partners and fitness expert affiliates.",

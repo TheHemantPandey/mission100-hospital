@@ -394,11 +394,10 @@ function ApplyFormContent() {
                     className={`${inputClass} border-slate-200 mt-2 bg-white`}
                     required
                   >
-                    <option value="">Select Position</option>
+                    <option value="">Select Position *</option>
                     {jobs.map((job) => (
                       <option key={job.id} value={job.title}>{job.title}</option>
                     ))}
-                    <option value="General Application">General Application (Other / Open CV)</option>
                   </select>
                   {errors.position && <p className="mt-2 text-sm text-red-500">{errors.position}</p>}
                 </div>
