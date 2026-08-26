@@ -14,6 +14,7 @@ import {
   Activity,
   ChevronRight,
 } from "lucide-react";
+import NewsletterForm from "./NewsletterForm";
 
 // Instagram Icon
 const InstagramIcon = () => (
@@ -130,6 +131,7 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
+            <NewsletterForm />
           </div>
 
           {/* LINKS SECTION */}
