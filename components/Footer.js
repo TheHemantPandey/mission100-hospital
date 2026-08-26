@@ -337,11 +337,11 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="/terms-of-use"
+                    href="/terms-and-conditions"
                     className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
                     <ChevronRight size={14} />
-                    Terms of Use
+                    Terms & Conditions
                   </a>
                 </li>
 
@@ -352,6 +352,26 @@ const Footer = () => {
                   >
                     <ChevronRight size={14} />
                     Refund Policy
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/cookie-policy"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <ChevronRight size={14} />
+                    Cookie Policy
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/disclaimer"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <ChevronRight size={14} />
+                    Disclaimer
                   </a>
                 </li>
               </ul>
