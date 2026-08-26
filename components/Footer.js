@@ -179,37 +179,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* SERVICES */}
-            <div className="space-y-6">
-              <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
-                Services
-              </h4>
-
-              <ul className="space-y-2 text-sm">
-                {[
-                  [
-                    "Heart Attack Prevention",
-                    "/services/heart-attack-prevention",
-                  ],
-                  ["Mental Health", "/services/mental-health-stress"],
-                  ["Anti Aging Science", "/services/anti-aging-science"],
-                  ["Body & Bone Strength", "/services/bone-strength"],
-                  ["Yoga & Ayurveda", "/services/yoga-ayurveda"],
-                  ["Full Body Checkup", "/services/full-body-checkup"],
-                ].map(([label, href]) => (
-                  <li key={label}>
-                    <a
-                      href={href}
-                      className="hover:text-emerald-500 transition-colors flex items-center gap-2"
-                    >
-                      <ChevronRight size={14} />
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* JOIN US */}
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
@@ -279,7 +248,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* PARTNERSHIP */}
+            {/* BUSINESS */}
             <div className="space-y-6">
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
                 Business
@@ -318,6 +287,45 @@ const Footer = () => {
 
                 <li>
                   <a
+                    href="/corporate-membership"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <Briefcase size={15} />
+                    Corporate Membership
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/clinic-partnership"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <Handshake size={15} />
+                    Clinic Partnership
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/diagnostic-partnership"
+                    className="hover:text-emerald-500 transition-colors flex items-center gap-2"
+                  >
+                    <Handshake size={15} />
+                    Diagnostic Partnership
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* LEGAL */}
+            <div className="space-y-6">
+              <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em]">
+                Legal
+              </h4>
+
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
                     href="/privacy-policy"
                     className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
@@ -351,7 +359,7 @@ const Footer = () => {
                     className="hover:text-emerald-500 transition-colors flex items-center gap-2"
                   >
                     <ChevronRight size={14} />
-                    Refund Policy
+                    Refund & Cancellation Policy
                   </a>
                 </li>
 
