@@ -54,12 +54,27 @@ const LinkedinIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-[#020617] text-slate-400 border-t border-slate-900 mt-20 font-sans selection:bg-emerald-500/30">
-      <div className="mx-auto w-full max-w-7xl px-6 pt-16 lg:px-8">
+    <footer className="bg-[#020617] text-slate-400 border-t border-slate-900 mt-12 font-sans selection:bg-emerald-500/30">
+      <div className="mx-auto w-full max-w-7xl px-6 pt-12 lg:px-8">
+        {/* NEWSLETTER BANNER */}
+        <div className="border-b border-slate-900 pb-8 mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-1 max-w-lg">
+            <h4 className="text-white text-sm font-bold uppercase tracking-[0.2em]">
+              Subscribe to our Newsletter
+            </h4>
+            <p className="text-xs text-slate-400">
+              Stay updated with health tips, wellness advice, and exclusive updates.
+            </p>
+          </div>
+          <div className="w-full md:w-auto md:min-w-[320px]">
+            <NewsletterForm minimal={true} />
+          </div>
+        </div>
+
         {/* TOP SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-10">
           {/* BRAND */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-14 h-14 bg-[#020617] rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20 rotate-3 overflow-hidden">
                 <a
@@ -131,7 +146,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <NewsletterForm />
           </div>
 
           {/* LINKS SECTION */}
@@ -142,7 +156,7 @@ const Footer = () => {
                 Quick Links
               </h4>
 
-              <ul className="space-y-4 text-sm">
+              <ul className="space-y-2 text-sm">
                 {[
                   ["Home", "/"],
                   ["About Us", "/about"],
@@ -171,7 +185,7 @@ const Footer = () => {
                 Services
               </h4>
 
-              <ul className="space-y-4 text-sm">
+              <ul className="space-y-2 text-sm">
                 {[
                   [
                     "Heart Attack Prevention",
@@ -202,7 +216,7 @@ const Footer = () => {
                 Join Us As
               </h4>
 
-              <ul className="space-y-4 text-sm">
+              <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="/join-us/medical-expert"
@@ -271,7 +285,7 @@ const Footer = () => {
                 Business
               </h4>
 
-              <ul className="space-y-4 text-sm">
+              <ul className="space-y-2 text-sm">
                 <li>
                   <a
                     href="/take-franchise"
@@ -346,17 +360,17 @@ const Footer = () => {
         </div>
 
         {/* CONTACT BAR */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 border-t border-slate-800 py-10">
-          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
-            <div className="flex items-start gap-4">
-              <Phone className="text-emerald-500 mt-1" size={18} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-slate-900 py-6">
+          <div className="bg-slate-900/30 rounded-xl p-3.5 border border-slate-850">
+            <div className="flex items-start gap-3">
+              <Phone className="text-emerald-500 mt-1" size={16} />
               <div>
-                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
                   Call Us
                 </p>
                 <a
                   href="tel:+919220620209"
-                  className="text-white font-semibold hover:text-emerald-500 transition-colors"
+                  className="text-white font-semibold text-sm hover:text-emerald-500 transition-colors"
                 >
                   +91 9220-620-209
                 </a>
@@ -364,16 +378,16 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
-            <div className="flex items-start gap-4">
-              <Mail className="text-emerald-500 mt-1" size={18} />
+          <div className="bg-slate-900/30 rounded-xl p-3.5 border border-slate-850">
+            <div className="flex items-start gap-3">
+              <Mail className="text-emerald-500 mt-1" size={16} />
               <div>
-                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
                   Email
                 </p>
                 <a
                   href="mailto:info@mission100hospital.com"
-                  className="text-white font-semibold break-all hover:text-emerald-500 transition-colors"
+                  className="text-white font-semibold text-sm break-all hover:text-emerald-500 transition-colors"
                 >
                   info@mission100hospital.com
                 </a>
@@ -381,14 +395,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="bg-slate-900/40 rounded-2xl p-5 border border-slate-800">
-            <div className="flex items-start gap-4">
-              <MapPin className="text-emerald-500 mt-1" size={18} />
+          <div className="bg-slate-900/30 rounded-xl p-3.5 border border-slate-850">
+            <div className="flex items-start gap-3">
+              <MapPin className="text-emerald-500 mt-1" size={16} />
               <div>
-                <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">
+                <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">
                   Address
                 </p>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   Metroplex East Tower, Office No. 147, Laxmi Nagar, Delhi -
                   110092
                 </p>
@@ -398,7 +412,7 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM */}
-        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-900">
+        <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-900">
           <div className="flex items-center gap-3 bg-slate-900/30 px-5 py-2.5 rounded-full border border-slate-800">
             <ShieldCheck className="text-emerald-500" size={18} />
 
