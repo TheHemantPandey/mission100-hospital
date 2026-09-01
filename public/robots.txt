@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /buy-membership/
+Disallow: /buy-corporate-membership/
+Disallow: /careers/apply
+Disallow: /careers/thank-you
 
 Sitemap: https://www.mission100hospital.com/sitemap.xml

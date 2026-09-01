@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { MapPin, Activity, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag } from "lucide-react";
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
+import { event } from "@/app/lib/gtag";
 
 export default function BookingPage() {
   const [isSending, setIsSending] = useState(false);
@@ -86,6 +87,11 @@ export default function BookingPage() {
       if (res.ok) {
         setAppliedCode(referralInput.toUpperCase());
         setDiscountAmount(data.discountAmount);
+        event("coupon_applied", {
+          coupon_code: referralInput.toUpperCase(),
+          discount: data.discountAmount,
+          context: "book_test",
+        });
         setReferralInput("");
       } else {
         setReferralError(data.error);
@@ -136,8 +142,20 @@ export default function BookingPage() {
         return;
       }
 
+      event("book_test_submit", {
+        test_name: data.testName,
+        price: finalPrice,
+      });
+
       // Free test bypass
       if (orderData.isFree) {
+        event("payment_success", {
+          currency: "INR",
+          value: 0,
+          transaction_id: `FREE-${Date.now()}`,
+          item_name: data.testName,
+          item_category: "Diagnostic Test",
+        });
         setShowSuccessPopup(true);
         setIsSending(false);
         return;
@@ -164,6 +182,13 @@ export default function BookingPage() {
           });
 
           if (verifyResponse.ok) {
+            event("payment_success", {
+              currency: "INR",
+              value: finalPrice,
+              transaction_id: response.razorpay_payment_id,
+              item_name: data.testName,
+              item_category: "Diagnostic Test",
+            });
             setShowSuccessPopup(true);
           } else {
             alert("Payment verification failed.");

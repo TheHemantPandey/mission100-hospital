@@ -96,12 +96,17 @@ export default function CookiePolicy() {
           </p>
         </section>
 
-        {/* 6. Third-Party Technologies */}
+        {/* 6. Third-Party Technologies & Analytics */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-green-900 mb-4 uppercase tracking-wide text-sm">6. Third-Party Technologies</h2>
-          <p className="leading-relaxed">
-            Our checkout form utilizes Razorpay's overlay frame (<code>https://checkout.razorpay.com/v1/checkout.js</code>). Razorpay sets internal session tokens and fraud indicators in your browser to verify security integrity. These are necessary to prevent card duplication and verify payments.
+          <h2 className="text-2xl font-bold text-green-900 mb-4 uppercase tracking-wide text-sm">6. Third-Party Technologies & Analytics</h2>
+          <p className="leading-relaxed mb-3">
+            Our platform uses trusted third-party technologies to ensure secure transactions and optimize site performance:
           </p>
+          <ul className="list-disc pl-6 space-y-2 leading-relaxed text-sm text-slate-700">
+            <li><strong>Payment Gateway:</strong> Razorpay (<code>checkout.razorpay.com</code>) sets essential session tokens to verify payment integrity and prevent fraud.</li>
+            <li><strong>Performance Analytics:</strong> Google Analytics 4 (GA4) is used to analyze aggregate web traffic, popular pages, and system performance without storing raw personally identifiable medical records.</li>
+            <li><strong>User Experience Optimization:</strong> Microsoft Clarity helps us understand user navigation patterns, page usability, and aggregate heatmaps with automated masking of sensitive data inputs.</li>
+          </ul>
         </section>
 
         {/* 7. Managing Cookies */}
@@ -112,11 +117,11 @@ export default function CookiePolicy() {
           </p>
         </section>
 
-        {/* 8. Cookie Consent */}
+        {/* 8. Cookie Consent & Analytics */}
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-green-900 mb-4 uppercase tracking-wide text-sm">8. Cookie Consent</h2>
+          <h2 className="text-2xl font-bold text-green-900 mb-4 uppercase tracking-wide text-sm">8. Cookie Consent & Analytics</h2>
           <p className="leading-relaxed">
-            Since our platform does not employ tracking cookies, advertisement pixels, or Google Analytics trackers, we do not show a standard marketing consent banner. By continuing to use our diagnostic and scheduling platform, you consent to the placement of essential functional variables required for checkouts and rendering.
+            By continuing to use our diagnostic and scheduling platform, you consent to the placement of essential operational cookies and anonymized performance analytics metrics (Google Analytics 4 and Microsoft Clarity) necessary for secure checkouts, platform speed, and user experience enhancements.
           </p>
         </section>
 

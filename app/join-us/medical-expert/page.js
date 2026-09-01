@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { event } from "@/app/lib/gtag";
 
 import {
   Stethoscope,
@@ -247,6 +248,10 @@ export default function MedicalJoinPage() {
       const data = await response.json();
 
       if (data.success) {
+        event("career_application_submit", {
+          position: "Medical Expert",
+        });
+
         alert("Application submitted successfully!");
 
         e.target.reset();

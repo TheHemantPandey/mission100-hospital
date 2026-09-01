@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { event } from "@/app/lib/gtag";
 
 import {
   Apple,
@@ -272,6 +273,10 @@ export default function NutritionExpertJoinPage() {
       const data = await response.json();
 
       if (data.success) {
+        event("career_application_submit", {
+          position: "Nutrition Expert",
+        });
+
         alert(
           "Application submitted successfully!"
         );

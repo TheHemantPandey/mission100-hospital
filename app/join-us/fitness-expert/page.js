@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { event } from "@/app/lib/gtag";
 
 import {
   Dumbbell,
@@ -253,6 +254,10 @@ export default function FitnessExpertJoinPage() {
       const data = await response.json();
 
       if (data.success) {
+        event("career_application_submit", {
+          position: "Fitness Expert",
+        });
+
         alert("Application submitted successfully!");
 
         e.target.reset();

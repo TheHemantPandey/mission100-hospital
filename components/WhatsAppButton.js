@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { event } from '@/app/lib/gtag';
 
 const WhatsAppButton = () => {
   const pathname = usePathname();
@@ -13,6 +14,10 @@ const WhatsAppButton = () => {
   const message = "Hello! I'm interested in Mission100 services.";
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;
+
+  const handleWhatsAppClick = () => {
+    event('whatsapp_chat_click', { page_location: pathname || '/' });
+  };
 
   const isMembershipPage = pathname ? (
     pathname.startsWith('/individual-membership-plans') ||
@@ -141,6 +146,7 @@ const WhatsAppButton = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
         className="hidden lg:flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group relative"
         aria-label="Contact on WhatsApp"
       >

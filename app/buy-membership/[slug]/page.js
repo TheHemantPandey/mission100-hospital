@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { MapPin, ShieldCheck, AlertCircle, Calendar, Clock, CheckCircle2, XCircle, Tag, Mail, HeartPulse, ShieldAlert } from "lucide-react";
 import AboutMission100 from "@/components/AboutMission100";
 import Script from "next/script";
+import { event } from "@/app/lib/gtag";
 
 const planPriceConfig = {
   "free-plan": { name: "Free Employee Plan", price: 0 },
@@ -91,6 +92,11 @@ export default function BuyMembershipPage({ params }) {
       if (res.ok) {
         setAppliedCode(referralInput.toUpperCase());
         setDiscountAmount(data.discountAmount);
+        event("coupon_applied", {
+          coupon_code: referralInput.toUpperCase(),
+          discount: data.discountAmount,
+          context: "membership",
+        });
         setReferralInput("");
       } else {
         setReferralError(data.error);
@@ -136,8 +142,21 @@ export default function BuyMembershipPage({ params }) {
         return;
       }
 
+      event("membership_order_submit", {
+        plan_slug: selectedPlanSlug,
+        plan_name: currentPlanDetails.name,
+        price: finalPrice,
+      });
+
       // If it is entirely free due to referral discount deduction logic
       if (orderData.isFree) {
+        event("payment_success", {
+          currency: "INR",
+          value: 0,
+          transaction_id: `FREE-${Date.now()}`,
+          item_name: currentPlanDetails.name,
+          item_category: "Individual Membership",
+        });
         setShowSuccessPopup(true);
         setIsSending(false);
         return;
@@ -166,6 +185,13 @@ export default function BuyMembershipPage({ params }) {
             });
 
             if (verifyRes.ok) {
+              event("payment_success", {
+                currency: "INR",
+                value: finalPrice,
+                transaction_id: response.razorpay_payment_id,
+                item_name: currentPlanDetails.name,
+                item_category: "Individual Membership",
+              });
               setShowSuccessPopup(true);
             } else {
               alert("Payment verification failed. Please reach support team.");

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { event } from "@/app/lib/gtag";
 
 import {
   Heart,
@@ -256,6 +257,10 @@ export default function YogaWellnessCoachJoinPage() {
       const data = await response.json();
 
       if (data.success) {
+        event("career_application_submit", {
+          position: "Yoga & Wellness Coach",
+        });
+
         alert("Application submitted successfully!");
 
         e.target.reset();

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { event } from '@/app/lib/gtag';
 
 export default function HospitalPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,11 @@ export default function HospitalPopup() {
     setIsOpen(false);
     window.hasSeenPopupInThisTab = true;
     window.dispatchEvent(new Event('hospital_popup_closed'));
+  };
+
+  const handleCtaClick = () => {
+    event('hospital_popup_click', { target_destination: '/test/heart-checkup-at-home' });
+    closePopup();
   };
 
   if (!isOpen) return null;
@@ -73,7 +79,7 @@ export default function HospitalPopup() {
         <div className="w-full flex justify-center">
           <Link 
             href="/test/heart-checkup-at-home"
-            onClick={closePopup}
+            onClick={handleCtaClick}
             className="flex w-full md:w-3/4 items-center justify-center rounded-lg bg-green-600 py-2.5 px-4 text-center text-base sm:text-lg font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-200 hover:bg-green-700 hover:scale-[1.02] active:scale-95 uppercase tracking-wide border-2 border-green-700"
           >
             Book Heart Prevention Test

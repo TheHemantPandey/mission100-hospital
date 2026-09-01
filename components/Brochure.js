@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { event } from "@/app/lib/gtag";
 
 const Brochure = () => {
   return (
@@ -26,6 +29,7 @@ const Brochure = () => {
           <a 
             href="/mission100-brochure.pdf" 
             download="Mission100_Hospital_Brochure.pdf"
+            onClick={() => event('brochure_download_click', { file_name: 'Mission100_Hospital_Brochure.pdf' })}
             className="w-full sm:w-fit bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-green-700 transition-all active:scale-95"
           >
             Download Brochure

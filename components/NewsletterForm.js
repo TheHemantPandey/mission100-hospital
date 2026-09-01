@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2, Mail } from 'lucide-react';
+import { event } from '@/app/lib/gtag';
 
 export default function NewsletterForm({ minimal = false }) {
   const [email, setEmail] = useState('');
@@ -25,6 +26,7 @@ export default function NewsletterForm({ minimal = false }) {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        event('newsletter_subscribe', { location: minimal ? 'minimal' : 'standard' });
         setStatus('success');
         setEmail('');
         setMessage('Thank you for subscribing to our newsletter!');

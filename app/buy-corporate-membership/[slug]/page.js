@@ -61,36 +61,39 @@ export default function BuyCorporateMembershipPage({ params }) {
   const [isSending, setIsSending] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
-  const initialPlanSlug = corporatePlans[resolvedParams.slug] ? resolvedParams.slug : "free-plan";
+  // Match configuration schema dynamically
+  const planSlug = resolvedParams.slug || "free-plan";
+  const plan = corporatePlans[planSlug] || corporatePlans["free-plan"];
 
   const {
     register,
     handleSubmit,
-    watch,
     setValue,
+    watch,
     reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      representativeName: "",
       companyName: "",
+      industryType: "",
+      totalEmployees: "",
+      state: "",
+      city: "",
+      companyAddress: "",
+      pinCode: "",
+      representativeName: "",
       designation: "",
       businessEmail: "",
       mobileNumber: "",
-      gstNumber: "",
-      companyAddress: "",
-      city: "",
-      state: "",
-      pinCode: "",
-      employeeCount: "",
-      message: "",
-      planSlug: initialPlanSlug,
-      consentCheckbox: false
+      planSlug: plan.slug,
+      planName: plan.name,
+      planPrice: plan.price,
+      termsAccepted: false,
+      authorizationAccepted: false,
     }
   });
 
-  const selectedPlanSlug = watch("planSlug");
-  const plan = corporatePlans[selectedPlanSlug] || corporatePlans[initialPlanSlug];
+  const selectedState = watch("state");
   
   // Extract number price from string e.g. "₹1,999" -> 1999
   const finalPrice = plan.price === "₹0" ? 0 : parseInt(plan.price.replace(/[^\d]/g, ""), 10);
@@ -99,6 +102,13 @@ export default function BuyCorporateMembershipPage({ params }) {
   const onSubmit = async (formData) => {
     setIsSending(true);
     try {
+      event("membership_order_submit", {
+        plan_slug: plan.slug,
+        plan_name: plan.name,
+        price: finalPrice,
+        type: "corporate",
+      });
+
       // SCENARIO A: FREE PLAN FLOW
       if (finalPrice === 0) {
         const response = await fetch("/api/corporate-membership/verify", {
@@ -111,6 +121,13 @@ export default function BuyCorporateMembershipPage({ params }) {
         });
 
         if (response.ok) {
+          event("payment_success", {
+            currency: "INR",
+            value: 0,
+            transaction_id: `CORP-FREE-${Date.now()}`,
+            item_name: plan.name,
+            item_category: "Corporate Membership",
+          });
           setShowSuccessPopup(true);
         } else {
           const errData = await response.json();
@@ -160,6 +177,13 @@ export default function BuyCorporateMembershipPage({ params }) {
             });
 
             if (verifyRes.ok) {
+              event("payment_success", {
+                currency: "INR",
+                value: finalPrice,
+                transaction_id: response.razorpay_payment_id,
+                item_name: plan.name,
+                item_category: "Corporate Membership",
+              });
               setShowSuccessPopup(true);
             } else {
               alert("Payment verification failed. Please contact our support team.");

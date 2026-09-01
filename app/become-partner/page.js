@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { event } from "@/app/lib/gtag";
 import {
   Building2,
   Phone,
@@ -165,6 +166,11 @@ export default function BecomePartnerPage() {
       });
 
       if (res.ok) {
+        event("partner_enquiry_submit", {
+          partner_type: "general_partner",
+          organization: formData.organizationName || "Individual",
+        });
+
         alert("Partner application submitted successfully!");
 
         setFormData({

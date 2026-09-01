@@ -12,6 +12,7 @@ import {
   AlertCircle,
   HeartPulse,
 } from "lucide-react";
+import { event } from "@/app/lib/gtag";
 
 const QueryForm = () => {
   const [loading, setLoading] = useState(false);
@@ -125,6 +126,10 @@ const QueryForm = () => {
       const result = await response.json();
 
       if (result.success) {
+        event("general_enquiry_submit", {
+          subject: formData.subject || "General Inquiry",
+        });
+
         setStatus({
           type: "success",
           message:

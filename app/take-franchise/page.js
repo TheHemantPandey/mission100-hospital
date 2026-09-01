@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { event } from "@/app/lib/gtag";
 import {
   Building2,
   Phone,
@@ -232,6 +233,12 @@ export default function TakeFranchisePage() {
       });
 
       if (res.ok) {
+        event("partner_enquiry_submit", {
+          partner_type: "franchise",
+          state: formData.state,
+          city: formData.city,
+        });
+
         alert("Franchise application submitted successfully!");
 
         setFormData({

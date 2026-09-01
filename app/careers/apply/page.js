@@ -18,6 +18,7 @@ import {
   Building,
   Award
 } from "lucide-react";
+import { event } from "@/app/lib/gtag";
 
 function ApplyFormContent() {
   const router = useRouter();
@@ -227,6 +228,10 @@ function ApplyFormContent() {
       const data = await response.json();
 
       if (data.success) {
+        event("career_application_submit", {
+          position: formData.position || "General Application",
+        });
+
         // Clear all form state
         e.target.reset();
         setFormData({
