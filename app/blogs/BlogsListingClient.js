@@ -2,36 +2,37 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import {
-  Search,
-  X,
-  Sparkles,
-  Calendar,
-  Clock,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
-  FileQuestion,
-  PhoneCall,
-  Activity,
-  ChevronRight,
-  BookOpen
-} from "lucide-react";
+import BlogHero from "@/components/blog/BlogHero";
+import BlogSearch from "@/components/blog/BlogSearch";
+import BlogCategoryFilter from "@/components/blog/BlogCategoryFilter";
+import FeaturedArticle from "@/components/blog/FeaturedArticle";
+import ArticleGrid from "@/components/blog/ArticleGrid";
+import TopicExplorer from "@/components/blog/TopicExplorer";
+import BlogCTA from "@/components/blog/BlogCTA";
+import { FileQuestion, ArrowRight } from "lucide-react";
+
+const CATEGORIES = [
+  "All",
+  "Preventive Care",
+  "Health Checkups",
+  "Blood Tests",
+  "Diagnostics",
+  "Heart Health",
+  "Diabetes",
+  "Senior Health",
+  "Women's Health",
+  "Men's Health"
+];
 
 export default function BlogsListingClient({ initialBlogs = [] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [showAllArticles, setShowAllArticles] = useState(false);
 
   // Filter only active blogs
   const activeBlogs = useMemo(() => {
     return initialBlogs.filter((b) => b.active !== false);
   }, [initialBlogs]);
-
-  // Extract unique categories dynamically
-  const categories = useMemo(() => {
-    const cats = new Set(activeBlogs.map((b) => b.category).filter(Boolean));
-    return ["All", ...Array.from(cats)];
-  }, [activeBlogs]);
 
   // Filter blogs based on category and search query
   const filteredBlogs = useMemo(() => {
@@ -41,11 +42,15 @@ export default function BlogsListingClient({ initialBlogs = [] }) {
       // Category check
       const matchesCategory =
         selectedCategory === "All" ||
-        post.category?.toLowerCase() === selectedCategory.toLowerCase();
+        post.category?.toLowerCase() === selectedCategory.toLowerCase() ||
+        (selectedCategory === "Preventive Care" &&
+          (post.category === "Preventive Care" || post.category === "Preventive Healthcare")) ||
+        (selectedCategory === "Diagnostics" &&
+          (post.category === "Diagnostics" || post.category === "Diagnostic Tests"));
 
       if (!matchesCategory) return false;
 
-      // Search query check
+      // Search check
       if (!q) return true;
 
       const titleMatch = post.title?.toLowerCase().includes(q);
@@ -55,7 +60,8 @@ export default function BlogsListingClient({ initialBlogs = [] }) {
       const secondaryKwsMatch = post.secondaryKeywords?.some((kw) =>
         kw.toLowerCase().includes(q)
       );
-      const contentSnippetMatch = post.content?.toLowerCase().includes(q);
+      const tagsMatch = post.tags?.some((t) => t.toLowerCase().includes(q));
+      const contentMatch = post.content?.toLowerCase().includes(q);
 
       return (
         titleMatch ||
@@ -63,424 +69,255 @@ export default function BlogsListingClient({ initialBlogs = [] }) {
         categoryMatch ||
         primaryKwMatch ||
         secondaryKwsMatch ||
-        contentSnippetMatch
+        tagsMatch ||
+        contentMatch
       );
     });
   }, [activeBlogs, selectedCategory, searchQuery]);
 
-  // Identify featured article (only shown when on "All" and no search query)
   const isDefaultView = selectedCategory === "All" && !searchQuery.trim();
+
+  // Featured Article (Only in default view)
   const featuredArticle = useMemo(() => {
     if (!isDefaultView) return null;
     return activeBlogs.find((b) => b.featured) || activeBlogs[0] || null;
   }, [activeBlogs, isDefaultView]);
 
-  // List of remaining articles in the grid
-  const gridArticles = useMemo(() => {
+  // Latest 3 Articles (excluding featured in default view)
+  const latestArticles = useMemo(() => {
     if (featuredArticle && isDefaultView) {
-      return filteredBlogs.filter((b) => b.id !== featuredArticle.id);
+      return activeBlogs
+        .filter((b) => b.id !== featuredArticle.id)
+        .slice(0, 3);
+    }
+    return filteredBlogs.slice(0, 3);
+  }, [activeBlogs, featuredArticle, isDefaultView, filteredBlogs]);
+
+  // More Articles / Filtered Articles Grid
+  const secondaryArticles = useMemo(() => {
+    if (isDefaultView) {
+      // Exclude featured + latest 3
+      const excludeIds = new Set([
+        featuredArticle?.id,
+        ...latestArticles.map((a) => a.id)
+      ]);
+      const remaining = activeBlogs.filter((b) => !excludeIds.has(b.id));
+      return showAllArticles ? remaining : remaining.slice(0, 6);
     }
     return filteredBlogs;
-  }, [filteredBlogs, featuredArticle, isDefaultView]);
+  }, [activeBlogs, featuredArticle, latestArticles, isDefaultView, filteredBlogs, showAllArticles]);
 
   const handleResetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("All");
+    setShowAllArticles(false);
+  };
+
+  const handleSelectCategory = (cat) => {
+    setSelectedCategory(cat);
+    setSearchQuery("");
+    setShowAllArticles(false);
+    // Smooth scroll to the article section
+    const el = document.getElementById("articles-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleViewAllArticles = () => {
+    setShowAllArticles(true);
+    const el = document.getElementById("articles-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 pb-24 relative overflow-hidden">
-      {/* Decorative Brand Ambient Background Glows */}
-      <div className="absolute top-[-8%] left-[-10%] w-[650px] h-[650px] bg-emerald-100/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-      <div className="absolute top-[20%] right-[-10%] w-[550px] h-[550px] bg-teal-100/35 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-      <div className="absolute bottom-[20%] left-[-8%] w-[500px] h-[500px] bg-cyan-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+    <div className="min-h-screen bg-slate-50 text-slate-800 pb-20 relative overflow-hidden">
+      {/* Decorative Ambient Background Glows */}
+      <div className="absolute top-[-8%] left-[-10%] w-[600px] h-[600px] bg-emerald-100/35 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+      <div className="absolute top-[25%] right-[-10%] w-[550px] h-[550px] bg-teal-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-      {/* ========================================================================= */}
-      {/* 1. HERO & SEARCH SECTION                                                  */}
-      {/* ========================================================================= */}
-      <section className="pt-20 sm:pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        {/* Breadcrumb indicator */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-xs text-slate-600 text-xs font-bold uppercase tracking-widest mb-6">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
-          <span>Mission100 Health &amp; Longevity Journal</span>
-        </div>
+      {/* 1. HERO SECTION */}
+      <BlogHero />
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto">
-          Health &amp; Wellness Insights for a{" "}
-          <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
-            Longer, Stronger Life.
-          </span>
-        </h1>
+      {/* 2. SEARCH BAR & CATEGORY NAVIGATION */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <BlogSearch
+          searchQuery={searchQuery}
+          setSearchQuery={(q) => {
+            setSearchQuery(q);
+            setShowAllArticles(true);
+          }}
+          totalResults={filteredBlogs.length}
+          isFiltered={selectedCategory !== "All" || !!searchQuery}
+          onClearSearch={handleResetFilters}
+        />
 
-        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium mb-10">
-          Explore evidence-led medical guides, diagnostic test explanations,
-          preventive health protocols, and longevity insights clinically verified
-          by Mission100 Hospital.
-        </p>
-
-        {/* Live Client-Side Search Box */}
-        <div className="max-w-2xl mx-auto relative group">
-          <div className="relative flex items-center">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none transition-colors group-focus-within:text-emerald-600" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search diagnostic tests, heart health, prediabetes, vitamins, DEXA..."
-              className="w-full pl-12 pr-12 py-4 bg-white border border-slate-200 rounded-2xl shadow-sm text-sm sm:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all"
-              aria-label="Search articles by title, topic, or keyword"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 p-1 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
-                title="Clear search"
-                aria-label="Clear search query"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-          </div>
-
-          {/* Quick topic tags suggestion */}
-          {!searchQuery && (
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-3 text-xs text-slate-500">
-              <span className="font-semibold text-slate-600">Popular:</span>
-              {[
-                "Preventive Checkup",
-                "Heart ECG",
-                "Prediabetes",
-                "Blood Test Report",
-                "Vitamin D",
-                "DEXA Bone Density"
-              ].map((topic) => (
-                <button
-                  key={topic}
-                  onClick={() => setSearchQuery(topic)}
-                  className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 hover:border-emerald-400 hover:text-emerald-700 transition-all"
-                >
-                  {topic}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+        <BlogCategoryFilter
+          categories={CATEGORIES}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={handleSelectCategory}
+          totalResults={filteredBlogs.length}
+          searchQuery={searchQuery}
+          onResetFilters={handleResetFilters}
+        />
       </section>
 
-      {/* ========================================================================= */}
-      {/* 2. CATEGORY NAVIGATION PILLS                                              */}
-      {/* ========================================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-3 pt-1 scrollbar-none gap-2 border-b border-slate-200/70">
-          {categories.map((cat) => {
-            const isSelected =
-              selectedCategory.toLowerCase() === cat.toLowerCase();
-            return (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider whitespace-nowrap transition-all duration-200 border ${
-                  isSelected
-                    ? "bg-slate-900 text-white border-slate-900 shadow-sm"
-                    : "bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50"
-                }`}
-              >
-                {cat === "All" ? "All Insights" : cat}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Results summary when filtered or searching */}
-        {(selectedCategory !== "All" || searchQuery) && (
-          <div className="flex items-center justify-between mt-4 text-xs text-slate-500 font-medium">
-            <span>
-              Showing{" "}
-              <strong className="text-slate-900 font-bold">
-                {filteredBlogs.length}
-              </strong>{" "}
-              {filteredBlogs.length === 1 ? "article" : "articles"}
-              {selectedCategory !== "All" && (
-                <>
-                  {" "}
-                  in <span className="text-emerald-700 font-bold">{selectedCategory}</span>
-                </>
-              )}
-              {searchQuery && (
-                <>
-                  {" "}
-                  matching &ldquo;<span className="text-slate-900 font-bold">{searchQuery}</span>&rdquo;
-                </>
-              )}
-            </span>
-            <button
-              onClick={handleResetFilters}
-              className="text-emerald-600 hover:text-emerald-800 font-bold underline transition-colors"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 3. FEATURED ARTICLE BANNER (Top Spotlight)                                */}
-      {/* ========================================================================= */}
+      {/* 3. FEATURED STORY (Top Content Hero in Default View) */}
       {featuredArticle && isDefaultView && (
-        <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20">
-          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow group">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Image Column */}
-              <div className="lg:col-span-6 overflow-hidden rounded-2xl bg-slate-100 relative aspect-16/10">
-                <img
-                  src={featuredArticle.image || "/hospital-building.jpg"}
-                  alt={featuredArticle.imageAlt || featuredArticle.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                />
-                <div className="absolute top-4 left-4 z-10 flex gap-2">
-                  <span className="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-black uppercase tracking-wider shadow-sm">
-                    Featured Guide
-                  </span>
-                  <span className="px-3 py-1 rounded-lg bg-slate-900/90 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
-                    {featuredArticle.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Text Column */}
-              <div className="lg:col-span-6 flex flex-col justify-center">
-                {/* Meta info */}
-                <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-500 mb-4">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-emerald-600" />
-                    {featuredArticle.publishedAt}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-emerald-600" />
-                    {featuredArticle.readTime}
-                  </span>
-                  {featuredArticle.medicalReviewer && (
-                    <span className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      Clinically Reviewed
-                    </span>
-                  )}
-                </div>
-
-                <Link href={`/blogs/${featuredArticle.slug}`}>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4 group-hover:text-emerald-700 transition-colors">
-                    {featuredArticle.title}
-                  </h2>
-                </Link>
-
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-medium line-clamp-3">
-                  {featuredArticle.excerpt}
-                </p>
-
-                {/* Key takeaway snippet */}
-                {featuredArticle.keyTakeaways && featuredArticle.keyTakeaways.length > 0 && (
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-150 mb-6 text-xs text-slate-600">
-                    <div className="flex items-center gap-1.5 font-bold text-slate-800 mb-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                      Key Clinical Insight:
-                    </div>
-                    <p className="line-clamp-2">
-                      {featuredArticle.keyTakeaways[0]}
-                    </p>
-                  </div>
-                )}
-
-                <div className="flex items-center justify-between pt-2">
-                  <Link
-                    href={`/blogs/${featuredArticle.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm hover:shadow transition-all group/btn"
-                  >
-                    <span>Read Full Article</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
-                  <span className="text-xs text-slate-500 font-medium hidden sm:inline">
-                    By {featuredArticle.author}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FeaturedArticle article={featuredArticle} />
       )}
 
-      {/* ========================================================================= */}
-      {/* 4. ARTICLES GRID (3-Col Desktop, 2-Col Tablet, 1-Col Mobile)               */}
-      {/* ========================================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-24">
-        {gridArticles.length > 0 ? (
-          <div>
-            <div className="flex items-center justify-between mb-8 pb-3 border-b border-slate-200">
-              <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-emerald-600" />
-                {isDefaultView ? "Latest Medical Guides" : "Search Results"}
-              </h2>
-              <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">
-                {gridArticles.length} {gridArticles.length === 1 ? "Guide" : "Guides"} Available
-              </span>
+      {/* 4. LATEST HEALTH INSIGHTS (Compact 3 Cards in Default View) */}
+      {isDefaultView && (
+        <ArticleGrid
+          articles={latestArticles}
+          title="Latest Health Insights"
+          subtitle="Practical information to help you understand your health and make informed decisions."
+          showViewAll={true}
+          onViewAll={handleViewAllArticles}
+        />
+      )}
+
+      {/* 5. TOPIC EXPLORER (Compact Topic Cards) */}
+      <TopicExplorer onSelectTopic={handleSelectCategory} />
+
+      {/* 6. SELECTED CATEGORY / FILTERED ARTICLES GRID */}
+      <div id="articles-section">
+        {filteredBlogs.length > 0 ? (
+          <section className="max-w-7xl mx-auto mb-16 px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-3 border-b border-slate-200 gap-2">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-1">
+                  {isDefaultView
+                    ? showAllArticles
+                      ? "All Health Articles"
+                      : "More Health Guides"
+                    : `${selectedCategory} Articles`}
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                  {isDefaultView
+                    ? "Browse evidence-led medical insights and diagnostic screening guides."
+                    : `Showing ${filteredBlogs.length} ${filteredBlogs.length === 1 ? "article" : "articles"} in ${selectedCategory}.`}
+                </p>
+              </div>
+
+              {!isDefaultView && (
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline cursor-pointer"
+                >
+                  Show all topics
+                </button>
+              )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {gridArticles.map((post) => (
+            {/* Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+              {secondaryArticles.map((article) => (
                 <article
-                  key={post.id || post.slug}
-                  className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-md hover:border-emerald-300 transition-all duration-300 flex flex-col group"
+                  key={article.id || article.slug}
+                  className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-md hover:border-emerald-300 transition-all duration-300 flex flex-col group h-full relative"
                 >
-                  {/* Card Image */}
                   <Link
-                    href={`/blogs/${post.slug}`}
+                    href={`/blogs/${article.slug}`}
                     className="block relative aspect-16/10 bg-slate-100 overflow-hidden"
                   >
                     <img
-                      src={post.image || "/hospital-building.jpg"}
-                      alt={post.imageAlt || post.title}
+                      src={article.image || "/hospital-building.jpg"}
+                      alt={article.imageAlt || article.title}
                       className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
                       loading="lazy"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 rounded-lg bg-slate-900/90 text-white text-[11px] font-bold uppercase tracking-wider backdrop-blur-xs shadow-xs">
-                        {post.category}
+                      <span className="px-2.5 py-0.5 rounded-md bg-slate-900/90 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-xs shadow-2xs">
+                        {article.category}
                       </span>
                     </div>
                   </Link>
 
-                  {/* Card Content Body */}
-                  <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div className="p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      {/* Meta Date & Read Time */}
-                      <div className="flex items-center gap-3 text-xs text-slate-500 font-semibold mb-3">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-emerald-600" />
-                          {post.publishedAt}
-                        </span>
-                        <span className="text-slate-300">•</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-emerald-600" />
-                          {post.readTime}
-                        </span>
-                      </div>
-
-                      {/* Card Title */}
-                      <Link href={`/blogs/${post.slug}`}>
-                        <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-snug tracking-tight mb-2.5 group-hover:text-emerald-700 transition-colors line-clamp-2">
-                          {post.title}
+                      <Link href={`/blogs/${article.slug}`}>
+                        <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug tracking-tight mb-2 group-hover:text-emerald-700 transition-colors line-clamp-2">
+                          {article.title}
                         </h3>
                       </Link>
-
-                      {/* Excerpt */}
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3 font-medium">
-                        {post.excerpt}
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 font-medium">
+                        {article.excerpt}
                       </p>
                     </div>
 
-                    {/* Footer / CTA & Reviewer badge */}
-                    <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                      {post.medicalReviewer ? (
-                        <div className="flex items-center gap-1.5 text-[11px] text-slate-600 font-bold">
-                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>{post.medicalReviewer.name}</span>
-                        </div>
-                      ) : (
-                        <span className="text-[11px] text-slate-500 font-semibold">
-                          Mission100 Editorial
-                        </span>
-                      )}
+                    <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-semibold mt-auto">
+                      <span className="text-[11px] text-slate-500 font-medium">
+                        {article.readTime || article.readingTime || "7 min read"}
+                      </span>
 
                       <Link
-                        href={`/blogs/${post.slug}`}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group/link"
+                        href={`/blogs/${article.slug}`}
+                        className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 hover:text-emerald-800 transition-colors group/link shrink-0 ml-2"
                       >
-                        <span>Read Guide</span>
-                        <ChevronRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                        <span>Read article</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
                       </Link>
                     </div>
                   </div>
                 </article>
               ))}
             </div>
-          </div>
+
+            {/* Load More Button in Default View when not yet expanded */}
+            {isDefaultView && !showAllArticles && activeBlogs.length > 10 && (
+              <div className="mt-10 text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAllArticles(true)}
+                  className="px-8 py-3.5 rounded-2xl bg-white border border-slate-300 text-slate-900 font-bold text-xs uppercase tracking-wider hover:bg-slate-900 hover:text-white hover:border-slate-900 shadow-2xs hover:shadow transition-all duration-200 cursor-pointer active:scale-95"
+                >
+                  View All {activeBlogs.length} Articles
+                </button>
+              </div>
+            )}
+          </section>
         ) : (
-          /* ========================================================================= */
-          /* 5. EMPTY SEARCH STATE                                                     */
-          /* ========================================================================= */
-          <div className="bg-white rounded-3xl border border-slate-200 p-10 sm:p-14 text-center max-w-2xl mx-auto shadow-sm">
-            <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto mb-5 text-emerald-600">
-              <FileQuestion className="w-8 h-8" />
+          /* Empty Search / Filter State */
+          <section className="max-w-2xl mx-auto my-12 px-4">
+            <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 text-center shadow-xs">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto mb-4 text-emerald-600">
+                <FileQuestion className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-2">
+                No Articles Found
+              </h3>
+              <p className="text-sm text-slate-600 mb-6 leading-relaxed font-medium">
+                We couldn&apos;t find any articles matching &ldquo;
+                <strong className="text-slate-900">{searchQuery}</strong>&rdquo;. Try
+                searching for another health topic, test, or checkup.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition-colors cursor-pointer"
+                >
+                  Clear Search
+                </button>
+                <Link
+                  href="/find-a-test"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs uppercase tracking-wider hover:bg-emerald-100 transition-colors"
+                >
+                  Explore Diagnostic Tests
+                </Link>
+              </div>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-2">
-              No Health Guides Found
-            </h3>
-            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              We couldn&apos;t find any articles matching &ldquo;
-              <strong className="text-slate-900">{searchQuery}</strong>&rdquo; in{" "}
-              {selectedCategory === "All" ? "all categories" : selectedCategory}.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                onClick={handleResetFilters}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition-colors"
-              >
-                Reset Search Filters
-              </button>
-              <Link
-                href="/find-a-test"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs uppercase tracking-wider hover:bg-emerald-100 transition-colors"
-              >
-                Explore Diagnostic Tests
-              </Link>
-            </div>
-          </div>
+          </section>
         )}
-      </section>
+      </div>
 
-      {/* ========================================================================= */}
-      {/* 6. CONTEXTUAL HEALTH CHECKUP PROMOTIONAL BANNER                           */}
-      {/* ========================================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-950 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xl border border-slate-800">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-500/30">
-              <Activity className="w-3.5 h-3.5" />
-              Proactive Diagnostic Care
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-4 leading-tight">
-              Don&apos;t Wait for Symptoms to Show. Check Your Health Today.
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-              Book our doctor-curated 69-parameter Complete Health Checkup or
-              doorstep Heart ECG test across Delhi NCR. Certified phlebotomists,
-              hygienic doorstep collection, and digital reports reviewed by senior physicians.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/test/complete-health-checkup"
-                className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
-              >
-                Book Complete Checkup (₹1,999)
-              </Link>
-              <Link
-                href="/find-a-test"
-                className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-sm border border-white/15 transition-all"
-              >
-                Browse 60+ Diagnostic Tests
-              </Link>
-              <a
-                href="tel:+918796471583"
-                className="inline-flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white px-3 py-2 transition-colors"
-              >
-                <PhoneCall className="w-4 h-4 text-emerald-400" />
-                <span>Helpline: +91 87964 71583</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 7. MISSION100 SERVICE CTA */}
+      <BlogCTA />
     </div>
   );
 }

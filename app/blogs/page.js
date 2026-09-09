@@ -3,16 +3,16 @@ import blogsData from "@/data/blogs.json";
 import BlogsListingClient from "./BlogsListingClient";
 
 export const metadata = {
-  title: "Health & Longevity Journal | Medical Guides & Diagnostics | Mission100 Hospital",
+  title: "Health & Longevity Blog | Diagnostic Guides & Preventive Care | Mission100 Hospital",
   description:
-    "Explore evidence-led health guides, diagnostic test explanations, preventive healthcare protocols, and metabolic wellness insights verified by Mission100 Hospital's medical editorial team.",
+    "Explore expert-backed health guides, diagnostic test explanations, preventive checkup schedules, and metabolic wellness insights verified by Mission100 Hospital's medical team.",
   alternates: {
     canonical: "https://www.mission100hospital.com/blogs",
   },
   openGraph: {
-    title: "Health & Longevity Journal | Mission100 Hospital",
+    title: "Health & Longevity Blog | Mission100 Hospital",
     description:
-      "Explore evidence-led health guides, diagnostic test explanations, and preventive healthcare strategies from Mission100 Hospital.",
+      "Explore expert-backed health guides, diagnostic test explanations, and preventive healthcare strategies from Mission100 Hospital.",
     url: "https://www.mission100hospital.com/blogs",
     siteName: "Mission100 Hospital",
     locale: "en_IN",
@@ -22,40 +22,41 @@ export const metadata = {
         url: "https://www.mission100hospital.com/hospital-building.jpg",
         width: 1200,
         height: 630,
-        alt: "Mission100 Hospital Health & Longevity Journal",
+        alt: "Mission100 Hospital Health Blog Knowledge Hub",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Health & Longevity Journal | Mission100 Hospital",
+    title: "Health & Longevity Blog | Mission100 Hospital",
     description:
-      "Explore evidence-led health guides and diagnostic test explanations from Mission100 Hospital.",
+      "Explore expert-backed health guides and diagnostic test explanations from Mission100 Hospital.",
     images: ["https://www.mission100hospital.com/hospital-building.jpg"],
   },
   keywords: [
     "Mission100 Hospital blog",
     "preventive health checkup guide",
+    "full body checkup delhi",
+    "blood test at home delhi",
     "heart health checkup",
-    "how to reverse prediabetes",
-    "how to read blood test report",
-    "ECG test explained",
-    "DEXA bone density scan",
-    "vitamin D deficiency symptoms",
-    "vitamin B12 deficiency in vegetarians",
-    "healthspan vs lifespan",
-    "corporate wellness programs India",
+    "hba1c test normal range",
+    "thyroid test guide",
+    "vitamin d deficiency",
+    "cbc blood test explained",
+    "lipid profile test",
+    "kidney function test kft",
+    "liver function test lft",
   ],
 };
 
 export default function BlogsPage() {
-  // Schema markup for the Blog collection page
+  // CollectionPage JSON-LD Schema
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Mission100 Hospital Health & Longevity Journal",
+    "name": "Mission100 Hospital Health Knowledge Hub",
     "description":
-      "Evidence-led healthcare guides, diagnostic testing resources, and longevity insights.",
+      "Evidence-led healthcare guides, diagnostic testing resources, and preventive health insights.",
     "url": "https://www.mission100hospital.com/blogs",
     "publisher": {
       "@type": "Hospital",
