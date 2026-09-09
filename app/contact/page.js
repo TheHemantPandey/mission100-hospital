@@ -16,7 +16,7 @@ import {
 export const metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Mission 100 Hospital in Laxmi Nagar, New Delhi. Call us at +91 9220 620 209 or visit us for preventive healthcare consultations.",
+    "Get in touch with Mission 100 Hospital in Laxmi Nagar, New Delhi. Call us at +91 87964 71583 or visit us for preventive healthcare consultations.",
   keywords: [
     "Contact Mission 100",
     "Hospital Location New Delhi",
@@ -249,10 +249,10 @@ export default function ContactPage() {
                     </p>
 
                     <a
-                      href="tel:+919220620209"
+                      href="tel:+918796471583"
                       className="mt-1 inline-block text-base sm:text-lg font-semibold text-gray-900 hover:text-green-600 transition-colors"
                     >
-                      +91 9220 620 209
+                      +91 87964 71583
                     </a>
                   </div>
                 </div>

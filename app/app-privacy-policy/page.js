@@ -295,7 +295,7 @@ export default function AppPrivacyPolicy() {
               <p><strong>Entity Name:</strong> Mission 100 Hospital</p>
               <p><strong>Official Web Portal:</strong> <a href="https://mission100hospital.com" className="text-green-800 underline">https://mission100hospital.com</a></p>
               <p><strong>Support Email:</strong> <a href="mailto:info@mission100hospital.com" className="text-green-800 underline">info@mission100hospital.com</a></p>
-              <p><strong>Support Helpline:</strong> +91 92206 20209</p>
+              <p><strong>Support Helpline:</strong> +91 87964 71583</p>
               <p><strong>Country of Jurisdiction:</strong> India</p>
             </div>
           </section>

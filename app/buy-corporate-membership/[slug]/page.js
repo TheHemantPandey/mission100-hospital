@@ -454,7 +454,7 @@ export default function BuyCorporateMembershipPage({ params }) {
               <div className="space-y-2 text-xs font-semibold text-slate-200">
                 <p className="flex items-center gap-2">
                   <PhoneCall size={14} className="text-emerald-400 shrink-0" />
-                  <span>+91 9220-620-209</span>
+                  <span>+91 87964 71583</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail size={14} className="text-emerald-400 shrink-0" />

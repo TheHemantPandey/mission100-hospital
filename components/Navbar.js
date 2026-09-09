@@ -192,6 +192,15 @@ const Navbar = () => {
 
               <li className="hidden lg:block">
                 <Link
+                  href="/blogs"
+                  className="text-gray-700 hover:text-green-600"
+                >
+                  Blogs
+                </Link>
+              </li>
+
+              <li className="hidden xl:block">
+                <Link
                   href="/careers"
                   className="text-gray-700 hover:text-green-600"
                 >
@@ -275,11 +284,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/blogs"
                   onClick={closeMenu}
                   className="block py-2 px-3 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors"
                 >
-                  Insights
+                  Blogs &amp; Insights
                 </Link>
               </li>
               <li className="pt-2">

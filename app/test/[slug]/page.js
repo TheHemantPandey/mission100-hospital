@@ -85,8 +85,8 @@ export default function TestDetailPage({ params }) {
                   Book Test
                 </button>
               </Link>
-              <a href="tel:9220620209" className="block w-full border border-gray-300 py-3 rounded-lg font-bold text-gray-800 text-center text-xs">
-                Call: 9220-620-209
+              <a href="tel:+918796471583" className="block w-full border border-gray-300 py-3 rounded-lg font-bold text-gray-800 text-center text-xs">
+                Call: +91 87964 71583
               </a>
             </div>
 
@@ -223,8 +223,8 @@ export default function TestDetailPage({ params }) {
                        Book Test
                     </button>
                   </Link>
-                  <a href="tel:9220620209" className="block w-full border border-gray-300 py-4 rounded-xl font-bold text-gray-800 text-center text-2sm hover:bg-gray-50 transition-colors">
-                    Call: 9220-620-209
+                  <a href="tel:+918796471583" className="block w-full border border-gray-300 py-4 rounded-xl font-bold text-gray-800 text-center text-2sm hover:bg-gray-50 transition-colors">
+                    Call: +91 87964 71583
                   </a>
                 </div>
               </div>

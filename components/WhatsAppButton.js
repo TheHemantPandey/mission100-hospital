@@ -10,7 +10,7 @@ const WhatsAppButton = () => {
   const [mounted, setMounted] = useState(false);
   const [isLargeDevice, setIsLargeDevice] = useState(false);
 
-  const phoneNumber = "919220620209";
+  const phoneNumber = "918796471583";
   const message = "Hello! I'm interested in Mission100 services.";
 
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=en`;

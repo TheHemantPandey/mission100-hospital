@@ -38,7 +38,7 @@ export default function DiagnosticPartnership() {
           <div className="text-sm">
             <p className="font-bold">Mission 100 Diagnostic Relations Manager</p>
             <p>Email: <a href="mailto:info@mission100hospital.com" className="text-emerald-600 font-semibold hover:underline">info@mission100hospital.com</a></p>
-            <p>Phone: +91 9220-620-209</p>
+            <p>Phone: +91 87964 71583</p>
           </div>
         </section>
 

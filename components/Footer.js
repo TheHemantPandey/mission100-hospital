@@ -162,7 +162,7 @@ const Footer = () => {
                   ["About Us", "/about"],
                   ["Find a Test", "/find-a-test"],
                   ["Contact", "/contact"],
-                  ["Blogs", "/blog"],
+                  ["Blogs", "/blogs"],
                   ["FAQ", "/faq"],
                   ["Careers", "/careers"],
                 ].map(([label, href]) => (
@@ -397,10 +397,10 @@ const Footer = () => {
                   Call Us
                 </p>
                 <a
-                  href="tel:+919220620209"
+                  href="tel:+918796471583"
                   className="text-white font-semibold text-sm hover:text-emerald-500 transition-colors"
                 >
-                  +91 9220-620-209
+                  +91 87964 71583
                 </a>
               </div>
             </div>

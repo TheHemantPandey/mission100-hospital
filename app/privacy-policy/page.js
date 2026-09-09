@@ -130,7 +130,7 @@ export default function PrivacyPolicy() {
           <p className="mt-4 font-bold">Mission 100 Hospital</p>
           <p>Metroplex East Tower, Office No. 147, Laxmi Nagar, Delhi - 110092</p>
           <p>Email: <a href="mailto:info@mission100hospital.com" className="text-emerald-600 font-semibold hover:underline">info@mission100hospital.com</a></p>
-          <p>Phone: +91 9220-620-209</p>
+          <p>Phone: +91 87964 71583</p>
         </section>
 
         <div className="mt-16 pt-8 border-t border-slate-100 text-center text-slate-500 text-sm">

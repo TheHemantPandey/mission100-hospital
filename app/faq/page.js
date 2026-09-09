@@ -47,7 +47,7 @@ export default function FAQPage() {
     },
     {
       question: "How do I book an appointment?",
-      answer: "You can book an appointment directly through our website by clicking the 'Book Consultation' button, or by calling our health experts at +91 9220 620 209."
+      answer: "You can book an appointment directly through our website by clicking the 'Book Consultation' button, or by calling our health experts at +91 87964 71583."
     }
   ];
 
@@ -112,8 +112,8 @@ export default function FAQPage() {
             <Link href="/contact" className="bg-green-600 px-10 py-4 rounded-xl font-black hover:bg-green-700 transition-all">
               CONTACT EXPERTS
             </Link>
-            <a href="tel:+919220620209" className="bg-white text-gray-900 px-10 py-4 rounded-xl font-black hover:bg-gray-100 transition-all">
-              +91 9220 620 209
+            <a href="tel:+918796471583" className="bg-white text-gray-900 px-10 py-4 rounded-xl font-black hover:bg-gray-100 transition-all">
+              +91 87964 71583
             </a>
           </div>
         </div>

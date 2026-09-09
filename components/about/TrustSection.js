@@ -45,8 +45,8 @@ const TrustSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1">Support Line</h4>
-                  <a href="tel:+919220620209" className="text-slate-500 text-sm font-medium hover:text-green-600 transition-colors">
-                    +91 9220 620 209
+                  <a href="tel:+918796471583" className="text-slate-500 text-sm font-medium hover:text-green-600 transition-colors">
+                    +91 87964 71583
                   </a>
                 </div>
               </div>

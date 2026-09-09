@@ -28,7 +28,7 @@ export default function sitemap() {
     { url: `${baseUrl}/join-us/medical-expert`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/join-us/nutrition-expert`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/join-us/yoga-wellness-coach`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/blogs`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${baseUrl}/terms-and-conditions`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${baseUrl}/refund-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
@@ -79,7 +79,7 @@ export default function sitemap() {
   const blogUrls = (blogsData || [])
     .filter((post) => post.active !== false && post.slug)
     .map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/blogs/${post.slug}`,
       lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
       changeFrequency: 'monthly',
       priority: 0.8,
