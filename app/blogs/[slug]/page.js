@@ -11,6 +11,7 @@ import ArticleHeader from "@/components/blog/ArticleHeader";
 import ArticleHero from "@/components/blog/ArticleHero";
 import KeyTakeaways from "@/components/blog/KeyTakeaways";
 import ArticleDisclaimer from "@/components/blog/ArticleDisclaimer";
+import MedicalReferences from "@/components/blog/MedicalReferences";
 import RelatedArticles from "@/components/blog/RelatedArticles";
 import {
   TableOfContents,
@@ -42,28 +43,52 @@ export async function generateMetadata({ params }) {
   }
 
   const siteUrl = "https://www.mission100hospital.com";
-  const canonicalUrl = `${siteUrl}/blogs/${post.slug}`;
-  const imageUrl = post.image?.startsWith("http")
-    ? post.image
-    : `${siteUrl}${post.image || "/hospital-building.jpg"}`;
+  const canonicalUrl = post.seo?.canonical || `${siteUrl}/blogs/${post.slug}`;
+  const seoTitle = post.seo?.title
+    ? `${post.seo.title} | Mission100 Hospital`
+    : `${post.title} | Mission100 Hospital`;
+  const seoDescription = post.seo?.metaDescription || post.excerpt;
 
-  return {
-    title: `${post.title} | Mission100 Hospital`,
-    description: post.excerpt,
-    keywords: [
+  const rawImage = post.seo?.ogImage || post.image || "/hospital-building.jpg";
+  const imageUrl = rawImage.startsWith("http")
+    ? rawImage
+    : `${siteUrl}${rawImage}`;
+
+  const keywordsList = Array.from(
+    new Set([
       post.primaryKeyword,
+      post.seo?.primaryKeyword,
       ...(post.secondaryKeywords || []),
+      ...(post.seo?.secondaryKeywords || []),
       "Mission100 Hospital",
       "preventive healthcare",
       "health guide",
       post.category
-    ].filter(Boolean),
+    ])
+  ).filter(Boolean);
+
+  return {
+    title: seoTitle,
+    description: seoDescription,
+    keywords: keywordsList,
     alternates: {
       canonical: canonicalUrl,
     },
+    robots: post.seo?.robots || {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
-      title: `${post.title} | Mission100 Hospital`,
-      description: post.excerpt,
+      title: post.seo?.ogTitle || seoTitle,
+      description: post.seo?.ogDescription || seoDescription,
       url: canonicalUrl,
       siteName: "Mission100 Hospital",
       locale: "en_IN",
@@ -82,8 +107,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | Mission100 Hospital`,
-      description: post.excerpt,
+      title: post.seo?.ogTitle || seoTitle,
+      description: post.seo?.ogDescription || seoDescription,
       images: [imageUrl],
     },
   };
@@ -116,33 +141,51 @@ export default async function BlogArticlePage({ params }) {
     }
   }
 
-  // Find 3 related active articles (prioritize same category)
+  // Determine related articles: prioritize explicit relatedArticles array, fallback to same category
   const activeBlogs = blogsData.filter(
     (b) => b.active !== false && b.slug !== post.slug
   );
-  let relatedBlogs = activeBlogs.filter((b) => b.category === post.category);
-  if (relatedBlogs.length < 3) {
-    const diffCategory = activeBlogs.filter((b) => b.category !== post.category);
-    relatedBlogs = [...relatedBlogs, ...diffCategory].slice(0, 3);
-  } else {
-    relatedBlogs = relatedBlogs.slice(0, 3);
+  let relatedBlogs = [];
+
+  if (post.relatedArticles && post.relatedArticles.length > 0) {
+    relatedBlogs = post.relatedArticles
+      .map((relSlug) => activeBlogs.find((b) => b.slug === relSlug))
+      .filter(Boolean);
   }
 
-  const siteUrl = "https://www.mission100hospital.com";
-  const canonicalUrl = `${siteUrl}/blogs/${post.slug}`;
-  const imageUrl = post.image?.startsWith("http")
-    ? post.image
-    : `${siteUrl}${post.image || "/hospital-building.jpg"}`;
+  if (relatedBlogs.length < 3) {
+    const categoryBlogs = activeBlogs.filter(
+      (b) => b.category === post.category && !relatedBlogs.some((rb) => rb.slug === b.slug)
+    );
+    relatedBlogs = [...relatedBlogs, ...categoryBlogs];
+  }
 
-  // Structured Data (JSON-LD): Article Schema
+  if (relatedBlogs.length < 3) {
+    const remainingBlogs = activeBlogs.filter(
+      (b) => !relatedBlogs.some((rb) => rb.slug === b.slug)
+    );
+    relatedBlogs = [...relatedBlogs, ...remainingBlogs];
+  }
+
+  relatedBlogs = relatedBlogs.slice(0, 3);
+
+  const siteUrl = "https://www.mission100hospital.com";
+  const canonicalUrl = post.seo?.canonical || `${siteUrl}/blogs/${post.slug}`;
+  const rawImage = post.seo?.ogImage || post.image || "/hospital-building.jpg";
+  const imageUrl = rawImage.startsWith("http")
+    ? rawImage
+    : `${siteUrl}${rawImage}`;
+
+  // Structured Data (JSON-LD): MedicalWebPage & BlogPosting
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": ["MedicalWebPage", "BlogPosting"],
     "headline": post.title,
-    "description": post.excerpt,
+    "description": post.seo?.metaDescription || post.excerpt,
     "image": [imageUrl],
     "datePublished": post.publishedAt,
     "dateModified": post.updatedAt || post.publishedAt,
+    "inLanguage": "en-IN",
     "author": {
       "@type": "Organization",
       "name": post.author || "Mission100 Medical Editorial Team",
@@ -168,6 +211,19 @@ export default async function BlogArticlePage({ params }) {
       "@type": "WebPage",
       "@id": canonicalUrl,
     },
+    "keywords": [
+      post.primaryKeyword,
+      ...(post.secondaryKeywords || []),
+      post.category
+    ].filter(Boolean).join(", "),
+    "citation": post.references
+      ? post.references.map((ref) => ({
+          "@type": "CreativeWork",
+          "name": ref.title,
+          "author": ref.author,
+          "url": ref.url,
+        }))
+      : undefined,
   };
 
   // Structured Data (JSON-LD): BreadcrumbList Schema
@@ -271,6 +327,16 @@ export default async function BlogArticlePage({ params }) {
         }
         .blog-content-body p {
           margin-bottom: 1.5rem;
+        }
+        .blog-content-body a {
+          color: #047857;
+          font-weight: 600;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          transition: color 0.15s ease;
+        }
+        .blog-content-body a:hover {
+          color: #065f46;
         }
         .blog-content-body ul {
           list-style-type: none;
@@ -418,6 +484,11 @@ export default async function BlogArticlePage({ params }) {
                   </p>
                   <FaqAccordion faqs={post.faqs} />
                 </div>
+              )}
+
+              {/* Verified Medical References & Sources */}
+              {post.references && post.references.length > 0 && (
+                <MedicalReferences references={post.references} />
               )}
 
               {/* Medical Disclaimer */}

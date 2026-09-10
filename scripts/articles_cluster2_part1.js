@@ -16,23 +16,71 @@ module.exports = [
       qualification: "MBBS, MD Pharmacology",
       specialty: "Clinical Pharmacology & Metabolic Health"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "11 min read",
     readTime: "11 min read",
     image: "/assets/blog/hba1c-test-normal-range-diabetes-risk.jpg",
     imageAlt: "Clinical laboratory setting showing HbA1c glycated hemoglobin diabetes blood test analyzer and report",
     featured: false,
     active: true,
-    primaryKeyword: "hba1c test normal range",
+    primaryKeyword: "HbA1c test",
     secondaryKeywords: [
-      "hba1c test diabetes",
-      "estimated average glucose eag",
-      "hba1c prediabetes range",
-      "fasting vs hba1c test",
-      "how to lower hba1c naturally"
+      "HbA1c normal range",
+      "HbA1c test meaning",
+      "HbA1c diabetes test",
+      "glycated hemoglobin test",
+      "HbA1c levels",
+      "estimated average glucose eag"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Prediabetics, diabetics, individuals evaluating long-term glucose control",
     tags: ["Diabetes", "Blood Tests", "Diagnostics", "Preventive Care"],
+    seo: {
+      title: "HbA1c Test: Meaning, Normal Range & Diabetes Risk",
+      metaDescription: "Understand your HbA1c test results: normal ranges (<5.7%), prediabetes levels (5.7-6.4%), Estimated Average Glucose (eAG), and ways to lower blood sugar.",
+      canonical: "https://www.mission100hospital.com/blogs/hba1c-test-normal-range-diabetes-risk",
+      primaryKeyword: "HbA1c test",
+      secondaryKeywords: [
+        "HbA1c normal range",
+        "HbA1c diabetes test",
+        "glycated hemoglobin test"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "HbA1c Test: Meaning, Normal Range & Diabetes Risk",
+      ogDescription: "Complete clinical guide to HbA1c testing: biochemistry of glycation, eAG conversion chart, false modifiers, and evidence-based reduction methods.",
+      ogImage: "/assets/blog/hba1c-test-normal-range-diabetes-risk.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "blood-sugar-test-fasting-pp-hba1c-difference",
+      "preventive-health-checkup-guide",
+      "annual-blood-tests-complete-guide"
+    ],
+    relatedServices: [
+      {
+        title: "HbA1c & Blood Glucose Test at Home",
+        url: "/find-a-test",
+        description: "Certified diabetes testing with morning doorstep sample collection and same-day digital reports."
+      },
+      {
+        title: "Metabolic & Sugar Control Consultation",
+        url: "/services/metabolic-sugar-control",
+        description: "Specialized metabolic consultation to manage insulin resistance and reverse prediabetes."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American Diabetes Association (ADA)",
+        title: "Standards of Care in Diabetes: Classification and Diagnosis of Diabetes",
+        year: "2024"
+      },
+      {
+        sourceName: "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+        title: "The A1C Test & Diabetes: Clinical Guide for Patients",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "90-Day Glycemic Average: HbA1c measures the percentage of hemoglobin bound to glucose, reflecting your cumulative average blood sugar over the 3-month lifespan of red blood cells.",
       "Diagnostic Thresholds: Normal is below 5.7%; 5.7% to 6.4% indicates prediabetes; 6.5% or higher on two separate tests confirms diabetes.",
@@ -54,7 +102,7 @@ module.exports = [
 
 <h2 id="what-is-hba1c">What Is the HbA1c Test?</h2>
 <p>Hemoglobin is the iron-containing protein located inside your red blood cells responsible for carrying oxygen from your lungs to every tissue in your body. When glucose circulates in your bloodstream, a percentage of it naturally binds to hemoglobin through a slow, non-enzymatic chemical reaction called <em>glycation</em>.</p>
-<p>Once glucose molecules attach to hemoglobin, they remain permanently bound for the remainder of the red blood cell's lifespan—which averages approximately 120 days. The higher the concentration of glucose in your bloodstream over time, the higher the proportion of glycated hemoglobin (HbA1c) in your circulation. By measuring this percentage, laboratory analyzers provide a stable, weighted average of your blood glucose over the past 8 to 12 weeks, with the most recent 30 days contributing roughly 50% to the overall score.</p>
+<p>Once glucose molecules attach to hemoglobin, they remain permanently bound for the remainder of the red blood cell's lifespan—which averages approximately 120 days. The higher the concentration of glucose in your bloodstream over time, the higher the proportion of glycated hemoglobin (HbA1c) in your circulation. By measuring this percentage, laboratory analyzers provide a stable, weighted average of your blood glucose over the past 8 to 12 weeks, with the most recent 30 days contributing roughly 50% to the overall score. You can book an <a href="/find-a-test">HbA1c blood test at home</a> with Mission100.</p>
 
 <h2 id="biochemistry-of-glycation">The Science: How Glycation Works</h2>
 <p>In healthy individuals with normal insulin sensitivity, the pancreas releases insulin in precise pulses to facilitate glucose uptake into muscle, liver, and adipose cells. Consequently, circulating blood sugar levels stay within a narrow physiological band (typically 70 to 140 mg/dL across fasting and post-meal states), keeping HbA1c below 5.7%.</p>
@@ -197,23 +245,71 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "12 min read",
     readTime: "12 min read",
     image: "/assets/blog/cbc-blood-test-complete-guide.jpg",
     imageAlt: "Automated hematology analyzer and purple-top EDTA blood tubes in diagnostic laboratory",
     featured: false,
     active: true,
-    primaryKeyword: "cbc blood test complete guide",
+    primaryKeyword: "CBC blood test",
     secondaryKeywords: [
-      "complete hemogram test normal ranges",
-      "wbc differential count interpretation",
-      "low hemoglobin causes",
-      "platelet count normal range",
-      "mcv mch rdw explained"
+      "complete blood count",
+      "CBC test meaning",
+      "CBC blood test results",
+      "hemoglobin blood test",
+      "white blood cell count",
+      "platelet count normal range"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Patients with fatigue, fever, suspected anemia, or routine annual checkup seekers",
     tags: ["Blood Tests", "Hematology", "Diagnostics", "Preventive Care"],
+    seo: {
+      title: "CBC Blood Test: Meaning, Normal Ranges & Results Explained",
+      metaDescription: "Understand your Complete Blood Count (CBC) test: hemoglobin levels, RBC indices (MCV, MCH), WBC differential, platelets, and what abnormal values indicate.",
+      canonical: "https://www.mission100hospital.com/blogs/cbc-blood-test-complete-guide",
+      primaryKeyword: "CBC blood test",
+      secondaryKeywords: [
+        "complete blood count",
+        "CBC test meaning",
+        "hemoglobin blood test"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "CBC Blood Test: Meaning, Normal Ranges & Results Explained",
+      ogDescription: "The complete clinical guide to CBC testing: erythrocytes, leukocytes, thrombocytes, reference ranges, and diagnostic patterns.",
+      ogImage: "/assets/blog/cbc-blood-test-complete-guide.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "annual-blood-tests-complete-guide",
+      "full-body-health-checkup-guide",
+      "vitamin-d-test-when-to-test"
+    ],
+    relatedServices: [
+      {
+        title: "Complete Health Checkup (includes CBC)",
+        url: "/test/complete-health-checkup",
+        description: "Includes automated CBC with 5-part differential alongside 68 other essential biomarkers."
+      },
+      {
+        title: "Book Diagnostic Tests at Home",
+        url: "/find-a-test",
+        description: "Schedule certified phlebotomy home visits with cold-chain sample transport in Delhi NCR."
+      }
+    ],
+    references: [
+      {
+        sourceName: "World Health Organization (WHO)",
+        title: "Haemoglobin Concentrations for the Diagnosis of Anaemia and Assessment of Severity",
+        year: "2024"
+      },
+      {
+        sourceName: "Clinical and Laboratory Standards Institute (CLSI)",
+        title: "Reference Leukocyte Differential Count and Evaluation of Automated Hematology Analyzers (H20-A2)",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "Three Cellular Pillars: The CBC evaluates Red Blood Cells (oxygen transport & anemia), White Blood Cells (immune defense & infection), and Platelets (clotting & bleeding control).",
       "RBC Indices (MCV, MCH, RDW): Crucial for differentiating microcytic iron-deficiency anemia from macrocytic vitamin B12/folate deficiency or thalassemia trait.",
@@ -403,23 +499,71 @@ module.exports = [
       qualification: "MBBS, MD Pharmacology",
       specialty: "Clinical Pharmacology & Metabolic Health"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "11 min read",
     readTime: "11 min read",
     image: "/assets/blog/thyroid-test-guide-tsh-t3-t4.jpg",
     imageAlt: "Physician discussing thyroid hormone report and TSH levels with patient in diagnostic clinic",
     featured: false,
     active: true,
-    primaryKeyword: "thyroid test guide tsh t3 t4",
+    primaryKeyword: "thyroid test",
     secondaryKeywords: [
-      "thyroid profile normal ranges",
-      "high tsh symptoms hypothyroidism",
-      "free t4 vs total t3 test",
-      "subclinical hypothyroidism treatment",
-      "thyroid blood test preparation"
+      "TSH test",
+      "T3 T4 test",
+      "thyroid blood test",
+      "thyroid test normal range",
+      "thyroid function test",
+      "hypothyroidism symptoms"
     ],
-    tags: ["Thyroid", "Hormones", "Blood Tests", "Diagnostics"],
+    searchIntent: "Informational",
+    targetAudience: "Women, individuals with unexplained fatigue, weight changes, mood or hair loss issues",
+    tags: ["Thyroid", "Hormones", "Blood Tests", "Diagnostics", "Endocrinology"],
+    seo: {
+      title: "Thyroid Test (TSH, T3, T4): Normal Ranges & Symptoms",
+      metaDescription: "Understand your thyroid test: TSH normal ranges, Free T4 vs T3, symptoms of hypo vs hyperthyroidism, and the biotin supplement testing rule.",
+      canonical: "https://www.mission100hospital.com/blogs/thyroid-test-guide-tsh-t3-t4",
+      primaryKeyword: "thyroid test",
+      secondaryKeywords: [
+        "TSH test",
+        "thyroid blood test",
+        "thyroid test normal range"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Thyroid Test (TSH, T3, T4): Normal Ranges & Symptoms",
+      ogDescription: "Complete clinical guide to thyroid function testing: hypothalamic-pituitary-thyroid axis, subclinical hypothyroidism, and preparation protocols.",
+      ogImage: "/assets/blog/thyroid-test-guide-tsh-t3-t4.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "annual-blood-tests-complete-guide",
+      "health-checkup-for-women-by-age",
+      "full-body-health-checkup-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Thyroid Profile (TSH, T3, Free T4)",
+        url: "/find-a-test",
+        description: "Accurate chemiluminescence immunoassay testing with morning home collection in Delhi NCR."
+      },
+      {
+        title: "Complete Health Checkup at Home",
+        url: "/test/complete-health-checkup",
+        description: "Includes complete thyroid evaluation along with kidney, liver, glucose, and cardiac profiles."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American Thyroid Association (ATA)",
+        title: "Guidelines for the Treatment of Hypothyroidism and Subclinical Thyroid Disease",
+        year: "2023"
+      },
+      {
+        sourceName: "Endocrine Society of India (ESI)",
+        title: "Management of Thyroid Disorders in Indian Practice: Clinical Consensus",
+        year: "2024"
+      }
+    ],
     keyTakeaways: [
       "Negative Feedback Loop: TSH is produced by the anterior pituitary to stimulate thyroid gland hormone synthesis; TSH levels rise when thyroid hormone production falls.",
       "TSH as First-Line Screen: TSH is the most sensitive biomarker for detecting both subclinical and overt thyroid dysfunction.",
@@ -446,7 +590,7 @@ module.exports = [
   <li><strong>Thyroid Gland:</strong> TSH binds to follicular cell receptors on the thyroid gland, stimulating iodine uptake and the synthesis of T4 (about 80%) and T3 (about 20%).</li>
   <li><strong>Negative Feedback:</strong> When circulating levels of Free T4 and T3 rise, they signal the pituitary to decrease TSH production. Conversely, if the thyroid gland slows down and circulating T4/T3 levels fall, the pituitary releases large amounts of TSH to stimulate the thyroid.</li>
 </ol>
-<p>Because of this inverse logarithmic relationship, minor drops in thyroid hormone output trigger massive surges in TSH, making TSH the most sensitive early detector of thyroid failure.</p>
+<p>Because of this inverse logarithmic relationship, minor drops in thyroid hormone output trigger massive surges in TSH, making TSH the most sensitive early detector of thyroid failure. You can book an accurate <a href="/find-a-test">Thyroid Test at home</a> with Mission100.</p>
 
 <h2 id="tsh-t3-t4-explained">Understanding TSH, T3, and T4</h2>
 <p>A complete thyroid panel measures three primary hormonal parameters:</p>
@@ -564,7 +708,7 @@ module.exports = [
 
 <h2 id="subclinical-thyroid-disease">What Is Subclinical Hypothyroidism?</h2>
 <p>Subclinical hypothyroidism is defined by an elevated TSH (typically 4.5 to 10.0 &mu;IU/mL) with completely normal circulating Free T4 and Free T3 levels. It represents a state where the pituitary is applying maximum stimulation to maintain normal peripheral hormone levels.</p>
-<p>Endocrinologists typically evaluate subclinical hypothyroidism by ordering an <strong>Anti-TPO (Thyroid Peroxidase Antibody)</strong> test. If Anti-TPO antibodies are elevated, it confirms Hashimoto's Autoimmune Thyroiditis, indicating a higher likelihood of progression to overt hypothyroidism over time. Treatment with low-dose Levothyroxine is strongly recommended for women planning pregnancy (where the target TSH is typically &lt; 2.5 &mu;IU/mL in the first trimester) and individuals with severe dyslipidemia or symptomatic depression.</p>
+<p>Endocrinologists typically evaluate subclinical hypothyroidism by ordering an <strong>Anti-TPO (Thyroid Peroxidase Antibody)</strong> test. If Anti-TPO antibodies are elevated, it confirms Hashimoto's Autoimmune Thyroiditis, indicating a higher likelihood of progression to overt hypothyroidism over time. Treatment with low-dose Levothyroxine is strongly recommended for women planning pregnancy (where the target TSH is typically &lt; 2.5 &mu;IU/mL in the first trimester) and individuals with severe dyslipidemia or symptomatic depression. Learn more in our <a href="/blogs/health-checkup-for-women-by-age">Women's Health Screening Guide</a>.</p>
 
 <h2 id="testing-rules-biotin">Testing Protocol & The Biotin Interference Rule</h2>
 <p>To ensure 100% accurate thyroid lab results, adhere to these clinical guidelines:</p>
@@ -629,23 +773,70 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "10 min read",
     readTime: "10 min read",
     image: "/assets/blog/vitamin-d-test-when-to-test.jpg",
     imageAlt: "25-Hydroxy Vitamin D blood collection tube with bone health anatomical model in diagnostic lab",
     featured: false,
     active: true,
-    primaryKeyword: "vitamin d test when to test",
+    primaryKeyword: "vitamin D test",
     secondaryKeywords: [
-      "25-hydroxy vitamin d normal range",
-      "vitamin d deficiency symptoms",
-      "bone health vitamin d test delhi",
-      "how to increase vitamin d levels",
-      "vitamin d3 and calcium absorption"
+      "vitamin D blood test",
+      "vitamin D deficiency test",
+      "25 hydroxy vitamin D",
+      "vitamin D levels normal range",
+      "vitamin D deficiency symptoms"
     ],
-    tags: ["Vitamins", "Bone Health", "Nutrition", "Blood Tests"],
+    searchIntent: "Informational",
+    targetAudience: "Urban desk workers, adults experiencing bone/muscle aches, fatigue, or low immunity",
+    tags: ["Vitamins", "Bone Health", "Nutrition", "Blood Tests", "Diagnostics"],
+    seo: {
+      title: "Vitamin D Test: Meaning, Normal Levels & Deficiency Signs",
+      metaDescription: "Check your 25-Hydroxy Vitamin D test results: deficiency stages (<20 ng/mL), optimal targets (30-100 ng/mL), bone health impact, and safe supplementation.",
+      canonical: "https://www.mission100hospital.com/blogs/vitamin-d-test-when-to-test",
+      primaryKeyword: "vitamin D test",
+      secondaryKeywords: [
+        "vitamin D blood test",
+        "vitamin D deficiency test",
+        "25 hydroxy vitamin D"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Vitamin D Test: Meaning, Normal Levels & Deficiency Signs",
+      ogDescription: "Complete guide to Vitamin D testing: 25(OH)D reference ranges, urban Indian deficiency paradox, bone density, and safe repletion.",
+      ogImage: "/assets/blog/vitamin-d-test-when-to-test.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "full-body-health-checkup-guide",
+      "health-checkup-after-40-guide",
+      "senior-citizen-health-checkup-after-60"
+    ],
+    relatedServices: [
+      {
+        title: "Vitamin D & B12 Test Panel",
+        url: "/find-a-test",
+        description: "Doorstep diagnostic screening for Vitamin D3 (25-OH) and Vitamin B12 with same-day reports."
+      },
+      {
+        title: "Bone Strength & Wellness Program",
+        url: "/services/bone-strength",
+        description: "Specialized clinical program to treat osteopenia, boost bone density, and prevent fractures."
+      }
+    ],
+    references: [
+      {
+        sourceName: "Endocrine Society Clinical Practice Guideline",
+        title: "Evaluation, Treatment, and Prevention of Vitamin D Deficiency",
+        year: "2024"
+      },
+      {
+        sourceName: "Indian Council of Medical Research (ICMR-NIN)",
+        title: "Nutrient Requirements and Dietary Guidelines for Indians: Vitamin D and Calcium",
+        year: "2024"
+      }
+    ],
     keyTakeaways: [
       "Widespread Urban Deficiency: Over 70% to 80% of urban Indians suffer from subclinical or severe Vitamin D deficiency due to indoor work and atmospheric pollution blocking UVB rays.",
       "The Gold Standard Marker: Total Serum 25-Hydroxy Vitamin D [25(OH)D] is the clinically validated marker for measuring circulating body stores.",
@@ -678,7 +869,7 @@ module.exports = [
   <li><strong>High Melanin Content in South Asian Skin:</strong> Melanin acts as a natural sunscreen. Higher epidermal melanin concentrations absorb UVB photons, requiring individuals with darker skin tones (Fitzpatrick skin types IV and V) to spend 3 to 5 times longer in direct midday sun to synthesize equivalent amounts of Vitamin D compared to lighter-skinned individuals.</li>
   <li><strong>Indoor Lifestyle & Air Pollution:</strong> Modern urban professionals spend 90% of daylight hours inside air-conditioned offices and homes. Furthermore, atmospheric particulate matter (PM2.5 and PM10) in metropolitan centers like Delhi NCR scatters and absorbs UVB radiation before it reaches ground level.</li>
   <li><strong>Clothing & Sunscreen:</strong> Standard clothing styles cover up to 80% of body surface area, and SPF 30+ sunscreens reduce cutaneous Vitamin D synthesis by over 95%.</li>
-  <li><strong>Negligible Dietary Sources:</strong> Very few unfortified foods contain meaningful quantities of Vitamin D, making it virtually impossible to meet physiological requirements through standard vegetarian or non-vegetarian Indian diets without supplementation.</li>
+  <li><strong>Negligible Dietary Sources:</strong> Very few unfortified foods contain meaningful quantities of Vitamin D, making it virtually impossible to meet physiological requirements through standard vegetarian or non-vegetarian Indian diets without supplementation. You can check your status with a simple <a href="/find-a-test">Vitamin D test at home</a>.</li>
 </ul>
 
 <h2 id="deficiency-stages-table">Vitamin D Reference Ranges & Clinical Staging</h2>
@@ -740,7 +931,7 @@ module.exports = [
 </ul>
 
 <h2 id="bone-muscle-immunity">The Bone, Muscle, and Immune Connection</h2>
-<p>Without sufficient 25(OH)D, the body absorbs only 10% to 15% of dietary calcium. To maintain critical blood calcium levels for cardiac contractions, the parathyroid glands secrete excess Parathyroid Hormone (PTH), which leaches calcium directly out of skeletal bones. Over decades, this causes severe micro-architectural deterioration (osteopenia and osteoporosis), dramatically increasing the risk of fragility fractures in mature adults.</p>
+<p>Without sufficient 25(OH)D, the body absorbs only 10% to 15% of dietary calcium. To maintain critical blood calcium levels for cardiac contractions, the parathyroid glands secrete excess Parathyroid Hormone (PTH), which leaches calcium directly out of skeletal bones. Over decades, this causes severe micro-architectural deterioration (osteopenia and osteoporosis), dramatically increasing the risk of fragility fractures in mature adults. Learn more about bone density preservation in our <a href="/blogs/health-checkup-after-50-men-women-guide">Checkup After 50 Guide</a>.</p>
 
 <h2 id="safe-supplementation">Safe Supplementation & Monitoring Protocols</h2>
 <p>If your diagnostic test reveals deficiency, follow these evidence-based safety principles:</p>
@@ -805,23 +996,71 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "12 min read",
     readTime: "12 min read",
     image: "/assets/blog/lipid-profile-test-cholesterol-guide.jpg",
     imageAlt: "Clinical cardiology lipid profile report showing HDL LDL cholesterol and triglycerides test results",
     featured: false,
     active: true,
-    primaryKeyword: "lipid profile test cholesterol guide",
+    primaryKeyword: "lipid profile test",
     secondaryKeywords: [
-      "cholesterol test normal ranges",
-      "ldl vs hdl cholesterol difference",
-      "high triglycerides causes and treatment",
-      "total cholesterol to hdl ratio",
-      "cardiac risk assessment blood test"
+      "cholesterol test",
+      "lipid profile normal range",
+      "cholesterol levels",
+      "HDL LDL triglycerides",
+      "cholesterol blood test",
+      "cardiac risk ratios"
     ],
-    tags: ["Heart Health", "Cholesterol", "Blood Tests", "Diagnostics"],
+    searchIntent: "Informational",
+    targetAudience: "Adults monitoring heart health, patients with elevated cholesterol or family history of CAD",
+    tags: ["Heart Health", "Cholesterol", "Blood Tests", "Diagnostics", "Cardiology"],
+    seo: {
+      title: "Lipid Profile Test: Normal Ranges, LDL, HDL & Ratios",
+      metaDescription: "Understand your lipid profile test: LDL (bad), HDL (good), Triglycerides normal ranges, Castelli risk ratios, and how to lower cholesterol naturally.",
+      canonical: "https://www.mission100hospital.com/blogs/lipid-profile-test-cholesterol-guide",
+      primaryKeyword: "lipid profile test",
+      secondaryKeywords: [
+        "cholesterol test",
+        "lipid profile normal range",
+        "HDL LDL triglycerides"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Lipid Profile Test: Normal Ranges, LDL, HDL & Ratios",
+      ogDescription: "Complete clinical guide to cholesterol and lipid profile testing: fractions breakdown, atherogenic risk ratios, fasting rules, and dietary optimization.",
+      ogImage: "/assets/blog/lipid-profile-test-cholesterol-guide.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "heart-health-checkup-risk-assessment",
+      "ecg-test-what-it-checks-how-it-works",
+      "full-body-health-checkup-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Heart Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "Complete cardiac screening package with 12-lead ECG, Lipid Profile, and cardiologist evaluation."
+      },
+      {
+        title: "Heart Attack Prevention Program",
+        url: "/services/heart-attack-prevention",
+        description: "Personalized cardiovascular risk assessment and arterial plaque prevention program."
+      }
+    ],
+    references: [
+      {
+        sourceName: "National Cholesterol Education Program (NCEP ATP III)",
+        title: "Detection, Evaluation, and Treatment of High Blood Cholesterol in Adults",
+        year: "2023"
+      },
+      {
+        sourceName: "Cardiological Society of India (CSI)",
+        title: "Consensus Statement on Management of Dyslipidemia in Indian Patients",
+        year: "2024"
+      }
+    ],
     keyTakeaways: [
       "Beyond Total Cholesterol: Total cholesterol alone is an incomplete metric; the true atherogenic drivers are LDL particle density, Triglycerides, and Non-HDL Cholesterol.",
       "Strict 10 to 12 Hour Fasting Required: Fasting is mandatory because postprandial chylomicrons can falsely elevate triglyceride readings by up to 100%.",
@@ -841,7 +1080,7 @@ module.exports = [
 </div>
 
 <h2 id="what-is-lipid-profile">What Is a Lipid Profile Test?</h2>
-<p>A standard lipid profile measures both the quantitative concentrations of circulating cholesterol particles and storage fats (triglycerides) in your blood. In South Asian populations—who have a 3- to 4-fold higher genetic vulnerability to premature coronary artery disease compared to Western cohorts—annual lipid screening is essential starting in young adulthood.</p>
+<p>A standard lipid profile measures both the quantitative concentrations of circulating cholesterol particles and storage fats (triglycerides) in your blood. In South Asian populations—who have a 3- to 4-fold higher genetic vulnerability to premature coronary artery disease compared to Western cohorts—annual lipid screening is essential starting in young adulthood. You can book an accurate <a href="/test/heart-checkup-at-home">Lipid & Heart Checkup at home</a> with Mission100.</p>
 
 <h2 id="cholesterol-fractions-breakdown">Breaking Down the Lipid Fractions</h2>
 <p>A comprehensive lipid report breaks down your blood lipids into several distinct fractions:</p>
@@ -923,7 +1162,7 @@ module.exports = [
 <ul>
   <li><strong>Total Cholesterol / HDL Ratio (Castelli Risk Index I):</strong> An ideal ratio is under 3.5; a ratio above 5.0 indicates significantly elevated atherogenic risk.</li>
   <li><strong>LDL / HDL Ratio (Castelli Risk Index II):</strong> Target is under 2.5. A high ratio indicates that plaque-forming particles far outnumber protective scavenger particles.</li>
-  <li><strong>Triglyceride / HDL Ratio:</strong> An accurate surrogate marker for small dense LDL particles and systemic insulin resistance. An ideal ratio is under 2.0. Ratios above 3.5 strongly correlate with metabolic syndrome and prediabetes.</li>
+  <li><strong>Triglyceride / HDL Ratio:</strong> An accurate surrogate marker for small dense LDL particles and systemic insulin resistance. An ideal ratio is under 2.0. Ratios above 3.5 strongly correlate with metabolic syndrome and prediabetes. Learn more in our <a href="/blogs/heart-health-checkup-risk-assessment">Heart Health Checkup Guide</a>.</li>
 </ul>
 
 <h2 id="fasting-rules">Why Strict Fasting Is Mandatory for Accurate Lipids</h2>
@@ -940,7 +1179,7 @@ module.exports = [
 </ol>
 
 <div class="alert alert-info my-4">
-<strong>Pair with Advanced Cardiac Tests:</strong> If you have a family history of premature heart disease, consider pairing your lipid panel with a <a href="/blogs/heart-health-checkup-risk-assessment">Heart Health Checkup</a>, including resting ECG, hs-CRP, and Apolipoprotein B testing.
+<strong>Pair with Advanced Cardiac Tests:</strong> If you have a family history of premature heart disease, consider pairing your lipid panel with a <a href="/blogs/heart-health-checkup-risk-assessment">Heart Health Checkup</a>, including resting <a href="/blogs/ecg-test-what-it-checks-how-it-works">ECG testing</a>, hs-CRP, and Apolipoprotein B testing.
 </div>`,
     faqs: [
       {

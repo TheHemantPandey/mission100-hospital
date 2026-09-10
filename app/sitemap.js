@@ -80,9 +80,13 @@ export default function sitemap() {
     .filter((post) => post.active !== false && post.slug)
     .map((post) => ({
       url: `${baseUrl}/blogs/${post.slug}`,
-      lastModified: post.publishedAt ? new Date(post.publishedAt) : now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: post.updatedAt
+        ? new Date(post.updatedAt)
+        : post.publishedAt
+        ? new Date(post.publishedAt)
+        : now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
     }));
 
   // Dynamic Diagnostic Tests

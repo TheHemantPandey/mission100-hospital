@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:blogs": "node scripts/build_all_blogs.js",
+    "seo:check": "node scripts/seo_check.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

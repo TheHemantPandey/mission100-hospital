@@ -16,23 +16,72 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "11 min read",
     readTime: "11 min read",
     image: "/assets/blog/kidney-function-test-kft-guide.jpg",
     imageAlt: "Renal diagnostic lab report with serum creatinine, BUN, and anatomical kidney model",
     featured: false,
     active: true,
-    primaryKeyword: "kidney function test kft guide",
+    primaryKeyword: "kidney function test",
     secondaryKeywords: [
+      "kidney blood test",
+      "KFT test",
+      "creatinine test",
+      "kidney health screening",
+      "renal function test",
       "serum creatinine normal range",
-      "egfr chronic kidney disease stages",
-      "blood urea nitrogen bun kft test",
-      "uric acid high symptoms causes",
-      "renal function test preparation"
+      "eGFR stages"
     ],
-    tags: ["Kidney Health", "Renal", "Blood Tests", "Diagnostics"],
+    searchIntent: "Informational",
+    targetAudience: "Hypertensive, diabetic patients, routine checkup seekers, adults monitoring kidney health",
+    tags: ["Kidney Health", "Renal", "Blood Tests", "Diagnostics", "Nephrology"],
+    seo: {
+      title: "Kidney Function Test (KFT): Creatinine, eGFR & Urea Guide",
+      metaDescription: "Understand your Kidney Function Test (KFT/RFT): Serum Creatinine normal ranges, eGFR stages, BUN, Uric Acid, and early chronic kidney disease detection.",
+      canonical: "https://www.mission100hospital.com/blogs/kidney-function-test-kft-guide",
+      primaryKeyword: "kidney function test",
+      secondaryKeywords: [
+        "KFT test",
+        "creatinine test",
+        "renal function test"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Kidney Function Test (KFT): Creatinine, eGFR & Urea Guide",
+      ogDescription: "Complete clinical guide to kidney function tests: nephron filtration, creatinine vs eGFR, CKD stages, and renal preservation strategies.",
+      ogImage: "/assets/blog/kidney-function-test-kft-guide.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "annual-blood-tests-complete-guide",
+      "full-body-health-checkup-guide",
+      "liver-function-test-lft-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Kidney Function Test (KFT / RFT) at Home",
+        url: "/find-a-test",
+        description: "Doorstep sample collection for Creatinine, Urea, BUN, Uric Acid, and eGFR calculation."
+      },
+      {
+        title: "Complete Health Checkup (includes KFT)",
+        url: "/test/complete-health-checkup",
+        description: "69-parameter full body diagnostic package with free doorstep sample collection across Delhi NCR."
+      }
+    ],
+    references: [
+      {
+        sourceName: "Kidney Disease: Improving Global Outcomes (KDIGO)",
+        title: "Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease",
+        year: "2024"
+      },
+      {
+        sourceName: "National Kidney Foundation (NKF)",
+        title: "KDOQI Clinical Practice Guidelines for Chronic Kidney Disease: Evaluation, Classification, and Stratification",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "Silent Filtration Loss: Over 50% of renal nephron filtration capacity can be permanently lost before serum creatinine levels cross above the standard normal range.",
       "The Gold Standard Metric: Estimated Glomerular Filtration Rate (eGFR) is a superior clinical marker compared to isolated serum creatinine because it accounts for age, sex, and muscle mass.",
@@ -53,7 +102,7 @@ module.exports = [
 
 <h2 id="renal-physiology">How the Kidneys Filter Blood</h2>
 <p>Within each human kidney, approximately one million microscopic vascular filtering units called <em>nephrons</em> work continuously. Blood enters the glomerulus under high pressure, where water, electrolytes, glucose, and metabolic waste pass across the glomerular filtration barrier into Bowman's capsule. The renal tubules then reabsorb 99% of filtered water and vital nutrients back into circulation, while shunting concentrated metabolic waste products (urea, creatinine, uric acid, excess hydrogen ions, and potassium) into urine.</p>
-<p>When systemic conditions like hypertension, diabetes, or autoimmune glomerulonephritis injure the delicate glomerular capillaries, the filtration rate declines, causing nitrogenous toxins to accumulate in circulating blood (a state known as azotemia).</p>
+<p>When systemic conditions like hypertension, diabetes, or autoimmune glomerulonephritis injure the delicate glomerular capillaries, the filtration rate declines, causing nitrogenous toxins to accumulate in circulating blood (a state known as azotemia). You can evaluate your renal parameters easily with a <a href="/find-a-test">Kidney Function Test at home</a>.</p>
 
 <h2 id="core-kft-biomarkers">Core Biomarkers in a Kidney Function Test</h2>
 <p>A standard clinical KFT panel measures the following essential parameters:</p>
@@ -136,7 +185,7 @@ module.exports = [
   <li><strong>Maintain Strict Blood Pressure Control:</strong> High systemic blood pressure directly transmits sheer stress to delicate glomerular capillaries. Keeping BP under 130/80 mmHg is the single most effective way to prevent nephron sclerosis.</li>
   <li><strong>Stop the Overuse of OTC Painkillers (NSAIDs):</strong> Non-Steroidal Anti-Inflammatory Drugs (such as Ibuprofen, Diclofenac, Naproxen, and Mefenamic Acid) inhibit renal prostaglandin synthesis, constricting afferent arterioles and reducing renal blood flow. Chronic frequent use is a leading cause of analgesic nephropathy.</li>
   <li><strong>Stay Adequately Hydrated:</strong> Drinking sufficient plain water prevents renal crystal precipitation, lowers urinary saturation of stone-forming salts, and flushes nitrogenous waste smoothly.</li>
-  <li><strong>Manage Blood Sugar Rigorously:</strong> Hyperglycemia induces glomerular hyperfiltration and non-enzymatic glycation of the glomerular basement membrane, leading to progressive diabetic nephropathy.</li>
+  <li><strong>Manage Blood Sugar Rigorously:</strong> Hyperglycemia induces glomerular hyperfiltration and non-enzymatic glycation of the glomerular basement membrane, leading to progressive diabetic nephropathy. Learn more in our <a href="/blogs/annual-blood-tests-complete-guide">Annual Blood Tests Guide</a>.</li>
 </ol>
 
 <h2 id="testing-frequency-kft">Who Needs Regular KFT Monitoring?</h2>
@@ -145,7 +194,7 @@ module.exports = [
   <li>Individuals with diagnosed Type 1 or Type 2 Diabetes.</li>
   <li>Individuals taking antihypertensive medications (especially ACE inhibitors or ARBs).</li>
   <li>Patients with a history of recurrent kidney stones or gout.</li>
-  <li>Long-term users of medications that require renal clearance.</li>
+  <li>Long-term users of medications that require renal clearance. See our <a href="/blogs/senior-citizen-health-checkup-after-60">Senior Citizen Health Checkup Guide</a> for geriatric renal monitoring.</li>
 </ul>
 
 <div class="alert alert-warning my-4">
@@ -203,23 +252,72 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "11 min read",
     readTime: "11 min read",
     image: "/assets/blog/liver-function-test-lft-guide.jpg",
     imageAlt: "Clinical laboratory report for Liver Function Test with SGOT SGPT bilirubin and hepatic diagram",
     featured: false,
     active: true,
-    primaryKeyword: "liver function test lft guide",
+    primaryKeyword: "liver function test",
     secondaryKeywords: [
-      "sgpt alt normal range liver",
-      "sgot ast elevated causes",
-      "fatty liver disease blood markers",
-      "bilirubin total direct indirect test",
-      "liver panel test delhi at home"
+      "LFT blood test",
+      "liver test",
+      "liver function blood test",
+      "liver health screening",
+      "ALT AST test",
+      "SGPT ALT normal range liver",
+      "fatty liver disease blood markers"
     ],
-    tags: ["Liver Health", "Digestive Health", "Blood Tests", "Diagnostics"],
+    searchIntent: "Informational",
+    targetAudience: "Individuals with suspected fatty liver, elevated enzymes, alcohol intake, or routine wellness checkup",
+    tags: ["Liver Health", "Digestive Health", "Blood Tests", "Diagnostics", "Gastroenterology"],
+    seo: {
+      title: "Liver Function Test (LFT): SGPT, SGOT & Bilirubin Guide",
+      metaDescription: "Understand your Liver Function Test (LFT): SGPT (ALT), SGOT (AST), Bilirubin normal ranges, fatty liver signs, De Ritis ratio, and liver health tips.",
+      canonical: "https://www.mission100hospital.com/blogs/liver-function-test-lft-guide",
+      primaryKeyword: "liver function test",
+      secondaryKeywords: [
+        "LFT blood test",
+        "liver test",
+        "ALT AST test"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Liver Function Test (LFT): SGPT, SGOT & Bilirubin Guide",
+      ogDescription: "Complete clinical guide to LFT testing: transaminase enzyme leakage, bilirubin metabolism, fatty liver disease reversal, and normal reference ranges.",
+      ogImage: "/assets/blog/liver-function-test-lft-guide.jpg",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "full-body-health-checkup-guide",
+      "lipid-profile-test-cholesterol-guide",
+      "kidney-function-test-kft-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Liver Function Test (LFT Extended) at Home",
+        url: "/find-a-test",
+        description: "12-parameter liver panel measuring SGPT, SGOT, Bilirubin fractions, ALP, GGT, and Albumin."
+      },
+      {
+        title: "Complete Health Checkup",
+        url: "/test/complete-health-checkup",
+        description: "Includes extended liver function testing alongside complete blood count, kidney, and metabolic profiles."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American Association for the Study of Liver Diseases (AASLD)",
+        title: "Practice Guidance for Non-Alcoholic Fatty Liver Disease (NAFLD/MASLD)",
+        year: "2024"
+      },
+      {
+        sourceName: "Indian National Association for Study of the Liver (INASL)",
+        title: "Clinical Practice Guidelines for Management of NAFLD in India",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "The Body's Metabolic Powerhouse: The liver executes over 500 vital metabolic, detoxifying, and protein-synthetic functions daily.",
       "SGPT (ALT) Specificity: SGPT is the most liver-specific transaminase enzyme; elevated levels indicate active hepatocellular membrane injury.",
@@ -325,7 +423,7 @@ module.exports = [
 
 <h2 id="fatty-liver-nafld">Non-Alcoholic Fatty Liver Disease (NAFLD) & LFT Findings</h2>
 <p>Non-Alcoholic Fatty Liver Disease (NAFLD / MASLD) has become the most common chronic liver condition worldwide, affecting up to 35% of Indian adults. In NAFLD, excessive consumption of high-fructose corn syrup, refined carbohydrates, and saturated fats leads to ectopic lipid accumulation within hepatocytes.</p>
-<p>On routine blood tests, NAFLD presents with mild-to-moderate elevations in SGPT (50–120 U/L) and SGOT, often accompanied by elevated <a href="/blogs/lipid-profile-test-cholesterol-guide">Triglycerides</a> and borderline fasting glucose. Confirming NAFLD with an abdominal ultrasound or transient elastography (FibroScan) allows for early intervention before non-alcoholic steatohepatitis (NASH) and fibrosis develop.</p>
+<p>On routine blood tests, NAFLD presents with mild-to-moderate elevations in SGPT (50–120 U/L) and SGOT, often accompanied by elevated <a href="/blogs/lipid-profile-test-cholesterol-guide">Triglycerides</a> and borderline fasting glucose. Confirming NAFLD with an abdominal ultrasound or transient elastography (FibroScan) allows for early intervention before non-alcoholic steatohepatitis (NASH) and fibrosis develop. You can check your liver and metabolic panels in a single <a href="/test/complete-health-checkup">Complete Health Checkup</a>.</p>
 
 <h2 id="ast-alt-ratio">The De Ritis Ratio (AST/ALT): Differentiating Liver Disease</h2>
 <p>The ratio of AST to ALT (the De Ritis Ratio) is a valuable diagnostic clue:</p>
@@ -340,7 +438,7 @@ module.exports = [
   <li><strong>Achieve 7% to 10% Weight Reduction:</strong> Clinical trials show that losing 7% to 10% of total body weight in overweight individuals resolves liver inflammation and reduces hepatic fat content by over 50%.</li>
   <li><strong>Eliminate Liquid Fructose & Refined Sugars:</strong> Fructose is metabolized exclusively by the liver through de novo lipogenesis. Cutting out sodas, packaged juices, and refined sweets halts immediate hepatic fat production.</li>
   <li><strong>Adopt Mediterranean-Style Whole Food Nutrition:</strong> Emphasize green leafy vegetables, cruciferous vegetables (broccoli, cabbage), antioxidant-rich berries, olive oil, and nuts.</li>
-  <li><strong>Avoid Unsupervised Hepatotoxic Drugs:</strong> Avoid combining alcohol with paracetamol/acetaminophen, and refrain from consuming unverified herbal formulations that may contain heavy metals.</li>
+  <li><strong>Avoid Unsupervised Hepatotoxic Drugs:</strong> Avoid combining alcohol with paracetamol/acetaminophen, and refrain from consuming unverified herbal formulations that may contain heavy metals. See our <a href="/blogs/health-checkup-for-men-by-age">Men's Health Guide</a> for lifestyle considerations.</li>
 </ol>
 
 <div class="alert alert-info my-4">
@@ -398,23 +496,71 @@ module.exports = [
       qualification: "MBBS, MD Pharmacology",
       specialty: "Clinical Pharmacology & Metabolic Health"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "11 min read",
     readTime: "11 min read",
     image: "/assets/blog/blood-sugar-test-fasting-pp-hba1c-difference.png",
     imageAlt: "Comparison of fasting blood glucose, postprandial glucose, and HbA1c laboratory diagnostic testing",
     featured: false,
     active: true,
-    primaryKeyword: "blood sugar test fasting pp hba1c difference",
+    primaryKeyword: "blood sugar test",
     secondaryKeywords: [
-      "fasting blood sugar normal range",
-      "pp blood sugar 2 hours after meal",
-      "fasting vs hba1c which is better",
-      "oral glucose tolerance test ogtt",
-      "prediabetes diagnostic criteria"
+      "fasting blood sugar",
+      "postprandial blood sugar",
+      "PP blood sugar",
+      "glucose test",
+      "diabetes blood test",
+      "fasting vs hba1c which is better"
     ],
-    tags: ["Diabetes", "Blood Tests", "Diagnostics", "Preventive Care"],
+    searchIntent: "Informational + Comparative",
+    targetAudience: "Pre-diabetic and diabetic patients comparing glucose tests and preparation rules",
+    tags: ["Diabetes", "Blood Tests", "Diagnostics", "Preventive Care", "Endocrinology"],
+    seo: {
+      title: "Blood Sugar Tests: Fasting vs PP vs HbA1c Differences",
+      metaDescription: "Compare Fasting Blood Sugar, Postprandial (PP), and HbA1c: normal ranges, testing rules, fasting requirements, and which test you need to diagnose diabetes.",
+      canonical: "https://www.mission100hospital.com/blogs/blood-sugar-test-fasting-pp-hba1c-difference",
+      primaryKeyword: "blood sugar test",
+      secondaryKeywords: [
+        "fasting blood sugar",
+        "postprandial blood sugar",
+        "PP blood sugar"
+      ],
+      searchIntent: "Informational + Comparative",
+      ogTitle: "Blood Sugar Tests: Fasting vs PP vs HbA1c Differences",
+      ogDescription: "Comprehensive clinical comparison of Fasting, PP, and HbA1c tests: timing rules, diagnostic cutoffs, and diabetes screening protocols.",
+      ogImage: "/assets/blog/blood-sugar-test-fasting-pp-hba1c-difference.png",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "hba1c-test-normal-range-diabetes-risk",
+      "preventive-health-checkup-guide",
+      "annual-blood-tests-complete-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Blood Glucose & HbA1c Profile at Home",
+        url: "/find-a-test",
+        description: "Dual-slot morning collection for fasting and 2-hour postprandial blood sugar testing across Delhi NCR."
+      },
+      {
+        title: "Metabolic Sugar Control Program",
+        url: "/services/metabolic-sugar-control",
+        description: "Doctor-guided program to stabilize blood glucose, improve insulin sensitivity, and reverse prediabetes."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American Diabetes Association (ADA)",
+        title: "Standards of Medical Care in Diabetes: Glycemic Targets and Diagnostic Testing",
+        year: "2024"
+      },
+      {
+        sourceName: "World Health Organization (WHO)",
+        title: "Definition and Diagnosis of Diabetes Mellitus and Intermediate Hyperglycemia",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "Three Complementary Angles: Fasting Blood Sugar measures basal hepatic glucose output; Postprandial (PP) measures acute insulin response to food; HbA1c measures 90-day average glycation.",
       "Early Prediabetes Detection: Postprandial glucose spikes often appear years before fasting blood sugar crosses the abnormal threshold.",
@@ -436,7 +582,7 @@ module.exports = [
 
 <h2 id="the-glycemic-puzzle">Why One Blood Sugar Test Is Never Enough</h2>
 <p>When you eat food containing carbohydrates, your digestive system breaks them down into glucose, which enters the bloodstream. In response, beta cells in the pancreas secrete insulin to shuttle glucose into skeletal muscle and liver cells for energy or glycogen storage. Between meals and during overnight sleep, the liver slowly releases stored glucose (glycogenolysis and gluconeogenesis) to keep baseline brain and organ function steady.</p>
-<p>Because these physiological processes operate under different hormonal controls, a person can have a completely normal fasting blood sugar (under 100 mg/dL) while simultaneously experiencing severe post-meal spikes (over 180 mg/dL) due to impaired first-phase insulin secretion. Triangulating Fasting, PP, and HbA1c reveals the full spectrum of metabolic health.</p>
+<p>Because these physiological processes operate under different hormonal controls, a person can have a completely normal fasting blood sugar (under 100 mg/dL) while simultaneously experiencing severe post-meal spikes (over 180 mg/dL) due to impaired first-phase insulin secretion. Triangulating Fasting, PP, and HbA1c reveals the full spectrum of metabolic health. You can book an <a href="/find-a-test">advanced diabetes screening at home</a> with Mission100.</p>
 
 <h2 id="fasting-blood-sugar">1. Fasting Blood Glucose (FBG)</h2>
 <p><strong>What It Measures:</strong> Basal glucose concentration after at least 8 to 10 hours of overnight fasting, reflecting baseline hepatic glucose output under the influence of basal insulin.</p>
@@ -536,7 +682,7 @@ module.exports = [
 </ul>
 
 <div class="alert alert-info my-4">
-<strong>Convenient Dual Collection:</strong> When booking home blood collection with Mission100, our phlebotomist can collect your morning fasting sample at 7:30 AM, allow you to eat breakfast, and return at 9:30 AM for your exact 2-hour postprandial sample.
+<strong>Convenient Dual Collection:</strong> When booking home blood collection with Mission100, our phlebotomist can collect your morning fasting sample at 7:30 AM, allow you to eat breakfast, and return at 9:30 AM for your exact 2-hour postprandial sample. Learn more about <a href="/blogs/blood-test-at-home-delhi-guide">doorstep collection in Delhi NCR</a>.
 </div>`,
     faqs: [
       {
@@ -590,23 +736,71 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "10 min read",
     readTime: "10 min read",
     image: "/assets/blog/ecg-test-what-it-checks-how-it-works.png",
     imageAlt: "12-lead ECG machine showing electrocardiogram waveform trace and cardiac monitoring leads",
     featured: false,
     active: true,
-    primaryKeyword: "ecg test what it checks how it works",
+    primaryKeyword: "ECG test",
     secondaryKeywords: [
-      "12 lead ecg test normal report",
-      "ecg waveform p qrs t waves explained",
-      "ecg heart attack detection",
-      "resting ecg vs stress test tmt",
-      "ecg test at home delhi ncr"
+      "ECG test meaning",
+      "electrocardiogram test",
+      "ECG heart test",
+      "ECG test procedure",
+      "heart rhythm test",
+      "12 lead ecg normal report"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Individuals with palpitations, chest discomfort, pre-operative clearance, or age 40+ routine checkup",
     tags: ["Heart Health", "ECG", "Cardiology", "Diagnostics"],
+    seo: {
+      title: "ECG Test: What It Checks, How It Works & Normal Patterns",
+      metaDescription: "Learn what an Electrocardiogram (ECG) detects: heart rhythm, P-QRS-T waveforms, arrhythmias, prior silent heart attacks, and when you need a 12-lead ECG.",
+      canonical: "https://www.mission100hospital.com/blogs/ecg-test-what-it-checks-how-it-works",
+      primaryKeyword: "ECG test",
+      secondaryKeywords: [
+        "ECG test meaning",
+        "electrocardiogram test",
+        "ECG heart test"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "ECG Test: What It Checks, How It Works & Normal Patterns",
+      ogDescription: "Complete clinical guide to ECG electrocardiogram testing: electrical conduction pathway, waveform interpretation, and condition detection.",
+      ogImage: "/assets/blog/ecg-test-what-it-checks-how-it-works.png",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "heart-health-checkup-risk-assessment",
+      "lipid-profile-test-cholesterol-guide",
+      "health-checkup-after-40-guide"
+    ],
+    relatedServices: [
+      {
+        title: "12-Lead ECG Test at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "Digital 12-lead resting ECG performed in the comfort of your home with certified cardiologist interpretation."
+      },
+      {
+        title: "Heart Attack Prevention Program",
+        url: "/services/heart-attack-prevention",
+        description: "Advanced cardiac risk stratification, Echocardiography, and coronary plaque prevention."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American College of Cardiology (ACC) / AHA",
+        title: "Guidelines for the Standardization and Interpretation of the Electrocardiogram",
+        year: "2023"
+      },
+      {
+        sourceName: "European Society of Cardiology (ESC)",
+        title: "Guidelines for the Management of Patients with Arrhythmias and Ischemic Heart Disease",
+        year: "2024"
+      }
+    ],
     keyTakeaways: [
       "Electrical Mapping: An ECG records the microvolt electrical impulses that coordinate myocardial contraction across 12 distinct anatomical leads.",
       "Waveform Anatomy: The P wave represents atrial contraction, the QRS complex represents ventricular contraction, and the T wave represents ventricular recovery.",
@@ -626,7 +820,7 @@ module.exports = [
 </div>
 
 <h2 id="what-is-an-ecg">What Is an Electrocardiogram (ECG)?</h2>
-<p>First invented in practical form by Willem Einthoven in 1901, the modern standard 12-lead ECG remains a cornerstone of cardiac evaluation. It is entirely safe, non-invasive, and painless—it does not transmit electrical currents into your body; rather, it passively listens to and records the heart's endogenous electrical activity.</p>
+<p>First invented in practical form by Willem Einthoven in 1901, the modern standard 12-lead ECG remains a cornerstone of cardiac evaluation. It is entirely safe, non-invasive, and painless—it does not transmit electrical currents into your body; rather, it passively listens to and records the heart's endogenous electrical activity. You can book an <a href="/test/heart-checkup-at-home">ECG test at home</a> with Mission100.</p>
 
 <h2 id="how-ecg-works">The Physiology of Heart Electrical Conduction</h2>
 <p>To understand what an ECG shows, consider the heart's internal electrical circuit:</p>
@@ -767,23 +961,72 @@ module.exports = [
       qualification: "MBBS",
       specialty: "General Physician & Preventive Healthcare"
     },
-    publishedAt: "Sep 9, 2026",
-    updatedAt: "Sep 9, 2026",
+    publishedAt: "2026-09-09T08:00:00Z",
+    updatedAt: "2026-09-09T12:00:00Z",
     readingTime: "12 min read",
     readTime: "12 min read",
     image: "/assets/blog/heart-health-checkup-risk-assessment.png",
     imageAlt: "Cardiologist analyzing cardiovascular risk assessment report and 3D anatomical heart model",
     featured: false,
     active: true,
-    primaryKeyword: "heart health checkup risk assessment",
+    primaryKeyword: "heart health checkup",
     secondaryKeywords: [
-      "cardiovascular screening tests delhi",
-      "hs crp test heart disease risk",
-      "apolipoprotein b apob test",
-      "coronary calcium score ct scan",
-      "preventive heart checkup package"
+      "heart health tests",
+      "cardiac health checkup",
+      "heart screening tests",
+      "ECG test",
+      "cholesterol test",
+      "cardiac risk assessment",
+      "hs crp test heart disease"
     ],
+    searchIntent: "Informational + Commercial Investigation",
+    targetAudience: "South Asian adults 30+, individuals with family history of premature CAD, lifestyle disease patients",
     tags: ["Heart Health", "Cardiology", "Preventive Care", "Health Checkups"],
+    seo: {
+      title: "Heart Health Checkup: Cardiac Risk Tests & Assessment Guide",
+      metaDescription: "Learn essential heart health tests: Lipid Profile, hs-CRP, ApoB, Lipoprotein(a), 12-lead ECG, and 10-year cardiovascular risk assessment.",
+      canonical: "https://www.mission100hospital.com/blogs/heart-health-checkup-risk-assessment",
+      primaryKeyword: "heart health checkup",
+      secondaryKeywords: [
+        "heart health tests",
+        "cardiac health checkup",
+        "cardiac risk assessment"
+      ],
+      searchIntent: "Informational + Commercial Investigation",
+      ogTitle: "Heart Health Checkup: Cardiac Risk Tests & Assessment Guide",
+      ogDescription: "Complete clinical guide to heart health screening: South Asian cardiac vulnerability, multi-tiered diagnostics, hs-CRP, and prevention strategies.",
+      ogImage: "/assets/blog/heart-health-checkup-risk-assessment.png",
+      robots: { index: true, follow: true }
+    },
+    relatedArticles: [
+      "ecg-test-what-it-checks-how-it-works",
+      "lipid-profile-test-cholesterol-guide",
+      "preventive-health-checkup-guide"
+    ],
+    relatedServices: [
+      {
+        title: "Heart Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "Complete cardiac evaluation including doorstep 12-lead ECG, full lipid profile, and cardiologist review."
+      },
+      {
+        title: "Heart Attack Prevention Program",
+        url: "/services/heart-attack-prevention",
+        description: "Specialized preventive cardiology program to halt arterial plaque progression."
+      }
+    ],
+    references: [
+      {
+        sourceName: "American College of Cardiology (ACC) / AHA",
+        title: "Guideline on the Primary Prevention of Cardiovascular Disease",
+        year: "2024"
+      },
+      {
+        sourceName: "Cardiological Society of India (CSI)",
+        title: "Preventive Cardiology Consensus Statement on Early-Onset CAD in South Asians",
+        year: "2023"
+      }
+    ],
     keyTakeaways: [
       "South Asian Vulnerability: Individuals of South Asian origin develop coronary artery disease up to a decade earlier and have higher rates of diffuse multivessel disease.",
       "Beyond Standard Lipids: Advanced risk stratification requires checking High-Sensitivity C-Reactive Protein (hs-CRP), Apolipoprotein B (ApoB), and Lipoprotein(a).",
@@ -821,7 +1064,7 @@ module.exports = [
 <p>A resting 12-lead <a href="/blogs/ecg-test-what-it-checks-how-it-works">ECG test</a> to evaluate electrical conduction, resting heart rate, and ischemic repolarization changes, combined with multi-positional blood pressure measurements.</p>
 
 <h3>Tier 3: Structural & Functional Imaging</h3>
-<p>A <strong>2D Echocardiogram with Color Doppler</strong> to assess left ventricular ejection fraction (LVEF), regional wall motion abnormalities, chamber dimensions, and valvular competence. For individuals with intermediate risk, a <strong>Treadmill Stress Test (TMT)</strong> or <strong>CT Coronary Artery Calcium (CAC) Scan</strong> evaluates functional reserve and anatomical calcification.</p>
+<p>A <strong>2D Echocardiogram with Color Doppler</strong> to assess left ventricular ejection fraction (LVEF), regional wall motion abnormalities, chamber dimensions, and valvular competence. For individuals with intermediate risk, a <strong>Treadmill Stress Test (TMT)</strong> or <strong>CT Coronary Artery Calcium (CAC) Scan</strong> evaluates functional reserve and anatomical calcification. You can book an all-inclusive <a href="/test/heart-checkup-at-home">Heart Checkup at home</a> with Mission100.</p>
 
 <h2 id="advanced-biomarkers">Advanced Biomarkers: hs-CRP, ApoB, and Lp(a)</h2>
 <p>Modern preventive cardiology utilizes advanced biomarkers that provide superior risk prediction compared to basic cholesterol tests alone:</p>
@@ -886,7 +1129,7 @@ module.exports = [
   <li><strong>Target Strict Blood Pressure Goals (&lt; 120/80 mmHg):</strong> Chronic hypertension stiffens arterial walls and causes micro-fissures in endothelium where lipids deposit.</li>
   <li><strong>Adopt Cardioprotective Dietary Patterns:</strong> Follow Mediterranean or DASH dietary principles adapted for Indian cuisine: use cold-pressed mustard or olive oil, eliminate vanaspati/trans fats, consume 30+ grams of dietary fiber daily, and limit sodium intake to under 2,000 mg/day.</li>
   <li><strong>Engage in 150 Minutes of Moderate Aerobic Activity Weekly:</strong> Zone-2 aerobic exercise (brisk walking, cycling) increases nitric oxide bioavailability, enhances arterial elasticity, and lowers resting heart rate.</li>
-  <li><strong>Stop All Tobacco Exposure:</strong> Smoking and chewing tobacco accelerate platelet aggregation, induce coronary vasospasm, and oxidize circulating LDL particles.</li>
+  <li><strong>Stop All Tobacco Exposure:</strong> Smoking and chewing tobacco accelerate platelet aggregation, induce coronary vasospasm, and oxidize circulating LDL particles. Learn more in our <a href="/blogs/preventive-health-checkup-guide">Preventive Health Checkup Guide</a>.</li>
 </ol>
 
 <div class="alert alert-info my-4">

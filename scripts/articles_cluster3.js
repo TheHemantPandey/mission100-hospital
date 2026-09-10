@@ -24,14 +24,36 @@ module.exports = [
     imageAlt: "Physician discussing health assessment and blood pressure check with a 40-year-old adult in clinic",
     featured: false,
     active: true,
-    primaryKeyword: "health checkup after 40 guide",
+    primaryKeyword: "health checkup after 40",
     secondaryKeywords: [
-      "preventive tests after 40 men women",
-      "routine health checkup age 40",
-      "metabolic screening tests midlife",
-      "cardiovascular screening after 40",
-      "full body checkup after 40 delhi"
+      "health tests after 40",
+      "medical checkup after 40",
+      "preventive health checkup after 40",
+      "tests for men and women after 40",
+      "routine health checkup age 40"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Adults aged 40-49, working professionals navigating midlife metabolic and cardiac transitions",
+    seo: {
+      title: "Health Checkup After 40: Essential Tests for Men & Women",
+      metaDescription: "Turning 40? Discover essential blood tests, cardiac screenings, and hormonal checks recommended after 40 to prevent chronic illness and stay healthy.",
+      canonical: "https://mission100hospital.com/blogs/health-checkup-after-40-guide",
+      primaryKeyword: "health checkup after 40",
+      secondaryKeywords: [
+        "health tests after 40",
+        "medical checkup after 40",
+        "preventive health checkup after 40",
+        "tests for men and women after 40"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Health Checkup After 40: Essential Tests for Men & Women",
+      ogDescription: "Discover critical blood tests, cardiac screenings, and hormonal checks recommended for men and women entering midlife.",
+      ogImage: "/assets/blog/health-checkup-after-40-guide.jpg",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Health Checkups", "Midlife Health", "Preventive Care", "Aging"],
     keyTakeaways: [
       "Biological Inflection Point: The 4th decade brings metabolic slowdown, arterial stiffness, hormonal transitions (perimenopause/andropause), and accelerated chronic disease risk.",
@@ -201,6 +223,39 @@ module.exports = [
         answer: "A comprehensive health checkup is recommended once every 12 months for all adults aged 40 and above. If you have diagnosed chronic conditions like diabetes or hypertension, targeted tests should be checked every 3 to 6 months."
       }
     ],
+    relatedArticles: [
+      "health-checkup-after-50-men-women-guide",
+      "full-body-health-checkup-guide",
+      "heart-health-checkup-risk-assessment",
+      "hba1c-test-normal-range-diabetes-risk",
+      "lipid-profile-test-cholesterol-guide"
+    ],
+    relatedServices: [
+      {
+        name: "Complete Health Checkup (69 Parameters)",
+        url: "/test/complete-health-checkup",
+        description: "Comprehensive multi-organ blood panel with home sample collection across Delhi NCR."
+      },
+      {
+        name: "Heart Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "12-lead resting ECG and advanced cardiac lipid panel at your doorstep."
+      }
+    ],
+    references: [
+      {
+        title: "Preventive Care Guidelines for Adults Aged 40–49",
+        author: "U.S. Preventive Services Task Force (USPSTF)",
+        url: "https://www.uspreventiveservicestaskforce.org/",
+        year: "2024"
+      },
+      {
+        title: "Cardiovascular Disease Prevention in South Asian Populations",
+        author: "American College of Cardiology (ACC)",
+        url: "https://www.acc.org/",
+        year: "2023"
+      }
+    ],
     cta: {
       badge: "Executive 40+ Diagnostic Panel",
       headline: "Book Your Comprehensive Health Checkup After 40",
@@ -235,14 +290,36 @@ module.exports = [
     imageAlt: "Physician consulting with mature adults aged 50 and above in modern diagnostic healthcare clinic",
     featured: false,
     active: true,
-    primaryKeyword: "health checkup after 50 men women guide",
+    primaryKeyword: "health checkup after 50",
     secondaryKeywords: [
-      "health screening tests after 50",
-      "medical checkup checklist age 50",
+      "health tests after 50",
+      "medical checkup after 50",
+      "preventive screening after 50",
       "colonoscopy and cancer screening over 50",
-      "postmenopausal health checkup women",
-      "prostate psa test men over 50"
+      "postmenopausal health checkup women"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Adults aged 50-59, postmenopausal women, men monitoring prostate and cardiac health",
+    seo: {
+      title: "Health Checkup After 50: Medical Checklist for Men & Women",
+      metaDescription: "Entering your 50s? Explore the essential medical tests, cancer screenings, cardiac imaging, and bone density checks recommended for men and women over 50.",
+      canonical: "https://mission100hospital.com/blogs/health-checkup-after-50-men-women-guide",
+      primaryKeyword: "health checkup after 50",
+      secondaryKeywords: [
+        "health tests after 50",
+        "medical checkup after 50",
+        "preventive screening after 50",
+        "colonoscopy and cancer screening over 50"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Health Checkup After 50: Medical Checklist for Men & Women",
+      ogDescription: "Explore essential medical tests, cancer screenings, cardiac imaging, and bone density checks recommended for men and women over 50.",
+      ogImage: "/assets/blog/health-checkup-after-50-men-women-guide.png",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Health Checkups", "Senior Health", "Preventive Care", "Aging"],
     keyTakeaways: [
       "Organ Reserve Surveillance: After 50, preventive testing shifts from basic blood counts to monitoring organ reserve across the heart, kidneys, liver, brain, and bones.",
@@ -385,6 +462,39 @@ module.exports = [
         answer: "Structured dietary changes (low-glycemic, Mediterranean-style) and regular exercise (strength training plus cardio) can significantly improve borderline cholesterol, prediabetes, and mild hypertension. However, when lifestyle changes alone are insufficient, combining them with low-dose cardioprotective medications offers optimal long-term protection."
       }
     ],
+    relatedArticles: [
+      "health-checkup-after-40-guide",
+      "senior-citizen-health-checkup-after-60",
+      "heart-health-checkup-risk-assessment",
+      "kidney-function-test-kft-guide",
+      "full-body-health-checkup-guide"
+    ],
+    relatedServices: [
+      {
+        name: "Complete Health Checkup (69 Parameters)",
+        url: "/test/complete-health-checkup",
+        description: "Full organ health evaluation including kidney, liver, sugar, and lipid screening."
+      },
+      {
+        name: "Heart Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "Doorstep 12-lead ECG and lipid panel for postmenopausal and senior cardiovascular surveillance."
+      }
+    ],
+    references: [
+      {
+        title: "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+        author: "USPSTF & JAMA",
+        url: "https://jamanetwork.com/",
+        year: "2021"
+      },
+      {
+        title: "Postmenopausal Osteoporosis & Cardiovascular Health Guidelines",
+        author: "Endocrine Society",
+        url: "https://www.endocrine.org/",
+        year: "2023"
+      }
+    ],
     cta: {
       badge: "Master Health Panel 50+",
       headline: "Book Your Milestone Health Checkup After 50",
@@ -419,14 +529,36 @@ module.exports = [
     imageAlt: "Caring doctor conducting comprehensive health checkup consultation for an elderly Indian couple",
     featured: false,
     active: true,
-    primaryKeyword: "senior citizen health checkup after 60",
+    primaryKeyword: "senior citizen health checkup",
     secondaryKeywords: [
-      "elderly health checkup package delhi",
-      "geriatric blood test checklist",
-      "home blood sample collection for seniors",
-      "fall prevention and bone density elderly",
-      "cognitive screening and kidney tests 60+"
+      "health checkup for senior citizens",
+      "tests for elderly",
+      "health screening after 60",
+      "senior health tests",
+      "elderly health checkup delhi"
     ],
+    searchIntent: "Informational + Commercial",
+    targetAudience: "Seniors aged 60+, adult children arranging medical care for elderly parents in Delhi NCR",
+    seo: {
+      title: "Senior Citizen Health Checkup: Tests for Elderly After 60",
+      metaDescription: "Complete senior citizen health checkup guide. Learn essential geriatric blood tests, kidney, cardiac, and bone checks to protect elderly parents at home.",
+      canonical: "https://mission100hospital.com/blogs/senior-citizen-health-checkup-after-60",
+      primaryKeyword: "senior citizen health checkup",
+      secondaryKeywords: [
+        "health checkup for senior citizens",
+        "tests for elderly",
+        "health screening after 60",
+        "senior health tests"
+      ],
+      searchIntent: "Informational + Commercial",
+      ogTitle: "Senior Citizen Health Checkup: Tests for Elderly After 60",
+      ogDescription: "Essential geriatric health checklist for seniors aged 60+. Learn key blood tests, electrolyte checks, and painless home sample collection options.",
+      ogImage: "/assets/blog/senior-citizen-health-checkup-after-60.jpg",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Senior Care", "Geriatrics", "Health Checkups", "Elderly Health"],
     keyTakeaways: [
       "Preserving Functional Independence: Geriatric health screening focuses on maintaining physical mobility, cognitive clarity, preventing falls, and optimizing quality of life.",
@@ -577,6 +709,39 @@ module.exports = [
         answer: "Elderly individuals frequently develop asymptomatic Urinary Tract Infections (UTIs) that do not cause typical burning sensations, but can trigger sudden confusion, lethargy, or delirium. Routine urinalysis detects infection early."
       }
     ],
+    relatedArticles: [
+      "blood-test-at-home-delhi-guide",
+      "health-checkup-after-50-men-women-guide",
+      "kidney-function-test-kft-guide",
+      "full-body-health-checkup-guide",
+      "ecg-test-what-it-checks-how-it-works"
+    ],
+    relatedServices: [
+      {
+        name: "Senior Health Checkup at Home",
+        url: "/test/complete-health-checkup",
+        description: "Gentle, certified doorstep blood collection tailored for elderly parents in Delhi NCR."
+      },
+      {
+        name: "Heart & ECG Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "12-lead resting ECG conducted comfortably in your parents' bedroom."
+      }
+    ],
+    references: [
+      {
+        title: "Comprehensive Geriatric Assessment and Health Screening",
+        author: "American Geriatrics Society (AGS)",
+        url: "https://www.americangeriatrics.org/",
+        year: "2023"
+      },
+      {
+        title: "Guidelines for Care of the Elderly in India",
+        author: "Ministry of Health and Family Welfare (MoHFW), Govt of India",
+        url: "https://mohfw.gov.in/",
+        year: "2022"
+      }
+    ],
     cta: {
       badge: "Geriatric Care at Home",
       headline: "Book a Gentle Senior Citizen Health Checkup at Home",
@@ -611,14 +776,36 @@ module.exports = [
     imageAlt: "Female doctor consulting with woman about life-stage preventive health checkups and hormonal wellness",
     featured: false,
     active: true,
-    primaryKeyword: "health checkup for women by age",
+    primaryKeyword: "health checkup for women",
     secondaryKeywords: [
-      "women health screening checklist 20s 30s 40s 50s",
-      "female preventive health checkup package",
-      "pap smear and mammogram guidelines",
-      "pcos thyroid iron deficiency blood tests",
-      "postmenopausal women health checkup"
+      "women's health tests",
+      "health screening for women",
+      "preventive health checkup women",
+      "women's health checkup by age",
+      "female health checkup checklist"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Women across all life stages (20s, 30s, 40s, 50s, 60s), daughters and working women",
+    seo: {
+      title: "Health Checkup for Women: Screening Checklist by Age",
+      metaDescription: "Decade-by-decade health checkup guide for women. Discover essential blood tests, hormonal checks, cancer screenings, and bone scans from your 20s to 60s.",
+      canonical: "https://mission100hospital.com/blogs/health-checkup-for-women-by-age",
+      primaryKeyword: "health checkup for women",
+      secondaryKeywords: [
+        "women's health tests",
+        "health screening for women",
+        "preventive health checkup women",
+        "women's health checkup by age"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Health Checkup for Women: Screening Checklist by Age",
+      ogDescription: "Discover essential blood tests, hormonal checks, Pap smears, mammograms, and bone scans recommended for women across every life stage.",
+      ogImage: "/assets/blog/health-checkup-for-women-by-age.png",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Women's Health", "Health Checkups", "Preventive Care", "Hormones"],
     keyTakeaways: [
       "Dynamic Biological Stages: A woman's preventive screening priorities evolve through reproductive years, pregnancy, perimenopause, menopause, and healthy aging.",
@@ -758,6 +945,39 @@ module.exports = [
         answer: "No. PCOS is diagnosed using the Rotterdam Criteria, requiring at least two of the following: irregular ovulatory cycles, clinical or biochemical signs of hyperandrogenism (elevated testosterone/DHEAS), and polycystic appearance of ovaries on a pelvic ultrasound."
       }
     ],
+    relatedArticles: [
+      "thyroid-test-guide-tsh-t3-t4",
+      "vitamin-d-test-when-to-test",
+      "health-checkup-after-40-guide",
+      "health-checkup-after-50-men-women-guide",
+      "cbc-blood-test-complete-guide"
+    ],
+    relatedServices: [
+      {
+        name: "Complete Health Checkup (69 Parameters)",
+        url: "/test/complete-health-checkup",
+        description: "Comprehensive female health screening including CBC, Ferritin, Thyroid, Lipids, and Vitamins."
+      },
+      {
+        name: "Thyroid & Hormone Blood Test",
+        url: "/find-a-test",
+        description: "TSH, Free T3, Free T4, and Vitamin D3 home testing across Delhi NCR."
+      }
+    ],
+    references: [
+      {
+        title: "Women's Preventive Services Guidelines",
+        author: "American College of Obstetricians and Gynecologists (ACOG)",
+        url: "https://www.acog.org/",
+        year: "2024"
+      },
+      {
+        title: "Cervical and Breast Cancer Screening Recommendations",
+        author: "World Health Organization (WHO)",
+        url: "https://www.who.int/",
+        year: "2023"
+      }
+    ],
     cta: {
       badge: "Women's Wellness Packages",
       headline: "Book a Comprehensive Women's Health Checkup at Home",
@@ -792,14 +1012,36 @@ module.exports = [
     imageAlt: "Male physician consulting with adult male patient about preventative cardiovascular and prostate screening",
     featured: false,
     active: true,
-    primaryKeyword: "health checkup for men by age",
+    primaryKeyword: "health checkup for men",
     secondaryKeywords: [
-      "men health screening checklist by decade",
-      "male preventive health checkup package",
-      "prostate psa test age guidelines",
-      "heart disease risk in men under 45",
-      "testosterone and metabolic health men"
+      "men's health tests",
+      "health screening for men",
+      "men's health checkup",
+      "health tests for men by age",
+      "male preventive checkup package"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Men across all life stages (20s to 60s+), working executives, families encouraging proactive male screening",
+    seo: {
+      title: "Health Checkup for Men: Essential Tests by Age Guide",
+      metaDescription: "Complete men's health checkup guide from 20s to 60s. Learn essential screenings for heart health, liver enzymes, prostate PSA, and metabolic vitality.",
+      canonical: "https://mission100hospital.com/blogs/health-checkup-for-men-by-age",
+      primaryKeyword: "health checkup for men",
+      secondaryKeywords: [
+        "men's health tests",
+        "health screening for men",
+        "men's health checkup",
+        "health tests for men by age"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "Health Checkup for Men: Essential Tests by Age Guide",
+      ogDescription: "Learn essential medical screenings for men across 20s, 30s, 40s, and 50s+: cardiovascular markers, PSA prostate screening, and liver tests.",
+      ogImage: "/assets/blog/health-checkup-for-men-by-age.png",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Men's Health", "Health Checkups", "Preventive Care", "Heart Health"],
     keyTakeaways: [
       "Overcoming Screening Hesitancy: Men are statistically 50% less likely to seek preventive medical care, leading to later-stage diagnoses of hypertension, diabetes, and heart disease.",
@@ -940,6 +1182,39 @@ module.exports = [
         answer: "Men in their 40s should have a resting 12-lead ECG and complete lipid profile evaluated annually. If you have multiple risk factors (smoking, high blood pressure, diabetes, or family history), discuss a Treadmill Stress Test (TMT) with your physician."
       }
     ],
+    relatedArticles: [
+      "heart-health-checkup-risk-assessment",
+      "ecg-test-what-it-checks-how-it-works",
+      "liver-function-test-lft-guide",
+      "health-checkup-after-40-guide",
+      "health-checkup-after-50-men-women-guide"
+    ],
+    relatedServices: [
+      {
+        name: "Complete Health Checkup (69 Parameters)",
+        url: "/test/complete-health-checkup",
+        description: "Full body panel including liver, kidney, lipid, blood sugar, and urine tests."
+      },
+      {
+        name: "Heart Checkup at Home",
+        url: "/test/heart-checkup-at-home",
+        description: "Doorstep 12-lead ECG and lipid risk panel for active and working men."
+      }
+    ],
+    references: [
+      {
+        title: "Men's Health: Prevention and Clinical Guidelines",
+        author: "American Urological Association (AUA)",
+        url: "https://www.auanet.org/",
+        year: "2023"
+      },
+      {
+        title: "Premature Atherosclerotic Cardiovascular Disease in Men",
+        author: "Indian Heart Association",
+        url: "https://indianheartassociation.org/",
+        year: "2023"
+      }
+    ],
     cta: {
       badge: "Men's Health & Vitality",
       headline: "Book a Comprehensive Men's Health Checkup at Home",
@@ -974,14 +1249,36 @@ module.exports = [
     imageAlt: "Doctor reviewing personalized preventive health checkup schedule and clinical roadmap with patient",
     featured: false,
     active: true,
-    primaryKeyword: "how often should you get health checkup",
+    primaryKeyword: "how often should you get a health checkup",
     secondaryKeywords: [
-      "health checkup frequency by age",
-      "how often routine blood tests adults",
-      "annual health checkup guidelines delhi",
-      "preventive screening schedule doctor advice",
-      "chronic disease monitoring intervals"
+      "how often health checkup",
+      "annual health checkup",
+      "routine health screening",
+      "preventive health checkup frequency",
+      "how often routine blood tests"
     ],
+    searchIntent: "Informational",
+    targetAudience: "Healthy adults, individuals with chronic conditions, family healthcare decision-makers",
+    seo: {
+      title: "How Often Should You Get a Health Checkup? Doctor Guide",
+      metaDescription: "How often should you get a health checkup? Learn recommended medical screening intervals based on age, chronic conditions, and family health history.",
+      canonical: "https://mission100hospital.com/blogs/how-often-should-you-get-health-checkup",
+      primaryKeyword: "how often should you get a health checkup",
+      secondaryKeywords: [
+        "how often health checkup",
+        "annual health checkup",
+        "routine health screening",
+        "preventive health checkup frequency"
+      ],
+      searchIntent: "Informational",
+      ogTitle: "How Often Should You Get a Health Checkup? Doctor Guide",
+      ogDescription: "Learn optimal medical screening intervals by age, lifestyle, and chronic conditions to maintain lifelong wellness.",
+      ogImage: "/assets/blog/how-often-should-you-get-health-checkup.jpg",
+      robots: {
+        index: true,
+        follow: true
+      }
+    },
     tags: ["Health Checkups", "Preventive Care", "Doctor Advice", "Wellness"],
     keyTakeaways: [
       "Age-Driven Intervals: Healthy adults under 30 should screen every 2 to 3 years; adults aged 30 and above should complete a comprehensive checkup annually.",
@@ -1121,6 +1418,39 @@ module.exports = [
       {
         question: "How long does a home blood sample collection appointment take?",
         answer: "A home sample collection visit by a certified Mission100 phlebotomist takes less than 10 minutes from arrival to completion, allowing you to get tested comfortably before breakfast."
+      }
+    ],
+    relatedArticles: [
+      "preventive-health-checkup-guide",
+      "full-body-health-checkup-guide",
+      "annual-blood-tests-complete-guide",
+      "health-checkup-after-40-guide",
+      "senior-citizen-health-checkup-after-60"
+    ],
+    relatedServices: [
+      {
+        name: "Complete Health Checkup (69 Parameters)",
+        url: "/test/complete-health-checkup",
+        description: "Gold-standard annual multi-organ health screening with doorstep blood collection."
+      },
+      {
+        name: "Explore All Diagnostic Tests",
+        url: "/find-a-test",
+        description: "Individual and package blood tests with same-day verified digital reports."
+      }
+    ],
+    references: [
+      {
+        title: "Periodic Health Examination: Summary of Evidence",
+        author: "American College of Physicians (ACP)",
+        url: "https://www.acponline.org/",
+        year: "2023"
+      },
+      {
+        title: "National Health Policy & Preventive Screening Guidelines",
+        author: "Ministry of Health and Family Welfare (MoHFW), Govt of India",
+        url: "https://mohfw.gov.in/",
+        year: "2022"
       }
     ],
     cta: {
