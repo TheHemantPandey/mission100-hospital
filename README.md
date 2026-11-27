@@ -4,6 +4,7 @@
 
 **A production-grade healthcare web platform built with Next.js 16, React 19, Razorpay Payments, Dynamic PDF Generation, Google Sheets CRM, and an SEO-driven Medical Blog Engine.**
 
+[![Live Site](https://img.shields.io/badge/Live_Website-mission100hospital.com-10B981?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mission100hospital.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.2-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -17,9 +18,25 @@
 
 ## 📌 Overview
 
-**Mission 100 Hospital** is an end-to-end preventive healthcare and diagnostics platform designed for patient test bookings, individual & corporate wellness memberships, medical content publishing, and clinical recruitment.
+**Mission 100 Hospital** ([mission100hospital.com](https://mission100hospital.com)) is an end-to-end preventive healthcare and diagnostics platform designed for patient test bookings, individual & corporate wellness memberships, medical content publishing, and clinical recruitment.
 
 Built with a focus on **server-side payment integrity**, **automated document generation**, **SEO performance**, and **zero-database operational simplicity** using Google Sheets as a lightweight CRM.
+
+---
+
+## 📸 Screenshots
+
+| Home & Preventive Care | Diagnostic Test Booking |
+| :---: | :---: |
+| ![Home Page](docs/screenshots/home.png) | ![Test Booking](docs/screenshots/book-test.png) |
+
+| Membership Plans & Checkout | SEO Medical Blog Platform |
+| :---: | :---: |
+| ![Membership Plans](docs/screenshots/memberships.png) | ![Medical Blogs](docs/screenshots/blogs.png) |
+
+| Careers & Recruitment Portal |
+| :---: |
+| ![Careers Portal](docs/screenshots/careers.png) |
 
 ---
 
