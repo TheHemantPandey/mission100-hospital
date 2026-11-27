@@ -158,6 +158,18 @@ npm run seo:check    # Validate blog SEO metadata & structure
 
 ---
 
+## 📜 License & Attribution
+
+Copyright © 2026 **[Hemant Pandey](https://github.com/TheHemantPandey)**. All Rights Reserved.
+
+This project is shared publicly for **portfolio showcase and educational reference**:
+- **Credit Required:** If you use, fork, or adapt any part of this code, please give clear credit to **Hemant Pandey** and link back to this repository.
+- **Permission Required:** Please reach out and ask for permission before using this codebase or its assets for commercial or production purposes.
+
+See the [LICENSE](LICENSE) file for full details.
+
+---
+
 <div align="center">
 
 Built by **[Hemant Pandey](https://github.com/TheHemantPandey)**
