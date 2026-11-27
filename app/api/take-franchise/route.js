@@ -60,7 +60,7 @@ export async function POST(req) {
     // -----------------------------
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: "mission100hospital@gmail.com, hement.pandey2121@gmail.com",
+      to: process.env.ADMIN_EMAIL,
       subject: `New Franchise Application - ${fullName}`,
       html: `
       <div style="font-family:Arial,sans-serif;background:#f1f5f9;padding:30px;">

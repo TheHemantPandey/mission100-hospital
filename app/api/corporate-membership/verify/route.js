@@ -258,7 +258,7 @@ export async function POST(request) {
     // 4. COMPILE ADMIN NOTIFICATION TEMPLATE
     const adminMailOptions = {
       from: process.env.EMAIL_USER,
-      to: "mission100hospital@gmail.com, hement.pandey2121@gmail.com",
+      to: process.env.ADMIN_EMAIL,
       subject: `🚨 NEW Corporate Wellness Registration: ${companyName}`,
       attachments: attachments,
       html: `
